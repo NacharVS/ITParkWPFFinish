@@ -11,9 +11,10 @@ namespace WpfCharacterEditor
 {
     class Сharacter
     {
-        public Сharacter(string name, string proffession, int strength, int agility, int intelligence, int endurance)
+        public Сharacter(string name, int strength, int agility, int intelligence, int endurance)
         {
             Name = name;
+
 
         }
 
