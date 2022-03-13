@@ -20,10 +20,12 @@
         <Label x:Name="lblAgility" Content="Agility:" HorizontalAlignment="Left" Margin="455,205,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10"/>
         <Label x:Name="lblIntellect" Content="Intellect:" HorizontalAlignment="Left" Margin="504,205,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10"/>
         <Label x:Name="lblEndurance" Content="Endurance:" HorizontalAlignment="Left" Margin="555,205,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10"/>
-        <GroupBox x:Name="UnitList" Header="Unit list:" Margin="43,187,557,10" FontWeight="Bold" FontSize="16"/>
-        <GroupBox Header="Unit class:" Margin="248,187,409,10" FontWeight="Bold" FontSize="16"/>
-       
+
         <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="43,113,0,0" VerticalAlignment="Top" Width="200" FontSize="16" FontWeight="Bold" Click="btnCreate_Click"/>
+        <ListBox x:Name="UnitList" Margin="43,205,557,10"/>
+        <Label Content="Unit List:" HorizontalAlignment="Left" Margin="43,174,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Unit class:" HorizontalAlignment="Left" Margin="248,174,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <ListBox x:Name="UnitClass" Margin="248,205,409,10"/>
 
     </Grid>
 </Window>

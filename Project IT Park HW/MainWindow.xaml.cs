@@ -27,8 +27,9 @@ namespace Project_IT_Park_HW
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            Unit.AddUnitToDB(txtName.Text, cmbClass.SelectedItem.ToString());
-            UnitList.ItemsSource = 
+            Unit.AddUnitToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString());
+            UnitList.ItemsSource = Unit.GetUnitList();
+            UnitClass.ItemsSource = Unit.GetClassList();
         }
     }
 }

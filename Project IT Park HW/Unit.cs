@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,9 @@ namespace Project_IT_Park_HW
             //Endurance = endurance;
         }
         [BsonIgnoreIfDefault]
-        public string Name;
-        public string Classes;
+        public ObjectId _id { get; set; }
+        public string Name { get; set; }
+        public string Classes { get; set; }
         //public int Strength;
         //public int Agility;
         //public int Intellect;
@@ -42,11 +44,24 @@ namespace Project_IT_Park_HW
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
             var collection = database.GetCollection<Unit>("Units");
-            var listUsersFromDB = collection.Find(x => true).ToList();
+            var listUnitsFromDB = collection.Find(x => true).ToList();
             List<string> listToReturn = new List<string>();
-            foreach (var item in listUsersFromDB)
+            foreach (var item in listUnitsFromDB)
             {
                 listToReturn.Add(item.Name);
+            }
+            return listToReturn;
+        }
+        public static List<string> GetClassList()
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("RPG");
+            var collection = database.GetCollection<Unit>("Units");
+            var listUnitsFromDB = collection.Find(x => true).ToList();
+            List<string> listToReturn = new List<string>();
+            foreach (var item in listUnitsFromDB)
+            {
+                listToReturn.Add(item.Classes);
             }
             return listToReturn;
         }
