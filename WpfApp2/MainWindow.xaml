@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Margin="28,26,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="140" Height="29" GotFocus="Name_GotFocus"/>
+        <ComboBox x:Name="professions" HorizontalAlignment="Left" Margin="28,79,0,0" VerticalAlignment="Top" Width="140" Height="26" Cursor="">
+            <ListBoxItem Content="Archer"/>
+            <ListBoxItem Content="Mage"/>
+            <ListBoxItem Content="Warrior"/>
+        </ComboBox>
+        <Label x:Name="Agility" Content="Agility" HorizontalAlignment="Left" Margin="28,186,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label x:Name="Intelligence" Content="Intelligence" HorizontalAlignment="Left" Margin="28,244,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label x:Name="Endurance" Content="Endurance" HorizontalAlignment="Left" Margin="28,302,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label x:Name="Strength" Content="Strength" HorizontalAlignment="Left" Margin="28,134,0,0" VerticalAlignment="Top" Width="140"/>
+    </Grid>
+</Window>
