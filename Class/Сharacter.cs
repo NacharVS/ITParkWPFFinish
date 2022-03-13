@@ -36,6 +36,7 @@ namespace WpfCharacterEditor
 
         public static void AddToDB(string name, string proffession, int strength, int agility, int intelligence, int endurance)
         {
+            Mongo
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Сharacters");
             var collection = database.GetCollection<Сharacter>("Сharacter");
