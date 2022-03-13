@@ -81,6 +81,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\Agility.cs" />
+    <Compile Include="Class\Endurance.cs" />
+    <Compile Include="Class\Intelligence.cs" />
     <Compile Include="Class\Proffession.cs" />
     <Compile Include="Class\Strength.cs" />
     <Compile Include="Class\Сharacter.cs" />
@@ -115,6 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MongoDB.Driver.Core.2.15.0\build\MongoDB.Driver.Core.targets" Condition="Exists('packages\MongoDB.Driver.Core.2.15.0\build\MongoDB.Driver.Core.targets')" />

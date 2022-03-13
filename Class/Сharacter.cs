@@ -25,23 +25,16 @@ namespace WpfCharacterEditor
 
         public string Proffession { get; set; }
 
-        public int Strength { get; set; }
+        public Strength Strength { get; set; }
 
-        public int Agility { get; set; }
+        public Agility Agility { get; set; }
 
-        public int Intelligence { get; set; }
+        public Intelligence Intelligence { get; set; }
 
-        public int Endurance { get; set; }
+        public Endurance Endurance { get; set; }
 
 
-        public static void AddToDB(string name, string proffession, int strength, int agility, int intelligence, int endurance)
-        {
-            Mongo
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("Сharacters");
-            var collection = database.GetCollection<Сharacter>("Сharacter");
-            collection.InsertOne(new Сharacter(name, proffession, strength, agility, intelligence, endurance));
-        }
+        
 
     }
 }
