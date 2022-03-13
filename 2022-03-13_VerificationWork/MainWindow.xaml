@@ -1,0 +1,21 @@
+﻿<Window x:Class="_2022_03_13_VerificationWork.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2022_03_13_VerificationWork"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="540" Width="1500">
+    <Grid>
+        <ComboBox x:Name="professionComboBox" HorizontalAlignment="Left" Margin="140,12,0,0" VerticalAlignment="Top" Width="200" FontSize="24">
+            <ListBoxItem Content="Warrior"/>
+            <ListBoxItem Content="Archer"/>
+            <ListBoxItem Content="Wizard"/>
+        </ComboBox>
+        <Label x:Name="professionLabel" Content="Profession:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Margin="140,74,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="200" FontSize="24"/>
+        <Label x:Name="nameLabel" Content="Name:" HorizontalAlignment="Left" Margin="39,70,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Button x:Name="createButton" Content="CREATE" HorizontalAlignment="Left" Margin="36,141,0,0" VerticalAlignment="Top" FontSize="24" Width="99"/>
+
+    </Grid>
+</Window>
