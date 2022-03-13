@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using _2022_03_13_VerificationWork.Interfaces;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using System;
@@ -9,17 +10,12 @@ using System.Threading.Tasks;
 
 namespace _2022_03_13_VerificationWork
 {
-    internal class Player
+    internal class Player: IPlayer
     {
-        public Player(string name, string profession, int strenght, int dexterity, int intelligense,
-            int physicalDamage, int physicalDefense, int magicalDamage, int magicalDefense, int health, int mana, 
-            int level, long experiense)
+        public Player(string name,int physicalDamage, int physicalDefense, int magicalDamage, int magicalDefense,
+            int health, int mana, int level, long experiense)
         {
             Name = name;
-            Profession = profession;
-            Strenght = strenght;
-            Dexterity = dexterity;
-            Intelligense = intelligense;
             PhysicalDamage = physicalDamage;
             PhysicalDefense = physicalDefense;
             MagicalDamage = magicalDamage;
@@ -33,10 +29,6 @@ namespace _2022_03_13_VerificationWork
         [BsonIgnoreIfDefault]
         public ObjectId _id { get; set; }
         public string Name { get; set; }
-        public string Profession { get; set; }
-        public int Strenght { get; set; }
-        public int Dexterity { get; set; }
-        public int Intelligense { get; set; }
         public int PhysicalDamage { get; set; }
         public int PhysicalDefense { get; set; }
         public int MagicalDamage { get; set; }
@@ -46,15 +38,15 @@ namespace _2022_03_13_VerificationWork
         public int Level { get; set; }
         public long Experiense { get; set; }
 
-        public static void AddPlayerToDB(string name, string profession, int strenght, int dexterity, int intelligense,
-            int physicalDamage, int physicalDefense, int magicalDamage, int magicalDefense, int health, int mana,
-            int level, long experiense)
+        public static void AddPlayerToDB(string name, string profession, int strenght, int dexterity, int intelligense
+            ,int physicalDamage, int physicalDefense, int magicalDamage, int magicalDefense, int health, int mana
+            ,int level, long experiense)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
             var collection = database.GetCollection<Player>("Players");
-            collection.InsertOne(new Player(name, profession, strenght, dexterity, intelligense, physicalDamage,
-                physicalDefense, magicalDamage, magicalDefense, health, mana, level, experiense));
+            collection.InsertOne(new Player(name, physicalDamage, physicalDefense, magicalDamage, magicalDefense
+                ,health, mana, level, experiense));
         }
     }
 }
