@@ -7,32 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="530" Width="800">
     <Grid>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="43,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontWeight="Bold"/>
-        <ComboBox HorizontalAlignment="Left" Margin="43,133,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold">
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="43,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontWeight="Bold"/>
+        <ComboBox x:Name="cmbClass" HorizontalAlignment="Left" Margin="43,86,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold">
             <ListBoxItem Content="Warrior" FontWeight="Bold" FontSize="14"/>
             <ListBoxItem Content="Archer" FontWeight="Bold" FontSize="14"/>
             <ListBoxItem Content="Mage" FontWeight="Bold" FontSize="14"/>
         </ComboBox>
-        <Label Content="Unit class selection:" HorizontalAlignment="Left" Margin="43,102,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Name:" HorizontalAlignment="Left" Margin="43,37,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Unit class selection:" HorizontalAlignment="Left" Margin="43,55,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <GroupBox Header="Basic characteristics:" Margin="396,187,183,10" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="lblStrength" Content="Strength:" HorizontalAlignment="Left" Margin="396,205,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10"/>
         <Label x:Name="lblAgility" Content="Agility:" HorizontalAlignment="Left" Margin="455,205,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10"/>
         <Label x:Name="lblIntellect" Content="Intellect:" HorizontalAlignment="Left" Margin="504,205,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10"/>
         <Label x:Name="lblEndurance" Content="Endurance:" HorizontalAlignment="Left" Margin="555,205,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10"/>
-        <GroupBox Header="Unit list:" Margin="43,187,557,10" FontWeight="Bold" FontSize="16"/>
+        <GroupBox x:Name="UnitList" Header="Unit list:" Margin="43,187,557,10" FontWeight="Bold" FontSize="16"/>
         <GroupBox Header="Unit class:" Margin="248,187,409,10" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,229,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,255,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,281,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,306,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,332,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,358,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,384,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,410,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,229,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,436,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="43,462,0,0" VerticalAlignment="Top" Width="200"/>
+       
+        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="43,113,0,0" VerticalAlignment="Top" Width="200" FontSize="16" FontWeight="Bold" Click="btnCreate_Click"/>
 
     </Grid>
 </Window>

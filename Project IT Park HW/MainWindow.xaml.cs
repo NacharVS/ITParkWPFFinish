@@ -24,6 +24,12 @@ namespace Project_IT_Park_HW
         {
             InitializeComponent();
         }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            Unit.AddUnitToDB(txtName.Text, cmbClass.SelectedItem.ToString());
+            UnitList.ItemsSource = 
+        }
     }
 }
 //    Character Editor.
