@@ -1,0 +1,16 @@
+﻿<Window x:Class="ITParkWPFFinish.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ITParkWPFFinish"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="68,258,0,0" VerticalAlignment="Top" Height="42" Width="100"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="212,258,0,0" VerticalAlignment="Top" Height="42" Width="100"/>
+        <Button Content="Button" HorizontalAlignment="Center" Margin="0,258,0,0" VerticalAlignment="Top" Height="42" Width="100"/>
+        <TextBox HorizontalAlignment="Left" Margin="48,47,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="245" Height="38"/>
+
+    </Grid>
+</Window>
