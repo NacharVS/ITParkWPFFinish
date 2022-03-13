@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPG"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="465" Width="1158">
     <Grid>
+        <GroupBox Header="NewPersonag" Margin="11,15,905,217" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="NamePerson" HorizontalAlignment="Left" Margin="23,52,0,0" TextWrapping="Wrap" Text="New_Name" VerticalAlignment="Top" Width="211" Height="32" FontSize="22" FontWeight="Normal"/>
+        <ComboBox x:Name="SelectPerson" HorizontalAlignment="Left" Margin="23,103,0,0" VerticalAlignment="Top" Width="211" Height="33" FontSize="22">
+            <ListBoxItem Background="{x:Null}" BorderBrush="{x:Null}" Content="Warrior"/>
+            <ListBoxItem Background="{x:Null}" BorderBrush="{x:Null}" Content="Archer"/>
+            <ListBoxItem Background="{x:Null}" BorderBrush="{x:Null}" Content="Wizard"/>
+        </ComboBox>
+        <GroupBox x:Name="Parameters_" Header="CharacterParameters " Margin="257,13,593,10" FontSize="22" FontWeight="Bold"/>
+        <GroupBox x:Name="Parameters__Strength" Header="Strength" Margin="268,45,603,313" FontSize="22" FontWeight="Bold"/>
+        <GroupBox x:Name="Parameters__Dexterity" Header="Dexterity" Margin="267,128,603,231" FontSize="22" FontWeight="Bold"/>
+        <GroupBox x:Name="Parameters__Intelligence" Header="Intelligence" Margin="265,205,603,155" FontSize="22" FontWeight="Bold"/>
+        <GroupBox x:Name="Parameters__Endurance" Header="Endurance" Margin="267,290,603,68" FontSize="22" FontWeight="Bold"/>
+        <GroupBox x:Name="Personag" Header="Personag" Margin="579,15,293,10" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="decrease_strength" Content="-" HorizontalAlignment="Left" Margin="319,83,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="decrease_dexterity" Content="-" HorizontalAlignment="Left" Margin="315,166,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="decrease_intelligence" Content="-" HorizontalAlignment="Left" Margin="315,242,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="decrease_endurance" Content="-" HorizontalAlignment="Left" Margin="315,321,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="increase_strength" Content="+" HorizontalAlignment="Left" Margin="471,83,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="increase_dexterity" Content="+" HorizontalAlignment="Left" Margin="469,166,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="increase_intelligence" Content="+" HorizontalAlignment="Left" Margin="469,242,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="increase_endurance" Content="+" HorizontalAlignment="Left" Margin="469,321,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="Strength" HorizontalAlignment="Left" Margin="377,83,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="Dexterity" HorizontalAlignment="Left" Margin="373,166,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="Intelligence" HorizontalAlignment="Left" Margin="373,242,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="Endurance" HorizontalAlignment="Left" Margin="373,321,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <Button x:Name="SavePerson" Content="SavePerson" HorizontalAlignment="Left" Margin="23,155,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22"/>
+        <GroupBox x:Name="Parameters__free_glasses_" Header="FreeGlasses" Margin="267,361,603,10" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="free_glasses" HorizontalAlignment="Left" Margin="373,392,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Margin="471,391,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <ListBox x:Name="ListPersonag" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="591,56,309,26"/>
+
+
+
+
+
 
     </Grid>
 </Window>
