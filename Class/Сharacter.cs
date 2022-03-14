@@ -14,24 +14,27 @@ namespace WpfCharacterEditor
         public Сharacter(string name, int strength, int agility, int intelligence, int endurance)
         {
             Name = name;
-
-
+            Proffession = "Character";
+            Strength = strength;
+            Agility = agility;
+            Intelligence = intelligence;
+            Endurance = endurance;
         }
 
         [BsonIgnoreIfDefault]
-        public ObjectId ID { get; set; }
+        public ObjectId _id { get; set; }
         
         public string Name { get; set; }
 
         public string Proffession { get; set; }
 
-        public Strength Strength { get; set; }
+        public int Strength { get; set; }
 
-        public Agility Agility { get; set; }
+        public int Agility { get; set; }
 
-        public Intelligence Intelligence { get; set; }
+        public int Intelligence { get; set; }
 
-        public Endurance Endurance { get; set; }
+        public int Endurance { get; set; }
 
 
         
