@@ -8,9 +8,10 @@ namespace RPG
 {
     internal interface Personag
     {
-        static int strenght = 10;
-        static int agility = 10;
-        static int intelligence = 10;
-        static int endurance = 10;
+        public int Strenght { get; set; }
+        public int Agility { get; set; }
+        public int Intelligence { get; set; }
+        public int Endurance { get; set; }
+        
     }
 }
