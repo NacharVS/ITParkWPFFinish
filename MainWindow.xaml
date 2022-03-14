@@ -7,6 +7,57 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Image x:Name="imageCharacter" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="150" Margin="19,88,0,0" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.32"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="34,49,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        <ComboBox x:Name="proffession" HorizontalAlignment="Left" Margin="212,50,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <ListBoxItem Content="Warrior"/>
+            <ListBoxItem Content="Archer"/>
+            <ListBoxItem Content="Wizard"/>
+        </ComboBox>
+        <Label x:Name="strength" Content="10" HorizontalAlignment="Left" Margin="254,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="agility" Content="10" HorizontalAlignment="Left" Margin="254,159,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.234,-0.056" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="intelligence" Content="10" HorizontalAlignment="Left" Margin="254,220,0,0" VerticalAlignment="Top" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Label x:Name="endurance" Content="10" HorizontalAlignment="Left" Margin="254,284,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ListBox x:Name="listCharacter" HorizontalAlignment="Left" Height="245" Margin="362,50,0,0" VerticalAlignment="Top" Width="131"/>
+        <Button x:Name="addStrength" Content="+" HorizontalAlignment="Left" Margin="308,102,0,0" VerticalAlignment="Top" Width="24" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="addAgility" Content="+" HorizontalAlignment="Left" Margin="308,165,0,0" VerticalAlignment="Top" Width="24" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="addIntelligence" Content="+" HorizontalAlignment="Left" Margin="308,226,0,0" VerticalAlignment="Top" Width="24" RenderTransformOrigin="0.57,8.304" IsDefault="True" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="addEndurance" Content="+" HorizontalAlignment="Left" Margin="308,290,0,0" VerticalAlignment="Top" Width="24" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="removeStrength" Content="-" HorizontalAlignment="Left" Margin="212,102,0,0" VerticalAlignment="Top" Width="24" IsEnabled="False" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Strength" HorizontalAlignment="Left" Margin="212,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Agility" HorizontalAlignment="Left" Margin="212,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="120" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Intelligence" HorizontalAlignment="Left" Margin="212,190,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="120" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Endurance" HorizontalAlignment="Left" Margin="212,251,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="120" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Button x:Name="removeAgility" Content="-" HorizontalAlignment="Left" Margin="212,165,0,0" VerticalAlignment="Top" Width="24" IsEnabled="False" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="removeIntelligence" Content="-" HorizontalAlignment="Left" Margin="212,226,0,0" VerticalAlignment="Top" Width="24" IsEnabled="False" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="removeEndurance" Content="-" HorizontalAlignment="Left" Margin="212,290,0,0" VerticalAlignment="Top" Width="24" IsEnabled="False" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.632,3.847"/>
+        <Label x:Name="freePoints" Content="10" HorizontalAlignment="Left" Margin="254,347,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="Free points" HorizontalAlignment="Left" Margin="212,316,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="120" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Margin="362,303,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="buttonRemove" Content="Remove" HorizontalAlignment="Left" Margin="433,303,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="362,334,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Physical damage" HorizontalAlignment="Left" Margin="517,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="156" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="PhysicalDamage" Content="10" HorizontalAlignment="Left" Margin="674,79,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Physical protection" HorizontalAlignment="Left" Margin="517,111,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="156" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="PhysicalProtection" Content="10" HorizontalAlignment="Left" Margin="674,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Magical damage" HorizontalAlignment="Left" Margin="517,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="156" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="MagicalDamage" Content="10" HorizontalAlignment="Left" Margin="674,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Magical protection" HorizontalAlignment="Left" Margin="517,170,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="156" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="MagicalProtection" Content="10" HorizontalAlignment="Left" Margin="674,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Life" HorizontalAlignment="Left" Margin="517,198,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="156" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="Life" Content="10" HorizontalAlignment="Left" Margin="674,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Magic" HorizontalAlignment="Left" Margin="517,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="156" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="Magic" Content="10" HorizontalAlignment="Left" Margin="674,223,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
+        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="433,334,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold"/>
+
     </Grid>
 </Window>
