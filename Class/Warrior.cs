@@ -48,16 +48,17 @@ namespace WpfCharacterEditor
             get => _strength;
             set
             {
-                if (_strength > value)
+                if (_strength > value && _strength < _maxStrength)
                 {
                     FreePoints += 1; 
                 }
-                if (_strength < value)
+                if (_strength < value && _strength > _minStrength)
                 {
                     FreePoints -= 1;
                 }
 
                 _strength = value;
+
             }
         }
         public int Agility
