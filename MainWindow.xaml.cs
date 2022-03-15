@@ -22,7 +22,7 @@ namespace WpfCharacterEditor
     public partial class MainWindow : Window
     {
         string buffName = "Name";
-
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -45,9 +45,19 @@ namespace WpfCharacterEditor
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            MongoDBBase.SetCharacter(name.Text, int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString())); ;
-            listCharacter.ItemsSource = MongoDBBase.GetListCharacters();
+            MongoDBBase.SetWarrior(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString())); ;
+            listCharacter.ItemsSource = MongoDBBase.GetListWarriors();
             MessageBox.Show($"Character {name.Text} has added.");
+        }
+
+        private void proffession_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void listCharacter_Loaded(object sender, RoutedEventArgs e)
+        {
+            listCharacter.ItemsSource = MongoDBBase.GetListWarriors();
         }
     }
 }
