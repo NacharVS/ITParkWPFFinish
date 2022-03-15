@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _2022_03_13_VerificationWork.Interfaces;
+using _2022_03_13_VerificationWork.MongoDB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,43 +29,42 @@ namespace _2022_03_13_VerificationWork
 
         private void createButton_Click(object sender, RoutedEventArgs e)
         {
-            Player.AddPlayerToDB(nameTextBox.Text, professionComboBox.SelectedItem.ToString()
-                ,Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(dexAmountLabel.Content)
-                ,Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(physicalDamageAmountLabel.Content)
-                , Convert.ToInt32(physicalDefenseAmountLabel.Content), Convert.ToInt32(magicalDamageAmountLabel.Content)
-                , Convert.ToInt32(magicalDefenseAmountLabel.Content), Convert.ToInt32(healthAmountLabel.Content)
-                , Convert.ToInt32(manaAmountLabel.Content),Convert.ToInt32(levelAmountLabel.Content)
-                , Convert.ToInt32(experienseAmountLabel.Content));
-            MessageBox.Show($"Player \"{nameTextBox.Text}({professionComboBox.SelectionBoxItem})\" has added!");
+            if (professionComboBox.SelectedIndex == 0)
+            {
+                MongoDataBase.AddWarriorToDB(nameTextBox.Text, professionComboBox.SelectionBoxItem.ToString()
+                    , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
+                    , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
+                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt32(experienseAmountLabel.Content));
+                MessageBox.Show($"Character \"{nameTextBox.Text}({professionComboBox.SelectionBoxItem})\" was created!");
+            }
+            else if (professionComboBox.SelectedIndex == 1)
+            {
+                MongoDataBase.AddArcherToDB(nameTextBox.Text, professionComboBox.SelectionBoxItem.ToString()
+                    , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
+                    , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
+                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt32(experienseAmountLabel.Content));
+                MessageBox.Show($"Character \"{nameTextBox.Text}({professionComboBox.SelectionBoxItem})\" was created!");
+            }
+            else if (professionComboBox.SelectedIndex == 2)
+            {
+                MongoDataBase.AddWizardToDB(nameTextBox.Text, professionComboBox.SelectionBoxItem.ToString()
+                    , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
+                    , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
+                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt32(experienseAmountLabel.Content));
+                MessageBox.Show($"Character \"{nameTextBox.Text}({professionComboBox.SelectionBoxItem})\" was created!");
+            }
         }
 
         private void strAddBtn_Click(object sender, RoutedEventArgs e)
         {
-            int initialStr = Convert.ToInt32(strAmountLabel.Content);
-            int initialFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            if (initialFreePoint != 0)
+            int baseStr = Convert.ToInt32(strAmountLabel.Content);
+            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            if (baseFreePoint != 0)
             {
-                initialStr++;
-                initialFreePoint--;
-                strAmountLabel.Content = initialStr.ToString();
-                freePointAmountLabel.Content = initialFreePoint.ToString();
-            }
-            else
-            {
-                MessageBox.Show("Free point is empty!");
-            }
-        }
-
-        private void dexAddBtn_Click(object sender, RoutedEventArgs e)
-        {
-            int initialDex = Convert.ToInt32(dexAmountLabel.Content);
-            int initialFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            if (initialFreePoint != 0)
-            {
-                initialDex++;
-                initialFreePoint--;
-                dexAmountLabel.Content = initialDex.ToString();
-                freePointAmountLabel.Content = initialFreePoint.ToString();
+                baseStr++;
+                baseFreePoint--;
+                strAmountLabel.Content = baseStr.ToString();
+                freePointAmountLabel.Content = baseFreePoint.ToString();
             }
             else
             {
@@ -73,14 +74,14 @@ namespace _2022_03_13_VerificationWork
 
         private void intAddBtn_Click(object sender, RoutedEventArgs e)
         {
-            int initialInt = Convert.ToInt32(intAmountLabel.Content);
-            int initialFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            if (initialFreePoint != 0)
+            int baseInt = Convert.ToInt32(intAmountLabel.Content);
+            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            if (baseFreePoint != 0)
             {
-                initialInt++;
-                initialFreePoint--;
-                intAmountLabel.Content = initialInt.ToString();
-                freePointAmountLabel.Content = initialFreePoint.ToString();
+                baseInt++;
+                baseFreePoint--;
+                intAmountLabel.Content = baseInt.ToString();
+                freePointAmountLabel.Content = baseFreePoint.ToString();
             }
             else
             {
@@ -88,21 +89,118 @@ namespace _2022_03_13_VerificationWork
             }
         }
 
-        private void endAddBtn_Click(object sender, RoutedEventArgs e)
+        private void stmnAddBtn_Click(object sender, RoutedEventArgs e)
         {
-            int initialEnd = Convert.ToInt32(endAmountLabel.Content);
-            int initialFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            if (initialFreePoint != 0)
+            int baseStmn = Convert.ToInt32(stmnAmountLabel.Content);
+            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            if (baseFreePoint != 0)
             {
-                initialEnd++;
-                initialFreePoint--;
-                endAmountLabel.Content = initialEnd.ToString();
-                freePointAmountLabel.Content = initialFreePoint.ToString();
+                baseStmn++;
+                baseFreePoint--;
+                stmnAmountLabel.Content = baseStmn.ToString();
+                freePointAmountLabel.Content = baseFreePoint.ToString();
             }
             else
             {
                 MessageBox.Show("Free point is empty!");
             }
+        }
+
+        private void agltAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int baseAglt = Convert.ToInt32(agltAmountLabel.Content);
+            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            if (baseFreePoint != 0)
+            {
+                baseAglt++;
+                baseFreePoint--;
+                agltAmountLabel.Content = baseAglt.ToString();
+                freePointAmountLabel.Content = baseFreePoint.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Free point is empty!");
+            }
+        }
+
+        private void strRemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int baseStr = Convert.ToInt32(strAmountLabel.Content);
+            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            if (baseStr > 10)
+            {
+                baseStr--;
+                baseFreePoint++;
+                strAmountLabel.Content = baseStr.ToString();
+                freePointAmountLabel.Content = baseFreePoint.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Strenght don't be low a base (10) value!");
+            }
+        }
+
+        private void agltRemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int baseAglt = Convert.ToInt32(agltAmountLabel.Content);
+            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            if (baseAglt > 10)
+            {
+                baseAglt--;
+                baseFreePoint++;
+                agltAmountLabel.Content = baseAglt.ToString();
+                freePointAmountLabel.Content = baseFreePoint.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Agility don't be low a base (10) value!");
+            }
+        }
+
+        private void intRemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int baseInt = Convert.ToInt32(intAmountLabel.Content);
+            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            if (baseInt > 10)
+            {
+                baseInt--;
+                baseFreePoint++;
+                intAmountLabel.Content = baseInt.ToString();
+                freePointAmountLabel.Content = baseFreePoint.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Intelligence don't be low a base (10) value!");
+            }
+        }
+
+        private void stmnRemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int baseStmn = Convert.ToInt32(stmnAmountLabel.Content);
+            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            if (baseStmn > 10)
+            {
+                baseStmn--;
+                baseFreePoint++;
+                stmnAmountLabel.Content = baseStmn.ToString();
+                freePointAmountLabel.Content = baseFreePoint.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Stamina don't be low a base (10) value!");
+            }
+        }
+
+        private void nameTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (nameTextBox.Text=="Name") nameTextBox.Clear();
+            else return;
+        }
+
+        private void nameTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (nameTextBox.Text == "") nameTextBox.Text = "Name";
+            else return;
         }
     }
 }

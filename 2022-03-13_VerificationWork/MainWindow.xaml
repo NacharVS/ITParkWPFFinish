@@ -7,28 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="540" Width="1365">
     <Grid>
-        <ComboBox x:Name="professionComboBox" HorizontalAlignment="Left" Margin="140,80,0,0" VerticalAlignment="Top" Width="200" FontSize="24">
+        <ComboBox x:Name="professionComboBox" HorizontalAlignment="Left" Margin="140,80,0,0" VerticalAlignment="Top" Width="200" FontSize="24" SelectedIndex="0">
             <ListBoxItem Content="Warrior"/>
             <ListBoxItem Content="Archer"/>
             <ListBoxItem Content="Wizard"/>
         </ComboBox>
         <Label x:Name="professionLabel" Content="Profession:" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Margin="134,35,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="200" FontSize="24"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Margin="134,35,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="200" FontSize="24" GotFocus="nameTextBox_GotFocus" LostFocus="nameTextBox_LostFocus"/>
         <Label x:Name="nameLabel" Content="Name:" HorizontalAlignment="Left" Margin="33,31,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Button x:Name="createButton" Content="CREATE" HorizontalAlignment="Left" Margin="36,141,0,0" VerticalAlignment="Top" FontSize="24" Width="99" Click="createButton_Click"/>
         <GroupBox x:Name="mainStatGroupBox" HorizontalAlignment="Left" Height="451" Header="Main Stats:" Margin="363,10,0,0" VerticalAlignment="Top" Width="359" FontSize="24"/>
         <GroupBox x:Name="additionalStatGroupBox" HorizontalAlignment="Left" Height="451" Header="Additional Stats:" Margin="744,10,0,0" VerticalAlignment="Top" Width="400" FontSize="24"/>
         <Label x:Name="strLabel" Content="Strenght:" HorizontalAlignment="Left" Margin="382,52,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="dexLabel" Content="Dexterity:" HorizontalAlignment="Left" Margin="382,99,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="agltLabel" Content="Agility:" HorizontalAlignment="Left" Margin="382,99,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="intLabel" Content="Intelligence:" HorizontalAlignment="Left" Margin="382,146,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="freePointLabel" Content="Free point:" HorizontalAlignment="Left" Margin="432,312,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="strAmountLabel" Content="10" HorizontalAlignment="Left" Margin="559,52,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="dexAmountLabel" Content="10" HorizontalAlignment="Left" Margin="559,99,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="intAmountLabel" Content="10" HorizontalAlignment="Left" Margin="559,146,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="strAmountLabel" Content="10" HorizontalAlignment="Left" Margin="612,48,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="agltAmountLabel" Content="10" HorizontalAlignment="Left" Margin="612,96,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="intAmountLabel" Content="10" HorizontalAlignment="Left" Margin="612,142,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="freePointAmountLabel" Content="10" HorizontalAlignment="Left" Margin="609,312,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Button x:Name="strAddBtn" Content="+" HorizontalAlignment="Left" Margin="645,47,0,0" VerticalAlignment="Top" FontSize="24" Width="42" Height="42" Click="strAddBtn_Click"/>
-        <Button x:Name="dexAddBtn" Content="+" HorizontalAlignment="Left" Margin="645,100,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="dexAddBtn_Click"/>
-        <Button x:Name="intAddBtn" Content="+" HorizontalAlignment="Left" Margin="645,148,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="intAddBtn_Click"/>
+        <Button x:Name="strAddBtn" Content="+" HorizontalAlignment="Center" Margin="0,44,0,0" VerticalAlignment="Top" FontSize="24" Width="42" Height="42" Click="strAddBtn_Click"/>
+        <Button x:Name="agltAddBtn" Content="+" HorizontalAlignment="Center" Margin="0,96,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="agltAddBtn_Click"/>
+        <Button x:Name="intAddBtn" Content="+" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="intAddBtn_Click"/>
         <Border BorderBrush="Black" BorderThickness="1" Margin="370,295,649,153"/>
         <Label x:Name="physicalDamageLabel" Content="PhysicalDamage:" HorizontalAlignment="Left" Margin="767,54,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="physicalDefenseLabel" Content="PhysicalDefense:" HorizontalAlignment="Left" Margin="767,101,0,0" VerticalAlignment="Top" FontSize="24"/>
@@ -46,9 +46,13 @@
         <Label x:Name="experienseLabel" Content="Experiense:" HorizontalAlignment="Left" Margin="767,377,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="levelAmountLabel" Content="0" HorizontalAlignment="Left" Margin="1023,329,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="experienseAmountLabel" Content="0" HorizontalAlignment="Left" Margin="1023,377,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="endLabel" Content="Endurance:" HorizontalAlignment="Left" Margin="382,195,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="endAmountLabel" Content="10" HorizontalAlignment="Left" Margin="559,195,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Button x:Name="endAddBtn" Content="+" HorizontalAlignment="Left" Margin="645,197,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="endAddBtn_Click"/>
+        <Label x:Name="stmnLabel" Content="Stamina:" HorizontalAlignment="Left" Margin="382,195,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="stmnAmountLabel" Content="10" HorizontalAlignment="Left" Margin="612,192,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Button x:Name="stmnAddBtn" Content="+" HorizontalAlignment="Center" Margin="0,194,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="stmnAddBtn_Click"/>
+        <Button x:Name="strRemoveBtn" Content="-" HorizontalAlignment="Left" Margin="560,44,0,0" VerticalAlignment="Top" FontSize="24" Width="42" Height="42" Click="strRemoveBtn_Click"/>
+        <Button x:Name="agltRemoveBtn" Content="-" HorizontalAlignment="Left" Margin="560,96,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="agltRemoveBtn_Click"/>
+        <Button x:Name="intRemoveBtn" Content="-" HorizontalAlignment="Left" Margin="560,144,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="intRemoveBtn_Click"/>
+        <Button x:Name="stmnRemoveBtn" Content="-" HorizontalAlignment="Left" Margin="560,194,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="stmnRemoveBtn_Click"/>
 
     </Grid>
 </Window>
