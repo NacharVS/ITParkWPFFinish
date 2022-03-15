@@ -28,8 +28,13 @@ namespace WPF_HOME_WORK
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             User.AddToDB(Enter_a_name.Text, Enter_a_profession.Text);
-            MessageBox.Show($"User {Enter_a_name.Text},{Enter_a_profession}");
+
+            ListName.Items.Add(Enter_a_name.Text);
         }
-        
+
+        private void ListName_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            ListName.ItemsSource = User.GetNameList();
+        }
     }
 }

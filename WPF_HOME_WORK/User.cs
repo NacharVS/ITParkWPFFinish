@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace WPF_HOME_WORK
             Name = name;
             Profession = profession;
         }
-       
+       public ObjectId _id { get; set; }
         public string Name { get; set; }
         public string Profession { get; set; }
 
@@ -23,9 +24,22 @@ namespace WPF_HOME_WORK
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Home_Work");
             var collection = database.GetCollection<User>("Users");
-            collection.InsertOne(new User(name,profession));
-           
+            collection.InsertOne(new User(name, profession));
         }
 
+        public static List<string> GetNameList()
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Home_Work");
+            var collection = database.GetCollection<User>("Users");
+            var list = collection.Find(x => true).ToList();
+
+            List<string> listToReturn=new List<string>();
+            foreach (var item in list)
+            {
+                listToReturn.Add(item.Name);
+            }
+            return listToReturn;
+        }
     }
 }
