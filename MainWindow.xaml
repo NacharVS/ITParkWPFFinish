@@ -18,7 +18,7 @@
             </Image.RenderTransform>
         </Image>
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="34,49,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold" TextChanged="name_TextChanged" GotFocus="name_GotFocus"/>
-        <ComboBox x:Name="proffession" HorizontalAlignment="Left" Margin="212,50,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="proffession_SelectionChanged" SelectedIndex="0">
+        <ComboBox x:Name="proffession" HorizontalAlignment="Left" Margin="212,50,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="proffession_SelectionChanged" SelectedIndex="1">
             <ListBoxItem Content="Warrior"/>
             <ListBoxItem Content="Archer"/>
             <ListBoxItem Content="Wizard"/>

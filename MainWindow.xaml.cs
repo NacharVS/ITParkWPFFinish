@@ -72,7 +72,7 @@ namespace WpfCharacterEditor
                 Warrior warrior = MongoDBBase.GetWarrior(listCharacter.SelectedItem.ToString());
 
                 name.Text = warrior.Name;
-                proffession.SelectedItem = warrior.Proffession;
+                proffession.ItemsSource = warrior.Proffession;
                 strength.Content = warrior.Strength;
                 agility.Content = warrior.Agility;
                 intelligence.Content = warrior.Intelligence;
