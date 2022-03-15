@@ -17,6 +17,9 @@ namespace WpfCharacterEditor
         private int _endurance;
         private int _minEndurance = 25;
         private int _maxEndurance = 100;
+        private int _freePoints;
+        private int _minFreepoints;
+
 
         private int _physicalDamage;
         private int _physicalProtection;
@@ -25,19 +28,35 @@ namespace WpfCharacterEditor
         private int _life;
         private int _magic;
 
-        public Warrior(string name, string proffession, int strength, int agility, int intelligence, int endurance): base(name, proffession)
+        public Warrior(string name, string proffession, int strength, int agility, int intelligence, int endurance, int freePoints)
         {
+            Name = name;
+            Proffession = proffession;
             _strength = strength;
             _agility = agility;
             _inteligence = intelligence;
             _endurance = endurance;
+            _freePoints = freePoints;
         }
+
+        public string Name { get; set; }
+
+        public string Proffession { get; set; }
 
         public int Strength
         {
             get => _strength;
             set
             {
+                if (_strength > value)
+                {
+                    FreePoints += 1; 
+                }
+                if (_strength < value)
+                {
+                    FreePoints -= 1;
+                }
+
                 _strength = value;
             }
         }
@@ -65,7 +84,16 @@ namespace WpfCharacterEditor
                 _endurance = value;
             }
         }
-     
+
+        public int FreePoints
+        {
+            get => _freePoints;
+            set
+            {
+                _freePoints = value;
+            }
+        }
+
         [BsonIgnoreIfDefault]
         public int PhysicalDamage { get => _strength * 7 + _agility * 2 + _inteligence * 0 + _endurance * 0; }           
         
@@ -83,7 +111,6 @@ namespace WpfCharacterEditor
         
         [BsonIgnoreIfDefault]
         public int Magic { get => _strength * 0 + _agility * 0 + _inteligence * 1 + _endurance * 0; }
-
         
     }
 }

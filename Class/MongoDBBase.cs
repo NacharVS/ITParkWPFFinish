@@ -9,11 +9,11 @@ namespace WpfCharacterEditor.Class
 {
     class MongoDBBase
     {
-        public static void SetWarrior(Warrior warrior)
+        public static void SetWarrior(ICharacter warrior)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Сharacters");
-            var collection = database.GetCollection<Warrior>("Warriors");
+            var collection = database.GetCollection<ICharacter>("Warriors");
             collection.InsertOne(warrior);
         }
 

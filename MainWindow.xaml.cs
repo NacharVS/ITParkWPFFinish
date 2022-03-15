@@ -22,10 +22,30 @@ namespace WpfCharacterEditor
     public partial class MainWindow : Window
     {
         string buffName = "Name";
+        int[] сharacteristics = new int[4] { 10, 10, 10, 10 };
+        ICharacter warrior;
         
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Indicators()
+        {
+            name.Text = warrior.Name;
+            //proffession.ItemsSource = warrior.Proffession;
+            strength.Content = warrior.Strength;
+            agility.Content = warrior.Agility;
+            intelligence.Content = warrior.Intelligence;
+            endurance.Content = warrior.Endurance;
+            freePoints.Content = warrior.FreePoints;
+
+            physicalDamage.Content = warrior.PhysicalDamage;
+            physicalProtection.Content = warrior.PhysicalProtection;
+            magicalDamage.Content = warrior.MagicalDamage;
+            magicalProtection.Content = warrior.MagicalProtection;
+            life.Content = warrior.Life;
+            magic.Content = warrior.Magic;
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
@@ -45,7 +65,7 @@ namespace WpfCharacterEditor
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            Warrior warrior = new Warrior(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()));
+            //Warrior warrior = new Warrior(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()));
             MongoDBBase.SetWarrior(warrior);
             listCharacter.ItemsSource = MongoDBBase.GetListWarriors();
             MessageBox.Show($"Character {name.Text} has added.");
@@ -53,7 +73,35 @@ namespace WpfCharacterEditor
 
         private void proffession_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (proffession.SelectedIndex == 0)
+            {
+                return;
+            }
+            if (proffession.SelectedIndex == 1)
+            {
+                warrior = new Warrior(name.Text, proffession.Text.ToString(), 30, 15, 10, 25, 10);
+                
+                сharacteristics[0] = warrior.Strength;
+                сharacteristics[1] = warrior.Agility;
+                сharacteristics[2] = warrior.Intelligence;
+                сharacteristics[3] = warrior.Endurance;
 
+                strength.Content = сharacteristics[0];
+                agility.Content = сharacteristics[1];
+                intelligence.Content = сharacteristics[2];
+                endurance.Content = сharacteristics[3];
+
+                Indicators();
+
+            }
+            if (proffession.SelectedIndex == 2)
+            {
+
+            }
+            if (proffession.SelectedIndex == 3)
+            {
+
+            }
         }
 
         private void listCharacter_Loaded(object sender, RoutedEventArgs e)
@@ -69,22 +117,66 @@ namespace WpfCharacterEditor
             }
             else
             {
-                Warrior warrior = MongoDBBase.GetWarrior(listCharacter.SelectedItem.ToString());
-
-                name.Text = warrior.Name;
-                proffession.ItemsSource = warrior.Proffession;
-                strength.Content = warrior.Strength;
-                agility.Content = warrior.Agility;
-                intelligence.Content = warrior.Intelligence;
-                endurance.Content = warrior.Endurance;
-                physicalDamage.Content = warrior.PhysicalDamage;
-                physicalProtection.Content = warrior.PhysicalProtection;
-                magicalDamage.Content = warrior.MagicalDamage;
-                magicalProtection.Content = warrior.MagicalProtection;
-                life.Content = warrior.Life;
-                magic.Content = warrior.Magic;
+                warrior = MongoDBBase.GetWarrior(listCharacter.SelectedItem.ToString());
+                Indicators();
+                //name.Text = warrior.Name;
+                //proffession.ItemsSource = warrior.Proffession;
+                //strength.Content = warrior.Strength;
+                //agility.Content = warrior.Agility;
+                //intelligence.Content = warrior.Intelligence;
+                //endurance.Content = warrior.Endurance;
+                //physicalDamage.Content = warrior.PhysicalDamage;
+                //physicalProtection.Content = warrior.PhysicalProtection;
+                //magicalDamage.Content = warrior.MagicalDamage;
+                //magicalProtection.Content = warrior.MagicalProtection;
+                //life.Content = warrior.Life;
+                //magic.Content = warrior.Magic;
 
             }
+        }
+
+        private void removeStrength_Click(object sender, RoutedEventArgs e)
+        {
+            warrior.Strength -= 1;
+            Indicators();
+            //сharacteristics[0] -= 1;
+            //strength.Content = сharacteristics[0];
+        }
+
+        private void addStrength_Click(object sender, RoutedEventArgs e)
+        {
+            warrior.Strength += 1;
+            Indicators();
+        }
+
+        private void removeAgility_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addAgility_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void removeIntelligence_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addIntelligence_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void removeEndurance_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addEndurance_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

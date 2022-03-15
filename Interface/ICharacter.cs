@@ -3,6 +3,11 @@ namespace WpfCharacterEditor
 {
     interface ICharacter
     {
+
+        public string Name { get; set; }
+
+        public string Proffession { get; set; }
+
         public int Strength { get; set; }
 
         public int Agility { get; set; }
@@ -10,6 +15,8 @@ namespace WpfCharacterEditor
         public int Intelligence { get; set; }
 
         public int Endurance { get; set; }
+
+        public int FreePoints { get; set; }
 
         public int PhysicalDamage { get; }
 
