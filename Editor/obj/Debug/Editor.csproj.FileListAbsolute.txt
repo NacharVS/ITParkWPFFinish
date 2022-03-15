@@ -1,0 +1,15 @@
+C:\Users\Admin\Documents\Editor\Editor\bin\Debug\Editor.exe.config
+C:\Users\Admin\Documents\Editor\Editor\bin\Debug\Editor.exe
+C:\Users\Admin\Documents\Editor\Editor\bin\Debug\Editor.pdb
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\Editor.csproj.AssemblyReference.cache
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\App.g.cs
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\Editor_MarkupCompile.cache
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\Editor_MarkupCompile.lref
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\MainWindow.baml
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\Editor.g.resources
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\Editor.Properties.Resources.resources
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\Editor.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\Editor.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\Editor.exe
+C:\Users\Admin\Documents\Editor\Editor\obj\Debug\Editor.pdb
