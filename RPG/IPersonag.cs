@@ -17,6 +17,11 @@ namespace RPG
         public int MaxIntelligence { set; }  //макс интелект
         public int MinEndurance { get; set; }  //мин выносливость
         public int MaxEndurance { set; }  //макс выносливость
-
+        public int Damage { get; set; }  //Физ.Урон	
+        public int Protection { get; set; }  //Физ.Защита
+        public int MagicDamage { get; set; }  //Маг.Урон
+        public int MagicProtection { get; set; }  //Маг.Защита
+        public int Life { get; set; }  //Жизнь
+        public int Magic { get; set; }  //Магия
     }
 }

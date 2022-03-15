@@ -39,6 +39,7 @@ namespace RPG
             if (SelectPerson.SelectedIndex == 0)
             {
                 Strength.Text = Convert.ToString(30);
+
                 Dexterity.Text = Convert.ToString(15);
                 Intelligence.Text = Convert.ToString(10);
                 Endurance.Text = Convert.ToString(20);
@@ -56,6 +57,22 @@ namespace RPG
                 Dexterity.Text = Convert.ToString(20);
                 Intelligence.Text = Convert.ToString(35);
                 Endurance.Text = Convert.ToString(20);
+            }
+        }
+
+        private void ListPersonag_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ListPersonag.SelectedIndex == -1)
+            {
+                return;
+            }
+            else
+            {
+                //txtLogin.Text = User.Get(listLogin.SelectedItem.ToString()).Login;
+                //txtName1.Text = User.GetUser(listLogin.SelectedItem.ToString()).Name;
+                //txtEmail.Text = User.GetUser(listLogin.SelectedItem.ToString()).Email;
+                //txtPhone.Text = User.GetUser(listLogin.SelectedItem.ToString()).PhoneNumber;
+
             }
         }
     }

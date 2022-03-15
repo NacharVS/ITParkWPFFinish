@@ -24,24 +24,35 @@ namespace RPG
         public Object _id { get; set; }
         [BsonIgnoreIfDefault]
         public string Name { get; set; }
-        public int MinStrenght { get => _minstrenght; set => _minstrenght = value; }
-        public int MaxStrenght { set => _maxstrenght = value; }
-        public int MinAgility { get => _minagility; set => _minagility = value; }
-        public int MaxAgility { set => _maxagilityt = value; }
-        public int MinIntelligence { get => _minintelligence; set => _minintelligence = value; }
-        public int MaxIntelligence { set => _maxintelligence = value; }
-        public int MinEndurance { get => _minendurance; set => _minendurance = value; }
-        public int MaxEndurance { set => _maxendurance = value; }
+        public int MinStrenght { get => _minstrenght=30; set => _minstrenght = value; }
+        public int MaxStrenght { set => _maxstrenght = 250; }
+        public int MinAgility { get => _minagility=15; set => _minagility = value; }
+        public int MaxAgility { set => _maxagilityt = 80; }
+        public int MinIntelligence { get => _minintelligence=10; set => _minintelligence = value; }
+        public int MaxIntelligence { set => _maxintelligence = 50; }
+        public int MinEndurance { get => _minendurance=25; set => _minendurance = value; }
+        public int MaxEndurance { set => _maxendurance = 100; }
+        [BsonIgnore]
+        public int Damage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        [BsonIgnore]
+        public int Protection { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        [BsonIgnore]
+        public int MagicDamage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        [BsonIgnore]
+        public int MagicProtection { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        [BsonIgnore]
+        public int Life { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        [BsonIgnore]
+        public int Magic { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-
-        private int _minstrenght = 30;
-        private int _maxstrenght = 250;
-        private int _minagility = 15;
-        private int _maxagilityt = 80;
-        private int _minintelligence = 10;
-        private int _maxintelligence = 50;
-        private int _minendurance = 25;
-        private int _maxendurance = 100;
+        int _minstrenght;
+         int _maxstrenght;
+         int _minagility;
+         int _maxagilityt;
+         int _minintelligence;
+         int _maxintelligence;
+         int _minendurance;
+         int _maxendurance;
 
         public static void AddWarriorToDB(string name, int minstrenght, int minagility, int minintelligence, int minendurance)
         {

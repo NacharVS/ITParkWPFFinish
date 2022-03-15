@@ -19,7 +19,7 @@
         <GroupBox x:Name="Parameters__Dexterity" Header="Dexterity" Margin="268,137,602,315" FontSize="22" FontWeight="Bold"/>
         <GroupBox x:Name="Parameters__Intelligence" Header="Intelligence" Margin="267,231,601,221" FontSize="22" FontWeight="Bold"/>
         <GroupBox x:Name="Parameters__Endurance" Header="Endurance" Margin="267,324,603,126" FontSize="22" FontWeight="Bold"/>
-        <GroupBox x:Name="Personag" Header="Personag" Margin="579,15,293,26" FontSize="22" FontWeight="Bold"/>
+        <GroupBox x:Name="Personag" Header="Personag" Margin="10,241,916,26" FontSize="22" FontWeight="Bold"/>
         <Button x:Name="decrease_strength" Content="-" HorizontalAlignment="Left" Margin="319,83,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
         <Button x:Name="decrease_dexterity" Content="-" HorizontalAlignment="Left" Margin="315,173,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
         <Button x:Name="decrease_intelligence" Content="-" HorizontalAlignment="Left" Margin="317,268,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
@@ -36,7 +36,20 @@
         <GroupBox x:Name="Parameters__free_glasses_" Header="FreeGlasses" Margin="267,419,603,40" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="free_glasses" HorizontalAlignment="Left" Margin="365,456,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
         <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Margin="463,455,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
-        <ListBox x:Name="ListPersonag" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="591,56,309,40"/>
+        <ListBox x:Name="ListPersonag" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="23,284,934,40" SelectionChanged="ListPersonag_SelectionChanged"/>
+        <GroupBox x:Name="Characteristics" Header="Characteristics" Margin="580,13,270,26" FontSize="22" FontWeight="Bold"/>
+        <GroupBox x:Name="Characteristics_Damage" Header="Damage" Margin="587,51,284,427" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="Damage" HorizontalAlignment="Left" Margin="781,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <GroupBox x:Name="Characteristics_Protection" Header="Protection" Margin="587,115,284,363" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="Protection" HorizontalAlignment="Left" Margin="781,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <GroupBox x:Name="Characteristics_MagicDamage" Header="MagicDamage" Margin="587,178,284,300" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="MagicDamage" HorizontalAlignment="Left" Margin="781,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <GroupBox x:Name="Characteristics_MagicProtection" Header="MagicProtection" Margin="587,240,284,238" FontSize="22" FontWeight="Bold"/>
+        <GroupBox x:Name="Characteristics_Life" Header="Life" Margin="587,302,284,176" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="Life" HorizontalAlignment="Left" Margin="781,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <GroupBox x:Name="Characteristics_Magic" Header="Magic" Margin="587,369,284,109" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="Magic" HorizontalAlignment="Left" Margin="781,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="MagicProtection" HorizontalAlignment="Left" Margin="781,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
 
 
 
