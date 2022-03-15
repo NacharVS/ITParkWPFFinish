@@ -11,16 +11,16 @@ namespace WpfCharacterEditor
 
         public int Endurance { get; set; }
 
-        public int PhysicalDamage { get; set; }
+        public int PhysicalDamage { get; }
 
-        public int PhysicalProtection { get; set; }
+        public int PhysicalProtection { get; }
 
-        public int MagicalDamage { get; set; }
+        public int MagicalDamage { get; }
 
-        public int MagicalProtection { get; set; }
+        public int MagicalProtection { get; }
 
-        public int Life { get; set; }
+        public int Life { get; }
 
-        public int Magic { get; set; }
+        public int Magic { get; }
     }
 }

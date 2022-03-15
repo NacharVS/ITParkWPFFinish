@@ -38,8 +38,6 @@ namespace WpfCharacterEditor
             get => _strength;
             set
             {
-
-                Strength();
                 _strength = value;
             }
         }
@@ -48,9 +46,7 @@ namespace WpfCharacterEditor
             get => _agility;
             set
             {
-                
-                
-                _agility = value;
+               _agility = value;
             }
         }
         public int Intelligence
@@ -69,60 +65,25 @@ namespace WpfCharacterEditor
                 _endurance = value;
             }
         }
+     
+        [BsonIgnoreIfDefault]
+        public int PhysicalDamage { get => _strength * 7 + _agility * 2 + _inteligence * 0 + _endurance * 0; }           
+        
+        [BsonIgnoreIfDefault]
+        public int PhysicalProtection { get => _strength * 2 + _agility * 3 + _inteligence * 0 + _endurance * 3; }
 
         [BsonIgnoreIfDefault]
-        public int PhysicalDamage
-        {
-            get => _physicalDamage;
-            set
-            {
-                _physicalDamage = _strength * 7 + _agility * 2 + _inteligence * 0 + _endurance * 0;
-            }
-        }
+        public int MagicalDamage { get => _strength * 0 + _agility * 0 + _inteligence * 1 + _endurance * 0; }
+                
         [BsonIgnoreIfDefault]
-        public int PhysicalProtection
-        {
-            get => _physicalProtection;
-            set
-            {
-                _physicalProtection = _strength * 2 + _agility * 3 + _inteligence * 0 + _endurance * 3;
-            }
-        }
+        public int MagicalProtection { get => _strength * 1 + _agility * 0 + _inteligence * 2 + _endurance * 1; }
+        
         [BsonIgnoreIfDefault]
-        public int MagicalDamage
-        {
-            get => _magicalDamage;
-            set
-            {
-                _magicalDamage = _strength * 0 + _agility * 0 + _inteligence * 1 + _endurance * 0;
-            }
-        }
+        public int Life { get => _strength * 5 + _agility * 0 + _inteligence * 0 + _endurance * 10; }
+        
         [BsonIgnoreIfDefault]
-        public int MagicalProtection
-        {
-            get => _magicalProtection;
-            set
-            {
-                _magicalProtection = _strength * 1 + _agility * 0 + _inteligence * 2 + _endurance * 1;
-            }
-        }
-        [BsonIgnoreIfDefault]
-        public int Life
-        {
-            get => _life;
-            set
-            {
-                _life = _strength * 5 + _agility * 0 + _inteligence * 0 + _endurance * 10;
-            }
-        }
-        [BsonIgnoreIfDefault]
-        public int Magic
-        {
-            get => _magic;
-            set
-            {
-                _magic = _strength * 0 + _agility * 0 + _inteligence * 1 + _endurance * 0;
-            }
-        }
+        public int Magic { get => _strength * 0 + _agility * 0 + _inteligence * 1 + _endurance * 0; }
+
+        
     }
 }
