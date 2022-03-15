@@ -24,5 +24,12 @@ namespace WPF_HOME_WORK
         {
             InitializeComponent();
         }
+
+        private void btn_add_Click(object sender, RoutedEventArgs e)
+        {
+            User.AddToDB(Enter_a_name.Text, Enter_a_profession.Text);
+            MessageBox.Show($"User {Enter_a_name.Text},{Enter_a_profession}");
+        }
+        
     }
 }
