@@ -38,6 +38,8 @@ namespace WpfCharacterEditor
             get => _strength;
             set
             {
+
+                Strength();
                 _strength = value;
             }
         }
@@ -46,6 +48,8 @@ namespace WpfCharacterEditor
             get => _agility;
             set
             {
+                
+                
                 _agility = value;
             }
         }

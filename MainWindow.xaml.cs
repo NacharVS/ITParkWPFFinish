@@ -45,7 +45,8 @@ namespace WpfCharacterEditor
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            MongoDBBase.SetWarrior(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString())); ;
+            Warrior warrior = new Warrior(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()));
+            MongoDBBase.SetWarrior(warrior);
             listCharacter.ItemsSource = MongoDBBase.GetListWarriors();
             MessageBox.Show($"Character {name.Text} has added.");
         }
@@ -58,6 +59,32 @@ namespace WpfCharacterEditor
         private void listCharacter_Loaded(object sender, RoutedEventArgs e)
         {
             listCharacter.ItemsSource = MongoDBBase.GetListWarriors();
+        }
+
+        private void listCharacter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listCharacter.SelectedIndex == -1)
+            {
+                return;
+            }
+            else
+            {
+                Warrior warrior = MongoDBBase.GetWarrior(listCharacter.SelectedItem.ToString());
+
+                name.Text = warrior.Name;
+                proffession.SelectedItem = warrior.Proffession;
+                strength.Content = warrior.Strength;
+                agility.Content = warrior.Agility;
+                intelligence.Content = warrior.Intelligence;
+                endurance.Content = warrior.Endurance;
+                physicalDamage.Content = warrior.PhysicalDamage;
+                physicalProtection.Content = warrior.PhysicalProtection;
+                magicalDamage.Content = warrior.MagicalDamage;
+                magicalProtection.Content = warrior.MagicalProtection;
+                life.Content = warrior.Life;
+                magic.Content = warrior.Magic;
+
+            }
         }
     }
 }

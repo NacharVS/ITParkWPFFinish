@@ -9,12 +9,12 @@ namespace WpfCharacterEditor.Class
 {
     class MongoDBBase
     {
-        public static void SetWarrior(string name, string proffession, int strength, int agility, int intelligence, int endurance)
+        public static void SetWarrior(Warrior warrior)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Сharacters");
             var collection = database.GetCollection<Warrior>("Warriors");
-            collection.InsertOne(new Warrior(name, proffession, strength, agility, intelligence, endurance));
+            collection.InsertOne(warrior);
         }
 
         public static List<string> GetListWarriors()
@@ -29,6 +29,15 @@ namespace WpfCharacterEditor.Class
                 listToReturn.Add(item.Name);
             }
             return listToReturn;
+        }
+
+        public static Warrior GetWarrior(string name)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Сharacters");
+            var collection = database.GetCollection<Warrior>("Warriors");
+            var foundedWarrior = collection.Find(x => x.Name == name).FirstOrDefault();
+            return foundedWarrior;
         }
     }
 }
