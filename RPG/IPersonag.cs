@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace RPG
 {
-    internal interface Personag
+    internal interface IPersonag
     {
+        public string Name { get;  }
         public int MinStrenght { get; set; }  //мин сила
-        public int MaxStrenght { get; set; }  //макс сила
+        public int MaxStrenght { set; }  //макс сила
         public int MinAgility { get; set; }  //мин ловкость
-        public int MaxAgility { get; set; }  //макс ловкость
+        public int MaxAgility { set; }  //макс ловкость
         public int MinIntelligence { get; set; }  //мин интелект
-        public int MaxIntelligence { get; set; }  //макс интелект
+        public int MaxIntelligence { set; }  //макс интелект
         public int MinEndurance { get; set; }  //мин выносливость
-        public int MaxEndurance { get; set; }  //макс выносливость
+        public int MaxEndurance { set; }  //макс выносливость
 
     }
 }

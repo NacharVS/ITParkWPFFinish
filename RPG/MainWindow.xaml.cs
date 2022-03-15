@@ -24,5 +24,39 @@ namespace RPG
         {
             InitializeComponent();
         }
+
+        private void SavePerson_Click(object sender, RoutedEventArgs e) 
+        {
+            if (SelectPerson.SelectedIndex==0)
+            {
+                Warrior.AddWarriorToDB(NamePerson.Text, Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                ListPersonag.ItemsSource = Warrior.GetWarriorList();
+            }
+        }
+
+        private void SelectPerson_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SelectPerson.SelectedIndex == 0)
+            {
+                Strength.Text = Convert.ToString(30);
+                Dexterity.Text = Convert.ToString(15);
+                Intelligence.Text = Convert.ToString(10);
+                Endurance.Text = Convert.ToString(20);
+            }
+            else if(SelectPerson.SelectedIndex == 1)
+            {
+                Strength.Text = Convert.ToString(20);
+                Dexterity.Text = Convert.ToString(30);
+                Intelligence.Text = Convert.ToString(15);
+                Endurance.Text = Convert.ToString(20);
+            }
+            else if(SelectPerson.SelectedIndex == 2)
+            {
+                Strength.Text = Convert.ToString(15);
+                Dexterity.Text = Convert.ToString(20);
+                Intelligence.Text = Convert.ToString(35);
+                Endurance.Text = Convert.ToString(20);
+            }
+        }
     }
 }
