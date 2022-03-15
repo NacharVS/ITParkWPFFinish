@@ -35,7 +35,7 @@ namespace _2022_03_13_VerificationWork
                     , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
                     , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
                     , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt32(experienseAmountLabel.Content));
-                MessageBox.Show($"Character \"{nameTextBox.Text}({professionComboBox.SelectionBoxItem})\" was created!");
+                MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was created!");
             }
             else if (professionComboBox.SelectedIndex == 1)
             {
@@ -43,7 +43,7 @@ namespace _2022_03_13_VerificationWork
                     , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
                     , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
                     , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt32(experienseAmountLabel.Content));
-                MessageBox.Show($"Character \"{nameTextBox.Text}({professionComboBox.SelectionBoxItem})\" was created!");
+                MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was created!");
             }
             else if (professionComboBox.SelectedIndex == 2)
             {
@@ -51,7 +51,7 @@ namespace _2022_03_13_VerificationWork
                     , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
                     , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
                     , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt32(experienseAmountLabel.Content));
-                MessageBox.Show($"Character \"{nameTextBox.Text}({professionComboBox.SelectionBoxItem})\" was created!");
+                MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was created!");
             }
         }
 
@@ -65,6 +65,7 @@ namespace _2022_03_13_VerificationWork
                 baseFreePoint--;
                 strAmountLabel.Content = baseStr.ToString();
                 freePointAmountLabel.Content = baseFreePoint.ToString();
+                AddStatChange();
             }
             else
             {
@@ -82,6 +83,7 @@ namespace _2022_03_13_VerificationWork
                 baseFreePoint--;
                 intAmountLabel.Content = baseInt.ToString();
                 freePointAmountLabel.Content = baseFreePoint.ToString();
+                AddStatChange();
             }
             else
             {
@@ -99,6 +101,7 @@ namespace _2022_03_13_VerificationWork
                 baseFreePoint--;
                 stmnAmountLabel.Content = baseStmn.ToString();
                 freePointAmountLabel.Content = baseFreePoint.ToString();
+                AddStatChange();
             }
             else
             {
@@ -116,6 +119,7 @@ namespace _2022_03_13_VerificationWork
                 baseFreePoint--;
                 agltAmountLabel.Content = baseAglt.ToString();
                 freePointAmountLabel.Content = baseFreePoint.ToString();
+                AddStatChange();
             }
             else
             {
@@ -133,6 +137,7 @@ namespace _2022_03_13_VerificationWork
                 baseFreePoint++;
                 strAmountLabel.Content = baseStr.ToString();
                 freePointAmountLabel.Content = baseFreePoint.ToString();
+                AddStatChange();
             }
             else
             {
@@ -150,6 +155,7 @@ namespace _2022_03_13_VerificationWork
                 baseFreePoint++;
                 agltAmountLabel.Content = baseAglt.ToString();
                 freePointAmountLabel.Content = baseFreePoint.ToString();
+                AddStatChange();
             }
             else
             {
@@ -167,6 +173,7 @@ namespace _2022_03_13_VerificationWork
                 baseFreePoint++;
                 intAmountLabel.Content = baseInt.ToString();
                 freePointAmountLabel.Content = baseFreePoint.ToString();
+                AddStatChange();
             }
             else
             {
@@ -184,6 +191,7 @@ namespace _2022_03_13_VerificationWork
                 baseFreePoint++;
                 stmnAmountLabel.Content = baseStmn.ToString();
                 freePointAmountLabel.Content = baseFreePoint.ToString();
+                AddStatChange();
             }
             else
             {
@@ -201,6 +209,154 @@ namespace _2022_03_13_VerificationWork
         {
             if (nameTextBox.Text == "") nameTextBox.Text = "Name";
             else return;
+        }
+
+        public void WarriorAddStatChange()
+        {
+            physicalDamageAmountLabel.Content = Convert.ToString(
+                    7 * Convert.ToInt32(strAmountLabel.Content) +
+                    2 * Convert.ToInt32(agltAmountLabel.Content) +
+                    0 * Convert.ToInt32(intAmountLabel.Content) +
+                    0 * Convert.ToInt32(stmnAmountLabel.Content)
+                    );
+            physicalDefenseAmountLabel.Content = Convert.ToString(
+                2 * Convert.ToInt32(strAmountLabel.Content) +
+                3 * Convert.ToInt32(agltAmountLabel.Content) +
+                0 * Convert.ToInt32(intAmountLabel.Content) +
+                3 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            magicalDamageAmountLabel.Content = Convert.ToString(
+                0 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                1 * Convert.ToInt32(intAmountLabel.Content) +
+                0 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            magicalDefenseAmountLabel.Content = Convert.ToString(
+                1 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                2 * Convert.ToInt32(intAmountLabel.Content) +
+                1 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            healthAmountLabel.Content = Convert.ToString(
+                5 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                0 * Convert.ToInt32(intAmountLabel.Content) +
+                10 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            manaAmountLabel.Content = Convert.ToString(
+                0 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                1 * Convert.ToInt32(intAmountLabel.Content) +
+                0 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+        }
+        public void ArcherAddStatChange()
+        {
+            physicalDamageAmountLabel.Content = Convert.ToString(
+                    3 * Convert.ToInt32(strAmountLabel.Content) +
+                    7 * Convert.ToInt32(agltAmountLabel.Content) +
+                    0 * Convert.ToInt32(intAmountLabel.Content) +
+                    0 * Convert.ToInt32(stmnAmountLabel.Content)
+                    );
+            physicalDefenseAmountLabel.Content = Convert.ToString(
+                1 * Convert.ToInt32(strAmountLabel.Content) +
+                5 * Convert.ToInt32(agltAmountLabel.Content) +
+                0 * Convert.ToInt32(intAmountLabel.Content) +
+                2 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            magicalDamageAmountLabel.Content = Convert.ToString(
+                0 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                3 * Convert.ToInt32(intAmountLabel.Content) +
+                0 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            magicalDefenseAmountLabel.Content = Convert.ToString(
+                0 * Convert.ToInt32(strAmountLabel.Content) +
+                3 * Convert.ToInt32(agltAmountLabel.Content) +
+                3 * Convert.ToInt32(intAmountLabel.Content) +
+                1 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            healthAmountLabel.Content = Convert.ToString(
+                2 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                0 * Convert.ToInt32(intAmountLabel.Content) +
+                5 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            manaAmountLabel.Content = Convert.ToString(
+                0 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                1 * Convert.ToInt32(intAmountLabel.Content) +
+                0 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+        }
+        public void WizardAddStatChange()
+        {
+            physicalDamageAmountLabel.Content = Convert.ToString(
+                    1 * Convert.ToInt32(strAmountLabel.Content) +
+                    1 * Convert.ToInt32(agltAmountLabel.Content) +
+                    0 * Convert.ToInt32(intAmountLabel.Content) +
+                    0 * Convert.ToInt32(stmnAmountLabel.Content)
+                    );
+            physicalDefenseAmountLabel.Content = Convert.ToString(
+                1 * Convert.ToInt32(strAmountLabel.Content) +
+                1 * Convert.ToInt32(agltAmountLabel.Content) +
+                1 * Convert.ToInt32(intAmountLabel.Content) +
+                2 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            magicalDamageAmountLabel.Content = Convert.ToString(
+                0 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                7 * Convert.ToInt32(intAmountLabel.Content) +
+                0 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            magicalDefenseAmountLabel.Content = Convert.ToString(
+                0 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                5 * Convert.ToInt32(intAmountLabel.Content) +
+                1 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            healthAmountLabel.Content = Convert.ToString(
+                1 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                0 * Convert.ToInt32(intAmountLabel.Content) +
+                3 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+            manaAmountLabel.Content = Convert.ToString(
+                0 * Convert.ToInt32(strAmountLabel.Content) +
+                0 * Convert.ToInt32(agltAmountLabel.Content) +
+                2 * Convert.ToInt32(intAmountLabel.Content) +
+                0 * Convert.ToInt32(stmnAmountLabel.Content)
+                );
+        }
+        public void AddStatChange()
+        {
+            if (professionComboBox.SelectedIndex == 0)
+            {
+                WarriorAddStatChange();
+            }
+            else if (professionComboBox.SelectedIndex == 1)
+            {
+                ArcherAddStatChange();
+            }
+            else if (professionComboBox.SelectedIndex == 2)
+            {
+                WizardAddStatChange();
+            }
+        }
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            AddStatChange();
+            
+        }
+
+        private void professionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AddStatChange();
+        }
+
+        private void updateListBtn_Click(object sender, RoutedEventArgs e)
+        {
+            characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
         }
     }
 }
