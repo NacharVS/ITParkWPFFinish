@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="553" Width="1168">
     <Grid>
-        <GroupBox Header="NewPersonag" Margin="11,15,916,315" FontSize="22" FontWeight="Bold"/>
+        <GroupBox Header="NewPersonag" Margin="11,15,916,26" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="NamePerson" HorizontalAlignment="Left" Margin="23,52,0,0" TextWrapping="Wrap" Text="New_Name" VerticalAlignment="Top" Width="211" Height="32" FontSize="22" FontWeight="Normal"/>
         <ComboBox x:Name="SelectPerson" HorizontalAlignment="Left" Margin="23,103,0,0" VerticalAlignment="Top" Width="211" Height="33" FontSize="22" SelectionChanged="SelectPerson_SelectionChanged">
             <ListBoxItem Background="{x:Null}" BorderBrush="{x:Null}" Content="Warrior"/>
@@ -19,7 +19,7 @@
         <GroupBox x:Name="Parameters__Dexterity" Header="Dexterity" Margin="268,137,602,315" FontSize="22" FontWeight="Bold"/>
         <GroupBox x:Name="Parameters__Intelligence" Header="Intelligence" Margin="267,231,601,221" FontSize="22" FontWeight="Bold"/>
         <GroupBox x:Name="Parameters__Endurance" Header="Endurance" Margin="267,324,603,126" FontSize="22" FontWeight="Bold"/>
-        <GroupBox x:Name="Personag" Header="Personag" Margin="10,241,916,26" FontSize="22" FontWeight="Bold"/>
+        <GroupBox x:Name="Personag" Header="Personag" Margin="903,15,23,26" FontSize="22" FontWeight="Bold"/>
         <Button x:Name="decrease_strength" Content="-" HorizontalAlignment="Left" Margin="319,83,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
         <Button x:Name="decrease_dexterity" Content="-" HorizontalAlignment="Left" Margin="315,173,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
         <Button x:Name="decrease_intelligence" Content="-" HorizontalAlignment="Left" Margin="317,268,0,0" VerticalAlignment="Top" Height="32" Width="54" FontSize="22" FontWeight="Bold"/>
@@ -32,11 +32,11 @@
         <TextBox x:Name="Dexterity" HorizontalAlignment="Left" Margin="373,173,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="Intelligence" HorizontalAlignment="Left" Margin="375,268,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="Endurance" HorizontalAlignment="Left" Margin="373,368,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
-        <Button x:Name="SavePerson" Content="SavePerson" HorizontalAlignment="Left" Margin="23,155,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="SavePerson_Click"/>
+        <Button x:Name="SavePerson" Content="SavePerson" HorizontalAlignment="Left" Margin="23,162,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="SavePerson_Click"/>
         <GroupBox x:Name="Parameters__free_glasses_" Header="FreeGlasses" Margin="267,419,603,40" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="free_glasses" HorizontalAlignment="Left" Margin="365,456,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
         <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Margin="463,455,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
-        <ListBox x:Name="ListPersonag" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="23,284,934,40" SelectionChanged="ListPersonag_SelectionChanged"/>
+        <ListBox x:Name="ListPersonag" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="918,52,38,40" SelectionChanged="ListPersonag_SelectionChanged" Loaded="ListPersonag_Loaded"/>
         <GroupBox x:Name="Characteristics" Header="Characteristics" Margin="580,13,270,26" FontSize="22" FontWeight="Bold"/>
         <GroupBox x:Name="Characteristics_Damage" Header="Damage" Margin="587,51,284,427" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="Damage" HorizontalAlignment="Left" Margin="781,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
@@ -50,6 +50,8 @@
         <GroupBox x:Name="Characteristics_Magic" Header="Magic" Margin="587,369,284,109" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="Magic" HorizontalAlignment="Left" Margin="781,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="MagicProtection" HorizontalAlignment="Left" Margin="781,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
+        <Button x:Name="UpdatePerson" Content="Update" HorizontalAlignment="Left" Margin="23,216,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="SavePerson_Click"/>
+        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="23,270,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="SavePerson_Click"/>
 
 
 

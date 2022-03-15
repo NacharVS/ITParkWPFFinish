@@ -25,16 +25,16 @@ namespace RPG
             InitializeComponent();
         }
 
-        private void SavePerson_Click(object sender, RoutedEventArgs e) 
+        private void SavePerson_Click(object sender, RoutedEventArgs e)   //создание персонажа
         {
             if (SelectPerson.SelectedIndex==0)
             {
-                Warrior.AddWarriorToDB(NamePerson.Text, Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                ListPersonag.ItemsSource = Warrior.GetWarriorList();
+                WorkBase.AddWarriorToDB(new Warrior (NamePerson.Text, SelectPerson.Text ,Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text)));
+                ListPersonag.ItemsSource = WorkBase.GetList();
             }
         }
 
-        private void SelectPerson_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SelectPerson_SelectionChanged(object sender, SelectionChangedEventArgs e) //выбор персонажа
         {
             if (SelectPerson.SelectedIndex == 0)
             {
@@ -60,7 +60,7 @@ namespace RPG
             }
         }
 
-        private void ListPersonag_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListPersonag_SelectionChanged(object sender, SelectionChangedEventArgs e) //способ передачи персонажа из БД
         {
             if (ListPersonag.SelectedIndex == -1)
             {
@@ -68,12 +68,15 @@ namespace RPG
             }
             else
             {
-                //txtLogin.Text = User.Get(listLogin.SelectedItem.ToString()).Login;
-                //txtName1.Text = User.GetUser(listLogin.SelectedItem.ToString()).Name;
-                //txtEmail.Text = User.GetUser(listLogin.SelectedItem.ToString()).Email;
-                //txtPhone.Text = User.GetUser(listLogin.SelectedItem.ToString()).PhoneNumber;
+                //NamePerson.Text = WorkBase.GetWarrior(ListPersonag.SelectedItem.ToString()).Name;
+
 
             }
+        }
+
+        private void ListPersonag_Loaded(object sender, RoutedEventArgs e)  // загрузка листа из БД
+        {
+            ListPersonag.ItemsSource = WorkBase.GetList();
         }
     }
 }

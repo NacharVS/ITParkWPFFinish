@@ -8,7 +8,8 @@ namespace RPG
 {
     internal interface IPersonag
     {
-        public string Name { get;  }
+        public string Name { get; set; }
+        public string Class { get; set; }
         public int MinStrenght { get; set; }  //мин сила
         public int MaxStrenght { set; }  //макс сила
         public int MinAgility { get; set; }  //мин ловкость
