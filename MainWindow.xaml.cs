@@ -32,17 +32,17 @@ namespace WpfCharacterEditor
 
         private void Indicators()
         {
-            switch (proffession.SelectedIndex)
+            switch (character.Proffession)
             {
-                case 1:
+                case "Warrior":
                     proffession.SelectedIndex = 1;
                     break;
 
-                case 2:
+                case "Archer":
                     proffession.SelectedIndex = 2;
                     break;
 
-                case 3:
+                case "Wizard":
                     proffession.SelectedIndex = 3;
                     break;
                 default:
