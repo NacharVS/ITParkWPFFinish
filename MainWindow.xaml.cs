@@ -32,8 +32,24 @@ namespace WpfCharacterEditor
 
         private void Indicators()
         {
+            switch (proffession.SelectedIndex)
+            {
+                case 1:
+                    proffession.SelectedIndex = 1;
+                    break;
+
+                case 2:
+                    proffession.SelectedIndex = 2;
+                    break;
+
+                case 3:
+                    proffession.SelectedIndex = 3;
+                    break;
+                default:
+                    break;
+            }
+
             name.Text = character.Name;
-            //proffession.ItemsSource = warrior.Proffession;
             strength.Content = character.Strength;
             agility.Content = character.Agility;
             intelligence.Content = character.Intelligence;

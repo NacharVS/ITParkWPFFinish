@@ -44,11 +44,11 @@ namespace WpfCharacterEditor
             _freePoints = freePoints;
             _maxFreePoints = freePoints;
         }
-        [BsonElement]
+        
         public string Name { get; set; }
-        [BsonElement]
+        
         public string Proffession { get; set; }
-        [BsonElement("Strength")]
+        
         public int Strength
         {
             get => _strength;
@@ -73,7 +73,7 @@ namespace WpfCharacterEditor
         public int StrengthMin => _minStrength;
         [BsonIgnore]
         public int StrengthMax => _maxStrength;
-        [BsonElement("Agility")]
+        
         public int Agility
         {
             get => _agility;
@@ -97,7 +97,7 @@ namespace WpfCharacterEditor
         public int AgilityMin => _minAgility;
         [BsonIgnore]
         public int AgilityMax => _maxAgility;
-        [BsonElement("Intelligence")]
+        
         public int Intelligence
         {
             get => _inteligence;
@@ -121,7 +121,7 @@ namespace WpfCharacterEditor
         public int IntelligenceMin => _minIntelligence;
         [BsonIgnore]
         public int IntelligenceMax => _maxIntelligence;
-        [BsonElement("Endurance")]
+        
         public int Endurance
         {
             get => _endurance;
@@ -145,7 +145,7 @@ namespace WpfCharacterEditor
         public int EnduranceMin => _minEndurance;
         [BsonIgnore]
         public int EnduranceMax => _maxEndurance;
-        [BsonElement]
+        
         public int FreePoints
         {
             get => _freePoints;
