@@ -52,7 +52,24 @@ namespace WpfCharacterEditor
 
             if (warrior.Strength == warrior.StrengthMax) addStrength.IsEnabled = false;
             else addStrength.IsEnabled = true;
-            
+
+            if (warrior.Agility == warrior.AgilityMin) removeAgility.IsEnabled = false;
+            else removeAgility.IsEnabled = true;
+
+            if (warrior.Agility == warrior.AgilityMax) addAgility.IsEnabled = false;
+            else addAgility.IsEnabled = true;
+
+            if (warrior.Intelligence == warrior.IntelligenceMin) removeIntelligence.IsEnabled = false;
+            else removeIntelligence.IsEnabled = true;
+
+            if (warrior.Intelligence == warrior.IntelligenceMax) addIntelligence.IsEnabled = false;
+            else addIntelligence.IsEnabled = true;
+
+            if (warrior.Endurance == warrior.EnduranceMin) removeEndurance.IsEnabled = false;
+            else removeEndurance.IsEnabled = true;
+
+            if (warrior.Endurance == warrior.EnduranceMax) addEndurance.IsEnabled = false;
+            else addEndurance.IsEnabled = true;
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
@@ -146,8 +163,6 @@ namespace WpfCharacterEditor
         {
             warrior.Strength -= 1;
             Indicators();
-            //сharacteristics[0] -= 1;
-            //strength.Content = сharacteristics[0];
         }
 
         private void addStrength_Click(object sender, RoutedEventArgs e)
@@ -158,32 +173,38 @@ namespace WpfCharacterEditor
 
         private void removeAgility_Click(object sender, RoutedEventArgs e)
         {
-
+            warrior.Agility -= 1;
+            Indicators();
         }
 
         private void addAgility_Click(object sender, RoutedEventArgs e)
         {
-
+            warrior.Agility += 1;
+            Indicators();
         }
 
         private void removeIntelligence_Click(object sender, RoutedEventArgs e)
         {
-
+            warrior.Intelligence -= 1;
+            Indicators();
         }
 
         private void addIntelligence_Click(object sender, RoutedEventArgs e)
         {
-
+            warrior.Intelligence += 1;
+            Indicators();
         }
 
         private void removeEndurance_Click(object sender, RoutedEventArgs e)
         {
-
+            warrior.Endurance -= 1;
+            Indicators();
         }
 
         private void addEndurance_Click(object sender, RoutedEventArgs e)
         {
-
+            warrior.Endurance += 1;
+            Indicators();
         }
     }
 }

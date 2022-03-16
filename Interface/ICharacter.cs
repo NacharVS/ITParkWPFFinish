@@ -34,6 +34,10 @@ namespace WpfCharacterEditor
 
         public int FreePoints { get; set; }
 
+        public int FreePointsMin { get; }
+
+        public int FreePointsMax { get; set; }
+
         public int PhysicalDamage { get; }
 
         public int PhysicalProtection { get; }
