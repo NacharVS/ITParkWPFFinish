@@ -57,14 +57,15 @@ namespace WpfCharacterEditor
                 if (_strength > value && _strength > StrengthMin && FreePoints < FreePointsMax)
                 {
                     _strength = value;
-                    FreePoints += 1; 
+                    FreePoints += 1;
                 }
                 if (_strength < value && _strength < StrengthMax && FreePoints > FreePointsMin)
                 {
                     _strength = value;
                     FreePoints -= 1;
                 }
-                
+                else _strength = value;
+
             }
         }
 
@@ -88,7 +89,7 @@ namespace WpfCharacterEditor
                     _agility = value;
                     FreePoints -= 1;
                 }
-
+                else _agility = value;
             }
         }
 
@@ -112,7 +113,7 @@ namespace WpfCharacterEditor
                     _inteligence = value;
                     FreePoints -= 1;
                 }
-
+                else _inteligence = value;
             }
         }
 
@@ -136,7 +137,7 @@ namespace WpfCharacterEditor
                     _endurance = value;
                     FreePoints -= 1;
                 }
-
+                else _endurance = value;
             }
         }
 

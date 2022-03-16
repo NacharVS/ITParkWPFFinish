@@ -22,7 +22,7 @@ namespace WpfCharacterEditor
     public partial class MainWindow : Window
     {
         string buffName = "Name";
-        //int[] сharacteristics = new int[4] { 10, 10, 10, 10 };
+        
         ICharacter character;
         
         public MainWindow()
