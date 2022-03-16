@@ -19,14 +19,9 @@ namespace _2022_03_13_VerificationWork
         public int Agility { get; set; }
         public int Intelligence { get; set; }
         public int Stamina { get; set; }
-        public int PhysicalDamage { get; set; }
-        public int PhysicalDefense { get; set; }
-        public int MagicalDamage { get; set; }
-        public int MagicalDefense   { get; set; }                                               
-        public int Health { get; set; }
-        public int Mana { get; set; }
         public int Level { get; set; }
         public long Experiense { get; set; }
+
 
         
     }

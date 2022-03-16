@@ -16,7 +16,7 @@ namespace _2022_03_13_VerificationWork.MongoDB
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
             var collection = database.GetCollection<Warrior>("Characters");
-            collection.InsertOne(new Warrior(name, profession, strenght, agility, intelligenсe,stamina));
+            collection.InsertOne(new Warrior(name, profession, strenght, agility, intelligenсe,stamina, level, experiense));
         }
         public static void AddArcherToDB(string name, string profession, int strenght, int agility, int intelligenсe
             , int stamina, int level, long experiense)

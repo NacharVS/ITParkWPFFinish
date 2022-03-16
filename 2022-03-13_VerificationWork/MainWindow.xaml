@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2022_03_13_VerificationWork"
         mc:Ignorable="d"
-        Title="MainWindow" Height="540" Width="1239" Activated="Window_Activated">
+        Title="MainWindow" Height="540" Width="1239" Initialized="Window_Initialized">
     <Grid>
-        <GroupBox x:Name="characterInfo" HorizontalAlignment="Left" Height="451" Header="Character Info:" Margin="6,10,0,0" VerticalAlignment="Top" Width="255" FontSize="24"/>
+        <GroupBox x:Name="characterInfo" HorizontalAlignment="Left" Height="484" Header="Character Info:" Margin="6,10,0,0" VerticalAlignment="Top" Width="255" FontSize="24"/>
         <ComboBox x:Name="professionComboBox" HorizontalAlignment="Left" Margin="26,184,0,0" VerticalAlignment="Top" Width="200" FontSize="24" SelectionChanged="professionComboBox_SelectionChanged">
             <ListBoxItem Content="Warrior"/>
             <ListBoxItem Content="Archer"/>
@@ -17,8 +17,8 @@
         <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Margin="23,98,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="200" FontSize="24" GotFocus="nameTextBox_GotFocus" LostFocus="nameTextBox_LostFocus" HorizontalContentAlignment="Right"/>
         <Label x:Name="nameLabel" Content="Name:" HorizontalAlignment="Left" Margin="23,54,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Button x:Name="createButton" Content="CREATE" HorizontalAlignment="Left" Margin="27,241,0,0" VerticalAlignment="Top" FontSize="24" Width="196" Click="createButton_Click"/>
-        <GroupBox x:Name="mainStatGroupBox" HorizontalAlignment="Left" Height="505" Header="Main Stats:" Margin="266,19,0,0" VerticalAlignment="Top" Width="279" FontSize="24"/>
-        <GroupBox x:Name="additionalStatGroupBox" HorizontalAlignment="Left" Height="451" Header="Additional Stats:" Margin="567,20,0,0" VerticalAlignment="Top" Width="320" FontSize="24"/>
+        <GroupBox x:Name="mainStatGroupBox" HorizontalAlignment="Left" Height="475" Header="Main Stats:" Margin="266,19,0,0" VerticalAlignment="Top" Width="279" FontSize="24"/>
+        <GroupBox x:Name="additionalStatGroupBox" HorizontalAlignment="Left" Height="261" Header="Additional Stats:" Margin="567,20,0,0" VerticalAlignment="Top" Width="320" FontSize="24"/>
         <Label x:Name="strLabel" Content="Strenght:" HorizontalAlignment="Left" Margin="337,54,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="agltLabel" Content="Agility:" HorizontalAlignment="Left" Margin="346,151,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="intLabel" Content="Intelligence:" HorizontalAlignment="Left" Margin="327,239,0,0" VerticalAlignment="Top" FontSize="24"/>
@@ -33,22 +33,22 @@
         <Button x:Name="agltAddBtn" Content="+" HorizontalAlignment="Left" Margin="428,197,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="agltAddBtn_Click"/>
         <Button x:Name="intAddBtn" Content="+" HorizontalAlignment="Left" Margin="428,286,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="intAddBtn_Click"/>
 
-        <Label x:Name="physicalDamageLabel" Content="PhysicalDamage:" HorizontalAlignment="Left" Margin="590,64,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="physicalDefenseLabel" Content="PhysicalDefense:" HorizontalAlignment="Left" Margin="590,111,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="magicalDamageLabel" Content="MagicalDamage:" HorizontalAlignment="Left" Margin="590,158,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="physicalDamageAmountLabel" Content="0" HorizontalAlignment="Left" Margin="846,64,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="physicalDefenseAmountLabel" Content="0" HorizontalAlignment="Left" Margin="846,111,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="magicalDamageAmountLabel" Content="0" HorizontalAlignment="Left" Margin="846,158,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="magicalDefenseLabel" Content="MagicalDefense:" HorizontalAlignment="Left" Margin="590,205,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="healthLabel" Content="Health:" HorizontalAlignment="Left" Margin="590,251,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="manaLabel" Content="Mana:" HorizontalAlignment="Left" Margin="590,299,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="magicalDefenseAmountLabel" Content="0" HorizontalAlignment="Left" Margin="846,205,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="healthAmountLabel" Content="0" HorizontalAlignment="Left" Margin="846,251,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="manaAmountLabel" Content="0" HorizontalAlignment="Left" Margin="846,299,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="levelLabel" Content="Level:" HorizontalAlignment="Left" Margin="590,339,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="experienseLabel" Content="Experiense:" HorizontalAlignment="Left" Margin="590,387,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="levelAmountLabel" Content="0" HorizontalAlignment="Left" Margin="846,339,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="experienseAmountLabel" Content="0" HorizontalAlignment="Left" Margin="846,387,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="physicalDamageLabel" Content="PhysicalDamage:" HorizontalAlignment="Left" Margin="585,54,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="physicalDefenseLabel" Content="PhysicalDefense:" HorizontalAlignment="Left" Margin="585,94,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="magicalDamageLabel" Content="MagicalDamage:" HorizontalAlignment="Left" Margin="585,128,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="physicalDamageAmountLabel" Content="0" HorizontalAlignment="Left" Margin="841,54,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="physicalDefenseAmountLabel" Content="0" HorizontalAlignment="Left" Margin="841,94,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="magicalDamageAmountLabel" Content="0" HorizontalAlignment="Left" Margin="841,128,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="magicalDefenseLabel" Content="MagicalDefense:" HorizontalAlignment="Left" Margin="585,162,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="healthLabel" Content="Health:" HorizontalAlignment="Left" Margin="585,200,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="manaLabel" Content="Mana:" HorizontalAlignment="Left" Margin="585,228,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="magicalDefenseAmountLabel" Content="0" HorizontalAlignment="Left" Margin="841,162,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="healthAmountLabel" Content="0" HorizontalAlignment="Left" Margin="841,197,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="manaAmountLabel" Content="0" HorizontalAlignment="Left" Margin="841,228,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="levelLabel" Content="Level:" HorizontalAlignment="Center" Margin="0,293,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="experienseLabel" Content="Experiense:" HorizontalAlignment="Left" Margin="585,335,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="levelAmountLabel" Content="1" HorizontalAlignment="Left" Margin="727,293,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="experienseAmountLabel" Content="0" HorizontalAlignment="Left" Margin="727,335,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="stmnLabel" Content="Stamina:" HorizontalAlignment="Left" Margin="346,324,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="stmnAmountLabel" Content="10" HorizontalAlignment="Left" Margin="378,366,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Button x:Name="stmnAddBtn" Content="+" HorizontalAlignment="Left" Margin="428,366,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="stmnAddBtn_Click"/>
@@ -62,6 +62,9 @@
         <Button x:Name="updateBtn" Content="Update" HorizontalAlignment="Left" Height="48" Margin="954,363,0,0" VerticalAlignment="Top" Width="97" FontSize="24"/>
         <Button x:Name="removeBtn" Content="Remove" HorizontalAlignment="Left" Height="48" Margin="1069,363,0,0" VerticalAlignment="Top" Width="97" FontSize="24"/>
         <Button x:Name="updateListBtn" Content="Update List" HorizontalAlignment="Left" Height="38" Margin="954,423,0,0" VerticalAlignment="Top" Width="212" FontSize="24" Click="updateListBtn_Click"/>
+        <Button x:Name="_1kExpBtn" Content="+1000exp" HorizontalAlignment="Left" Margin="585,395,0,0" VerticalAlignment="Top" FontSize="24" Click="_1kExpBtn_Click"/>
+        <Button x:Name="_3kExpBtn" Content="+3000exp" HorizontalAlignment="Left" Margin="743,395,0,0" VerticalAlignment="Top" FontSize="24" Click="_3kExpBtn_Click"/>
+        <Button x:Name="_5kExpBtn" Content="+5000exp" HorizontalAlignment="Left" Margin="663,444,0,0" VerticalAlignment="Top" FontSize="24" Click="_5kExpBtn_Click"/>
 
 
     </Grid>
