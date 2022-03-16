@@ -21,6 +21,18 @@ namespace WpfCharacterEditor
         private int _minFreePoints = 0;
         private int _maxFreePoints;
 
+        public Warrior(string name, string proffession, int freePoints)
+        {
+            Name = name;
+            Proffession = proffession;
+            _strength = _minStrength;
+            _agility = _minAgility;
+            _inteligence = _minIntelligence;
+            _endurance = _minEndurance;
+            _freePoints = freePoints;
+            _maxFreePoints = freePoints;
+        }
+
         public Warrior(string name, string proffession, int strength, int agility, int intelligence, int endurance, int freePoints)
         {
             Name = name;
@@ -56,8 +68,9 @@ namespace WpfCharacterEditor
             }
         }
 
+        [BsonIgnore]
         public int StrengthMin => _minStrength;
-
+        [BsonIgnore]
         public int StrengthMax => _maxStrength;
 
         public int Agility
@@ -79,8 +92,9 @@ namespace WpfCharacterEditor
             }
         }
 
+        [BsonIgnore]
         public int AgilityMin => _minAgility;
-
+        [BsonIgnore]
         public int AgilityMax => _maxAgility;
 
         public int Intelligence
@@ -102,8 +116,9 @@ namespace WpfCharacterEditor
             }
         }
 
+        [BsonIgnore]
         public int IntelligenceMin => _minIntelligence;
-
+        [BsonIgnore]
         public int IntelligenceMax => _maxIntelligence;
 
         public int Endurance
@@ -125,8 +140,9 @@ namespace WpfCharacterEditor
             }
         }
 
+        [BsonIgnore]
         public int EnduranceMin => _minEndurance;
-
+        [BsonIgnore]
         public int EnduranceMax => _maxEndurance;
 
         public int FreePoints
@@ -138,26 +154,27 @@ namespace WpfCharacterEditor
             }
         }
 
+        [BsonIgnore]
         public int FreePointsMin => _minFreePoints;
-
+        [BsonIgnore]
         public int FreePointsMax { get => _maxFreePoints; set => _maxFreePoints = value; }
 
-        [BsonIgnoreIfDefault]
+        [BsonIgnore]
         public int PhysicalDamage { get => _strength * 7 + _agility * 2 + _inteligence * 0 + _endurance * 0; }           
         
-        [BsonIgnoreIfDefault]
+        [BsonIgnore]
         public int PhysicalProtection { get => _strength * 2 + _agility * 3 + _inteligence * 0 + _endurance * 3; }
 
-        [BsonIgnoreIfDefault]
+        [BsonIgnore]
         public int MagicalDamage { get => _strength * 0 + _agility * 0 + _inteligence * 1 + _endurance * 0; }
                 
-        [BsonIgnoreIfDefault]
+        [BsonIgnore]
         public int MagicalProtection { get => _strength * 1 + _agility * 0 + _inteligence * 2 + _endurance * 1; }
         
-        [BsonIgnoreIfDefault]
+        [BsonIgnore]
         public int Life { get => _strength * 5 + _agility * 0 + _inteligence * 0 + _endurance * 10; }
         
-        [BsonIgnoreIfDefault]
+        [BsonIgnore]
         public int Magic { get => _strength * 0 + _agility * 0 + _inteligence * 1 + _endurance * 0; }
 
         
