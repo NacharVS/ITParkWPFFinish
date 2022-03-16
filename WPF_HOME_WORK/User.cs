@@ -41,5 +41,16 @@ namespace WPF_HOME_WORK
             }
             return listToReturn;
         }
+
+        public static User GetUser(string name)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Home_Work");
+            var collection = database.GetCollection<User>("Users");
+            var foundedUser = collection.Find(x => x.Name== name).FirstOrDefault();
+            return foundedUser;
+
+
+        }
     }
 }

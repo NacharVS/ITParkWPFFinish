@@ -20,21 +20,42 @@ namespace WPF_HOME_WORK
     /// </summary>
     public partial class MainWindow : Window
     {
+        User user = new User("Name", "Profession");
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             User.AddToDB(Enter_a_name.Text, Enter_a_profession.Text);
 
-            ListName.Items.Add(Enter_a_name.Text);
+            ListName.ItemsSource = User.GetNameList();
         }
 
         private void ListName_Loaded_1(object sender, RoutedEventArgs e)
         {
             ListName.ItemsSource = User.GetNameList();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Enter_a_name.Text = user.Name;
+            Enter_a_profession.Text = user.Profession;
+        }
+
+        private void ListName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ListName.SelectedIndex == -1)
+            {
+                return;
+            }
+            else
+            {
+                Enter_a_name.Text = User.GetUser(ListName.SelectedItem.ToString()).Name;
+                Enter_a_profession.Text = User.GetUser(ListName.SelectedItem.ToString()).Profession;
+            }
         }
     }
 }

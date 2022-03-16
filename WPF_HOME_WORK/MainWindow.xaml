@@ -5,19 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_HOME_WORK"
         mc:Ignorable="d"
-        Title="MainWindow" Height="667" Width="851">
+        Title="MainWindow" Height="667" Width="851" Loaded="Window_Loaded">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="59,53,0,0" Text="Введите имя" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <TextBox x:Name="Enter_a_name" HorizontalAlignment="Left" Margin="59,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" Height="31"/>
         <TextBlock HorizontalAlignment="Left" Margin="59,130,0,0" Text="Введите профессию" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" FontWeight="Bold"/>
         <TextBox x:Name="Enter_a_profession" HorizontalAlignment="Left" Margin="59,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" Height="31"/>
         <TextBlock HorizontalAlignment="Left" Margin="59,248,0,0" Text="Показатели" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="92,280,0,0" Text="Сила" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Button x:Name="btn_add" Content="Add" HorizontalAlignment="Left" Margin="59,535,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Click="btn_add_Click"/>
-        <Button x:Name="btn_delete" Content="Delete" HorizontalAlignment="Left" Margin="119,535,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Click="btn_add_Click"/>
-        <ListBox x:Name="ListName" Margin="238,41,408,41" Loaded="ListName_Loaded_1"/>
-        <Button x:Name="btn_plus" Content="-" HorizontalAlignment="Left" Margin="59,276,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button x:Name="btn_plus_Copy" Content="+" HorizontalAlignment="Left" Margin="155,276,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="82,287,0,0" Text="Сила" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Button x:Name="btn_add1" Content="Add" HorizontalAlignment="Left" Margin="59,535,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Click="btn_add_Click"/>
+        <Button x:Name="btn_delete1" Content="Delete" HorizontalAlignment="Left" Margin="119,535,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Click="btn_add_Click"/>
+        <ListBox x:Name="ListName" Margin="323,41,323,41" Loaded="ListName_Loaded_1" SelectionChanged="ListName_SelectionChanged"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="31,283,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="225,283,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <Button Content="UpdateUser" HorizontalAlignment="Left" Margin="59,579,0,0" VerticalAlignment="Top" Width="125" Height="31" FontSize="20" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="82,330,0,0" Text="Ловкость" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="82,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Text="Интелект" FontWeight="Bold" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="82,415,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="153" Text="Выносливость"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="31,326,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="31,367,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="31,418,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="225,326,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="225,369,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="266,411,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <TextBlock HorizontalAlignment="Left" Margin="82,467,0,0" Text="Доп.очки" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="31,467,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="225,467,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
 
     </Grid>
 </Window>
