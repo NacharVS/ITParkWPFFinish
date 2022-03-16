@@ -20,7 +20,6 @@ namespace WpfCharacterEditor
         private int _freePoints;
         private int _minFreepoints;
 
-
         private int _physicalDamage;
         private int _physicalProtection;
         private int _magicalDamage;
@@ -48,19 +47,24 @@ namespace WpfCharacterEditor
             get => _strength;
             set
             {
-                if (_strength > value && _strength < _maxStrength)
+                if (_strength > value && _strength > StrengthMin)
                 {
+                    _strength = value;
                     FreePoints += 1; 
                 }
-                if (_strength < value && _strength > _minStrength)
+                if (_strength < value && _strength < StrengthMax)
                 {
+                    _strength = value;
                     FreePoints -= 1;
                 }
-
-                _strength = value;
-
+                
             }
         }
+
+        public int StrengthMin => _minStrength;
+
+        public int StrengthMax => _maxStrength;
+
         public int Agility
         {
             get => _agility;
@@ -69,6 +73,11 @@ namespace WpfCharacterEditor
                _agility = value;
             }
         }
+
+        public int AgilityMin => _minAgility;
+
+        public int AgilityMax => _maxAgility;
+
         public int Intelligence
         {
             get => _inteligence;
@@ -77,6 +86,11 @@ namespace WpfCharacterEditor
                 _inteligence = value;
             }
         }
+
+        public int IntelligenceMin => _minIntelligence;
+
+        public int IntelligenceMax => _maxIntelligence;
+
         public int Endurance
         {
             get => _endurance;
@@ -85,6 +99,10 @@ namespace WpfCharacterEditor
                 _endurance = value;
             }
         }
+
+        public int EnduranceMin => _minEndurance;
+
+        public int EnduranceMax => _maxEndurance;
 
         public int FreePoints
         {
@@ -112,6 +130,15 @@ namespace WpfCharacterEditor
         
         [BsonIgnoreIfDefault]
         public int Magic { get => _strength * 0 + _agility * 0 + _inteligence * 1 + _endurance * 0; }
+
+        
+
+        
+
+        
+
+        
+
         
     }
 }

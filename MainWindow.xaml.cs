@@ -46,6 +46,13 @@ namespace WpfCharacterEditor
             magicalProtection.Content = warrior.MagicalProtection;
             life.Content = warrior.Life;
             magic.Content = warrior.Magic;
+
+            if (warrior.Strength == warrior.StrengthMin) removeStrength.IsEnabled = false;
+            else removeStrength.IsEnabled = true;
+
+            if (warrior.Strength == warrior.StrengthMax) addStrength.IsEnabled = false;
+            else addStrength.IsEnabled = true;
+            
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
