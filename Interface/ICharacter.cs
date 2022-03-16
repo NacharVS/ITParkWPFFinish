@@ -5,7 +5,7 @@ namespace WpfCharacterEditor
 {
     interface ICharacter
     {
-        public ObjectId _id { get; set; }
+        //public ObjectId _id { get; set; }
 
         public string Name { get; set; }
 

@@ -91,9 +91,9 @@ namespace WpfCharacterEditor
         {
             if (proffession.SelectedIndex == 1) character = new Warrior(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
             
-            //if (proffession.SelectedIndex == 2) character = new Archer(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
+            if (proffession.SelectedIndex == 2) character = new Archer(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
             
-            //if (proffession.SelectedIndex == 3) character = new Wizard(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
+            if (proffession.SelectedIndex == 3) character = new Wizard(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
 
             MongoDBBase.SetWarrior(character);
             listCharacter.ItemsSource = MongoDBBase.GetListWarriors();
@@ -115,13 +115,13 @@ namespace WpfCharacterEditor
             }
             if (proffession.SelectedIndex == 2)
             {
-                character = new Archer(name.Text, proffession.Text.ToString(), 10);
+                //character = new Archer(name.Text, proffession.Text.ToString(), 10);
 
                 Indicators();
             }
             if (proffession.SelectedIndex == 3)
             {
-                character = new Wizard(name.Text, proffession.Text.ToString(), 10);
+                //character = new Wizard(name.Text, proffession.Text.ToString(), 10);
 
                 Indicators();
             }

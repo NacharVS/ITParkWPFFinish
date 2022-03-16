@@ -6,7 +6,7 @@ namespace WpfCharacterEditor
 {
     class Сharacter
     {
-        [BsonId]
+        
         [BsonIgnoreIfDefault]
         public ObjectId _id { get; set; }
         
