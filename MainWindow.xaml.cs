@@ -115,13 +115,13 @@ namespace WpfCharacterEditor
             }
             if (proffession.SelectedIndex == 2)
             {
-                //character = new Archer(name.Text, proffession.Text.ToString(), 10);
+                character = new Archer(name.Text, proffession.Text.ToString(), 10);
 
                 Indicators();
             }
             if (proffession.SelectedIndex == 3)
             {
-                //character = new Wizard(name.Text, proffession.Text.ToString(), 10);
+                character = new Wizard(name.Text, proffession.Text.ToString(), 10);
 
                 Indicators();
             }

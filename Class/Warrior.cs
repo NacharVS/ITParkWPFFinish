@@ -48,7 +48,7 @@ namespace WpfCharacterEditor
         public string Name { get; set; }
         [BsonElement]
         public string Proffession { get; set; }
-        [BsonElement]
+        [BsonElement("Strength")]
         public int Strength
         {
             get => _strength;
@@ -64,7 +64,8 @@ namespace WpfCharacterEditor
                     _strength = value;
                     FreePoints -= 1;
                 }
-                
+                else _strength = value;
+
             }
         }
 
@@ -72,7 +73,7 @@ namespace WpfCharacterEditor
         public int StrengthMin => _minStrength;
         [BsonIgnore]
         public int StrengthMax => _maxStrength;
-        [BsonElement]
+        [BsonElement("Agility")]
         public int Agility
         {
             get => _agility;
@@ -88,7 +89,7 @@ namespace WpfCharacterEditor
                     _agility = value;
                     FreePoints -= 1;
                 }
-
+                else _agility = value;
             }
         }
 
@@ -96,7 +97,7 @@ namespace WpfCharacterEditor
         public int AgilityMin => _minAgility;
         [BsonIgnore]
         public int AgilityMax => _maxAgility;
-        [BsonElement]
+        [BsonElement("Intelligence")]
         public int Intelligence
         {
             get => _inteligence;
@@ -112,7 +113,7 @@ namespace WpfCharacterEditor
                     _inteligence = value;
                     FreePoints -= 1;
                 }
-
+                else _inteligence = value;
             }
         }
 
@@ -120,7 +121,7 @@ namespace WpfCharacterEditor
         public int IntelligenceMin => _minIntelligence;
         [BsonIgnore]
         public int IntelligenceMax => _maxIntelligence;
-        [BsonElement]
+        [BsonElement("Endurance")]
         public int Endurance
         {
             get => _endurance;
@@ -136,7 +137,7 @@ namespace WpfCharacterEditor
                     _endurance = value;
                     FreePoints -= 1;
                 }
-
+                else _endurance = value;
             }
         }
 
