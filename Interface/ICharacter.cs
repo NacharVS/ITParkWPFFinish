@@ -1,8 +1,11 @@
 ﻿
+using MongoDB.Bson;
+
 namespace WpfCharacterEditor
 {
     interface ICharacter
     {
+        public ObjectId _id { get; set; }
 
         public string Name { get; set; }
 
