@@ -21,7 +21,7 @@ namespace WpfCharacterEditor.Class
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Сharacters");
-            var collection = database.GetCollection<ICharacter>("Warriors");
+            var collection = database.GetCollection<Warrior>("Warriors");
             var listCharactersFromDB = collection.Find(x => true).ToList();
             List<string> listToReturn = new List<string>();
             foreach (var item in listCharactersFromDB)
@@ -31,11 +31,11 @@ namespace WpfCharacterEditor.Class
             return listToReturn;
         }
 
-        public static ICharacter GetWarrior(string name)
+        public static Warrior GetWarrior(string name)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Сharacters");
-            var collection = database.GetCollection<ICharacter>("Warriors");
+            var collection = database.GetCollection<Warrior>("Warriors");
             var foundedWarrior = collection.Find(x => x.Name == name).FirstOrDefault();
             return foundedWarrior;
         }
