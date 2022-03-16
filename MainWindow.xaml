@@ -43,8 +43,8 @@
         <Label x:Name="freePoints" Content="10" HorizontalAlignment="Left" Margin="254,347,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Content="Free points" HorizontalAlignment="Left" Margin="212,316,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="120" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
         <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Margin="362,303,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold" Click="buttonAdd_Click"/>
-        <Button x:Name="buttonRemove" Content="Remove" HorizontalAlignment="Left" Margin="433,303,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold"/>
-        <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="362,334,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="buttonRemove" Content="Remove" HorizontalAlignment="Left" Margin="433,303,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold" Click="buttonRemove_Click"/>
+        <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="362,334,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold" Click="buttonUpdate_Click"/>
         <Label Content="Physical damage" HorizontalAlignment="Left" Margin="517,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="156" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="physicalDamage" Content="10" HorizontalAlignment="Left" Margin="674,79,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
         <Label Content="Physical protection" HorizontalAlignment="Left" Margin="517,111,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="156" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
@@ -57,7 +57,6 @@
         <Label x:Name="life" Content="10" HorizontalAlignment="Left" Margin="674,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
         <Label Content="Magic" HorizontalAlignment="Left" Margin="517,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="156" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="magic" Content="10" HorizontalAlignment="Left" Margin="674,223,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
-        <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="433,334,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold"/>
         <ListBox x:Name="listCharacter" Margin="362,50,307,152" Height="232" Width="131" Loaded="listCharacter_Loaded" SelectionChanged="listCharacter_SelectionChanged"/>
 
     </Grid>

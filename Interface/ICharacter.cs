@@ -5,7 +5,7 @@ namespace WpfCharacterEditor
 {
     interface ICharacter
     {
-        //public ObjectId _id { get; set; }
+        public ObjectId _id { get; set; }
 
         public string Name { get; set; }
 
@@ -41,16 +41,16 @@ namespace WpfCharacterEditor
 
         public int FreePointsMax { get; set; }
 
-        public int PhysicalDamage { get; }
+        //public int PhysicalDamage { get; }
 
-        public int PhysicalProtection { get; }
+        //public int PhysicalProtection { get; }
 
-        public int MagicalDamage { get; }
+        //public int MagicalDamage { get; }
 
-        public int MagicalProtection { get; }
+        //public int MagicalProtection { get; }
 
-        public int Life { get; }
+        //public int Life { get; }
 
-        public int Magic { get; }
+        //public int Magic { get; }
     }
 }

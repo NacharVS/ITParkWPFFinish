@@ -22,8 +22,8 @@ namespace WpfCharacterEditor
     public partial class MainWindow : Window
     {
         string buffName = "Name";
-        
-        ICharacter character;
+
+        Warrior character;
         
         public MainWindow()
         {
@@ -32,36 +32,38 @@ namespace WpfCharacterEditor
 
         private void Indicators()
         {
-            switch (character.Proffession)
-            {
-                case "Warrior":
-                    proffession.SelectedIndex = 1;
-                    break;
+            //switch (character.Proffession)
+            //{
+            //    case "Warrior":
+            //        proffession.SelectedIndex = 1;
+            //        break;
 
-                case "Archer":
-                    proffession.SelectedIndex = 2;
-                    break;
+            //    case "Archer":
+            //        proffession.SelectedIndex = 2;
+            //        break;
 
-                case "Wizard":
-                    proffession.SelectedIndex = 3;
-                    break;
-                default:
-                    break;
-            }
+            //    case "Wizard":
+            //        proffession.SelectedIndex = 3;
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             name.Text = character.Name;
+            proffession.SelectedIndex = 3;
+            //proffession.SelectedIndex = character.ProffessioMethod();
             strength.Content = character.Strength;
             agility.Content = character.Agility;
             intelligence.Content = character.Intelligence;
             endurance.Content = character.Endurance;
             freePoints.Content = character.FreePoints;
 
-            physicalDamage.Content = character.PhysicalDamage;
-            physicalProtection.Content = character.PhysicalProtection;
-            magicalDamage.Content = character.MagicalDamage;
-            magicalProtection.Content = character.MagicalProtection;
-            life.Content = character.Life;
-            magic.Content = character.Magic;
+            physicalDamage.Content = character.PhysicalDamageMethod();
+            physicalProtection.Content = character.PhysicalProtectionMethod();
+            magicalDamage.Content = character.MagicalDamageMethod();
+            magicalProtection.Content = character.MagicalProtectionMethod();
+            life.Content = character.LifeMethod();
+            magic.Content = character.MagicMethod();
 
             if (character.Strength == character.StrengthMin) removeStrength.IsEnabled = false;
             else removeStrength.IsEnabled = true;
@@ -105,11 +107,14 @@ namespace WpfCharacterEditor
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (proffession.SelectedIndex == 1) character = new Warrior(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
+
+            character = new Warrior(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
             
-            if (proffession.SelectedIndex == 2) character = new Archer(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
+            //if (proffession.SelectedIndex == 1) character = new Warrior(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
             
-            if (proffession.SelectedIndex == 3) character = new Wizard(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
+            //if (proffession.SelectedIndex == 2) character = new Archer(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
+            
+            //if (proffession.SelectedIndex == 3) character = new Wizard(name.Text, proffession.Text.ToString(), int.Parse(strength.Content.ToString()), int.Parse(agility.Content.ToString()), int.Parse(intelligence.Content.ToString()), int.Parse(endurance.Content.ToString()), int.Parse(freePoints.Content.ToString()));
 
             MongoDBBase.SetWarrior(character);
             listCharacter.ItemsSource = MongoDBBase.GetListWarriors();
@@ -122,25 +127,37 @@ namespace WpfCharacterEditor
             {
                 return;
             }
-            if (proffession.SelectedIndex == 1)
+            else
             {
                 character = new Warrior(name.Text, proffession.Text.ToString(), 10);
+
+                Indicators();
+            }
+
+
+
+
+
+
+            //if (proffession.SelectedIndex == 1)
+            //{
+            //    character = new Warrior(name.Text, proffession.Text.ToString(), 10);
                 
-                Indicators();
+            //    Indicators();
 
-            }
-            if (proffession.SelectedIndex == 2)
-            {
-                character = new Archer(name.Text, proffession.Text.ToString(), 10);
+            //}
+            //if (proffession.SelectedIndex == 2)
+            //{
+            //    character = new Archer(name.Text, proffession.Text.ToString(), 10);
 
-                Indicators();
-            }
-            if (proffession.SelectedIndex == 3)
-            {
-                character = new Wizard(name.Text, proffession.Text.ToString(), 10);
+            //    Indicators();
+            //}
+            //if (proffession.SelectedIndex == 3)
+            //{
+            //    character = new Wizard(name.Text, proffession.Text.ToString(), 10);
 
-                Indicators();
-            }
+            //    Indicators();
+            //}
         }
 
         private void listCharacter_Loaded(object sender, RoutedEventArgs e)
@@ -239,6 +256,26 @@ namespace WpfCharacterEditor
                 Indicators();
             }
             
+        }
+
+        private void buttonUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            if (listCharacter.SelectedIndex == -1)
+            {
+                return;
+            }
+            else
+            {
+                MongoDBBase.ReplaseWarrior(listCharacter.SelectedItem.ToString(), character);
+                Indicators();
+            }
+
+        }
+
+        private void buttonRemove_Click(object sender, RoutedEventArgs e)
+        {
+            //MongoDBBase.RemoveWarrior(listCharacter.SelectedItem.ToString());
+            //Indicators();
         }
     }
 }

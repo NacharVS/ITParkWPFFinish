@@ -9,7 +9,7 @@ namespace WpfCharacterEditor.Class
 {
     class MongoDBBase
     {
-        public static void SetWarrior(ICharacter warrior)
+        public static void SetWarrior(Warrior warrior)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Сharacters");
@@ -31,13 +31,29 @@ namespace WpfCharacterEditor.Class
             return listToReturn;
         }
 
-        public static ICharacter GetWarrior(string name)
+        public static Warrior GetWarrior(string name)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Сharacters");
             var collection = database.GetCollection<Warrior>("Warriors");
             var foundedWarrior = collection.Find(x => x.Name == name).FirstOrDefault();
             return foundedWarrior;
+        }
+
+        public static void ReplaseWarrior(string name, Warrior update)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Registration");
+            var collection = database.GetCollection<Warrior>("Warriors");
+            collection.ReplaceOne(x => x.Name == name, update);
+        }
+
+        public static void RemoveWarrior(string name)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Registration");
+            var collection = database.GetCollection<Warrior>("Warriors");
+            collection.DeleteOne< Warrior>(x => x.Name == name);
         }
     }
 }
