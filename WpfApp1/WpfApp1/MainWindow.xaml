@@ -7,9 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="68,60,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="82"/>
+        <TextBlock x:Name="namePersonage" HorizontalAlignment="Left" Margin="48,63,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="31" Width="157" FontSize="24" Padding="5,0,0,0">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFBABABA" Offset="0.467"/>
+                    <GradientStop Color="#FFBBBBBB" Offset="0.86"/>
+                    <GradientStop Color="#FFBBBBBB"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="231,60,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="83"/>
         <TextBlock HorizontalAlignment="Left" Margin="340,60,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="82"/>
+        <Label Content="Personage" HorizontalAlignment="Left" Margin="48,18,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Choose a profession" HorizontalAlignment="Left" Margin="48,131,0,0" VerticalAlignment="Top" Width="198" FontSize="20"/>
+        <StackPanel HorizontalAlignment="Left" Margin="48,173,0,0" Orientation="Vertical" VerticalAlignment="Top" Height="121">
+            <RadioButton x:Name="warriorRB" Content="Warrior" Width="181" Height="37" FontSize="24" Padding="4,-8,0,0" HorizontalAlignment="Left"/>
+            <RadioButton x:Name="archerRB" Content="Archer" Width="180" Height="31" FontSize="24" Padding="4,-8,0,0"/>
+            <RadioButton x:Name="shamanRB" Content="Shaman" Width="179" Height="35" FontSize="24" Padding="4,-8,0,0"/>
+
+        </StackPanel>
 
     </Grid>
 </Window>
