@@ -39,6 +39,7 @@ namespace WpfApp2
             _proffesion = proffesion;
         }
 
+
         [BsonId]
         [BsonIgnoreIfDefault]
         public ObjectId ID { get; set; }
@@ -47,6 +48,7 @@ namespace WpfApp2
 
         public double MaxStrength { get => _maxStrength; }
         public double MinStrength { get => _minStrength; }
+
         [BsonElement("Strength")]
         public double CurrentStrength
         {

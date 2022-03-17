@@ -8,9 +8,9 @@ namespace WpfApp2
 {
     public interface ICharacter
     {
-
         public string Name { get; set; }
         public string Proffesion { get; set; }
+
 
         public double MaxStrength { get; }
         public double MinStrength { get; }

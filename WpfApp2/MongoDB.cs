@@ -25,7 +25,7 @@ namespace WpfApp2
         //    return collection.Find(x => true).ToList();
         //}
 
-        //GetCharacter
+        
         public static void ArcherAddToDB(string name, string proffession, double strength, double agility, double intelligence, double endurance)
         {
             var client = new MongoClient("mongodb://localhost");

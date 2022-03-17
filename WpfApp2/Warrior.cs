@@ -48,6 +48,7 @@ namespace WpfApp2
         public double MaxStrength { get => _maxStrength; }
         public double MinStrength { get => _minStrength; }
 
+
         [BsonElement("Strength")]
         public double CurrentStrength
         {
@@ -73,6 +74,7 @@ namespace WpfApp2
         public double MaxAgility { get => _maxAgility; }
 
         public double MinAgility { get => _minAgility; }
+
         [BsonElement("Agility")]
         public double CurrentAgility
         {

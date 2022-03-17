@@ -25,6 +25,7 @@ namespace WpfApp2
             InitializeComponent();
         }
 
+
         Archer archer = new Archer("Name", "Archer", 20, 30, 15, 20);
         Mage mage = new Mage("Name", "Mage", 15, 20, 35, 20);
         Warrior warrior = new Warrior("Name", "Warrior", 30, 15, 10, 25);
@@ -32,6 +33,7 @@ namespace WpfApp2
         {
             Name.Clear();
         }
+
 
         private void professions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

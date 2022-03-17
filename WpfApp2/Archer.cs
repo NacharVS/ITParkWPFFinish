@@ -10,7 +10,6 @@ namespace WpfApp2
 {
    public class Archer : ICharacter
     {
-
         private double _minStrength = 20;
         private double _maxStrength = 55;
         private double _currentStrength;
