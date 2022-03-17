@@ -21,22 +21,18 @@ namespace WpfCharacterEditor
         private int _minFreePoints = 0;
         private int _maxFreePoints;
 
-        public Wizard(string name, string proffession, int freePoints)
+        public Wizard(string name, string proffession, int freePoints) : base(name, proffession)
         {
-            Name = name;
-            Proffession = proffession;
-            _strength = _minStrength;
-            _agility = _minAgility;
-            _inteligence = _minIntelligence;
-            _endurance = _minEndurance;
+            _strength = StrengthMin;
+            _agility = AgilityMin;
+            _inteligence = IntelligenceMin;
+            _endurance = EnduranceMin;
             _freePoints = freePoints;
             _maxFreePoints = freePoints;
         }
 
-        public Wizard(string name, string proffession, int strength, int agility, int intelligence, int endurance, int freePoints)
+        public Wizard(string name, string proffession, int strength, int agility, int intelligence, int endurance, int freePoints) : base(name, proffession)
         {
-            Name = name;
-            Proffession = proffession;
             _strength = strength;
             _agility = agility;
             _inteligence = intelligence;

@@ -9,11 +9,11 @@ namespace WpfCharacterEditor.Class
 {
     class MongoDBBase
     {
-        public static void SetWarrior(ICharacter warrior)
+        public static void SetWarrior(Сharacter warrior)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Сharacters");
-            var collection = database.GetCollection<ICharacter>("Warriors");
+            var collection = database.GetCollection<Сharacter>("Warriors");
             collection.InsertOne(warrior);
         }
 
@@ -31,11 +31,11 @@ namespace WpfCharacterEditor.Class
             return listToReturn;
         }
 
-        public static ICharacter GetWarrior(string name)
+        public static Сharacter GetWarrior(string name)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Сharacters");
-            var collection = database.GetCollection<Warrior>("Warriors");
+            var collection = database.GetCollection<Сharacter>("Warriors");
             var foundedWarrior = collection.Find(x => x.Name == name).FirstOrDefault();
             return foundedWarrior;
         }

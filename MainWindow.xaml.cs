@@ -22,8 +22,8 @@ namespace WpfCharacterEditor
     public partial class MainWindow : Window
     {
         string buffName = "Name";
-        
-        ICharacter character;
+
+        Сharacter character;
         
         public MainWindow()
         {
