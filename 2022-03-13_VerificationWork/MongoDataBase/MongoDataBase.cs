@@ -85,8 +85,8 @@ namespace _2022_03_13_VerificationWork.MongoDB
             var database = client.GetDatabase("Character_Editor");
             var collection = database.GetCollection<Warrior>("Characters");
             var foundedCharacter = collection.Find(x => x.Name == nameCharacter).FirstOrDefault();
-            string foundedName = foundedCharacter.Name;
-            return foundedName;
+            //string foundedName = foundedCharacter.Name;
+            return null;
 
         }
         public static void RemoveCharacter(string nameToDelete)

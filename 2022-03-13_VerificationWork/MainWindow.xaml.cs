@@ -31,7 +31,7 @@ namespace _2022_03_13_VerificationWork
         {
             if (professionComboBox.SelectedIndex == 0)
             {
-                if (nameTextBox.Text==MongoDataBase.FindDuplicate("Test"))
+                if (nameTextBox.Text==MongoDataBase.FindDuplicate(nameTextBox.Text))
                 {
                     MessageBox.Show($"Character {nameTextBox.Text} already exist!");
                 }
