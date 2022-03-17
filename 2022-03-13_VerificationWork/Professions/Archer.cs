@@ -12,7 +12,8 @@ namespace _2022_03_13_VerificationWork
     {
         [BsonIgnoreIfDefault]
         ObjectId _id;
-        public Archer(string name, string profession, int strenght, int agility, int intelligence, int stamina)
+        public Archer(string name, string profession, int strenght, int agility, int intelligence, int stamina
+            , int level, long experiense)
         {
             Name = name;
             Profession = profession;
@@ -20,6 +21,8 @@ namespace _2022_03_13_VerificationWork
             Agility = agility;
             Intelligence = intelligence;
             Stamina = stamina;
+            Level = level;
+            Experiense = experiense;
         }
         public string Name { get => _name; set => _name = value; }
         public string Profession { get => _profession; set => _profession = value; }

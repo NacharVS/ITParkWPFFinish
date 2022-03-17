@@ -34,7 +34,7 @@ namespace _2022_03_13_VerificationWork
                 MongoDataBase.AddWarriorToDB(nameTextBox.Text, professionComboBox.SelectionBoxItem.ToString()
                     , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
                     , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
-                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt32(experienseAmountLabel.Content));
+                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content));
                 MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was created!");
                 characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
             }
@@ -43,7 +43,7 @@ namespace _2022_03_13_VerificationWork
                 MongoDataBase.AddArcherToDB(nameTextBox.Text, professionComboBox.SelectionBoxItem.ToString()
                     , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
                     , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
-                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt32(experienseAmountLabel.Content));
+                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content));
                 MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was created!");
                 characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
             }
@@ -52,7 +52,7 @@ namespace _2022_03_13_VerificationWork
                 MongoDataBase.AddWizardToDB(nameTextBox.Text, professionComboBox.SelectionBoxItem.ToString()
                     , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
                     , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
-                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt32(experienseAmountLabel.Content));
+                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content));
                 MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was created!");
                 characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
             }
@@ -492,6 +492,38 @@ namespace _2022_03_13_VerificationWork
             changedValue = 5000 + baseValue;
             experienseAmountLabel.Content = Convert.ToString(changedValue);
             LvlChange();
+        }
+
+        private void updateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (professionComboBox.SelectedIndex == 0)
+            {
+                MongoDataBase.ReplaceWarrior (characterList.SelectedItem.ToString(), new Warrior(nameTextBox.Text, professionComboBox.SelectionBoxItem.ToString()
+                    , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
+                    , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
+                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content)));
+                MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was updated!");
+                characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
+            }
+            else if (professionComboBox.SelectedIndex == 1)
+            {
+                MongoDataBase.ReplaceArcher(characterList.SelectedItem.ToString(), new Archer(nameTextBox.Text, professionComboBox.SelectionBoxItem.ToString()
+                    , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
+                    , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
+                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content)));
+                MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was updated!");
+                characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
+            }
+            else if (professionComboBox.SelectedIndex == 2)
+            {
+                MongoDataBase.ReplaceWizard(characterList.SelectedItem.ToString(), new Wizard(nameTextBox.Text, professionComboBox.SelectionBoxItem.ToString()
+                    , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
+                    , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
+                    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content)));
+                MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was updated!");
+                characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
+            }
+            else MessageBox.Show("Chose the profession of your character!");
         }
     }
 }

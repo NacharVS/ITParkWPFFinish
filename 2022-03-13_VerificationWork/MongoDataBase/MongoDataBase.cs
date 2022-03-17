@@ -16,7 +16,8 @@ namespace _2022_03_13_VerificationWork.MongoDB
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
             var collection = database.GetCollection<Warrior>("Characters");
-            collection.InsertOne(new Warrior(name, profession, strenght, agility, intelligenсe,stamina, level, experiense));
+            collection.InsertOne(new Warrior(name, profession, strenght, agility, intelligenсe,stamina
+                , level, experiense));
         }
         public static void AddArcherToDB(string name, string profession, int strenght, int agility, int intelligenсe
             , int stamina, int level, long experiense)
@@ -24,7 +25,8 @@ namespace _2022_03_13_VerificationWork.MongoDB
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
             var collection = database.GetCollection<Archer>("Characters");
-            collection.InsertOne(new Archer(name, profession, strenght, agility, intelligenсe, stamina));
+            collection.InsertOne(new Archer(name, profession, strenght, agility, intelligenсe, stamina
+                , level, experiense));
         }
         public static void AddWizardToDB(string name, string profession, int strenght, int agility, int intelligenсe
            , int stamina, int level, long experiense)
@@ -32,7 +34,8 @@ namespace _2022_03_13_VerificationWork.MongoDB
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
             var collection = database.GetCollection<Wizard>("Characters");
-            collection.InsertOne(new Wizard(name, profession, strenght, agility, intelligenсe, stamina));
+            collection.InsertOne(new Wizard(name, profession, strenght, agility, intelligenсe, stamina
+                , level, experiense));
         }
         public static List<string> GetCharacterNameList()
         {
@@ -46,6 +49,27 @@ namespace _2022_03_13_VerificationWork.MongoDB
                 listToReturn.Add(item.Name);
             }
             return listToReturn;
+        }
+        public static void ReplaceWarrior(string nameToReplace, Warrior update)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Character_Editor");
+            var collection = database.GetCollection<Warrior>("Characters");
+            collection.ReplaceOne(x => x.Name == nameToReplace, update);
+        }
+        public static void ReplaceArcher(string nameToReplace, Archer update)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Character_Editor");
+            var collection = database.GetCollection<Archer>("Characters");
+            collection.ReplaceOne(x => x.Name == nameToReplace, update);
+        }
+        public static void ReplaceWizard(string nameToReplace, Wizard update)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Character_Editor");
+            var collection = database.GetCollection<Wizard>("Characters");
+            collection.ReplaceOne(x => x.Name == nameToReplace, update);
         }
     }
 }

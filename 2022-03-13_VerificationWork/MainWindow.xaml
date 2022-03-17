@@ -59,7 +59,7 @@
         <GroupBox Header="Character List:" Margin="918,10,0,0" FontSize="24" HorizontalAlignment="Left" Width="283" Height="461" VerticalAlignment="Top"/>
         <ListBox x:Name="characterList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="954,55,0,0" FontSize="24" HorizontalAlignment="Left" Width="212" Height="290" VerticalAlignment="Top"/>
 
-        <Button x:Name="updateBtn" Content="Update" HorizontalAlignment="Left" Height="48" Margin="954,363,0,0" VerticalAlignment="Top" Width="97" FontSize="24"/>
+        <Button x:Name="updateBtn" Content="Update" HorizontalAlignment="Left" Height="48" Margin="954,363,0,0" VerticalAlignment="Top" Width="97" FontSize="24" Click="updateBtn_Click"/>
         <Button x:Name="removeBtn" Content="Remove" HorizontalAlignment="Left" Height="48" Margin="1069,363,0,0" VerticalAlignment="Top" Width="97" FontSize="24"/>
         <Button x:Name="updateListBtn" Content="Update List" HorizontalAlignment="Left" Height="38" Margin="954,423,0,0" VerticalAlignment="Top" Width="212" FontSize="24" Click="updateListBtn_Click"/>
         <Button x:Name="_1kExpBtn" Content="+1000exp" HorizontalAlignment="Left" Margin="585,395,0,0" VerticalAlignment="Top" FontSize="24" Click="_1kExpBtn_Click"/>

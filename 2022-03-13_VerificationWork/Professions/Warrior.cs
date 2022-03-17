@@ -14,7 +14,8 @@ namespace _2022_03_13_VerificationWork.Interfaces
 
         [BsonIgnoreIfDefault]
         ObjectId _id;
-        public Warrior(string name, string profession, int strenght, int agility, int intelligence, int stamina, int level, long experiense)
+        public Warrior(string name, string profession, int strenght, int agility, int intelligence, int stamina
+            , int level, long experiense)
         {
             Name = name;
             Profession = profession;
