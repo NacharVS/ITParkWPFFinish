@@ -24,5 +24,15 @@ namespace ITParkWPFFinish
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Mongo.AddToDB(new Mage());
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Mongo.FindAll();
+        }
     }
 }
