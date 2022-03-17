@@ -9,6 +9,7 @@ namespace WpfApp2
 {
     public class MongoDB
     {
+
         public static void AddToDataBase(ICharacter character)
         {
             MongoClient client = new MongoClient("mongodb://localhost");

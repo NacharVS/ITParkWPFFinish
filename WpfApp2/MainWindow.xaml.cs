@@ -20,6 +20,11 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
         Archer archer = new Archer("Name", "Archer", 20, 30, 15, 20);
         Mage mage = new Mage("Name", "Mage", 15, 20, 35, 20);
         Warrior warrior = new Warrior("Name", "Warrior", 30, 15, 10, 25);
@@ -131,5 +136,5 @@ namespace WpfApp2
         }
     }
 }
-    }
-}
+    
+

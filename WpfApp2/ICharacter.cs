@@ -8,6 +8,7 @@ namespace WpfApp2
 {
     public interface ICharacter
     {
+
         public string Name { get; set; }
         public string Proffesion { get; set; }
 

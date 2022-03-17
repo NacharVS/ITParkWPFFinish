@@ -38,6 +38,7 @@ namespace WpfApp2
             _name = name;
             _proffesion = proffesion;
         }
+
         [BsonId]
         [BsonIgnoreIfDefault]
         public ObjectId ID { get; set; }
