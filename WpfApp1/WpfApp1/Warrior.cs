@@ -24,7 +24,7 @@ namespace WpfApp1
         }
 
 
-
+        public string Profession { get => _profession; set => _profession = "warrior"; }
         public double CurrentHelth { get => _currentHealth; set => _currentHealth = health; }
         public string Name { get => name; set => name = value; }
         public double PowerCurrent { get => _power; set => _power = value; }
@@ -39,5 +39,6 @@ namespace WpfApp1
         public int SkillMax { get => _maxSkill; set => _maxSkill = 80; }
         public int IntellectMax { get => _maxIntellect; set => _maxIntellect = 50; }
         public int StaminaMax { get => _maxStamina; set => _maxStamina = 200; }
+        
     }
 }

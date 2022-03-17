@@ -24,8 +24,8 @@ namespace WpfApp1
             StaminaCurrent = StaminaMin;
         }
 
-        
-  
+        public string Profession { get => _profession; set => _profession = "shaman"; }
+
         public double CurrentHelth { get => _currentHealth; set => _currentHealth = health; }
         public string Name { get => name; set => name = value; }
         public double PowerCurrent { get => _power; set => _power = value; }

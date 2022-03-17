@@ -10,6 +10,7 @@ namespace WpfApp1
     {
         public double CurrentHelth { get; set; }
         public string Name { get; set; }
+        public string Profession { get; set; }
         public double PowerCurrent { get; set; }
         public double SkillCurrent { get; set; }
         public double IntellectCurrent { get; set; }

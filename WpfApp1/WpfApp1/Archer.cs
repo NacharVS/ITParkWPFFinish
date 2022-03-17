@@ -25,7 +25,7 @@ namespace WpfApp1
         }
 
 
-
+        public string Profession { get => _profession; set => _profession = "archer"; }
         public double CurrentHelth { get => _currentHealth; set => _currentHealth = health; }
         public string Name { get => name; set => name = value; }
         public double PowerCurrent { get => _power; set => _power = value; }

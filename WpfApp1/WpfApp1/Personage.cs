@@ -10,6 +10,8 @@ namespace WpfApp1
     {
         public double health = 500;
         public string name;
+
+        protected string _profession;
         
         public double _currentHealth;
         protected double _power;
