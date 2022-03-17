@@ -29,29 +29,28 @@ namespace RPG
         {
             if (SelectPerson.SelectedIndex==0)
             {
-                WorkBase.AddWarriorToDB(new Warrior (NamePerson.Text, SelectPerson.Text ,Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text)));
+                WorkBase.AddPersonagToDB(new Warrior (NamePerson.Text, SelectPerson.Text ,Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text)));
                 ListPersonag.ItemsSource = WorkBase.GetList();
             }
         }
 
         private void SelectPerson_SelectionChanged(object sender, SelectionChangedEventArgs e) //выбор персонажа
         {
-            if (SelectPerson.SelectedIndex == 0)
+            if (SelectPerson.SelectedIndex == 0)  // Warrior
             {
-                Strength.Text = Convert.ToString(30);
-
-                Dexterity.Text = Convert.ToString(15);
-                Intelligence.Text = Convert.ToString(10);
-                Endurance.Text = Convert.ToString(20);
+                Strength.Text = Convert.ToString(Warrior.MinStrenght);
+                Dexterity.Text = Convert.ToString(Warrior.MinAgility);
+                Intelligence.Text = Convert.ToString(Warrior.MinIntelligence);
+                Endurance.Text = Convert.ToString(Warrior.MinEndurance);
             }
-            else if(SelectPerson.SelectedIndex == 1)
+            else if(SelectPerson.SelectedIndex == 1)  //Archer
             {
                 Strength.Text = Convert.ToString(20);
                 Dexterity.Text = Convert.ToString(30);
                 Intelligence.Text = Convert.ToString(15);
                 Endurance.Text = Convert.ToString(20);
             }
-            else if(SelectPerson.SelectedIndex == 2)
+            else if(SelectPerson.SelectedIndex == 2)   //Wizzard
             {
                 Strength.Text = Convert.ToString(15);
                 Dexterity.Text = Convert.ToString(20);
@@ -68,8 +67,7 @@ namespace RPG
             }
             else
             {
-                //NamePerson.Text = WorkBase.GetWarrior(ListPersonag.SelectedItem.ToString()).Name;
-
+                
 
             }
         }

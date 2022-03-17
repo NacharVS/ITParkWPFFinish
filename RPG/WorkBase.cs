@@ -9,19 +9,19 @@ namespace RPG
 {
     internal class WorkBase
     {
-        public static void AddWarriorToDB(Warrior warrior)
+        public static void AddPersonagToDB(IPersonag name)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<Warrior>("Personage");
-            collection.InsertOne(warrior);
+            var collection = database.GetCollection<IPersonag>("Personage");
+            collection.InsertOne(name);
         }
 
         public static List<string> GetList()
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<Warrior>("Personage");
+            var collection = database.GetCollection<IPersonag>("Personage");
             var listUsersFromDB = collection.Find(x => true).ToList();
             List<string> listToReturn = new List<string>();
             foreach (var item in listUsersFromDB)
@@ -31,13 +31,5 @@ namespace RPG
             return listToReturn;
         }
 
-        //public static Warrior GetWarrior(string name)
-        //{
-        //    var client = new MongoClient("mongodb://localhost");
-        //    var database = client.GetDatabase("Registration");
-        //    var collection = database.GetCollection<Warrior>("Personage");
-        //    var foundedUser = collection.Find(x => x.Name == name).FirstOrDefault();
-        //    return foundedUser;
-        //}
     }
 }
