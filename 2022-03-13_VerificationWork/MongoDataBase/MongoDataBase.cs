@@ -71,5 +71,13 @@ namespace _2022_03_13_VerificationWork.MongoDB
             var collection = database.GetCollection<Wizard>("Characters");
             collection.ReplaceOne(x => x.Name == nameToReplace, update);
         }
+        public static Warrior ShowWarriorInfo(string nameCharacter)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Character_Editor");
+            var collection = database.GetCollection<Warrior>("Characters");
+            var foundedClient = collection.Find(x => x.Name == nameCharacter).FirstOrDefault();
+            return foundedClient;
+        }
     }
 }

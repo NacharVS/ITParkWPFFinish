@@ -57,7 +57,7 @@
         <Button x:Name="intRemoveBtn" Content="-" HorizontalAlignment="Left" Margin="305,286,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="intRemoveBtn_Click"/>
         <Button x:Name="stmnRemoveBtn" Content="-" HorizontalAlignment="Left" Margin="305,366,0,0" VerticalAlignment="Top" FontSize="20" Width="42" Height="42" Click="stmnRemoveBtn_Click"/>
         <GroupBox Header="Character List:" Margin="918,10,0,0" FontSize="24" HorizontalAlignment="Left" Width="283" Height="461" VerticalAlignment="Top"/>
-        <ListBox x:Name="characterList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="954,55,0,0" FontSize="24" HorizontalAlignment="Left" Width="212" Height="290" VerticalAlignment="Top"/>
+        <ListBox x:Name="characterList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="954,55,0,0" FontSize="24" HorizontalAlignment="Left" Width="212" Height="290" VerticalAlignment="Top" SelectionChanged="characterList_SelectionChanged"/>
 
         <Button x:Name="updateBtn" Content="Update" HorizontalAlignment="Left" Height="48" Margin="954,363,0,0" VerticalAlignment="Top" Width="97" FontSize="24" Click="updateBtn_Click"/>
         <Button x:Name="removeBtn" Content="Remove" HorizontalAlignment="Left" Height="48" Margin="1069,363,0,0" VerticalAlignment="Top" Width="97" FontSize="24"/>

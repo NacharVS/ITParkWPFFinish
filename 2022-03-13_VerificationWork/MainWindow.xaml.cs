@@ -525,5 +525,29 @@ namespace _2022_03_13_VerificationWork
             }
             else MessageBox.Show("Chose the profession of your character!");
         }
+
+        private void characterList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //if (professionComboBox.SelectedIndex == -1)
+            //{
+            //    return;
+            //}
+            //else
+            //{
+                nameTextBox.Text = MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Name;
+                if (MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Profession=="Warrior")
+                    professionComboBox.SelectedIndex=0;
+                else if (MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Profession == "Archer")
+                    professionComboBox.SelectedIndex = 1;
+                else if (MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Profession == "Wizard")
+                    professionComboBox.SelectedIndex = 2;
+                strAmountLabel.Content = MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Strenght;
+                agltAmountLabel.Content = MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Agility;
+                intAmountLabel.Content = MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Intelligence;
+                stmnAmountLabel.Content = MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Stamina;
+                levelAmountLabel.Content= MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Level;
+                experienseAmountLabel.Content= MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Experiense;
+            //}
+        }
     }
 }
