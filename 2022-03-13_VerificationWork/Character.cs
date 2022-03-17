@@ -19,5 +19,6 @@ namespace _2022_03_13_VerificationWork
         internal int _stamina;
         internal int _level;
         internal long _experiense;
+        internal int _freePoint;
     }
 }

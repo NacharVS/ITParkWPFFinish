@@ -21,8 +21,9 @@ namespace _2022_03_13_VerificationWork
         public int Stamina { get; set; }
         public int Level { get; set; }
         public long Experiense { get; set; }
+        public int FreePoint { get; set; }
 
 
-        
+
     }
 }

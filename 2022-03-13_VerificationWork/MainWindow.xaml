@@ -8,15 +8,15 @@
         Title="MainWindow" Height="540" Width="1239" Initialized="Window_Initialized">
     <Grid>
         <GroupBox x:Name="characterInfo" HorizontalAlignment="Left" Height="484" Header="Character Info:" Margin="6,10,0,0" VerticalAlignment="Top" Width="255" FontSize="24"/>
-        <ComboBox x:Name="professionComboBox" HorizontalAlignment="Left" Margin="26,184,0,0" VerticalAlignment="Top" Width="200" FontSize="24" SelectionChanged="professionComboBox_SelectionChanged">
+        <ComboBox x:Name="professionComboBox" HorizontalAlignment="Left" Margin="26,184,0,0" VerticalAlignment="Top" Width="216" FontSize="24" SelectionChanged="professionComboBox_SelectionChanged">
             <ListBoxItem Content="Warrior"/>
             <ListBoxItem Content="Archer"/>
             <ListBoxItem Content="Wizard"/>
         </ComboBox>
         <Label x:Name="professionLabel" Content="Profession:" HorizontalAlignment="Left" Margin="23,138,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Margin="23,98,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="200" FontSize="24" GotFocus="nameTextBox_GotFocus" LostFocus="nameTextBox_LostFocus" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Margin="23,98,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="216" FontSize="24" GotFocus="nameTextBox_GotFocus" LostFocus="nameTextBox_LostFocus" HorizontalContentAlignment="Right"/>
         <Label x:Name="nameLabel" Content="Name:" HorizontalAlignment="Left" Margin="23,54,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Button x:Name="createButton" Content="CREATE" HorizontalAlignment="Left" Margin="27,241,0,0" VerticalAlignment="Top" FontSize="24" Width="196" Click="createButton_Click"/>
+        <Button x:Name="createButton" Content="CREATE" HorizontalAlignment="Left" Margin="27,241,0,0" VerticalAlignment="Top" FontSize="24" Width="212" Click="createButton_Click"/>
         <GroupBox x:Name="mainStatGroupBox" HorizontalAlignment="Left" Height="475" Header="Main Stats:" Margin="266,19,0,0" VerticalAlignment="Top" Width="279" FontSize="24"/>
         <GroupBox x:Name="additionalStatGroupBox" HorizontalAlignment="Left" Height="261" Header="Additional Stats:" Margin="567,20,0,0" VerticalAlignment="Top" Width="320" FontSize="24"/>
         <Label x:Name="strLabel" Content="Strenght:" HorizontalAlignment="Left" Margin="337,54,0,0" VerticalAlignment="Top" FontSize="24"/>
@@ -60,11 +60,12 @@
         <ListBox x:Name="characterList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="954,55,0,0" FontSize="24" HorizontalAlignment="Left" Width="212" Height="290" VerticalAlignment="Top" SelectionChanged="characterList_SelectionChanged"/>
 
         <Button x:Name="updateBtn" Content="Update" HorizontalAlignment="Left" Height="48" Margin="954,363,0,0" VerticalAlignment="Top" Width="97" FontSize="24" Click="updateBtn_Click"/>
-        <Button x:Name="removeBtn" Content="Remove" HorizontalAlignment="Left" Height="48" Margin="1069,363,0,0" VerticalAlignment="Top" Width="97" FontSize="24"/>
-        <Button x:Name="updateListBtn" Content="Update List" HorizontalAlignment="Left" Height="38" Margin="954,423,0,0" VerticalAlignment="Top" Width="212" FontSize="24" Click="updateListBtn_Click"/>
+        <Button x:Name="removeBtn" Content="Remove" HorizontalAlignment="Left" Height="48" Margin="1069,363,0,0" VerticalAlignment="Top" Width="97" FontSize="24" Click="removeBtn_Click"/>
+        <Button x:Name="updateListBtn" Content="Delete ALL" HorizontalAlignment="Left" Height="38" Margin="954,423,0,0" VerticalAlignment="Top" Width="212" FontSize="24" Click="updateListBtn_Click"/>
         <Button x:Name="_1kExpBtn" Content="+1000exp" HorizontalAlignment="Left" Margin="585,395,0,0" VerticalAlignment="Top" FontSize="24" Click="_1kExpBtn_Click"/>
         <Button x:Name="_3kExpBtn" Content="+3000exp" HorizontalAlignment="Left" Margin="743,395,0,0" VerticalAlignment="Top" FontSize="24" Click="_3kExpBtn_Click"/>
         <Button x:Name="_5kExpBtn" Content="+5000exp" HorizontalAlignment="Left" Margin="663,444,0,0" VerticalAlignment="Top" FontSize="24" Click="_5kExpBtn_Click"/>
+        <Button x:Name="creationButton" Content="Character Creation" HorizontalAlignment="Left" Margin="31,296,0,0" VerticalAlignment="Top" FontSize="24" Width="211" Click="creationButton_click" IsEnabled="False"/>
 
 
     </Grid>
