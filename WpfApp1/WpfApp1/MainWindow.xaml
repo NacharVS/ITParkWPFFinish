@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock x:Name="namePersonage" HorizontalAlignment="Left" Margin="48,63,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="31" Width="157" FontSize="24" Padding="5,0,0,0">
+        <TextBlock x:Name="namePersonage" HorizontalAlignment="Left" Margin="155,23,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="31" Width="236" FontSize="24" Padding="5,0,0,0">
             <TextBlock.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="1"/>
@@ -18,16 +18,30 @@
                 </LinearGradientBrush>
             </TextBlock.Background>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="231,60,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="83"/>
-        <TextBlock HorizontalAlignment="Left" Margin="340,60,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="82"/>
+        <TextBlock x:Name="txtPower" HorizontalAlignment="Left" Margin="415,136,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Height="30" Width="82" FontSize="24" TextAlignment="Center" Background="#FFD8C9C9"/>
         <Label Content="Personage" HorizontalAlignment="Left" Margin="48,18,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Choose a profession" HorizontalAlignment="Left" Margin="48,131,0,0" VerticalAlignment="Top" Width="198" FontSize="20"/>
-        <StackPanel HorizontalAlignment="Left" Margin="48,173,0,0" Orientation="Vertical" VerticalAlignment="Top" Height="121">
+        <Label Content="Choose a profession" HorizontalAlignment="Left" Margin="48,161,0,0" VerticalAlignment="Top" Width="198" FontSize="20"/>
+        <StackPanel HorizontalAlignment="Left" Margin="48,208,0,0" Orientation="Vertical" VerticalAlignment="Top" Height="121">
             <RadioButton x:Name="warriorRB" Content="Warrior" Width="181" Height="37" FontSize="24" Padding="4,-8,0,0" HorizontalAlignment="Left"/>
             <RadioButton x:Name="archerRB" Content="Archer" Width="180" Height="31" FontSize="24" Padding="4,-8,0,0"/>
             <RadioButton x:Name="shamanRB" Content="Shaman" Width="179" Height="35" FontSize="24" Padding="4,-8,0,0"/>
 
         </StackPanel>
+        <Label Content="Characteristics" HorizontalAlignment="Left" Margin="306,99,0,0" VerticalAlignment="Top" Width="170" FontSize="20"/>
+        <Label Content="Power" HorizontalAlignment="Left" Margin="306,132,0,0" VerticalAlignment="Top" Width="94" FontSize="22"/>
+        <Label Content="Skill" HorizontalAlignment="Left" Margin="306,180,0,0" VerticalAlignment="Top" Width="94" FontSize="22"/>
+        <Label Content="Intellect" HorizontalAlignment="Left" Margin="306,224,0,0" VerticalAlignment="Top" Width="94" FontSize="22"/>
+        <Label Content="Stamina" HorizontalAlignment="Left" Margin="306,267,0,0" VerticalAlignment="Top" Width="94" FontSize="22"/>
+        <TextBlock x:Name="txtSkill" HorizontalAlignment="Left" Margin="415,179,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Height="30" Width="82" FontSize="24" TextAlignment="Center" Background="#FFD8C9C9"/>
+        <TextBlock x:Name="txtIntellect" HorizontalAlignment="Left" Margin="415,226,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Height="30" Width="82" FontSize="24" TextAlignment="Center" Background="#FFD8C9C9" RenderTransformOrigin="0.622,3.935"/>
+        <TextBlock x:Name="txtStamina" HorizontalAlignment="Left" Margin="415,267,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Height="30" Width="82" FontSize="24" TextAlignment="Center" Background="#FFD8C9C9" RenderTransformOrigin="0.61,3.401"/>
+        <Label Content="Health" HorizontalAlignment="Left" Margin="48,82,0,0" VerticalAlignment="Top" Width="102" Height="45" FontSize="22"/>
+        <TextBlock x:Name="txtHealth" HorizontalAlignment="Left" Margin="155,82,0,0" TextWrapping="Wrap" Text="health" VerticalAlignment="Top" Height="45" Width="100" FontSize="24" Background="#FFD8C9C9" TextAlignment="Center"/>
+        <TextBox x:Name="txtListOfPersonages" HorizontalAlignment="Left" Margin="559,55,0,0" TextWrapping="Wrap" Text="list of personages" VerticalAlignment="Top" Width="186" Height="244" FontSize="18" Background="#FFD8C9C9"/>
+        <Button x:Name="btnShow" Content="Show" HorizontalAlignment="Left" Margin="313,330,0,0" VerticalAlignment="Top" Width="78" BorderThickness="3,3,3,3" FontSize="14"/>
+        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="415,330,0,0" VerticalAlignment="Top" Width="78" BorderThickness="3,3,3,3" FontSize="14"/>
+        <Button x:Name="btnAddToDB" Content="Add to DB" HorizontalAlignment="Left" Margin="518,330,0,0" VerticalAlignment="Top" Width="78" BorderThickness="3,3,3,3" FontSize="14"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="622,330,0,0" VerticalAlignment="Top" Width="78" BorderThickness="3,3,3,3" FontSize="14"/>
 
     </Grid>
 </Window>
