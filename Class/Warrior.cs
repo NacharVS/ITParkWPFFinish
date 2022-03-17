@@ -7,10 +7,10 @@ namespace WpfCharacterEditor
     {
         public Warrior(string name, string proffession, int freePoints):base(name, proffession)
         {
-            _strength = _minStrength;
-            _agility = _minAgility;
-            _inteligence = _minIntelligence;
-            _endurance = _minEndurance;
+            _strength = StrengthMin;
+            _agility = AgilityMin;
+            _inteligence = IntelligenceMin;
+            _endurance = EnduranceMin;
             _freePoints = freePoints;
             _maxFreePoints = freePoints;
         }
