@@ -5,22 +5,6 @@ namespace WpfCharacterEditor
 {
     class Archer : Сharacter, ICharacter
     {
-        private int _strength;
-        private int _minStrength = 20;
-        private int _maxStrength = 55;
-        private int _agility;
-        private int _minAgility = 30;
-        private int _maxAgility = 250;
-        private int _inteligence;
-        private int _minIntelligence = 15;
-        private int _maxIntelligence = 70;
-        private int _endurance;
-        private int _minEndurance = 20;
-        private int _maxEndurance = 80;
-        private int _freePoints;
-        private int _minFreePoints = 0;
-        private int _maxFreePoints;
-
         public Archer(string name, string proffession, int freePoints) : base(name, proffession)
         {
             _strength = StrengthMin;

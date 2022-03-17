@@ -5,22 +5,6 @@ namespace WpfCharacterEditor
 {
     class Wizard : Сharacter, ICharacter
     {
-        private int _strength;
-        private int _minStrength = 15;
-        private int _maxStrength = 45;
-        private int _agility;
-        private int _minAgility = 20;
-        private int _maxAgility = 85;
-        private int _inteligence;
-        private int _minIntelligence = 35;
-        private int _maxIntelligence = 250;
-        private int _endurance;
-        private int _minEndurance = 20;
-        private int _maxEndurance = 80;
-        private int _freePoints;
-        private int _minFreePoints = 0;
-        private int _maxFreePoints;
-
         public Wizard(string name, string proffession, int freePoints) : base(name, proffession)
         {
             _strength = StrengthMin;
@@ -66,9 +50,9 @@ namespace WpfCharacterEditor
         }
 
         [BsonIgnore]
-        public int StrengthMin => _minStrength;
+        public int StrengthMin => 15;
         [BsonIgnore]
-        public int StrengthMax => _maxStrength;
+        public int StrengthMax => 45;
 
         public int Agility
         {
@@ -90,9 +74,9 @@ namespace WpfCharacterEditor
         }
 
         [BsonIgnore]
-        public int AgilityMin => _minAgility;
+        public int AgilityMin => 20;
         [BsonIgnore]
-        public int AgilityMax => _maxAgility;
+        public int AgilityMax => 85;
 
         public int Intelligence
         {
@@ -114,9 +98,9 @@ namespace WpfCharacterEditor
         }
 
         [BsonIgnore]
-        public int IntelligenceMin => _minIntelligence;
+        public int IntelligenceMin => 35;
         [BsonIgnore]
-        public int IntelligenceMax => _maxIntelligence;
+        public int IntelligenceMax => 250;
 
         public int Endurance
         {
@@ -138,9 +122,9 @@ namespace WpfCharacterEditor
         }
 
         [BsonIgnore]
-        public int EnduranceMin => _minEndurance;
+        public int EnduranceMin => 20;
         [BsonIgnore]
-        public int EnduranceMax => _maxEndurance;
+        public int EnduranceMax => 80;
 
         public int FreePoints
         {
