@@ -11,18 +11,18 @@ namespace WpfCharacterEditor
         public ObjectId _id;
 
         protected int _strength;
-        protected int _minStrength;
-        protected int _maxStrength;
+        //protected int _minStrength;
+        //protected int _maxStrength;
         protected int _agility;
-        protected int _minAgility;
-        protected int _maxAgility;
+        //protected int _minAgility;
+        //protected int _maxAgility;
         protected int _inteligence;
-        protected int _minIntelligence;
-        protected int _maxIntelligence;
+        //protected int _minIntelligence;
+        //protected int _maxIntelligence;
         protected int _endurance;
-        protected int _minEndurance;
-        protected int _maxEndurance;
-        protected int _freePoints;
+        //protected int _minEndurance;
+        //protected int _maxEndurance;
+        protected int _freePoints = 0;
         protected int _minFreePoints;
         protected int _maxFreePoints;
 
@@ -45,24 +45,24 @@ namespace WpfCharacterEditor
         public virtual int Endurance { get; set; }
 
         [BsonIgnore]
-        public int StrengthMin => _minStrength;
+        public virtual int StrengthMin { get; }
         [BsonIgnore]
-        public int StrengthMax => _maxStrength;
+        public virtual int StrengthMax { get; }
 
         [BsonIgnore]
-        public int AgilityMin => _minAgility;
+        public virtual int AgilityMin { get; }
         [BsonIgnore]
-        public int AgilityMax => _maxAgility;
+        public virtual int AgilityMax { get; }
 
         [BsonIgnore]
-        public int IntelligenceMin => _minIntelligence;
+        public virtual int IntelligenceMin { get; }
         [BsonIgnore]
-        public int IntelligenceMax => _maxIntelligence;
+        public virtual int IntelligenceMax { get; }
 
         [BsonIgnore]
-        public int EnduranceMin => _minEndurance;
+        public virtual int EnduranceMin { get; }
         [BsonIgnore]
-        public int EnduranceMax => _maxEndurance;
+        public virtual int EnduranceMax { get; }
 
         public int FreePoints { get => _freePoints; set { _freePoints = value; } }
         [BsonIgnore]

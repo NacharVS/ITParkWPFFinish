@@ -5,24 +5,8 @@ namespace WpfCharacterEditor
 {
     class Warrior : Сharacter, ICharacter
     {
-        
-        private int _agility;
-        private int _minAgility = 15;
-        private int _maxAgility = 80;
-        private int _inteligence;
-        private int _minIntelligence = 10;
-        private int _maxIntelligence = 50;
-        private int _endurance;
-        private int _minEndurance = 25;
-        private int _maxEndurance = 100;
-        private int _freePoints;
-        private int _minFreePoints = 0;
-        private int _maxFreePoints;
-
-        public Warrior(string name, string proffession, int freePoints)
+        public Warrior(string name, string proffession, int freePoints):base(name, proffession)
         {
-            Name = name;
-            Proffession = proffession;
             _strength = _minStrength;
             _agility = _minAgility;
             _inteligence = _minIntelligence;
@@ -31,12 +15,8 @@ namespace WpfCharacterEditor
             _maxFreePoints = freePoints;
         }
 
-        public Warrior(string name, string proffession, int strength, int agility, int intelligence, int endurance, int freePoints)
+        public Warrior(string name, string proffession, int strength, int agility, int intelligence, int endurance, int freePoints):base (name, proffession)
         {
-            _minStrength = 30;
-            _maxStrength = 250;
-
-
             _strength = strength;
             _agility = agility;
             _inteligence = intelligence;
@@ -64,7 +44,11 @@ namespace WpfCharacterEditor
 
             }
         }
-        
+        [BsonIgnore]
+        public override int StrengthMin => 30;
+        [BsonIgnore]
+        public override int StrengthMax => 250;
+
         public override int Agility
         {
             get => _agility;
@@ -83,7 +67,11 @@ namespace WpfCharacterEditor
                 else _agility = value;
             }
         }
-        
+        [BsonIgnore]
+        public override int AgilityMin => 15;
+        [BsonIgnore]
+        public override int AgilityMax => 80;
+
         public override int Intelligence
         {
             get => _inteligence;
@@ -102,6 +90,10 @@ namespace WpfCharacterEditor
                 else _inteligence = value;
             }
         }
+        [BsonIgnore]
+        public override int IntelligenceMin => 10;
+        [BsonIgnore]
+        public override int IntelligenceMax => 50;
 
         public override int Endurance
         {
@@ -121,7 +113,11 @@ namespace WpfCharacterEditor
                 else _endurance = value;
             }
         }
-                
+        [BsonIgnore]
+        public override int EnduranceMin => 25;
+        [BsonIgnore]
+        public override int EnduranceMax => 100;
+
         [BsonIgnore]
         public override int PhysicalDamage { get => _strength * 7 + _agility * 2 + _inteligence * 0 + _endurance * 0; }           
         
