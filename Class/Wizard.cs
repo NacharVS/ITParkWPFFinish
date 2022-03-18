@@ -102,7 +102,7 @@ namespace WpfCharacterEditor
         [BsonIgnore]
         public int IntelligenceMax => 250;
 
-        public int Endurance
+        public override int Endurance
         {
             get => _endurance;
             set
@@ -122,41 +122,27 @@ namespace WpfCharacterEditor
         }
 
         [BsonIgnore]
-        public int EnduranceMin => 20;
+        public override int EnduranceMin => 20;
         [BsonIgnore]
-        public int EnduranceMax => 80;
-
-        public int FreePoints
-        {
-            get => _freePoints;
-            set
-            {
-                _freePoints = value;
-            }
-        }
-
-        [BsonIgnore]
-        public int FreePointsMin => _minFreePoints;
-        [BsonIgnore]
-        public int FreePointsMax { get => _maxFreePoints; set => _maxFreePoints = value; }
-
-        [BsonIgnore]
-        public int PhysicalDamage { get => _strength * 1 + _agility * 1 + _inteligence * 0 + _endurance * 0; }           
+        public override int EnduranceMax => 80;
         
         [BsonIgnore]
-        public int PhysicalProtection { get => _strength * 1 + _agility * 1 + _inteligence * 1 + _endurance * 2; }
+        public override int PhysicalDamage { get => _strength * 1 + _agility * 1 + _inteligence * 0 + _endurance * 0; }           
+        
+        [BsonIgnore]
+        public override int PhysicalProtection { get => _strength * 1 + _agility * 1 + _inteligence * 1 + _endurance * 2; }
 
         [BsonIgnore]
-        public int MagicalDamage { get => _strength * 0 + _agility * 0 + _inteligence * 7 + _endurance * 0; }
+        public override int MagicalDamage { get => _strength * 0 + _agility * 0 + _inteligence * 7 + _endurance * 0; }
                 
         [BsonIgnore]
-        public int MagicalProtection { get => _strength * 0 + _agility * 0 + _inteligence * 5 + _endurance * 1; }
+        public override int MagicalProtection { get => _strength * 0 + _agility * 0 + _inteligence * 5 + _endurance * 1; }
         
         [BsonIgnore]
-        public int Life { get => _strength * 1 + _agility * 0 + _inteligence * 0 + _endurance * 3; }
+        public override int Life { get => _strength * 1 + _agility * 0 + _inteligence * 0 + _endurance * 3; }
         
         [BsonIgnore]
-        public int Magic { get => _strength * 0 + _agility * 0 + _inteligence * 2 + _endurance * 0; }
+        public override int Magic { get => _strength * 0 + _agility * 0 + _inteligence * 2 + _endurance * 0; }
 
         
     }
