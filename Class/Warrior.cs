@@ -25,48 +25,13 @@ namespace WpfCharacterEditor
             _maxFreePoints = freePoints;
         }
         
-        //public override int Strength
-        //{
-        //    get => _strength;
-        //    set
-        //    {
-        //        if (_strength > value && _strength > StrengthMin && FreePoints < FreePointsMax)
-        //        {
-        //            _strength = value;
-        //            FreePoints += 1; 
-        //        }
-        //        if (_strength < value && _strength < StrengthMax && FreePoints > FreePointsMin)
-        //        {
-        //            _strength = value;
-        //            FreePoints -= 1;
-        //        }
-        //        else _strength = value;
-
-        //    }
-        //}
+        
         [BsonIgnore]
         public override int StrengthMin { get => _minStrength; set => _minStrength = 30; }
         [BsonIgnore]
         public override int StrengthMax { get => _maxStrength; set => _maxStrength = 250; }
 
-        //public override int Agility
-        //{
-        //    get => _agility;
-        //    set
-        //    {
-        //        if (_agility > value && _agility > AgilityMin && FreePoints < FreePointsMax)
-        //        {
-        //            _agility = value;
-        //            FreePoints += 1;
-        //        }
-        //        if (_agility < value && _agility < AgilityMax && FreePoints > FreePointsMin)
-        //        {
-        //            _agility = value;
-        //            FreePoints -= 1;
-        //        }
-        //        else _agility = value;
-        //    }
-        //}
+        
         [BsonIgnore]
         public override int AgilityMin { get => _minAgility; set => _minAgility = 15; }
         [BsonIgnore]
