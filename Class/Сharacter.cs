@@ -68,7 +68,7 @@ namespace WpfCharacterEditor
                     _agility = value;
                     FreePoints -= 1;
                 }
-                else _agility = value;
+                //else _agility = value;
             }
         }
         [BsonIgnore]
@@ -87,7 +87,7 @@ namespace WpfCharacterEditor
                     _inteligence = value;
                     FreePoints -= 1;
                 }
-                else _inteligence = value;
+                //else _inteligence = value;
             }
         }
         [BsonIgnore]
@@ -106,7 +106,7 @@ namespace WpfCharacterEditor
                     _endurance = value;
                     FreePoints -= 1;
                 }
-                else _endurance = value;
+                //else _endurance = value;
             }
         }
 
