@@ -7,10 +7,10 @@ namespace WpfCharacterEditor
     {
         public Warrior(string name, string proffession, int freePoints) : base(name, proffession)
         {
-            _strength = _minStrength;
-            _agility = _minAgility;
-            _inteligence = _minIntelligence;
-            _endurance = _minEndurance;
+            _strength = StrengthMin;
+            _agility = AgilityMin;
+            _inteligence = IntelligenceMin;
+            _endurance = EnduranceMin;
             _freePoints = freePoints;
             _maxFreePoints = freePoints;
         }
@@ -26,24 +26,24 @@ namespace WpfCharacterEditor
         }
         
         [BsonIgnore]
-        public override int StrengthMin { get => _minStrength; set => _minStrength = 30; }
+        public override int StrengthMin { get => 30; }
         [BsonIgnore]
-        public override int StrengthMax { get => _maxStrength; set => _maxStrength = 250; }
+        public override int StrengthMax { get => 250; }
 
         [BsonIgnore]
-        public override int AgilityMin { get => _minAgility; set => _minAgility = 15; }
+        public override int AgilityMin { get => 15; }
         [BsonIgnore]
-        public override int AgilityMax { get => _maxAgility; set => _maxAgility = 80; }
+        public override int AgilityMax { get => 80; }
 
         [BsonIgnore]
-        public override int IntelligenceMin { get => _minIntelligence; set => _minIntelligence = 10; }
+        public override int IntelligenceMin { get => 10; }
         [BsonIgnore]
-        public override int IntelligenceMax { get => _maxIntelligence; set => _maxIntelligence = 50; }
+        public override int IntelligenceMax { get => 50; }
 
         [BsonIgnore]
-        public override int EnduranceMin { get => _minEndurance; set => _minEndurance = 25; }
+        public override int EnduranceMin { get => 25; }
         [BsonIgnore]
-        public override int EnduranceMax { get => _maxEndurance; set => _maxEndurance = 100; }
+        public override int EnduranceMax { get => 100; }
 
         [BsonIgnore]
         public override int PhysicalDamage { get => _strength * 7 + _agility * 2 + _inteligence * 0 + _endurance * 0; }           

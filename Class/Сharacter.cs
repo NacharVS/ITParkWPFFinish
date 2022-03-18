@@ -10,18 +10,15 @@ namespace WpfCharacterEditor
         [BsonIgnoreIfDefault]
         public ObjectId _id;
 
+        [BsonElement]
         protected int _strength;
-        protected int _minStrength;
-        protected int _maxStrength;
+        [BsonElement]
         protected int _agility;
-        protected int _minAgility;
-        protected int _maxAgility;
+        [BsonElement]
         protected int _inteligence;
-        protected int _minIntelligence;
-        protected int _maxIntelligence;
+        [BsonElement]
         protected int _endurance;
-        protected int _minEndurance;
-        protected int _maxEndurance;
+        
         protected int _freePoints;
         protected int _minFreePoints = 0;
         protected int _maxFreePoints;
@@ -35,103 +32,103 @@ namespace WpfCharacterEditor
         public virtual string Name { get; set; }
 
         public virtual string Proffession { get; set; }
-
+        [BsonIgnore]
         public int Strength
         {
             get => _strength;
             set
             {
-                if (_strength > value && _strength > _minStrength && _freePoints < _maxFreePoints)
+                if (_strength > value && _strength > StrengthMin && FreePoints < _maxFreePoints)
                 {
                     _strength = value;
                     _freePoints += 1;
                 }
-                if (_strength < value && _strength < _maxStrength && _freePoints > _minFreePoints)
+                if (_strength < value && _strength < StrengthMax && FreePoints > _minFreePoints)
                 {
                     _strength = value;
-                    _freePoints -= 1;
+                    FreePoints -= 1;
                 }
-                else _strength = value;
+                //else _strength = value;
 
             }
         }
-
+        [BsonIgnore]
         public int Agility
         {
             get => _agility;
             set
             {
-                if (_agility > value && _agility > _minAgility && _freePoints < _maxFreePoints)
+                if (_agility > value && _agility > AgilityMin && FreePoints < _maxFreePoints)
                 {
                     _agility = value;
                     FreePoints += 1;
                 }
-                if (_agility < value && _agility < _maxAgility && _freePoints > _minFreePoints)
+                if (_agility < value && _agility < AgilityMax && FreePoints > _minFreePoints)
                 {
                     _agility = value;
-                    _freePoints -= 1;
+                    FreePoints -= 1;
                 }
                 else _agility = value;
             }
         }
-
+        [BsonIgnore]
         public int Intelligence
         {
             get => _inteligence;
             set
             {
-                if (_inteligence > value && _inteligence > _minIntelligence && _freePoints < _maxFreePoints)
+                if (_inteligence > value && _inteligence > IntelligenceMin && FreePoints < _maxFreePoints)
                 {
                     _inteligence = value;
                     FreePoints += 1;
                 }
-                if (_inteligence < value && _inteligence < _maxIntelligence && _freePoints > _minFreePoints)
+                if (_inteligence < value && _inteligence < IntelligenceMax && FreePoints > _minFreePoints)
                 {
                     _inteligence = value;
-                    _freePoints -= 1;
+                    FreePoints -= 1;
                 }
                 else _inteligence = value;
             }
         }
-
+        [BsonIgnore]
         public int Endurance
         {
             get => _endurance;
             set
             {
-                if (_endurance > value && _endurance > _minEndurance && _freePoints < _maxFreePoints)
+                if (_endurance > value && _endurance > EnduranceMin && FreePoints < _maxFreePoints)
                 {
                     _endurance = value;
                     FreePoints += 1;
                 }
-                if (_endurance < value && _endurance < _maxEndurance && _freePoints > _minFreePoints)
+                if (_endurance < value && _endurance < EnduranceMax && FreePoints > _minFreePoints)
                 {
                     _endurance = value;
-                    _freePoints -= 1;
+                    FreePoints -= 1;
                 }
                 else _endurance = value;
             }
         }
 
         [BsonIgnore]
-        public virtual int StrengthMin { get; set; }
+        public virtual int StrengthMin { get; }
         [BsonIgnore]
-        public virtual int StrengthMax { get; set; }
+        public virtual int StrengthMax { get; }
 
         [BsonIgnore]
-        public virtual int AgilityMin { get; set; }
+        public virtual int AgilityMin { get; }
         [BsonIgnore]
-        public virtual int AgilityMax { get; set; }
+        public virtual int AgilityMax { get; }
 
         [BsonIgnore]
-        public virtual int IntelligenceMin { get; set; }
+        public virtual int IntelligenceMin { get; }
         [BsonIgnore]
-        public virtual int IntelligenceMax { get; set; }
+        public virtual int IntelligenceMax { get; }
 
         [BsonIgnore]
-        public virtual int EnduranceMin { get; set; }
+        public virtual int EnduranceMin { get; }
         [BsonIgnore]
-        public virtual int EnduranceMax { get; set; }
+        public virtual int EnduranceMax { get; }
 
         public int FreePoints { get => _freePoints; set { _freePoints = value; } }
         [BsonIgnore]

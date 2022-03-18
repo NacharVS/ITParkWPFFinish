@@ -32,22 +32,22 @@ namespace WpfCharacterEditor
 
         private void Indicators()
         {
-            switch (character.Proffession)
-            {
-                case "Warrior":
-                    proffession.SelectedIndex = 1;
-                    break;
+            //switch (character.Proffession)
+            //{
+            //    case "Warrior":
+            //        proffession.SelectedIndex = 1;
+            //        break;
 
-                case "Archer":
-                    proffession.SelectedIndex = 2;
-                    break;
+            //    case "Archer":
+            //        proffession.SelectedIndex = 2;
+            //        break;
 
-                case "Wizard":
-                    proffession.SelectedIndex = 3;
-                    break;
-                default:
-                    break;
-            }
+            //    case "Wizard":
+            //        proffession.SelectedIndex = 3;
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             name.Text = character.Name;
             strength.Content = character.Strength;

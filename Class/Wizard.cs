@@ -26,24 +26,24 @@ namespace WpfCharacterEditor
         }
 
         [BsonIgnore]
-        public override int StrengthMin { get => _minStrength; set => _minStrength = 15; }
+        public override int StrengthMin { get => 15; }
         [BsonIgnore]
-        public override int StrengthMax { get => _maxStrength; set => _maxStrength = 45; }
+        public override int StrengthMax { get => 45; }
 
         [BsonIgnore]
-        public override int AgilityMin { get => _minAgility; set => _minAgility = 20; }
+        public override int AgilityMin { get => 20; }
         [BsonIgnore]
-        public override int AgilityMax { get => _maxAgility; set => _maxAgility = 85; }
+        public override int AgilityMax { get => 85; }
 
         [BsonIgnore]
-        public override int IntelligenceMin { get => _minIntelligence; set => _minIntelligence = 35; }
+        public override int IntelligenceMin { get => 35; }
         [BsonIgnore]
-        public override int IntelligenceMax { get => _maxIntelligence; set => _maxIntelligence = 250; }
+        public override int IntelligenceMax { get => 250; }
 
         [BsonIgnore]
-        public override int EnduranceMin { get => _minEndurance; set => _minEndurance = 20; }
+        public override int EnduranceMin { get => 20; }
         [BsonIgnore]
-        public override int EnduranceMax { get => _maxEndurance; set => _maxEndurance = 80; }
+        public override int EnduranceMax { get => 80; }
 
         [BsonIgnore]
         public override int PhysicalDamage { get => _strength * 1 + _agility * 1 + _inteligence * 0 + _endurance * 0; }           

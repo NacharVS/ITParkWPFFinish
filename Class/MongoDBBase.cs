@@ -21,7 +21,7 @@ namespace WpfCharacterEditor.Class
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Сharacters");
-            var collection = database.GetCollection<Warrior>("Warriors");
+            var collection = database.GetCollection<Сharacter>("Warriors");
             var listCharactersFromDB = collection.Find(x => true).ToList();
             List<string> listToReturn = new List<string>();
             foreach (var item in listCharactersFromDB)
