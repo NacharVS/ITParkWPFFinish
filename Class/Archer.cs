@@ -25,48 +25,48 @@ namespace WpfCharacterEditor
             _maxFreePoints = freePoints;
         }
 
-        public override int Strength
-        {
-            get => _strength;
-            set
-            {
-                if (_strength > value && _strength > StrengthMin && FreePoints < FreePointsMax)
-                {
-                    _strength = value;
-                    FreePoints += 1;
-                }
-                if (_strength < value && _strength < StrengthMax && FreePoints > FreePointsMin)
-                {
-                    _strength = value;
-                    FreePoints -= 1;
-                }
-                else _strength = value;
+        //public override int Strength
+        //{
+        //    get => _strength;
+        //    set
+        //    {
+        //        if (_strength > value && _strength > StrengthMin && FreePoints < FreePointsMax)
+        //        {
+        //            _strength = value;
+        //            FreePoints += 1;
+        //        }
+        //        if (_strength < value && _strength < StrengthMax && FreePoints > FreePointsMin)
+        //        {
+        //            _strength = value;
+        //            FreePoints -= 1;
+        //        }
+        //        else _strength = value;
 
-            }
-        }
+        //    }
+        //}
         [BsonIgnore]
         public override int StrengthMin => 20;
         [BsonIgnore]
         public override int StrengthMax => 55;
 
-        public override int Agility
-        {
-            get => _agility;
-            set
-            {
-                if (_agility > value && _agility > AgilityMin && FreePoints < FreePointsMax)
-                {
-                    _agility = value;
-                    FreePoints += 1;
-                }
-                if (_agility < value && _agility < AgilityMax && FreePoints > FreePointsMin)
-                {
-                    _agility = value;
-                    FreePoints -= 1;
-                }
-                else _agility = value;
-            }
-        }
+        //public override int Agility
+        //{
+        //    get => _agility;
+        //    set
+        //    {
+        //        if (_agility > value && _agility > AgilityMin && FreePoints < FreePointsMax)
+        //        {
+        //            _agility = value;
+        //            FreePoints += 1;
+        //        }
+        //        if (_agility < value && _agility < AgilityMax && FreePoints > FreePointsMin)
+        //        {
+        //            _agility = value;
+        //            FreePoints -= 1;
+        //        }
+        //        else _agility = value;
+        //    }
+        //}
         [BsonIgnore]
         public override int AgilityMin => 30;
         [BsonIgnore]

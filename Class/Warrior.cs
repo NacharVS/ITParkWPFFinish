@@ -3,19 +3,19 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace WpfCharacterEditor
 {
-    class Warrior : Сharacter, ICharacter
+    class Warrior : Сharacter
     {
-        public Warrior(string name, string proffession, int freePoints):base(name, proffession)
+        public Warrior(string name, string proffession, int freePoints) : base(name, proffession)
         {
-            _strength = StrengthMin;
-            _agility = AgilityMin;
-            _inteligence = IntelligenceMin;
-            _endurance = EnduranceMin;
+            _strength = _minStrength;
+            _agility = _minAgility;
+            _inteligence = _minIntelligence;
+            _endurance = _minEndurance;
             _freePoints = freePoints;
             _maxFreePoints = freePoints;
         }
 
-        public Warrior(string name, string proffession, int strength, int agility, int intelligence, int endurance, int freePoints):base (name, proffession)
+        public Warrior(string name, string proffession, int strength, int agility, int intelligence, int endurance, int freePoints) : base (name, proffession)
         {
             _strength = strength;
             _agility = agility;
@@ -25,52 +25,52 @@ namespace WpfCharacterEditor
             _maxFreePoints = freePoints;
         }
         
-        public override int Strength
-        {
-            get => _strength;
-            set
-            {
-                if (_strength > value && _strength > StrengthMin && FreePoints < FreePointsMax)
-                {
-                    _strength = value;
-                    FreePoints += 1; 
-                }
-                if (_strength < value && _strength < StrengthMax && FreePoints > FreePointsMin)
-                {
-                    _strength = value;
-                    FreePoints -= 1;
-                }
-                else _strength = value;
+        //public override int Strength
+        //{
+        //    get => _strength;
+        //    set
+        //    {
+        //        if (_strength > value && _strength > StrengthMin && FreePoints < FreePointsMax)
+        //        {
+        //            _strength = value;
+        //            FreePoints += 1; 
+        //        }
+        //        if (_strength < value && _strength < StrengthMax && FreePoints > FreePointsMin)
+        //        {
+        //            _strength = value;
+        //            FreePoints -= 1;
+        //        }
+        //        else _strength = value;
 
-            }
-        }
+        //    }
+        //}
         [BsonIgnore]
-        public override int StrengthMin => 30;
+        public override int StrengthMin { get => _minStrength; set => _minStrength = 30; }
         [BsonIgnore]
-        public override int StrengthMax => 250;
+        public override int StrengthMax { get => _maxStrength; set => _maxStrength = 250; }
 
-        public override int Agility
-        {
-            get => _agility;
-            set
-            {
-                if (_agility > value && _agility > AgilityMin && FreePoints < FreePointsMax)
-                {
-                    _agility = value;
-                    FreePoints += 1;
-                }
-                if (_agility < value && _agility < AgilityMax && FreePoints > FreePointsMin)
-                {
-                    _agility = value;
-                    FreePoints -= 1;
-                }
-                else _agility = value;
-            }
-        }
+        //public override int Agility
+        //{
+        //    get => _agility;
+        //    set
+        //    {
+        //        if (_agility > value && _agility > AgilityMin && FreePoints < FreePointsMax)
+        //        {
+        //            _agility = value;
+        //            FreePoints += 1;
+        //        }
+        //        if (_agility < value && _agility < AgilityMax && FreePoints > FreePointsMin)
+        //        {
+        //            _agility = value;
+        //            FreePoints -= 1;
+        //        }
+        //        else _agility = value;
+        //    }
+        //}
         [BsonIgnore]
-        public override int AgilityMin => 15;
+        public override int AgilityMin { get => _minAgility; set => _minAgility = 15; }
         [BsonIgnore]
-        public override int AgilityMax => 80;
+        public override int AgilityMax { get => _maxAgility; set => _maxAgility = 80; }
 
         public override int Intelligence
         {
