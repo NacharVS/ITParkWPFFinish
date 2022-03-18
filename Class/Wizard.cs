@@ -35,48 +35,10 @@ namespace WpfCharacterEditor
         [BsonIgnore]
         public override int AgilityMax { get => _maxAgility; set => _maxAgility = 85; }
 
-        public int Intelligence
-        {
-            get => _inteligence;
-            set
-            {
-                if (_inteligence > value && _inteligence > IntelligenceMin && FreePoints < FreePointsMax)
-                {
-                    _inteligence = value;
-                    FreePoints += 1;
-                }
-                if (_inteligence < value && _inteligence < IntelligenceMax && FreePoints > FreePointsMin)
-                {
-                    _inteligence = value;
-                    FreePoints -= 1;
-                }
-                else _inteligence = value;
-            }
-        }
-
         [BsonIgnore]
-        public int IntelligenceMin => 35;
+        public override int IntelligenceMin => 35;
         [BsonIgnore]
-        public int IntelligenceMax => 250;
-
-        public override int Endurance
-        {
-            get => _endurance;
-            set
-            {
-                if (_endurance > value && _endurance > EnduranceMin && FreePoints < FreePointsMax)
-                {
-                    _endurance = value;
-                    FreePoints += 1;
-                }
-                if (_endurance < value && _endurance < EnduranceMax && FreePoints > FreePointsMin)
-                {
-                    _endurance = value;
-                    FreePoints -= 1;
-                }
-                else _endurance = value;
-            }
-        }
+        public override int IntelligenceMax => 250;
 
         [BsonIgnore]
         public override int EnduranceMin => 20;

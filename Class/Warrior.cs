@@ -25,63 +25,25 @@ namespace WpfCharacterEditor
             _maxFreePoints = freePoints;
         }
         
-        
         [BsonIgnore]
         public override int StrengthMin { get => _minStrength; set => _minStrength = 30; }
         [BsonIgnore]
         public override int StrengthMax { get => _maxStrength; set => _maxStrength = 250; }
 
-        
         [BsonIgnore]
         public override int AgilityMin { get => _minAgility; set => _minAgility = 15; }
         [BsonIgnore]
         public override int AgilityMax { get => _maxAgility; set => _maxAgility = 80; }
 
-        public override int Intelligence
-        {
-            get => _inteligence;
-            set
-            {
-                if (_inteligence > value && _inteligence > IntelligenceMin && FreePoints < FreePointsMax)
-                {
-                    _inteligence = value;
-                    FreePoints += 1;
-                }
-                if (_inteligence < value && _inteligence < IntelligenceMax && FreePoints > FreePointsMin)
-                {
-                    _inteligence = value;
-                    FreePoints -= 1;
-                }
-                else _inteligence = value;
-            }
-        }
         [BsonIgnore]
-        public override int IntelligenceMin => 10;
+        public override int IntelligenceMin { get => _minIntelligence; set => _minIntelligence = 10; }
         [BsonIgnore]
-        public override int IntelligenceMax => 50;
+        public override int IntelligenceMax { get => _maxIntelligence; set => _maxIntelligence = 50; }
 
-        public override int Endurance
-        {
-            get => _endurance;
-            set
-            {
-                if (_endurance > value && _endurance > EnduranceMin && FreePoints < FreePointsMax)
-                {
-                    _endurance = value;
-                    FreePoints += 1;
-                }
-                if (_endurance < value && _endurance < EnduranceMax && FreePoints > FreePointsMin)
-                {
-                    _endurance = value;
-                    FreePoints -= 1;
-                }
-                else _endurance = value;
-            }
-        }
         [BsonIgnore]
-        public override int EnduranceMin => 25;
+        public override int EnduranceMin { get => _minEndurance; set => _minEndurance = 25; }
         [BsonIgnore]
-        public override int EnduranceMax => 100;
+        public override int EnduranceMax { get => _maxEndurance; set => _maxEndurance = 100; }
 
         [BsonIgnore]
         public override int PhysicalDamage { get => _strength * 7 + _agility * 2 + _inteligence * 0 + _endurance * 0; }           
@@ -100,7 +62,6 @@ namespace WpfCharacterEditor
         
         [BsonIgnore]
         public override int Magic { get => _strength * 0 + _agility * 0 + _inteligence * 1 + _endurance * 0; }
-
-        
+   
     }
 }

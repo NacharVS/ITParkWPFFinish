@@ -75,9 +75,43 @@ namespace WpfCharacterEditor
             }
         }
 
-        public virtual int Intelligence { get; set; }
+        public int Intelligence
+        {
+            get => _inteligence;
+            set
+            {
+                if (_inteligence > value && _inteligence > _minIntelligence && _freePoints < _maxFreePoints)
+                {
+                    _inteligence = value;
+                    FreePoints += 1;
+                }
+                if (_inteligence < value && _inteligence < _maxIntelligence && _freePoints > _minFreePoints)
+                {
+                    _inteligence = value;
+                    _freePoints -= 1;
+                }
+                else _inteligence = value;
+            }
+        }
 
-        public virtual int Endurance { get; set; }
+        public int Endurance
+        {
+            get => _endurance;
+            set
+            {
+                if (_endurance > value && _endurance > _minEndurance && _freePoints < _maxFreePoints)
+                {
+                    _endurance = value;
+                    FreePoints += 1;
+                }
+                if (_endurance < value && _endurance < _maxEndurance && _freePoints > _minFreePoints)
+                {
+                    _endurance = value;
+                    _freePoints -= 1;
+                }
+                else _endurance = value;
+            }
+        }
 
         [BsonIgnore]
         public virtual int StrengthMin { get; set; }
@@ -90,14 +124,14 @@ namespace WpfCharacterEditor
         public virtual int AgilityMax { get; set; }
 
         [BsonIgnore]
-        public virtual int IntelligenceMin { get; }
+        public virtual int IntelligenceMin { get; set; }
         [BsonIgnore]
-        public virtual int IntelligenceMax { get; }
+        public virtual int IntelligenceMax { get; set; }
 
         [BsonIgnore]
-        public virtual int EnduranceMin { get; }
+        public virtual int EnduranceMin { get; set; }
         [BsonIgnore]
-        public virtual int EnduranceMax { get; }
+        public virtual int EnduranceMax { get; set; }
 
         public int FreePoints { get => _freePoints; set { _freePoints = value; } }
         [BsonIgnore]
