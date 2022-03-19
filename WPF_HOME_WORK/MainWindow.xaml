@@ -8,7 +8,7 @@
         Title="MainWindow" Height="667" Width="851" Loaded="Window_Loaded">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="59,53,0,0" Text="Введите имя" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <TextBox x:Name="Enter_a_name" HorizontalAlignment="Left" Margin="59,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" Height="31"/>
+        <TextBox x:Name="Enter_a_name" HorizontalAlignment="Left" Margin="59,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" Height="31" GotFocus="Enter_a_name_GotFocus"/>
         <TextBlock HorizontalAlignment="Left" Margin="59,130,0,0" Text="Введите профессию" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="59,248,0,0" Text="Показатели" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="82,287,0,0" Text="Сила" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
@@ -30,7 +30,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="82,467,0,0" Text="Доп.очки" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="31,467,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
         <Button Content="+" HorizontalAlignment="Left" Margin="284,467,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <ComboBox x:Name="Enter_a_profession" HorizontalAlignment="Left" Margin="31,207,0,0" VerticalAlignment="Top" Width="211" Height="36">
+        <ComboBox x:Name="Enter_a_profession" HorizontalAlignment="Left" Margin="31,207,0,0" VerticalAlignment="Top" Width="211" Height="36" Cursor="" FontSize="20">
             <ListBoxItem Content="Воин" FontWeight="Bold" FontSize="20"/>
             <ListBoxItem Content="Волшебник" FontWeight="Bold" FontSize="20"/>
             <ListBoxItem Content="Лучник" FontWeight="Bold" FontSize="20"/>

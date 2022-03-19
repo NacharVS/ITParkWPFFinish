@@ -70,5 +70,10 @@ namespace WPF_HOME_WORK
                
           }
         }
+
+        private void Enter_a_name_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Enter_a_name.Clear();
+        }
     }
 }
