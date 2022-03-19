@@ -48,5 +48,12 @@ namespace RPG
             collection.ReplaceOne(x => x.Name == name, personag);
         }
 
+        public static void DeletePersonage(string name) //Перезапись в БД. Добавить волшебника и лучника
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("RPG");
+            var collection = database.GetCollection<Warrior>("Personage");
+            collection.DeleteOne<Warrior>(x => x.Name == name);
+        }
     }
 }

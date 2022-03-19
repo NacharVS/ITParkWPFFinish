@@ -24,7 +24,7 @@ namespace RPG
         public static int MinEndurance { get; }  //мин выносливость
         public int MaxEndurance { get; }  //макс выносливость
         public int Endurance { get; set; }
-        public static int Damage { get; }  //Физ.Урон	
+        public static int Damage { get;}  //Физ.Урон	
         public static int Protection { get; }  //Физ.Защита
         public static int MagicDamage { get;  }  //Маг.Урон
         public static int MagicProtection { get;  }  //Маг.Защита
