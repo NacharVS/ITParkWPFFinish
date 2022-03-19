@@ -14,6 +14,7 @@
             <ListBoxItem Background="{x:Null}" BorderBrush="{x:Null}" Content="Archer"/>
             <ListBoxItem Background="{x:Null}" BorderBrush="{x:Null}" Content="Wizard"/>
         </ComboBox>
+        <GroupBox x:Name="Parameters__Level" Header="Level" Margin="23,143,934,332" FontSize="22" FontWeight="Bold"/>
         <GroupBox x:Name="Parameters_" Header="CharacterParameters " Margin="257,13,593,26" FontSize="22" FontWeight="Bold"/>
         <GroupBox x:Name="Parameters__Strength" Header="Strength" Margin="268,45,603,405" FontSize="22" FontWeight="Bold"/>
         <GroupBox x:Name="Parameters__Dexterity" Header="Dexterity" Margin="268,137,602,315" FontSize="22" FontWeight="Bold"/>
@@ -32,7 +33,7 @@
         <TextBox x:Name="Dexterity" HorizontalAlignment="Left" Margin="373,173,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="Intelligence" HorizontalAlignment="Left" Margin="375,268,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="Endurance" HorizontalAlignment="Left" Margin="373,368,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
-        <Button x:Name="SavePerson" Content="SavePerson" HorizontalAlignment="Left" Margin="23,212,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="SavePerson_Click"/>
+        <Button x:Name="SavePerson" Content="SavePerson" HorizontalAlignment="Left" Margin="23,351,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="SavePerson_Click"/>
         <GroupBox x:Name="Parameters__free_glasses_" Header="FreeGlasses" Margin="267,419,603,40" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="free_glasses" HorizontalAlignment="Left" Margin="365,456,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
         <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Margin="463,455,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
@@ -50,10 +51,13 @@
         <GroupBox x:Name="Characteristics_Magic" Header="Magic" Margin="587,369,284,109" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="Magic" HorizontalAlignment="Left" Margin="781,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="MagicProtection" HorizontalAlignment="Left" Margin="781,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
-        <Button x:Name="UpdatePerson" Content="Update" HorizontalAlignment="Left" Margin="23,266,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="UpdatePerson_Click" />
-        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="23,320,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="SavePerson_Click"/>
-        <TextBox x:Name="Level" HorizontalAlignment="Left" Margin="131,153,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="103" Height="44" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
-        <Button x:Name="LevelUp" Content="LevelUp" HorizontalAlignment="Left" Margin="33,155,0,0" VerticalAlignment="Top" Height="42" Width="84" FontSize="22"/>
+        <Button x:Name="UpdatePerson" Content="Update" HorizontalAlignment="Left" Margin="23,396,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="UpdatePerson_Click" />
+        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="23,440,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" />
+        <TextBox x:Name="Level" HorizontalAlignment="Left" Margin="132,153,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="102" Height="44" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        <Button x:Name="Exp1000" Content="+1000exp" HorizontalAlignment="Left" Margin="22,210,0,0" VerticalAlignment="Top" Height="42" Width="110" FontSize="22"/>
+        <Button x:Name="Exp3000" Content="+3000exp" HorizontalAlignment="Left" Margin="22,257,0,0" VerticalAlignment="Top" Height="42" Width="109" FontSize="22"/>
+        <Button x:Name="Exp5000" Content="+5000exp" HorizontalAlignment="Left" Margin="22,304,0,0" VerticalAlignment="Top" Height="42" Width="109" FontSize="22"/>
+
 
 
 
