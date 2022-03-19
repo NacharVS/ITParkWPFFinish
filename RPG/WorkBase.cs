@@ -9,7 +9,7 @@ namespace RPG
 {
     internal class WorkBase
     {
-        public static void AddPersonagToDB(IPersonag name)
+        public static void AddPersonagToDB(IPersonag name) //Добавление в БД
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
@@ -29,6 +29,23 @@ namespace RPG
                 listToReturn.Add(item.Name);
             }
             return listToReturn;
+        }
+
+        public static IPersonag GetPersonag(string name) //Вытаскивание из БД
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("RPG");
+            var collection = database.GetCollection<Warrior>("Personage");
+            var foundedUser = collection.Find(x => x.Name == name).FirstOrDefault();
+            return foundedUser;
+        }
+
+        public static void ReplasePersonage(string name, IPersonag personag) //Перезапись в БД
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("RPG");
+            var collection = database.GetCollection<IPersonag>("Personage");
+            collection.ReplaceOne(x => x.Name == name, personag);
         }
 
     }

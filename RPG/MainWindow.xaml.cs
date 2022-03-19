@@ -42,6 +42,12 @@ namespace RPG
                 Dexterity.Text = Convert.ToString(Warrior.MinAgility);
                 Intelligence.Text = Convert.ToString(Warrior.MinIntelligence);
                 Endurance.Text = Convert.ToString(Warrior.MinEndurance);
+                Damage.Text = Convert.ToString(Warrior.Damage);
+                Protection.Text = Convert.ToString(Warrior.Protection);
+                MagicDamage.Text= Convert.ToString(Warrior.MagicDamage);
+                MagicProtection.Text= Convert.ToString(Warrior.MagicProtection);
+                Life.Text= Convert.ToString(Warrior.Life);
+                Magic.Text= Convert.ToString(Warrior.Magic);
             }
             else if(SelectPerson.SelectedIndex == 1)  //Archer
             {
@@ -67,14 +73,29 @@ namespace RPG
             }
             else
             {
-                
-
+                NamePerson.Text = WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Name;
+                SelectPerson.Text= WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Class;
+                Level.Text = Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Level);
+                free_glasses.Text = Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Points);
+                Strength.Text= Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Strenght);
+                Dexterity.Text = Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Agility);
+                Intelligence.Text = Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Intelligence);
+                Endurance.Text = Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Endurance);
             }
         }
 
         private void ListPersonag_Loaded(object sender, RoutedEventArgs e)  // загрузка листа из БД
         {
             ListPersonag.ItemsSource = WorkBase.GetList();
+        }
+
+        private void UpdatePerson_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListPersonag.SelectedItem == null)
+                MessageBox.Show("Check Personag to update");
+            else
+                WorkBase.ReplasePersonage(ListPersonag.SelectedItem.ToString(), new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text)));
+            ListPersonag.ItemsSource = WorkBase.GetList(); 
         }
     }
 }

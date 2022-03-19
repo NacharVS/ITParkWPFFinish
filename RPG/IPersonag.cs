@@ -24,11 +24,11 @@ namespace RPG
         public static int MinEndurance { get; }  //мин выносливость
         public int MaxEndurance { get; }  //макс выносливость
         public int Endurance { get; set; }
-        public int Damage { get; set; }  //Физ.Урон	
-        public int Protection { get; set; }  //Физ.Защита
-        public int MagicDamage { get; set; }  //Маг.Урон
-        public int MagicProtection { get; set; }  //Маг.Защита
-        public int Life { get; set; }  //Жизнь
-        public int Magic { get; set; }  //Магия
+        public static int Damage { get; }  //Физ.Урон	
+        public static int Protection { get; }  //Физ.Защита
+        public static int MagicDamage { get;  }  //Маг.Урон
+        public static int MagicProtection { get;  }  //Маг.Защита
+        public static int Life { get;  }  //Жизнь
+        public static int Magic { get;  }  //Магия
     }
 }

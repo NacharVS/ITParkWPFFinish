@@ -36,17 +36,17 @@ namespace RPG
         [BsonIgnore]
         public int MaxEndurance { get { return _maxendurance; } }
         [BsonIgnore]
-        public int Damage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public static int Damage { get => strenght * 7 + agility * 2 + intelligence * 0 + endurance * 0; }
         [BsonIgnore]
-        public int Protection { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public static int Protection { get => strenght * 2 + agility * 3 + intelligence * 0 + endurance * 3; }
         [BsonIgnore]
-        public int MagicDamage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public static int MagicDamage { get => strenght * 0 + agility * 0 + intelligence * 1 + endurance * 0; }
         [BsonIgnore]
-        public int MagicProtection { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public static int MagicProtection { get => strenght * 1 + agility * 0 + intelligence * 2 + endurance * 1; }
         [BsonIgnore]
-        public int Life { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public static int Life { get => strenght * 5 + agility * 0 + intelligence * 0 + endurance * 10; }
         [BsonIgnore]
-        public int Magic { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public static int Magic { get => strenght * 0 + agility * 0 + intelligence * 1 + endurance * 0; }
         public int Strenght { get => strenght; set => strenght = value; }
         public int Agility { get => agility; set => agility = value; }
         public int Intelligence { get => intelligence; set => intelligence = value; }
@@ -61,12 +61,13 @@ namespace RPG
         int _maxintelligence=50;
         static int _minendurance =25;
         int _maxendurance=100;
-        int strenght;
-        int agility;
-        int intelligence;
-        int endurance;
-        int level;
-        int points;
+        static int strenght =0;
+        static int agility =0;
+        static int intelligence =0;
+        static int endurance =0;
+        static int level =1;
+        static int points =0;
+        
 
         public Warrior(string name, string @class, int level, int points, int strenght, int agility, int intelligence, int endurance)
         {
@@ -80,74 +81,7 @@ namespace RPG
             Endurance = endurance;
         }
 
-
-
-
-
-
-
-
-
-
-
-        //public Warrior(string name, string @class, int minstrenght, int minagility, int minintelligence, int minendurance)
-        //{
-        //    Name = name;
-        //    Class = @class;
-        //    _minstrenght = minstrenght;
-        //    _minagility = minagility;
-        //    _minintelligence = minintelligence;
-        //    _minendurance = minendurance;
-        //}
-
-        //[BsonIgnoreIfDefault]
-        //public Object _id { get; set; }
-        //[BsonIgnoreIfDefault]
-        //public string Name { get; set; }
-        //[BsonIgnoreIfDefault]
-        //public string Class { get; set; }
-        //[BsonElement("Strenght")]
-        //public int MinStrenght { get => _minstrenght=30; }
-        //[BsonIgnore]
-        //public int MaxStrenght { get => _maxstrenght=250; }
-        //[BsonIgnore]
-        //[BsonElement("Agility")]
-        //public int MinAgility { get => _minagility=15; }
-        //[BsonIgnore]
-        //public int MaxAgility { get => _maxagilityt = 80; }
-        //[BsonIgnore]
-        //[BsonElement("Intelligence")]
-        //public int MinIntelligence { get => _minintelligence = 10; }
-        //[BsonIgnore]
-        //public int MaxIntelligence { get => _maxintelligence = 50; }
-        //[BsonIgnore]
-        //[BsonElement("Endurance")]
-        //public int MinEndurance { get => 25;  }
-        //[BsonIgnore]
-        //public int MaxEndurance { get => _maxendurance = 100; }
-        //[BsonIgnore]
-        //public int Damage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        //[BsonIgnore]
-        //public int Protection { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        //[BsonIgnore]
-        //public int MagicDamage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        //[BsonIgnore]
-        //public int MagicProtection { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        //[BsonIgnore]
-        //public int Life { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        //[BsonIgnore]
-        //public int Magic { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-
-
-        //int _minstrenght;
-        // int _maxstrenght;
-        // int _minagility;
-        // int _maxagilityt;
-        // int _minintelligence;
-        // int _maxintelligence;
-        // int _minendurance;
-        // int _maxendurance;
+        
     }
 
 }

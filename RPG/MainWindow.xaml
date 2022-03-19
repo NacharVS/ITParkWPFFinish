@@ -50,7 +50,7 @@
         <GroupBox x:Name="Characteristics_Magic" Header="Magic" Margin="587,369,284,109" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="Magic" HorizontalAlignment="Left" Margin="781,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="MagicProtection" HorizontalAlignment="Left" Margin="781,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="32" FontSize="22" HorizontalContentAlignment="Center"/>
-        <Button x:Name="UpdatePerson" Content="Update" HorizontalAlignment="Left" Margin="23,266,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="SavePerson_Click"/>
+        <Button x:Name="UpdatePerson" Content="Update" HorizontalAlignment="Left" Margin="23,266,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="UpdatePerson_Click" />
         <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="23,320,0,0" VerticalAlignment="Top" Width="211" Height="36" FontSize="22" Click="SavePerson_Click"/>
         <TextBox x:Name="Level" HorizontalAlignment="Left" Margin="131,153,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="103" Height="44" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
         <Button x:Name="LevelUp" Content="LevelUp" HorizontalAlignment="Left" Margin="33,155,0,0" VerticalAlignment="Top" Height="42" Width="84" FontSize="22"/>
