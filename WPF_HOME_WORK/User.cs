@@ -49,8 +49,14 @@ namespace WPF_HOME_WORK
             var collection = database.GetCollection<User>("Users");
             var foundedUser = collection.Find(x => x.Name== name).FirstOrDefault();
             return foundedUser;
+        }
 
-
+        public static void DeleteToDB(string name, string profession)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Home_Work");
+            var collection = database.GetCollection<User>("Users");
+            collection.DeleteOne(x=>x.Name ==name);
         }
     }
 }

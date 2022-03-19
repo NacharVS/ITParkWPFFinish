@@ -29,6 +29,7 @@ namespace WPF_HOME_WORK
 
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
+
             User.AddToDB(Enter_a_name.Text, Enter_a_profession.Text);
 
             ListName.ItemsSource = User.GetNameList();
@@ -56,6 +57,18 @@ namespace WPF_HOME_WORK
                 Enter_a_name.Text = User.GetUser(ListName.SelectedItem.ToString()).Name;
                 Enter_a_profession.Text = User.GetUser(ListName.SelectedItem.ToString()).Profession;
             }
+        }
+
+        private void btn_delete_Click(object sender, RoutedEventArgs e)
+        {
+          if(ListName.SelectedIndex == -1)
+          {
+                MessageBox.Show("Сделайте свой выбор!!");
+          }
+          else
+          {
+               
+          }
         }
     }
 }
