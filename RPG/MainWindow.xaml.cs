@@ -29,7 +29,7 @@ namespace RPG
         {
             if (SelectPerson.SelectedIndex==0)
             {
-                WorkBase.AddPersonagToDB(new Warrior (NamePerson.Text, SelectPerson.Text ,Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text)));
+                WorkBase.AddPersonagToDB(new Warrior (NamePerson.Text, SelectPerson.Text , Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text)));
                 ListPersonag.ItemsSource = WorkBase.GetList();
             }
         }

@@ -17,11 +17,11 @@ namespace RPG
             collection.InsertOne(name);
         }
 
-        public static List<string> GetList()
+        public static List<string> GetList()  //Нужно добавить добавление из БД остальные классы
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<IPersonag>("Personage");
+            var collection = database.GetCollection<Warrior>("Personage");
             var listUsersFromDB = collection.Find(x => true).ToList();
             List<string> listToReturn = new List<string>();
             foreach (var item in listUsersFromDB)
