@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
+using System;
 
 namespace WpfCharacterEditor
 {
@@ -35,6 +36,15 @@ namespace WpfCharacterEditor
         public virtual string Name { get; set; }
 
         public virtual string Proffession { get; set; }
+
+        public double Attack()
+        {
+            return PhysicalDamage / 100 + weapon.PhysicalDamage;
+                
+            
+        }
+
+
         [BsonIgnore]
         public int Strength
         {
