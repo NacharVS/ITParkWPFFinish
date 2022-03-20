@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfCharacterEditor
 {
-    class Strength
+    class Property
     {
         public int Value { get; set; }
 
