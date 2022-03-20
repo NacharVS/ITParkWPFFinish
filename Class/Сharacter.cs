@@ -39,7 +39,7 @@ namespace WpfCharacterEditor
 
         public double Attack()
         {
-            return PhysicalDamage / 100 + weapon.PhysicalDamage;
+            return PhysicalDamage / 100 * weapon.PhysicalDamage + MagicalDamage / 100 * weapon.MagicalDamage;
                 
             
         }

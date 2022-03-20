@@ -31,7 +31,15 @@ namespace WpfCharacterEditor
 
         public int PhysicalProtection { get; }
 
-        public int MagicalDamage { get; }
+        public int MagicalDamage
+        {
+            get
+            {
+                Random rnd = new Random();
+                int _damage = rnd.Next(MagicalDamageMin, MagicalDamageMax + 1);
+                return _damage;
+            }
+        }
 
         public int MagicalProtection { get; }
 
