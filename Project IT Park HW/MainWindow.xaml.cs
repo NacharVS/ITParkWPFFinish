@@ -27,9 +27,12 @@ namespace Project_IT_Park_HW
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            Unit.AddUnitToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString());
-            UnitList.ItemsSource = Unit.GetUnitList();
-            UnitClass.ItemsSource = Unit.GetClassList();
+            if (cmbClass.SelectedIndex == 0)
+                MongoDataBase.AddArcherToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString()), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content)
+                        , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content)
+                        , Convert.ToInt32(freePointAmountLabel.Content)); ;
+            UnitList.ItemsSource = MongoDataBase.GetUnitList();
+            UnitClass.ItemsSource = MongoDataBase.GetClassList();
         }
     }
 }
