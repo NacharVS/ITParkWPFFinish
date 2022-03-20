@@ -8,10 +8,30 @@ namespace WpfCharacterEditor
 {
     class Property
     {
-        public int Value { get; set; }
+        private int _value;
 
-        public int Min { get; set; }
+        public int Value
+        {
+            get => _value;
+            set
+            {
+                if (_value > value && _value > Min)
+                {
+                    _value = value;
+                   
+                }
+                if (_value < value && _value < Max)
+                {
+                    _value = value;
+                    
+                }
+                //else _strength = value;
 
-        public int Max { get; set; }
+            }
+        }
+
+        public int Min { get; }
+
+        public int Max { get; }
     }
 }
