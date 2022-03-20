@@ -8,6 +8,16 @@ namespace WpfCharacterEditor
 {
     class Sword: Weapon
     {
+        public override int StrengthMin { get => 50; }
+
+        public override int AgilityMin { get => 25; }
+
+        public override int IntelligenceMin { get => 0; }
+
+        public override int EnduranceMin { get => 0; }
+
+
+
         public override int PhysicalDamageMin { get => 10; }
 
         public override int PhysicalDamageMax { get => 50; }

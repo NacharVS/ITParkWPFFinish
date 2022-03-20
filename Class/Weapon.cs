@@ -8,6 +8,17 @@ namespace WpfCharacterEditor
 {
     class Weapon
     {
+        
+        public virtual int StrengthMin { get; }
+        
+        public virtual int AgilityMin { get; }
+        
+        public virtual int IntelligenceMin { get; }
+        
+        public virtual int EnduranceMin { get; }
+        
+
+
         public int PhysicalDamage { get; }
 
         public int PhysicalProtection { get; }
@@ -33,6 +44,8 @@ namespace WpfCharacterEditor
         public virtual int MagicalProtectionMin { get; }
 
         public virtual int MagicalProtectionMax { get; }
+
+
 
 
     }
