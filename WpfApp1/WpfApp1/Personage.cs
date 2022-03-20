@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,13 @@ namespace WpfApp1
         public Personage()
         {
             name = "Name";
+            _profession = "Profession";
         }
 
         protected double health = 500;
         public string name;
 
-        public string _profession = "Profession";
+        public string _profession;
         
         public double _currentHealth;
         protected double _power;

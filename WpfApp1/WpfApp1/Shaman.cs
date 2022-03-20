@@ -18,6 +18,7 @@ namespace WpfApp1
         public Shaman(string shamanName)
         {
             Name = shamanName;
+            Profession = "shaman";
             CurrentHelth = health;
             PowerCurrent = PowerMin;
             SkillCurrent = SkillMin;
@@ -25,7 +26,7 @@ namespace WpfApp1
             StaminaCurrent = StaminaMin;
         }
 
-        public string Profession { get => _profession; set => _profession = "shaman"; }
+        public string Profession { get => _profession; set => _profession = value; }
 
         public double CurrentHelth { get => _currentHealth; set => _currentHealth = value; }
         public string Name { get => name; set => name = value; }

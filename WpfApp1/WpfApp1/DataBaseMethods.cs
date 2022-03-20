@@ -13,8 +13,22 @@ namespace WpfApp1
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Game");
-            var collection = database.GetCollection<Personage>(personage._profession);
+            var collection = database.GetCollection<Personage>("Personages");
             collection.InsertOne(personage);
+        }
+
+        public static List<string> GetListOfPersonages()
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Game");
+            var collection = database.GetCollection<Personage>("Personages");
+            var listPersonagesFromDB = collection.Find(x => true).ToList();
+            List<string> listToReturn = new List<string>();
+            foreach (var item in listPersonagesFromDB)
+            {
+                listToReturn.Add(item.name.ToString());
+            }
+            return listToReturn;
         }
     }
 }

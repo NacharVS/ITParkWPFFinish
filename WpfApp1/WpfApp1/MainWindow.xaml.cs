@@ -22,13 +22,14 @@ namespace WpfApp1
     {
         string bufName = "Name";
         
-
         BasePersonage personage = new BasePersonage("Name");
         Warrior warrior = new Warrior("Name");
         Archer archer = new Archer("Name");
         Shaman shaman = new Shaman("Name");
 
-        string bufProfession;
+        //List<string> buffer = DataBaseMethods.GetListOfPersonages();
+
+        string bufProfession = "Profession";
         int bufHealth;
         double bufPower;
         double bufSkill;
@@ -85,6 +86,12 @@ namespace WpfApp1
             {
                 MessageBox.Show("Enter the name of personage");
             }
+
+            //else if (buffer.Exists(x => x == bufName))
+            //{
+            //    MessageBox.Show("Pesonage with this name is already exist");
+            //}
+
             else if (warriorRB.IsChecked == true)
             {
                 warrior.Name = txtName.Text;

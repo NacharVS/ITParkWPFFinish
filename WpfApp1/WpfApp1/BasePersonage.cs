@@ -13,7 +13,7 @@ namespace WpfApp1
 
         //double _minSPower = 10;
 
-        public string Profession { get => _profession; set => _profession = "Profession"; }
+        public string Profession { get => _profession; set => _profession = value; }
         public double CurrentHelth { get => _currentHealth; set => _currentHealth = value; }
         public string Name { get => name; set => name = value; }
         public double PowerCurrent { get => _power; set => _power = value; }
@@ -32,7 +32,7 @@ namespace WpfApp1
         public BasePersonage(string name)
         {
             Name = name;
-
+            Profession = "Profession";
             CurrentHelth = health;
             PowerCurrent = PowerMin;
             SkillCurrent = SkillMin;
