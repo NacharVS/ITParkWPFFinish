@@ -23,7 +23,11 @@ namespace WpfCharacterEditor
     {
         string buffName = "Name";
 
+<<<<<<< HEAD
         Warrior character;
+=======
+        Сharacter character;
+>>>>>>> New
         
         public MainWindow()
         {
@@ -258,6 +262,7 @@ namespace WpfCharacterEditor
             
         }
 
+<<<<<<< HEAD
         private void buttonUpdate_Click(object sender, RoutedEventArgs e)
         {
             if (listCharacter.SelectedIndex == -1)
@@ -276,6 +281,57 @@ namespace WpfCharacterEditor
         {
             //MongoDBBase.RemoveWarrior(listCharacter.SelectedItem.ToString());
             //Indicators();
+=======
+        private void weapon_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (weapon.SelectedIndex == 0)
+            {
+                return;
+            }
+            if (weapon.SelectedIndex == 1)
+            {
+                Sword weaponSelect = new Sword();
+
+                if (character.Strength >= weaponSelect.StrengthMin && character.Agility >= weaponSelect.AgilityMin)
+                {
+                    character.weapon = weaponSelect;
+                    Indicators();
+                }
+                else MessageBox.Show($"Character {name.Text} has not Enough property.");
+
+            }
+            if (weapon.SelectedIndex == 2)
+            {
+                character = new Archer(name.Text, proffession.Text.ToString(), 10);
+
+                Indicators();
+            }
+            if (weapon.SelectedIndex == 3)
+            {
+                character = new Wizard(name.Text, proffession.Text.ToString(), 10);
+
+                Indicators();
+            }
+        }
+
+        private void buttonAttack_Click(object sender, RoutedEventArgs e)
+        {
+            Random rnd = new Random();
+            int criticalAttack = rnd.Next(0, 10);
+            double attack;
+
+            if (criticalAttack == 0)
+            {
+                attack = character.Attack() * 5;
+                MessageBox.Show($"Critical attack with {attack}.");
+            }
+            else
+            {
+                attack = character.Attack();
+                MessageBox.Show($"Attack with {attack}.");
+            }
+
+>>>>>>> New
         }
     }
 }

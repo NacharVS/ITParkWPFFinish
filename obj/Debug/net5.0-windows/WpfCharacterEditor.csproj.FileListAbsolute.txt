@@ -76,3 +76,7 @@ C:\Users\Сис. Администратор\ITParkWPFFinish\obj\Debug\net5.0-win
 C:\Users\Сис. Администратор\ITParkWPFFinish\obj\Debug\net5.0-windows\ref\WpfCharacterEditor.dll
 C:\Users\Сис. Администратор\ITParkWPFFinish\obj\Debug\net5.0-windows\WpfCharacterEditor.pdb
 C:\Users\Сис. Администратор\ITParkWPFFinish\obj\Debug\net5.0-windows\WpfCharacterEditor.genruntimeconfig.cache
+C:\Users\avpro\ITParkWPFFinish\obj\Debug\net5.0-windows\WpfCharacterEditor.Properties.Resources.resources
+C:\Users\avpro\ITParkWPFFinish\obj\Debug\net5.0-windows\WpfCharacterEditor.csproj.GenerateResource.cache
+C:\Users\Сис. Администратор\ITParkWPFFinish\obj\Debug\net5.0-windows\WpfCharacterEditor.Properties.Resources.resources
+C:\Users\Сис. Администратор\ITParkWPFFinish\obj\Debug\net5.0-windows\WpfCharacterEditor.csproj.GenerateResource.cache
