@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace WpfCharacterEditor
 {
-    enum Proffession
+    class Strength
     {
-        NoProffession,
-        Warrior,
-        Archer,
-        Mage
+        public int Value { get; set; }
+
+        public int Min { get; set; }
+
+        public int Max { get; set; }
     }
 }
