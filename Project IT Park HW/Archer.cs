@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Project_IT_Park_HW
 {
-    class Archer: Character
+    class Archer : Character
     {
         [BsonIgnoreIfDefault]
         ObjectId _id;
@@ -33,5 +34,22 @@ namespace Project_IT_Park_HW
         public int Level { get => _level; set => _level = value; }
         public int Experiense { get => _experiense; set => _experiense = value; }
         public int FreePoint { get => _freePoint; set => _freePoint = value; }
+
+        
+        //public static List<string> GetArcherStatList()
+        //{
+        //    var client = new MongoClient("mongodb://localhost");
+        //    var database = client.GetDatabase("RPG");
+        //    var collection = database.GetCollection<Archer>("Units");
+        //    var listUnitsFromDB = collection.Find(x => true).ToList();
+        //    List<string> listToReturn = new List<string>();
+        //    foreach (var item in listUnitsFromDB)
+        //    {
+        //        listToReturn.Add(item.Classes);
+        //    }
+        //    return listToReturn;
+        //}
     }
 }
+
+

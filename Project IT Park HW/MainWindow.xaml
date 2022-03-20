@@ -8,7 +8,7 @@
         Title="MainWindow" Height="530" Width="850">
     <Grid Margin="0,0,0,-6">
         <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="43,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontWeight="Bold" Height="18"/>
-        <ComboBox x:Name="cmbClass" HorizontalAlignment="Left" Margin="43,86,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold">
+        <ComboBox x:Name="cmbClass" HorizontalAlignment="Left" Margin="43,86,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" SelectionChanged="cmbClass_SelectionChanged">
             <ListBoxItem Content="Archer" FontWeight="Bold" FontSize="14"/>
             <ListBoxItem Content="Mage" FontWeight="Bold" FontSize="14"/>
             <ListBoxItem Content="Warrior" FontWeight="Bold" FontSize="14"/>
@@ -21,11 +21,11 @@
         <Label Content="Magic" HorizontalAlignment="Left" Margin="514,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
         <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="43,113,0,0" VerticalAlignment="Top" Width="200" FontSize="16" FontWeight="Bold" Click="btnCreate_Click"/>
-        <ListBox x:Name="UnitList" Margin="43,233,607,10"/>
+        <ListBox x:Name="lbxUnitList" Margin="43,233,607,10"/>
         <Label Content="Unit List:" HorizontalAlignment="Left" Margin="43,206,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
         <Label Content="Unit class:" HorizontalAlignment="Left" Margin="248,206,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"/>
-        <ListBox x:Name="UnitClass" Margin="248,233,516,10"/>
-        <ListBox Margin="339,233,436,10"/>
+        <ListBox x:Name="lbxUnitClass" Margin="248,233,516,10"/>
+        <ListBox x:Name="lbxPhysDamage" Margin="339,233,436,10"/>
         <ListBox Margin="419,233,356,10"/>
         <ListBox Margin="499,233,276,10"/>
         <ListBox Margin="657,233,121,10"/>
@@ -41,22 +41,24 @@
         <ListBox Margin="734,233,44,10"/>
         <Label Content="Health:" HorizontalAlignment="Left" Margin="668,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Mana:" HorizontalAlignment="Left" Margin="748,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="357,14,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="445,14,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="357,58,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="445,58,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="357,102,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="445,102,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="357,148,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="445,148,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
+        <Button x:Name="btnMinusStrength" Content="-" HorizontalAlignment="Left" Margin="357,14,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18" Click="btnMinusStrength_Click"/>
+        <Button x:Name="btnPlusStrength" Content="+" HorizontalAlignment="Left" Margin="445,14,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
+        <Button x:Name="btnMinusAgility" Content="-" HorizontalAlignment="Left" Margin="357,58,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
+        <Button x:Name="btnPlusAgility" Content="+" HorizontalAlignment="Left" Margin="445,58,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
+        <Button x:Name="btnMinusIntellect" Content="-" HorizontalAlignment="Left" Margin="357,102,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
+        <Button x:Name="btnPlusIntellect" Content="+" HorizontalAlignment="Left" Margin="445,102,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
+        <Button x:Name="btnMinusEndurance" Content="-" HorizontalAlignment="Left" Margin="357,148,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
+        <Button x:Name="btnPlusEndurance" Content="+" HorizontalAlignment="Left" Margin="445,148,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
         <Label x:Name="lblStrength" Content="10" HorizontalAlignment="Left" Margin="406,15,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="lblAgility" Content="10" HorizontalAlignment="Left" Margin="406,58,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="lblIntellect" Content="10" HorizontalAlignment="Left" Margin="406,102,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="lblEndurance" Content="10" HorizontalAlignment="Left" Margin="406,148,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
         <GroupBox Header="Points" Margin="43,133,716,305" FontWeight="Bold" FontSize="14"/>
         <Label x:Name="lblPoints" Content="10" HorizontalAlignment="Left" Margin="64,153,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="36" Height="53" Width="52"/>
-        <GroupBox x:Name="lblLevel" Header="Level" Margin="507,0,263,467" FontWeight="Bold" FontSize="16"/>
-        <GroupBox x:Name="lblExperience" Header="Experience" Margin="594,0,131,467" FontSize="16" FontWeight="Bold"/>
+        <GroupBox Header="Level" Margin="507,0,263,467" FontWeight="Bold" FontSize="16"/>
+        <GroupBox Header="Experience" Margin="594,0,131,467" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lblLevel" Content="0" HorizontalAlignment="Left" Margin="539,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblExperience" Content="0" HorizontalAlignment="Left" Margin="647,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
 
     </Grid>
 </Window>

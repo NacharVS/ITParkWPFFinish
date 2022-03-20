@@ -19,4 +19,5 @@ namespace Project_IT_Park_HW
         internal int _experiense;
         internal int _freePoint;
     }
+
 }
