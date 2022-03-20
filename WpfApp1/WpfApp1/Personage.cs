@@ -17,7 +17,7 @@ namespace WpfApp1
         protected double health = 500;
         public string name;
 
-        protected string _profession = "Profession";
+        public string _profession = "Profession";
         
         public double _currentHealth;
         protected double _power;

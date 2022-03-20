@@ -102,7 +102,9 @@ namespace WpfApp1
                 bufIntellect = Convert.ToDouble(txtIntellect.Text);
                 txtStamina.Text = warrior.SkillCurrent.ToString();
                 bufStamina = Convert.ToDouble(txtStamina.Text);
-                MessageBox.Show("Personage Warrior is created");
+
+                DataBaseMethods.AddPersonageToDatabase(warrior);
+                MessageBox.Show($"Personage Warrior {warrior.Name} is created");
             }
             else if (archerRB.IsChecked == true)
             {
@@ -121,7 +123,9 @@ namespace WpfApp1
                 bufIntellect = Convert.ToDouble(txtIntellect.Text);
                 txtStamina.Text = archer.SkillCurrent.ToString();
                 bufStamina = Convert.ToDouble(txtStamina.Text);
-                MessageBox.Show("Personage Archer is created");
+
+                DataBaseMethods.AddPersonageToDatabase(archer);
+                MessageBox.Show($"Personage Archer {archer.Name} is created");
             }
             else if (shamanRB.IsChecked == true)
             {
@@ -140,7 +144,9 @@ namespace WpfApp1
                 bufIntellect = Convert.ToDouble(txtIntellect.Text);
                 txtStamina.Text = shaman.SkillCurrent.ToString();
                 bufStamina = Convert.ToDouble(txtStamina.Text);
-                MessageBox.Show("Personage Shaman is created");
+
+                DataBaseMethods.AddPersonageToDatabase(shaman);
+                MessageBox.Show($"Personage Shaman {shaman.Name} is created");
             }
             else
             {
