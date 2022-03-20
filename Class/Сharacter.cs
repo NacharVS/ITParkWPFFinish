@@ -10,6 +10,7 @@ namespace WpfCharacterEditor
         [BsonIgnoreIfDefault]
         public ObjectId _id;
 
+
         [BsonElement]
         protected int _strength;
         [BsonElement]
@@ -22,6 +23,8 @@ namespace WpfCharacterEditor
         protected int _freePoints;
         protected int _minFreePoints = 0;
         protected int _maxFreePoints;
+        [BsonElement]
+        public Weapon weapon;
 
         public Сharacter(string name, string proffession)
         {

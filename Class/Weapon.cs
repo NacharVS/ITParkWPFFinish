@@ -16,10 +16,18 @@ namespace WpfCharacterEditor
         public virtual int IntelligenceMin { get; }
         
         public virtual int EnduranceMin { get; }
-        
 
 
-        public int PhysicalDamage { get; }
+
+        public int PhysicalDamage
+        {
+            get
+            {
+                Random rnd = new Random();
+                int _damage = rnd.Next(PhysicalDamageMin, PhysicalDamageMax + 1);
+                return _damage;
+            }
+        }
 
         public int PhysicalProtection { get; }
 

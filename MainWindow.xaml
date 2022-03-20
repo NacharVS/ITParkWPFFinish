@@ -56,6 +56,12 @@
         <Label Content="Magic" HorizontalAlignment="Left" Margin="517,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" Width="156" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="magic" Content="10" HorizontalAlignment="Left" Margin="674,223,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.893" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold"/>
         <ListBox x:Name="listCharacter" Margin="362,50,307,152" Height="232" Width="131" Loaded="listCharacter_Loaded" SelectionChanged="listCharacter_SelectionChanged"/>
+        <ComboBox x:Name="weapon" HorizontalAlignment="Left" Margin="517,310,0,0" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="weapon_SelectionChanged" SelectedIndex="0">
+            <ListBoxItem Content="No"/>
+            <ListBoxItem Content="Sword"/>
+            <ListBoxItem Content="Bow"/>
+            <ListBoxItem Content="Staff"/>
+        </ComboBox>
 
     </Grid>
 </Window>

@@ -240,5 +240,10 @@ namespace WpfCharacterEditor
             }
             
         }
+
+        private void weapon_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
