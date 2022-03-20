@@ -10,35 +10,36 @@ namespace WpfApp1
 {
     internal class Archer : Personage, IPersonage
     {
-
-        [BsonId]
-        [BsonIgnoreIfDefault]
-        ObjectId _id { get; set; }
-
         public Archer(string name)
         {
             Name = name;
+            CurrentHelth = health;
             PowerCurrent = PowerMin;
             SkillCurrent = SkillMin;
             IntellectCurrent = IntellectMin;
             StaminaCurrent = StaminaMin;
         }
 
+        [BsonId]
+        [BsonIgnoreIfDefault]
+        ObjectId _id { get; set; }
+
+        
 
         public string Profession { get => _profession; set => _profession = "archer"; }
-        public double CurrentHelth { get => _currentHealth; set => _currentHealth = health; }
+        public double CurrentHelth { get => _currentHealth; set => _currentHealth = value; }
         public string Name { get => name; set => name = value; }
         public double PowerCurrent { get => _power; set => _power = value; }
         public double SkillCurrent { get => _skill; set => _skill = value; }
         public double IntellectCurrent { get => _intellect; set => _intellect = value; }
         public double StaminaCurrent { get => _stamina; set => _stamina = value; }
-        public int PowerMin { get => _minPower; set => _minPower = 20; }
-        public int SkillMin { get => _minSkill; set => _minSkill = 30; }
-        public int IntellectMin { get => _minIntellect; set => _minIntellect = 15; }
-        public int StaminaMin { get => _minStamina; set => _minStamina = 20; }
-        public int PowerMax { get => _maxPower; set => _maxPower = 55; }
-        public int SkillMax { get => _maxSkill; set => _maxSkill = 250; }
-        public int IntellectMax { get => _maxIntellect; set => _maxIntellect = 70; }
-        public int StaminaMax { get => _maxStamina; set => _maxStamina = 50; }
+        public double PowerMin => 20;
+        public double SkillMin { get => 30; }
+        public double IntellectMin { get => 15; }
+        public double StaminaMin { get => 20; }
+        public double PowerMax { get => 55; }
+        public double SkillMax { get => 250; }
+        public double IntellectMax { get => 70; }
+        public double StaminaMax { get => 50; }
     }
 }

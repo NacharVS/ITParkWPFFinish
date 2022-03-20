@@ -15,14 +15,14 @@ namespace WpfApp1
         public double SkillCurrent { get; set; }
         public double IntellectCurrent { get; set; }
         public double StaminaCurrent { get; set; }
-        public int PowerMin { get; set; }
-        public int SkillMin { get; set; }
-        public int IntellectMin { get; set; }
-        public int StaminaMin { get; set; }
-        public int PowerMax { get; set; }
-        public int SkillMax { get; set; }
-        public int IntellectMax { get; set; }
-        public int StaminaMax { get; set; }
+        public double PowerMin { get; }
+        public double SkillMin { get;}
+        public double IntellectMin { get;}
+        public double StaminaMin { get;}
+        public double PowerMax { get; }
+        public double SkillMax { get; }
+        public double IntellectMax { get; }
+        public double StaminaMax { get; }
         public void ChangeCharateristic () { }
         //public void Show() { }
         public void Update() { }

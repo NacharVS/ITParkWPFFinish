@@ -14,9 +14,10 @@ namespace WpfApp1
         [BsonIgnoreIfDefault]
         ObjectId _id { get; set; }
 
-        public Warrior(string name)
+        public Warrior(string warriorName)
         {
-            Name = name;
+            Name = warriorName;
+            CurrentHelth = health;
             PowerCurrent = PowerMin;
             SkillCurrent = SkillMin;
             IntellectCurrent = IntellectMin;
@@ -25,20 +26,20 @@ namespace WpfApp1
 
 
         public string Profession { get => _profession; set => _profession = "warrior"; }
-        public double CurrentHelth { get => _currentHealth; set => _currentHealth = health; }
+        public double CurrentHelth { get => _currentHealth; set => _currentHealth = value; }
         public string Name { get => name; set => name = value; }
         public double PowerCurrent { get => _power; set => _power = value; }
         public double SkillCurrent { get => _skill; set => _skill = value; }
         public double IntellectCurrent { get => _intellect; set => _intellect = value; }
         public double StaminaCurrent { get => _stamina; set => _stamina = value; }
-        public int PowerMin { get => _minPower; set => _minPower = 35; }
-        public int SkillMin { get => _minSkill; set => _minSkill = 15; }
-        public int IntellectMin { get => _minIntellect; set => _minIntellect = 10; }
-        public int StaminaMin { get => _minStamina; set => _minStamina = 20; }
-        public int PowerMax { get => _maxPower; set => _maxPower = 200; }
-        public int SkillMax { get => _maxSkill; set => _maxSkill = 80; }
-        public int IntellectMax { get => _maxIntellect; set => _maxIntellect = 50; }
-        public int StaminaMax { get => _maxStamina; set => _maxStamina = 200; }
+        public double PowerMin => 35;
+        public double SkillMin => 15;
+        public double IntellectMin => 10;
+        public double StaminaMin => 20;
+        public double PowerMax  => 200; 
+        public double SkillMax => 80;
+        public double IntellectMax => 50; 
+        public double StaminaMax => 200;
         
     }
 }
