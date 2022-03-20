@@ -58,5 +58,8 @@ namespace WPF_HOME_WORK
             var collection = database.GetCollection<User>("Users");
             collection.DeleteOne(x=>x.Name ==name);
         }
+
+       
     }
+
 }

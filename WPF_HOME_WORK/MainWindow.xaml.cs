@@ -67,7 +67,9 @@ namespace WPF_HOME_WORK
           }
           else
           {
-               
+                User.DeleteToDB(Enter_a_name.Text, Enter_a_profession.Text);
+
+                ListName.ItemsSource = User.GetNameList();
           }
         }
 
