@@ -16,7 +16,7 @@ namespace Project_IT_Park_HW
         internal int _intelligence;
         internal int _stamina;
         internal int _level;
-        internal long _experiense;
+        internal int _experiense;
         internal int _freePoint;
     }
 }

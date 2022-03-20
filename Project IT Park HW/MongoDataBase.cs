@@ -11,26 +11,26 @@ namespace Project_IT_Park_HW
 {
     class MongoDataBase
     {
-        public static void AddWarriorToDB(string name, string profession, int strenght, int agility, int intelligenсe, int stamina, int level, long experiense, int freePoint)
-        {
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<Warrior>("Unit");
-            collection.InsertOne(new Warrior(name, profession, strenght, agility, intelligenсe, stamina, level, experiense, freePoint));
-        }
-        public static void AddArcherToDB(string name, string profession, int strenght, int agility, int intelligenсe, int stamina, int level, long experiense, int freePoint)
+        public static void AddArcherToDB(string name, string profession, int strenght, int agility, int intelligenсe, int stamina, int level, int experiense, int freePoint)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
             var collection = database.GetCollection<Archer>("Unit");
             collection.InsertOne(new Archer(name, profession, strenght, agility, intelligenсe, stamina, level, experiense, freePoint));
         }
-        public static void AddmageToDB(string name, string profession, int strenght, int agility, int intelligenсe, int stamina, int level, long experiense, int freePoint)
+        public static void AddMageToDB(string name, string profession, int strenght, int agility, int intelligenсe, int stamina, int level, int experiense, int freePoint)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
             var collection = database.GetCollection<Mage>("Unit");
             collection.InsertOne(new Mage(name, profession, strenght, agility, intelligenсe, stamina, level, experiense, freePoint));
+        }
+        public static void AddWarriorToDB(string name, string profession, int strenght, int agility, int intelligenсe, int stamina, int level, int experiense, int freePoint)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("RPG");
+            var collection = database.GetCollection<Warrior>("Unit");
+            collection.InsertOne(new Warrior(name, profession, strenght, agility, intelligenсe, stamina, level, experiense, freePoint));
         }
         public static List<string> GetArcherList()
         {

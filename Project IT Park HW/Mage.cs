@@ -12,7 +12,7 @@ namespace Project_IT_Park_HW
     {
         [BsonIgnoreIfDefault]
         ObjectId _id;
-        public Mage(string name, string classes, int strenght, int agility, int intelligence, int stamina, int level, long experiense, int freePoint)
+        public Mage(string name, string classes, int strenght, int agility, int intelligence, int stamina, int level, int experiense, int freePoint)
         {
             Name = name;
             Classes = classes;
@@ -31,7 +31,7 @@ namespace Project_IT_Park_HW
         public int Intelligence { get => _intelligence; set => _intelligence = value; }
         public int Stamina { get => _stamina; set => _stamina = value; }
         public int Level { get => _level; set => _level = value; }
-        public long Experiense { get => _experiense; set => _experiense = value; }
+        public int Experiense { get => _experiense; set => _experiense = value; }
         public int FreePoint { get => _freePoint; set => _freePoint = value; }
     }
 }

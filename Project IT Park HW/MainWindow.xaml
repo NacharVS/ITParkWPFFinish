@@ -9,9 +9,9 @@
     <Grid Margin="0,0,0,-6">
         <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="43,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontWeight="Bold" Height="18"/>
         <ComboBox x:Name="cmbClass" HorizontalAlignment="Left" Margin="43,86,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold">
-            <ListBoxItem Content="Warrior" FontWeight="Bold" FontSize="14"/>
             <ListBoxItem Content="Archer" FontWeight="Bold" FontSize="14"/>
             <ListBoxItem Content="Mage" FontWeight="Bold" FontSize="14"/>
+            <ListBoxItem Content="Warrior" FontWeight="Bold" FontSize="14"/>
         </ComboBox>
         <Label Content="Unit class selection:" HorizontalAlignment="Left" Margin="43,55,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
@@ -53,6 +53,10 @@
         <Label x:Name="lblAgility" Content="10" HorizontalAlignment="Left" Margin="406,58,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="lblIntellect" Content="10" HorizontalAlignment="Left" Margin="406,102,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="lblEndurance" Content="10" HorizontalAlignment="Left" Margin="406,148,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
+        <GroupBox Header="Points" Margin="43,133,716,305" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="lblPoints" Content="10" HorizontalAlignment="Left" Margin="64,153,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="36" Height="53" Width="52"/>
+        <GroupBox x:Name="lblLevel" Header="Level" Margin="507,0,263,467" FontWeight="Bold" FontSize="16"/>
+        <GroupBox x:Name="lblExperience" Header="Experience" Margin="594,0,131,467" FontSize="16" FontWeight="Bold"/>
 
     </Grid>
 </Window>

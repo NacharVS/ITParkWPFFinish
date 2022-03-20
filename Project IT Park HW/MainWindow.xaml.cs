@@ -28,11 +28,25 @@ namespace Project_IT_Park_HW
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             if (cmbClass.SelectedIndex == 0)
-                MongoDataBase.AddArcherToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString()), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content)
-                        , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content)
-                        , Convert.ToInt32(freePointAmountLabel.Content)); ;
-            UnitList.ItemsSource = MongoDataBase.GetUnitList();
-            UnitClass.ItemsSource = MongoDataBase.GetClassList();
+            {
+                MongoDataBase.AddArcherToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString(), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content)); ;
+                UnitList.ItemsSource = MongoDataBase.GetArcherList();
+                UnitClass.ItemsSource = MongoDataBase.GetClassArcherList();
+            }
+            else
+            if (cmbClass.SelectedIndex == 1)
+            {
+                MongoDataBase.AddMageToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString(), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content)); ;
+                UnitList.ItemsSource = MongoDataBase.GetMageList();
+                UnitClass.ItemsSource = MongoDataBase.GetClassMageList();
+            }
+            else
+            if (cmbClass.SelectedIndex == 2) 
+            {
+                MongoDataBase.AddWarriorToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString(), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content)); ;
+                UnitList.ItemsSource = MongoDataBase.GetWarriorList();
+                UnitClass.ItemsSource = MongoDataBase.GetClassWariiorList();
+            }
         }
     }
 }
