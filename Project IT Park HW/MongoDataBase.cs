@@ -110,18 +110,26 @@ namespace Project_IT_Park_HW
             }
             return listToReturn;
         }
-        public static List<string> GetArcherStatList()
+        public static List<int> GetArcherStatList()
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<Archer>("Units");
+            var collection = database.GetCollection<CharacterPoints>("Units");
             var listUnitsFromDB = collection.Find(x => true).ToList();
-            List<string> listToReturn = new List<string>();
+            List<int> listToReturn = new List<int>();
             foreach (var item in listUnitsFromDB)
             {
-                listToReturn.Add(item.Classes);
+                listToReturn.Add(item.PhysDamage);
             }
             return listToReturn;
+        }
+        public static CharacterPoints GetPhysDamage(int physDamage)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("RPG");
+            var collection = database.GetCollection<CharacterPoints>("Units");
+            var client1 = collection.Find(x => x.PhysDamage == physDamage).FirstOrDefault();
+            return client1.character;
         }
     }
 }

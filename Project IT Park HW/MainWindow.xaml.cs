@@ -67,7 +67,8 @@ namespace Project_IT_Park_HW
                 MongoDataBase.AddArcherToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString(), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content)); ;
                 lbxUnitList.ItemsSource = MongoDataBase.GetArcherList();
                 lbxUnitClass.ItemsSource = MongoDataBase.GetClassArcherList();
-                ArcherStartStat();
+                lbxPhysDamage.ItemsSource = MongoDataBase.GetArcherStatList();
+                //ArcherStartStat();
             }
             else
             if (cmbClass.SelectedIndex == 1)
