@@ -10,7 +10,8 @@ namespace RPG
     {
         public string Name { get; set; }
         public string Class { get; set; }
-        public int Level { get; set; } 
+        public int Level { get; set; }
+        public int Exp { get; } //опыт
         public int Points { get; set; }
         public static int MinStrenght { get; }  //мин сила
         public int MaxStrenght { get; }  //макс сила
@@ -30,5 +31,7 @@ namespace RPG
         public static int MagicProtection { get;  }  //Маг.Защита
         public static int Life { get;  }  //Жизнь
         public static int Magic { get;  }  //Магия
+        
+
     }
 }
