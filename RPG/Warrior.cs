@@ -54,7 +54,7 @@ namespace RPG
 
         public int  Exp { get => _exp; set => _exp = value; }
 
-        static int _minstrenght=30;
+        private static int _minstrenght=30;
         int _maxstrenght=250;
         static int _minagility =15;
         int _maxagilityt=80;

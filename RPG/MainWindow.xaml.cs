@@ -265,14 +265,18 @@ namespace RPG
 
         private void decrease_strength_Click(object sender, RoutedEventArgs e) //убавление силы
         {
-            if (NamePerson.Text == ListPersonag.SelectedItem.ToString())
+            if (NamePerson.Text == "New_Name")
+            {
+                MessageBox.Show("Choose or create a character");
+            }
+            else if (NamePerson.Text == Convert.ToString(WorkBase.GetList()))
             {
                 if (free_glasses.Text != Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Points))
                 {
                     Strength.Text = Convert.ToString(Convert.ToInt32(Strength.Text) - 1);
                     free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
                     if (SelectPerson.SelectedIndex == 0)  // Warrior
-                    {
+                    {                     
                         new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
                         Damage.Text = Convert.ToString(Warrior.Damage);
                         Protection.Text = Convert.ToString(Warrior.Protection);
@@ -404,7 +408,11 @@ namespace RPG
 
         private void decrease_dexterity_Click(object sender, RoutedEventArgs e)  //уменьшение ловкости
         {
-            if (NamePerson.Text == ListPersonag.SelectedItem.ToString())
+            if (NamePerson.Text == "New_Name")
+            {
+                MessageBox.Show("Choose or create a character");
+            }
+            else if (NamePerson.Text == Convert.ToString(WorkBase.GetList()))
             {
                 if (free_glasses.Text != Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Points))
                 {
@@ -543,7 +551,11 @@ namespace RPG
 
         private void decrease_intelligence_Click(object sender, RoutedEventArgs e) //уменьшение интелекта
         {
-            if (NamePerson.Text == ListPersonag.SelectedItem.ToString())
+            if (NamePerson.Text == "New_Name")
+            {
+                MessageBox.Show("Choose or create a character");
+            }
+            else if (NamePerson.Text == Convert.ToString(WorkBase.GetList()))
             {
                 if (free_glasses.Text != Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Points))
                 {
@@ -682,7 +694,11 @@ namespace RPG
 
         private void decrease_endurance_Click(object sender, RoutedEventArgs e)  //уменьшение выносливости
         {
-            if (NamePerson.Text == ListPersonag.SelectedItem.ToString())
+            if (NamePerson.Text == "New_Name")
+            {
+                MessageBox.Show("Choose or create a character");
+            }
+            else if (NamePerson.Text == Convert.ToString(WorkBase.GetList()))
             {
                 if (free_glasses.Text != Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Points))
                 {
