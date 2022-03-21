@@ -7,12 +7,11 @@ namespace WpfApp1
     {
         
 
-        [BsonId]
-        [BsonIgnoreIfDefault]
-        ObjectId _id { get; set; }
+        //[BsonId]
+        //[BsonIgnoreIfDefault]
+        //ObjectId _id { get; set; }
 
-        //double _minSPower = 10;
-
+        
         public string Profession { get => _profession; set => _profession = value; }
         public double CurrentHelth { get => _currentHealth; set => _currentHealth = value; }
         public string Name { get => name; set => name = value; }
@@ -32,7 +31,7 @@ namespace WpfApp1
         public BasePersonage(string name)
         {
             Name = name;
-            Profession = "Profession";
+            Profession = "profession";
             CurrentHelth = health;
             PowerCurrent = PowerMin;
             SkillCurrent = SkillMin;

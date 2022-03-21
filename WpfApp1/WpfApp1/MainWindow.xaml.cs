@@ -28,8 +28,11 @@ namespace WpfApp1
         Shaman shaman = new Shaman("Name");
 
         //List<string> buffer = DataBaseMethods.GetListOfPersonages();
+        List<string> bufferWarriors = DataBaseMethods.GetListOfWarriors();
+        List<string> bufferArchers = DataBaseMethods.GetListOfArchers();
+        List<string> bufferShamans = DataBaseMethods.GetListOfShamans();
 
-        string bufProfession = "Profession";
+        string bufProfession = "profession";
         int bufHealth;
         double bufPower;
         double bufSkill;
@@ -82,78 +85,74 @@ namespace WpfApp1
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            if(bufName == "Name" || bufName == "" || bufName == " ")
+            if (bufName == "Name" || bufName == "" || bufName == " ")
             {
                 MessageBox.Show("Enter the name of personage");
             }
 
-            //else if (buffer.Exists(x => x == bufName))
-            //{
-            //    MessageBox.Show("Pesonage with this name is already exist");
-            //}
+            else if (bufferWarriors.Exists(x => x == bufName) || bufferArchers.Exists(x => x == bufName) || bufferShamans.Exists(x => x == bufName))
+            {
+                MessageBox.Show("Pesonage with this name is already exist");
+            }
 
             else if (warriorRB.IsChecked == true)
             {
-                warrior.Name = txtName.Text;
+                Warrior warrior_1 = new Warrior(bufName);
                 
-                bufName = warrior.Name.ToString();
-                bufProfession = warrior.Profession.ToString();
-                txtHealth.Text = warrior.CurrentHelth.ToString();
+                bufProfession = warrior_1.Profession.ToString();
+                txtHealth.Text = warrior_1.CurrentHelth.ToString();
                 bufHealth = Convert.ToInt32(txtHealth.Text);
 
-                txtPower.Text = warrior.PowerCurrent.ToString();
+                txtPower.Text = warrior_1.PowerCurrent.ToString();
                 bufPower = Convert.ToDouble(txtPower.Text);
-                txtSkill.Text = warrior.SkillCurrent.ToString();
+                txtSkill.Text = warrior_1.SkillCurrent.ToString();
                 bufSkill = Convert.ToDouble(txtSkill.Text);
-                txtIntellect.Text = warrior.IntellectCurrent.ToString();
+                txtIntellect.Text = warrior_1.IntellectCurrent.ToString();
                 bufIntellect = Convert.ToDouble(txtIntellect.Text);
-                txtStamina.Text = warrior.SkillCurrent.ToString();
+                txtStamina.Text = warrior_1.SkillCurrent.ToString();
                 bufStamina = Convert.ToDouble(txtStamina.Text);
 
-                DataBaseMethods.AddPersonageToDatabase(warrior);
-                MessageBox.Show($"Personage Warrior {warrior.Name} is created");
+                DataBaseMethods.AddWarriorToDatabase(warrior_1);
+                MessageBox.Show($"Personage Warrior {warrior_1.Name} is created");
             }
             else if (archerRB.IsChecked == true)
             {
-                archer.Name = txtName.Text;
-
-                bufName = archer.Name.ToString();
-                bufProfession = archer.Profession.ToString();
-                txtHealth.Text = archer.CurrentHelth.ToString();
+                Archer archer_1 = new Archer(bufName);
+       
+                bufProfession = archer_1.Profession.ToString();
+                txtHealth.Text = archer_1.CurrentHelth.ToString();
                 bufHealth = Convert.ToInt32(txtHealth.Text);
 
-                txtPower.Text = archer.PowerCurrent.ToString();
+                txtPower.Text = archer_1.PowerCurrent.ToString();
                 bufPower = Convert.ToDouble(txtPower.Text);
-                txtSkill.Text = archer.SkillCurrent.ToString();
+                txtSkill.Text = archer_1.SkillCurrent.ToString();
                 bufSkill = Convert.ToDouble(txtSkill.Text);
-                txtIntellect.Text = archer.IntellectCurrent.ToString();
+                txtIntellect.Text = archer_1.IntellectCurrent.ToString();
                 bufIntellect = Convert.ToDouble(txtIntellect.Text);
-                txtStamina.Text = archer.SkillCurrent.ToString();
+                txtStamina.Text = archer_1.SkillCurrent.ToString();
                 bufStamina = Convert.ToDouble(txtStamina.Text);
 
-                DataBaseMethods.AddPersonageToDatabase(archer);
-                MessageBox.Show($"Personage Archer {archer.Name} is created");
+                DataBaseMethods.AddArcherToDatabase(archer_1);
+                MessageBox.Show($"Personage Archer {archer_1.Name} is created");
             }
             else if (shamanRB.IsChecked == true)
             {
-                shaman.Name = txtName.Text;
-
-                bufName = shaman.Name.ToString();
-                bufProfession = shaman.Profession.ToString();
-                txtHealth.Text = shaman.CurrentHelth.ToString();
+                Shaman shaman_1 = new Shaman(bufName);
+                bufProfession = shaman_1.Profession.ToString();
+                txtHealth.Text = shaman_1.CurrentHelth.ToString();
                 bufHealth = Convert.ToInt32(txtHealth.Text);
 
-                txtPower.Text = shaman.PowerCurrent.ToString();
+                txtPower.Text = shaman_1.PowerCurrent.ToString();
                 bufPower = Convert.ToDouble(txtPower.Text);
-                txtSkill.Text = shaman.SkillCurrent.ToString();
+                txtSkill.Text = shaman_1.SkillCurrent.ToString();
                 bufSkill = Convert.ToDouble(txtSkill.Text);
-                txtIntellect.Text = shaman.IntellectCurrent.ToString();
+                txtIntellect.Text = shaman_1.IntellectCurrent.ToString();
                 bufIntellect = Convert.ToDouble(txtIntellect.Text);
-                txtStamina.Text = shaman.SkillCurrent.ToString();
+                txtStamina.Text = shaman_1.SkillCurrent.ToString();
                 bufStamina = Convert.ToDouble(txtStamina.Text);
 
-                DataBaseMethods.AddPersonageToDatabase(shaman);
-                MessageBox.Show($"Personage Shaman {shaman.Name} is created");
+                DataBaseMethods.AddShamanToDatabase(shaman_1);
+                MessageBox.Show($"Personage Shaman {shaman_1.Name} is created");
             }
             else
             {

@@ -26,7 +26,7 @@
         <TextBlock x:Name="txtStamina" HorizontalAlignment="Left" Margin="415,267,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="30" Width="82" FontSize="24" TextAlignment="Center" Background="#FFD8C9C9" RenderTransformOrigin="0.61,3.401"/>
         <Label Content="Health" HorizontalAlignment="Left" Margin="306,43,0,0" VerticalAlignment="Top" Width="101" Height="41" FontSize="22" HorizontalContentAlignment="Right"/>
         <TextBlock x:Name="txtHealth" HorizontalAlignment="Left" Margin="425,40,0,0" TextWrapping="Wrap" Text="health" VerticalAlignment="Top" Height="44" Width="100" FontSize="24" Background="#FFD8C9C9" TextAlignment="Center"/>
-        <TextBox x:Name="txtListOfPersonages" HorizontalAlignment="Left" Margin="588,55,0,0" TextWrapping="Wrap" Text="list of personages" VerticalAlignment="Top" Width="186" Height="244" FontSize="18" Background="#FFD8C9C9"/>
+        <TextBox x:Name="txtListOfPersonages" HorizontalAlignment="Left" Margin="588,55,0,0" TextWrapping="Wrap" Text="list of personages:" VerticalAlignment="Top" Width="186" Height="244" FontSize="18" Background="#FFD8C9C9"/>
         <Button x:Name="btnShow" Content="Show" HorizontalAlignment="Left" Margin="313,330,0,0" VerticalAlignment="Top" Width="78" BorderThickness="3,3,3,3" FontSize="14"/>
         <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="415,330,0,0" VerticalAlignment="Top" Width="78" BorderThickness="3,3,3,3" FontSize="14" Click="btnClear_Click"/>
         <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="518,330,0,0" VerticalAlignment="Top" Width="78" BorderThickness="3,3,3,3" FontSize="14" Click="btnCreate_Click"/>

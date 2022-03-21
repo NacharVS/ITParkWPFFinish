@@ -21,9 +21,9 @@ namespace WpfApp1
             StaminaCurrent = StaminaMin;
         }
 
-        [BsonId]
-        [BsonIgnoreIfDefault]
-        ObjectId _id { get; set; }
+        //[BsonId]
+        //[BsonIgnoreIfDefault]
+        //ObjectId _id { get; set; }
 
         
 

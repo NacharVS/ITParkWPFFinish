@@ -11,9 +11,9 @@ namespace WpfApp1
 {
     internal class Shaman : Personage, IPersonage
     {
-        [BsonId]
-        [BsonIgnoreIfDefault]
-        ObjectId _id { get; set; }
+        //[BsonId]
+        //[BsonIgnoreIfDefault]
+        //ObjectId _id { get; set; }
 
         public Shaman(string shamanName)
         {

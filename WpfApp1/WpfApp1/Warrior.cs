@@ -10,9 +10,9 @@ namespace WpfApp1
 {
     internal class Warrior : Personage, IPersonage
     {
-        [BsonId]
-        [BsonIgnoreIfDefault]
-        ObjectId _id { get; set; }
+        //[BsonId]
+        //[BsonIgnoreIfDefault]
+        //ObjectId _id { get; set; }
 
         public Warrior(string warriorName)
         {
