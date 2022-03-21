@@ -27,11 +27,8 @@ namespace WpfApp1
         Archer archer = new Archer("Name");
         Shaman shaman = new Shaman("Name");
 
-        //List<string> buffer = DataBaseMethods.GetListOfPersonages();
-        List<string> bufferWarriors = DataBaseMethods.GetListOfWarriors();
-        List<string> bufferArchers = DataBaseMethods.GetListOfArchers();
-        List<string> bufferShamans = DataBaseMethods.GetListOfShamans();
-
+        List<string> bufferBasePersonages = DataBaseMethods.GetListOfBasePersonages();
+        
         string bufProfession = "profession";
         int bufHealth;
         double bufPower;
@@ -90,7 +87,7 @@ namespace WpfApp1
                 MessageBox.Show("Enter the name of personage");
             }
 
-            else if (bufferWarriors.Exists(x => x == bufName) || bufferArchers.Exists(x => x == bufName) || bufferShamans.Exists(x => x == bufName))
+            else if (bufferBasePersonages.Exists(x => x == bufName) ) 
             {
                 MessageBox.Show("Pesonage with this name is already exist");
             }
@@ -175,6 +172,11 @@ namespace WpfApp1
 
                 MessageBox.Show("Choose the profession of Personage");
             }
+        }
+
+        private void listOfPersonages_Loaded(object sender, RoutedEventArgs e)
+        {
+            listOfPersonages.ItemsSource = DataBaseMethods.GetListOfBasePersonages();
         }
     }
 }
