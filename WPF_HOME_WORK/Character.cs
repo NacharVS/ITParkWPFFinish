@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace WPF_HOME_WORK
 {
-    interface Character
+    public interface Character
     {
+        public int Strenght { get; set; }
+        public int Agility { get; set; }
+        public int Intelligence { get; set; }
+        public int Endurance { get; set; }
+
     }
 }

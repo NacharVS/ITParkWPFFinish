@@ -26,15 +26,20 @@
         <Button Content="-" HorizontalAlignment="Left" Margin="31,418,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
         <Button Content="+" HorizontalAlignment="Left" Margin="284,328,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
         <Button Content="+" HorizontalAlignment="Left" Margin="284,371,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="284,411,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <Button x:Name="lbl_endurance" Content="+" HorizontalAlignment="Left" Margin="284,411,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
         <TextBlock HorizontalAlignment="Left" Margin="82,467,0,0" Text="Доп.очки" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="31,467,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="284,467,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
+        <Button x:Name="lbl_extra_points" Content="+" HorizontalAlignment="Left" Margin="284,467,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
         <ComboBox x:Name="Enter_a_profession" HorizontalAlignment="Left" Margin="31,207,0,0" VerticalAlignment="Top" Width="211" Height="36" Cursor="" FontSize="20">
             <ListBoxItem Content="Воин" FontWeight="Bold" FontSize="20"/>
             <ListBoxItem Content="Волшебник" FontWeight="Bold" FontSize="20"/>
             <ListBoxItem Content="Лучник" FontWeight="Bold" FontSize="20"/>
         </ComboBox>
+        <Label x:Name="lbl_power" Content="0" HorizontalAlignment="Left" Margin="253,283,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
+        <Label x:Name="lbl_agility" Content="0" HorizontalAlignment="Left" Margin="253,328,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+        <Label x:Name="lbl_intellect" Content="0" HorizontalAlignment="Left" Margin="253,371,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
+        <Label Content="0" HorizontalAlignment="Left" Margin="253,411,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
+        <Label Content="0" HorizontalAlignment="Left" Margin="253,464,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
 
     </Grid>
 </Window>
