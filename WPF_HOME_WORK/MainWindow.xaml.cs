@@ -33,6 +33,8 @@ namespace WPF_HOME_WORK
             User.AddToDB(Enter_a_name.Text, Enter_a_profession.Text);
 
             ListName.ItemsSource = User.GetNameList();
+
+
         }
 
         private void ListName_Loaded_1(object sender, RoutedEventArgs e)
@@ -77,5 +79,7 @@ namespace WPF_HOME_WORK
         {
             Enter_a_name.Clear();
         }
+
+        
     }
 }

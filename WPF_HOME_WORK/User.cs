@@ -25,6 +25,9 @@ namespace WPF_HOME_WORK
             var database = client.GetDatabase("Home_Work");
             var collection = database.GetCollection<User>("Users");
             collection.InsertOne(new User(name, profession));
+            
+
+           
         }
 
         public static List<string> GetNameList()
@@ -59,7 +62,7 @@ namespace WPF_HOME_WORK
             collection.DeleteOne(x=>x.Name ==name);
         }
 
-       
+        
     }
 
 }
