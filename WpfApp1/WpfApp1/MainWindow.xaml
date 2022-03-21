@@ -35,7 +35,7 @@
         <Button x:Name="btnIntellectBoost" Content="+" HorizontalAlignment="Left" Margin="518,226,0,0" VerticalAlignment="Top" Height="32" Width="26" BorderThickness="2,2,2,2" Background="#FFBED8C7" FontSize="20" FontStretch="UltraExpanded" Foreground="#FF16271B" Padding="1,-5,1,1"/>
         <Button x:Name="btnStaminaBoost" Content="+" HorizontalAlignment="Left" Margin="518,268,0,0" VerticalAlignment="Top" Height="32" Width="26" BorderThickness="2,2,2,2" Background="#FFBED8C7" FontSize="20" FontStretch="UltraExpanded" Foreground="#FF16271B" Padding="1,-5,1,1"/>
         <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="48,87,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="236" Height="49" Background="#FFCEC4D0" BorderThickness="3,3,3,3" FontSize="28" Padding="5,0,0,0" TextChanged="txtName_TextChanged" GotFocus="txtName_GotFocus"/>
-        <ListBox x:Name="listOfPersonages" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="597,40,25,134" BorderThickness="3,3,3,3" Loaded="listOfPersonages_Loaded"/>
+        <ListBox x:Name="listOfPersonages" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="597,40,25,134" BorderThickness="3,3,3,3" Loaded="listOfPersonages_Loaded" SelectionChanged="listOfPersonages_SelectionChanged"/>
 
     </Grid>
 </Window>

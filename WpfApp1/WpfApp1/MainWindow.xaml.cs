@@ -77,6 +77,9 @@ namespace WpfApp1
             warriorRB.IsChecked = false;
             archerRB.IsChecked = false;
             shamanRB.IsChecked = false;
+            warriorRB.IsEnabled = true;
+            archerRB.IsEnabled = true;
+            shamanRB.IsEnabled = true;
 
         }
 
@@ -110,6 +113,8 @@ namespace WpfApp1
                 bufStamina = Convert.ToDouble(txtStamina.Text);
 
                 DataBaseMethods.AddWarriorToDatabase(warrior_1);
+                bufferBasePersonages = DataBaseMethods.GetListOfBasePersonages();
+                listOfPersonages.ItemsSource = DataBaseMethods.GetListOfBasePersonages();
                 MessageBox.Show($"Personage Warrior {warrior_1.Name} is created");
             }
             else if (archerRB.IsChecked == true)
@@ -130,6 +135,8 @@ namespace WpfApp1
                 bufStamina = Convert.ToDouble(txtStamina.Text);
 
                 DataBaseMethods.AddArcherToDatabase(archer_1);
+                bufferBasePersonages = DataBaseMethods.GetListOfBasePersonages();
+                listOfPersonages.ItemsSource = DataBaseMethods.GetListOfBasePersonages();
                 MessageBox.Show($"Personage Archer {archer_1.Name} is created");
             }
             else if (shamanRB.IsChecked == true)
@@ -148,7 +155,9 @@ namespace WpfApp1
                 txtStamina.Text = shaman_1.SkillCurrent.ToString();
                 bufStamina = Convert.ToDouble(txtStamina.Text);
 
-                DataBaseMethods.AddShamanToDatabase(shaman_1);
+                DataBaseMethods.AddShamanToDatabase(shaman_1); 
+                bufferBasePersonages = DataBaseMethods.GetListOfBasePersonages();
+                listOfPersonages.ItemsSource = DataBaseMethods.GetListOfBasePersonages();
                 MessageBox.Show($"Personage Shaman {shaman_1.Name} is created");
             }
             else
@@ -177,6 +186,43 @@ namespace WpfApp1
         private void listOfPersonages_Loaded(object sender, RoutedEventArgs e)
         {
             listOfPersonages.ItemsSource = DataBaseMethods.GetListOfBasePersonages();
+        }
+
+        private void listOfPersonages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            listOfPersonages.ItemsSource = DataBaseMethods.GetListOfBasePersonages();
+            BasePersonage personage = DataBaseMethods.GetPersonage(listOfPersonages.SelectedItem.ToString());
+            txtName.Text = personage.Name;
+            txtHealth.Text = personage.CurrentHelth.ToString();
+            txtPower.Text = personage.PowerCurrent.ToString();
+            txtSkill.Text = personage.SkillCurrent.ToString();
+            txtIntellect.Text = personage.IntellectCurrent.ToString();
+            txtStamina.Text = personage.SkillCurrent.ToString();
+
+            if (personage.Profession == "warrior")
+            {
+                warriorRB.IsChecked = true;
+                archerRB.IsChecked = false;
+                shamanRB.IsChecked = false;
+                archerRB.IsEnabled = false;
+                shamanRB.IsEnabled = false;
+            }
+            else if (personage.Profession == "archer")
+            {
+                warriorRB.IsChecked = false;
+                archerRB.IsChecked = true;
+                shamanRB.IsChecked = false;
+                warriorRB.IsEnabled = false;
+                shamanRB.IsEnabled = false;
+            }
+            else
+            {
+                warriorRB.IsChecked = false;
+                archerRB.IsChecked = false;
+                shamanRB.IsChecked = true;
+                archerRB.IsEnabled = false;
+                warriorRB.IsEnabled = false;
+            }
         }
     }
 }

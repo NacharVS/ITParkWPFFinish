@@ -52,6 +52,13 @@ namespace WpfApp1
             }
             return listToReturn;
         }
-        
+        public static BasePersonage GetPersonage(string personageName)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Game");
+            var collection = database.GetCollection<BasePersonage>("Personages");
+            var foundedPersonage = collection.Find(x => x.Name == personageName).FirstOrDefault();
+            return foundedPersonage;
+        }
     }
 }
