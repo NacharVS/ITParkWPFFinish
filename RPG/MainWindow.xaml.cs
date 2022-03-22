@@ -291,23 +291,41 @@ namespace RPG
 
             else if (SelectPerson.SelectedIndex == 1)  //Archer
             {
-                new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                if (Archer.MinStrenght != Convert.ToInt16(Strength.Text))
+                {
+                    Strength.Text = Convert.ToString(Convert.ToInt32(Strength.Text) - 1);
+                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
+                    new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
                 Damage.Text = Convert.ToString(Archer.Damage);
                 Protection.Text = Convert.ToString(Archer.Protection);
                 MagicDamage.Text = Convert.ToString(Archer.MagicDamage);
                 MagicProtection.Text = Convert.ToString(Archer.MagicProtection);
                 Life.Text = Convert.ToString(Archer.Life);
                 Magic.Text = Convert.ToString(Archer.Magic);
+                }
+                else
+                {
+                    MessageBox.Show("MinStrenght");
+                }
             }
             else if (SelectPerson.SelectedIndex == 2)   //Wizzard
             {
-                new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                if (Wizard.MinStrenght != Convert.ToInt16(Strength.Text))
+                {
+                    Strength.Text = Convert.ToString(Convert.ToInt32(Strength.Text) - 1);
+                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
+                    new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
                 Damage.Text = Convert.ToString(Wizard.Damage);
                 Protection.Text = Convert.ToString(Wizard.Protection);
                 MagicDamage.Text = Convert.ToString(Wizard.MagicDamage);
                 MagicProtection.Text = Convert.ToString(Wizard.MagicProtection);
                 Life.Text = Convert.ToString(Wizard.Life);
                 Magic.Text = Convert.ToString(Wizard.Magic);
+                }
+                else
+                {
+                    MessageBox.Show("MinStrenght");
+                }
             }
 
             else
@@ -370,95 +388,73 @@ namespace RPG
 
         private void decrease_dexterity_Click(object sender, RoutedEventArgs e)  //уменьшение ловкости
         {
-            if (NamePerson.Text == "New_Name")
+            if (SelectPerson.SelectedIndex == -1)
             {
                 MessageBox.Show("Choose or create a character");
             }
-            else if (NamePerson.Text == Convert.ToString(WorkBase.GetList()))
+            else if (SelectPerson.SelectedIndex == 0)  // Warrior         
             {
-                if (free_glasses.Text != Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Points))
+                if (Warrior.MinAgility != Convert.ToInt16(Dexterity.Text))
                 {
                     Dexterity.Text = Convert.ToString(Convert.ToInt32(Dexterity.Text) - 1);
                     free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
-                    if (SelectPerson.SelectedIndex == 0)  // Warrior
-                    {
-                        new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Warrior.Damage);
-                        Protection.Text = Convert.ToString(Warrior.Protection);
-                        MagicDamage.Text = Convert.ToString(Warrior.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Warrior.MagicProtection);
-                        Life.Text = Convert.ToString(Warrior.Life);
-                        Magic.Text = Convert.ToString(Warrior.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 1)  //Archer
-                    {
-                        new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Archer.Damage);
-                        Protection.Text = Convert.ToString(Archer.Protection);
-                        MagicDamage.Text = Convert.ToString(Archer.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Archer.MagicProtection);
-                        Life.Text = Convert.ToString(Archer.Life);
-                        Magic.Text = Convert.ToString(Archer.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 2)   //Wizzard
-                    {
-                        new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Wizard.Damage);
-                        Protection.Text = Convert.ToString(Wizard.Protection);
-                        MagicDamage.Text = Convert.ToString(Wizard.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Wizard.MagicProtection);
-                        Life.Text = Convert.ToString(Wizard.Life);
-                        Magic.Text = Convert.ToString(Wizard.Magic);
-                    }
+                    new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                    Damage.Text = Convert.ToString(Warrior.Damage);
+                    Protection.Text = Convert.ToString(Warrior.Protection);
+                    MagicDamage.Text = Convert.ToString(Warrior.MagicDamage);
+                    MagicProtection.Text = Convert.ToString(Warrior.MagicProtection);
+                    Life.Text = Convert.ToString(Warrior.Life);
+                    Magic.Text = Convert.ToString(Warrior.Magic);
                 }
                 else
                 {
-                    MessageBox.Show("Points distributed");
-                }
-            }
-            else
-            {
-                if (free_glasses.Text != "10")
-                {
-                    Dexterity.Text = Convert.ToString(Convert.ToInt32(Dexterity.Text) - 1);
-                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
-                    if (SelectPerson.SelectedIndex == 0)  // Warrior
-                    {
-                        new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Warrior.Damage);
-                        Protection.Text = Convert.ToString(Warrior.Protection);
-                        MagicDamage.Text = Convert.ToString(Warrior.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Warrior.MagicProtection);
-                        Life.Text = Convert.ToString(Warrior.Life);
-                        Magic.Text = Convert.ToString(Warrior.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 1)  //Archer
-                    {
-                        new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Archer.Damage);
-                        Protection.Text = Convert.ToString(Archer.Protection);
-                        MagicDamage.Text = Convert.ToString(Archer.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Archer.MagicProtection);
-                        Life.Text = Convert.ToString(Archer.Life);
-                        Magic.Text = Convert.ToString(Archer.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 2)   //Wizzard
-                    {
-                        new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Wizard.Damage);
-                        Protection.Text = Convert.ToString(Wizard.Protection);
-                        MagicDamage.Text = Convert.ToString(Wizard.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Wizard.MagicProtection);
-                        Life.Text = Convert.ToString(Wizard.Life);
-                        Magic.Text = Convert.ToString(Wizard.Magic);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Points distributed");
+                    MessageBox.Show("MinAgility");
                 }
             }
 
+            else if (SelectPerson.SelectedIndex == 1)  //Archer
+            {
+                if (Archer.MinAgility != Convert.ToInt16(Dexterity.Text))
+                {
+                    Dexterity.Text = Convert.ToString(Convert.ToInt32(Dexterity.Text) - 1);
+                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
+                    new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                    Damage.Text = Convert.ToString(Archer.Damage);
+                    Protection.Text = Convert.ToString(Archer.Protection);
+                    MagicDamage.Text = Convert.ToString(Archer.MagicDamage);
+                    MagicProtection.Text = Convert.ToString(Archer.MagicProtection);
+                    Life.Text = Convert.ToString(Archer.Life);
+                    Magic.Text = Convert.ToString(Archer.Magic);
+                }
+                else
+                {
+                    MessageBox.Show("MinAgility");
+                }
+            }
+            else if (SelectPerson.SelectedIndex == 2)   //Wizzard
+            {
+                if (Wizard.MinAgility != Convert.ToInt16(Dexterity.Text))
+                {
+                    Dexterity.Text = Convert.ToString(Convert.ToInt32(Dexterity.Text) - 1);
+                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
+                    new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                    Damage.Text = Convert.ToString(Wizard.Damage);
+                    Protection.Text = Convert.ToString(Wizard.Protection);
+                    MagicDamage.Text = Convert.ToString(Wizard.MagicDamage);
+                    MagicProtection.Text = Convert.ToString(Wizard.MagicProtection);
+                    Life.Text = Convert.ToString(Wizard.Life);
+                    Magic.Text = Convert.ToString(Wizard.Magic);
+                }
+                else
+                {
+                    MessageBox.Show("MinAgility");
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Points distributed");
+            }
         }
 
         private void increase_intelligence_Click(object sender, RoutedEventArgs e)  //увеличение интелекта
@@ -513,95 +509,72 @@ namespace RPG
 
         private void decrease_intelligence_Click(object sender, RoutedEventArgs e) //уменьшение интелекта
         {
-            if (NamePerson.Text == "New_Name")
+            if (SelectPerson.SelectedIndex == -1)
             {
                 MessageBox.Show("Choose or create a character");
             }
-            else if (NamePerson.Text == Convert.ToString(WorkBase.GetList()))
+            else if (SelectPerson.SelectedIndex == 0)  // Warrior         
             {
-                if (free_glasses.Text != Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Points))
+                if (Warrior.MinAgility != Convert.ToInt16(Intelligence.Text))
                 {
                     Intelligence.Text = Convert.ToString(Convert.ToInt32(Intelligence.Text) - 1);
                     free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
-                    if (SelectPerson.SelectedIndex == 0)  // Warrior
-                    {
-                        new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Warrior.Damage);
-                        Protection.Text = Convert.ToString(Warrior.Protection);
-                        MagicDamage.Text = Convert.ToString(Warrior.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Warrior.MagicProtection);
-                        Life.Text = Convert.ToString(Warrior.Life);
-                        Magic.Text = Convert.ToString(Warrior.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 1)  //Archer
-                    {
-                        new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Archer.Damage);
-                        Protection.Text = Convert.ToString(Archer.Protection);
-                        MagicDamage.Text = Convert.ToString(Archer.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Archer.MagicProtection);
-                        Life.Text = Convert.ToString(Archer.Life);
-                        Magic.Text = Convert.ToString(Archer.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 2)   //Wizzard
-                    {
-                        new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Wizard.Damage);
-                        Protection.Text = Convert.ToString(Wizard.Protection);
-                        MagicDamage.Text = Convert.ToString(Wizard.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Wizard.MagicProtection);
-                        Life.Text = Convert.ToString(Wizard.Life);
-                        Magic.Text = Convert.ToString(Wizard.Magic);
-                    }
+                    new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                    Damage.Text = Convert.ToString(Warrior.Damage);
+                    Protection.Text = Convert.ToString(Warrior.Protection);
+                    MagicDamage.Text = Convert.ToString(Warrior.MagicDamage);
+                    MagicProtection.Text = Convert.ToString(Warrior.MagicProtection);
+                    Life.Text = Convert.ToString(Warrior.Life);
+                    Magic.Text = Convert.ToString(Warrior.Magic);
                 }
                 else
                 {
-                    MessageBox.Show("Points distributed");
+                    MessageBox.Show("MinIntelligence");
+                }
+            }
+
+            else if (SelectPerson.SelectedIndex == 1)  //Archer
+            {
+                if (Archer.MinAgility != Convert.ToInt16(Intelligence.Text))
+                {
+                    Intelligence.Text = Convert.ToString(Convert.ToInt32(Intelligence.Text) - 1);
+                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
+                    new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                    Damage.Text = Convert.ToString(Archer.Damage);
+                    Protection.Text = Convert.ToString(Archer.Protection);
+                    MagicDamage.Text = Convert.ToString(Archer.MagicDamage);
+                    MagicProtection.Text = Convert.ToString(Archer.MagicProtection);
+                    Life.Text = Convert.ToString(Archer.Life);
+                    Magic.Text = Convert.ToString(Archer.Magic);
+                }
+                else
+                {
+                    MessageBox.Show("MinIntelligence");
+                }
+            }
+            else if (SelectPerson.SelectedIndex == 2)   //Wizzard
+            {
+                if (Wizard.MinAgility != Convert.ToInt16(Intelligence.Text))
+                {
+                    Intelligence.Text = Convert.ToString(Convert.ToInt32(Intelligence.Text) - 1);
+                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
+                    new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                    Damage.Text = Convert.ToString(Wizard.Damage);
+                    Protection.Text = Convert.ToString(Wizard.Protection);
+                    MagicDamage.Text = Convert.ToString(Wizard.MagicDamage);
+                    MagicProtection.Text = Convert.ToString(Wizard.MagicProtection);
+                    Life.Text = Convert.ToString(Wizard.Life);
+                    Magic.Text = Convert.ToString(Wizard.Magic);
+                }
+                else
+                {
+                    MessageBox.Show("MinIntelligence");
                 }
             }
             else
             {
-                if (free_glasses.Text != "10")
-                {
-                    Intelligence.Text = Convert.ToString(Convert.ToInt32(Intelligence.Text) - 1);
-                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
-                    if (SelectPerson.SelectedIndex == 0)  // Warrior
-                    {
-                        new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Warrior.Damage);
-                        Protection.Text = Convert.ToString(Warrior.Protection);
-                        MagicDamage.Text = Convert.ToString(Warrior.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Warrior.MagicProtection);
-                        Life.Text = Convert.ToString(Warrior.Life);
-                        Magic.Text = Convert.ToString(Warrior.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 1)  //Archer
-                    {
-                        new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Archer.Damage);
-                        Protection.Text = Convert.ToString(Archer.Protection);
-                        MagicDamage.Text = Convert.ToString(Archer.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Archer.MagicProtection);
-                        Life.Text = Convert.ToString(Archer.Life);
-                        Magic.Text = Convert.ToString(Archer.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 2)   //Wizzard
-                    {
-                        new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Wizard.Damage);
-                        Protection.Text = Convert.ToString(Wizard.Protection);
-                        MagicDamage.Text = Convert.ToString(Wizard.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Wizard.MagicProtection);
-                        Life.Text = Convert.ToString(Wizard.Life);
-                        Magic.Text = Convert.ToString(Wizard.Magic);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Points distributed");
-                }
+                MessageBox.Show("Points distributed");
             }
-
         }
 
         private void increase_endurance_Click(object sender, RoutedEventArgs e)  //увеличение выносливости
@@ -656,93 +629,71 @@ namespace RPG
 
         private void decrease_endurance_Click(object sender, RoutedEventArgs e)  //уменьшение выносливости
         {
-            if (NamePerson.Text == "New_Name")
+            if (SelectPerson.SelectedIndex == -1)
             {
                 MessageBox.Show("Choose or create a character");
             }
-            else if (NamePerson.Text == Convert.ToString(WorkBase.GetList()))
+            else if (SelectPerson.SelectedIndex == 0)  // Warrior         
             {
-                if (free_glasses.Text != Convert.ToString(WorkBase.GetPersonag(ListPersonag.SelectedItem.ToString()).Points))
+                if (Warrior.MinEndurance != Convert.ToInt16(Endurance.Text))
                 {
                     Endurance.Text = Convert.ToString(Convert.ToInt32(Endurance.Text) - 1);
                     free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
-                    if (SelectPerson.SelectedIndex == 0)  // Warrior
-                    {
-                        new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Warrior.Damage);
-                        Protection.Text = Convert.ToString(Warrior.Protection);
-                        MagicDamage.Text = Convert.ToString(Warrior.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Warrior.MagicProtection);
-                        Life.Text = Convert.ToString(Warrior.Life);
-                        Magic.Text = Convert.ToString(Warrior.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 1)  //Archer
-                    {
-                        new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Archer.Damage);
-                        Protection.Text = Convert.ToString(Archer.Protection);
-                        MagicDamage.Text = Convert.ToString(Archer.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Archer.MagicProtection);
-                        Life.Text = Convert.ToString(Archer.Life);
-                        Magic.Text = Convert.ToString(Archer.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 2)   //Wizzard
-                    {
-                        new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Wizard.Damage);
-                        Protection.Text = Convert.ToString(Wizard.Protection);
-                        MagicDamage.Text = Convert.ToString(Wizard.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Wizard.MagicProtection);
-                        Life.Text = Convert.ToString(Wizard.Life);
-                        Magic.Text = Convert.ToString(Wizard.Magic);
-                    }
+                    new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                    Damage.Text = Convert.ToString(Warrior.Damage);
+                    Protection.Text = Convert.ToString(Warrior.Protection);
+                    MagicDamage.Text = Convert.ToString(Warrior.MagicDamage);
+                    MagicProtection.Text = Convert.ToString(Warrior.MagicProtection);
+                    Life.Text = Convert.ToString(Warrior.Life);
+                    Magic.Text = Convert.ToString(Warrior.Magic);
                 }
                 else
                 {
-                    MessageBox.Show("Points distributed");
+                    MessageBox.Show("MinEndurance");
+                }
+            }
+
+            else if (SelectPerson.SelectedIndex == 1)  //Archer
+            {
+                if (Archer.MinEndurance != Convert.ToInt16(Endurance.Text))
+                {
+                    Endurance.Text = Convert.ToString(Convert.ToInt32(Endurance.Text) - 1);
+                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
+                    new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                    Damage.Text = Convert.ToString(Archer.Damage);
+                    Protection.Text = Convert.ToString(Archer.Protection);
+                    MagicDamage.Text = Convert.ToString(Archer.MagicDamage);
+                    MagicProtection.Text = Convert.ToString(Archer.MagicProtection);
+                    Life.Text = Convert.ToString(Archer.Life);
+                    Magic.Text = Convert.ToString(Archer.Magic);
+                }
+                else
+                {
+                    MessageBox.Show("MinEndurance");
+                }
+            }
+            else if (SelectPerson.SelectedIndex == 2)   //Wizzard
+            {
+                if (Wizard.MinEndurance != Convert.ToInt16(Endurance.Text))
+                {
+                    Endurance.Text = Convert.ToString(Convert.ToInt32(Endurance.Text) - 1);
+                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
+                    new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
+                    Damage.Text = Convert.ToString(Wizard.Damage);
+                    Protection.Text = Convert.ToString(Wizard.Protection);
+                    MagicDamage.Text = Convert.ToString(Wizard.MagicDamage);
+                    MagicProtection.Text = Convert.ToString(Wizard.MagicProtection);
+                    Life.Text = Convert.ToString(Wizard.Life);
+                    Magic.Text = Convert.ToString(Wizard.Magic);
+                }
+                else
+                {
+                    MessageBox.Show("MinEndurance");
                 }
             }
             else
             {
-                if (free_glasses.Text != "10")
-                {
-                    Endurance.Text = Convert.ToString(Convert.ToInt32(Endurance.Text) - 1);
-                    free_glasses.Text = Convert.ToString(Convert.ToInt32(free_glasses.Text) + 1);
-                    if (SelectPerson.SelectedIndex == 0)  // Warrior
-                    {
-                        new Warrior(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Warrior.Damage);
-                        Protection.Text = Convert.ToString(Warrior.Protection);
-                        MagicDamage.Text = Convert.ToString(Warrior.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Warrior.MagicProtection);
-                        Life.Text = Convert.ToString(Warrior.Life);
-                        Magic.Text = Convert.ToString(Warrior.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 1)  //Archer
-                    {
-                        new Archer(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Archer.Damage);
-                        Protection.Text = Convert.ToString(Archer.Protection);
-                        MagicDamage.Text = Convert.ToString(Archer.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Archer.MagicProtection);
-                        Life.Text = Convert.ToString(Archer.Life);
-                        Magic.Text = Convert.ToString(Archer.Magic);
-                    }
-                    else if (SelectPerson.SelectedIndex == 2)   //Wizzard
-                    {
-                        new Wizard(NamePerson.Text, SelectPerson.Text, Convert.ToInt32(Exp.Text), Convert.ToInt32(Level.Text), Convert.ToInt32(free_glasses.Text), Convert.ToInt32(Strength.Text), Convert.ToInt32(Dexterity.Text), Convert.ToInt32(Intelligence.Text), Convert.ToInt32(Endurance.Text));
-                        Damage.Text = Convert.ToString(Wizard.Damage);
-                        Protection.Text = Convert.ToString(Wizard.Protection);
-                        MagicDamage.Text = Convert.ToString(Wizard.MagicDamage);
-                        MagicProtection.Text = Convert.ToString(Wizard.MagicProtection);
-                        Life.Text = Convert.ToString(Wizard.Life);
-                        Magic.Text = Convert.ToString(Wizard.Magic);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Points distributed");
-                }
+                MessageBox.Show("Points distributed");
             }
         }
 
