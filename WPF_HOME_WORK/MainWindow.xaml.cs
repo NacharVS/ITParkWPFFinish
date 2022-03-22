@@ -15,25 +15,23 @@ using System.Windows.Shapes;
 
 namespace WPF_HOME_WORK
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        User user = new User("Name", "Profession");
         public MainWindow()
         {
             InitializeComponent();
             
         }
 
+        User user = new User("Name", "Profession","Character");
+
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
 
-            User.AddToDB(Enter_a_name.Text, Enter_a_profession.Text);
+            User.AddToDB(Enter_a_name.Text,Enter_a_profession.Text, Enter_a_Character.Text);
 
             ListName.ItemsSource = User.GetNameList();
-
+           
 
         }
 

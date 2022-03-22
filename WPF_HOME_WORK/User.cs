@@ -10,21 +10,23 @@ namespace WPF_HOME_WORK
 {
     class User
     {
-        public User(string name,string profession)
+        public User(string name,string profession,string character)
         {
             Name = name;
             Profession = profession;
+            Character = character;
         }
        public ObjectId _id { get; set; }
         public string Name { get; set; }
         public string Profession { get; set; }
+        public string Character { get; set; }
 
-        public static void AddToDB(string name, string profession)
+        public static void AddToDB(string name, string profession,string character)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Home_Work");
-            var collection = database.GetCollection<User>("Users");
-            collection.InsertOne(new User(name, profession));
+            var collection = database.GetCollection<User>("RPG");
+            collection.InsertOne(new User(name, profession,character));
             
 
            
@@ -34,7 +36,7 @@ namespace WPF_HOME_WORK
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Home_Work");
-            var collection = database.GetCollection<User>("Users");
+            var collection = database.GetCollection<User>("RPG");
             var list = collection.Find(x => true).ToList();
 
             List<string> listToReturn=new List<string>();
@@ -49,7 +51,7 @@ namespace WPF_HOME_WORK
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Home_Work");
-            var collection = database.GetCollection<User>("Users");
+            var collection = database.GetCollection<User>("RPG");
             var foundedUser = collection.Find(x => x.Name== name).FirstOrDefault();
             return foundedUser;
         }
@@ -58,7 +60,7 @@ namespace WPF_HOME_WORK
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Home_Work");
-            var collection = database.GetCollection<User>("Users");
+            var collection = database.GetCollection<User>("RPG");
             collection.DeleteOne(x=>x.Name ==name);
         }
 
