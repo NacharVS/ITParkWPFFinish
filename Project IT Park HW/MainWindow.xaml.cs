@@ -528,34 +528,6 @@ namespace Project_IT_Park_HW
             }
             MessageBox.Show("Changes applied!");
         }
-
-
-
-        //private void rbEditing_Checked(object sender, RoutedEventArgs e)
-        //{
-        //    string buffer = Convert.ToString(rbEditing.Content);
-        //    if (buffer == "Allow unit editing")
-        //    {
-        //        rbEditing.IsChecked = true;
-
-        //        btnMInusStrength.IsEnabled = false;
-        //        btnPlusStrength.IsEnabled = false;
-
-        //        rbEditing.Content = "Disable unit editing";
-        //    }
-        //    else
-        //    if (buffer == "Disable unit editing")
-        //    {
-        //        rbEditing.IsChecked = false;
-
-        //        btnMInusStrength.IsEnabled = true;
-        //        btnPlusStrength.IsEnabled = true;
-
-        //        rbEditing.Content = "Allow unit editing";
-        //    }
-        //}
-
-
     }
 }
 //    Character Editor.
