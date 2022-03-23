@@ -21,14 +21,14 @@ namespace _2022_03_13_VerificationWork.MongoDB
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
-            var collection = database.GetCollection<Warrior>("Characters");
+            var collection1 = database.GetCollection<Warrior>("Characters");
             var collection2 = database.GetCollection<Archer>("Characters");
             var collection3 = database.GetCollection<Mage>("Characters");
-            var listUsersFromDB = collection.Find(x => true).ToList();
+            var listUsersFromDB1 = collection1.Find(x => true).ToList();
             var listUsersFromDB2 = collection2.Find(x => true).ToList();
             var listUsersFromDB3 = collection3.Find(x => true).ToList();
             List<string> listToReturn = new List<string>();
-            foreach (var item in listUsersFromDB)
+            foreach (var item in listUsersFromDB1)
             {
                 listToReturn.Add(item._name);
             }
@@ -42,42 +42,12 @@ namespace _2022_03_13_VerificationWork.MongoDB
             }
             return listToReturn;
         }
-        //public static void AddWarriorToDB(string name, string profession, int strenght, int agility, int intelligenсe
-        //    ,int stamina, int level, long experiense, int freePoint)
-        //{
-        //    var client = new MongoClient("mongodb://localhost");
-        //    var database = client.GetDatabase("Character_Editor");
-        //    var collection = database.GetCollection<Warrior>("Characters");
-        //    collection.InsertOne(new Warrior(name, profession, strenght, agility, intelligenсe, stamina
-        //        , level, experiense, freePoint));
-        //}
-
-        //public static void AddArcherToDB(string name, string profession, int strenght, int agility, int intelligenсe
-        //    , int stamina, int level, long experiense, int freePoint)
-        //{
-        //    var client = new MongoClient("mongodb://localhost");
-        //    var database = client.GetDatabase("Character_Editor");
-        //    var collection = database.GetCollection<Archer>("Characters");
-        //    collection.InsertOne(new Archer(name, profession, strenght, agility, intelligenсe, stamina
-        //        , level, experiense, freePoint));
-        //}
-        
-        //public static void AddWizardToDB(string name, string profession, int strenght, int agility, int intelligenсe
-        //   , int stamina, int level, long experiense, int freePoint)
-        //{
-        //    var client = new MongoClient("mongodb://localhost");
-        //    var database = client.GetDatabase("Character_Editor");
-        //    var collection = database.GetCollection<Wizard>("Characters");
-        //    collection.InsertOne(new Wizard(name, profession, strenght, agility, intelligenсe, stamina
-        //        , level, experiense, freePoint));
-        //}
-
-        public static void ReplaceWarrior(string nameToReplace, Warrior update)
+        public static void ReplaceCharacterToDB(string nameToReplace, Character update)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
-            var collection = database.GetCollection<Warrior>("Characters");
-            //collection.ReplaceOne(x => x.Name == nameToReplace, update);
+            var collection = database.GetCollection<Character>("Characters");
+            collection.ReplaceOne(x => x._name == nameToReplace, update);
         }
         //public static void ReplaceArcher(string nameToReplace, Archer update)
         //{
@@ -93,36 +63,26 @@ namespace _2022_03_13_VerificationWork.MongoDB
         //    var collection = database.GetCollection<Wizard>("Characters");
         //    collection.ReplaceOne(x => x.Name == nameToReplace, update);
         //}
-        //public static Warrior ShowWarriorInfo(string nameCharacter)
-        //{
-        //    var client = new MongoClient("mongodb://localhost");
-        //    var database = client.GetDatabase("Character_Editor");
-        //    var collection = database.GetCollection<Warrior>("Characters");
-        //    //var foundedClient = collection.Find(x => x.Name == nameCharacter).FirstOrDefault();
-        //    return foundedClient;
-        //}
-        public static string FindDuplicate(string nameCharacter)
+        public static Character ShowCharacterInfo(string nameCharacter)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
-            var collection = database.GetCollection<Warrior>("Characters");
-            //var foundedCharacter = collection.Find(x => x.Name == nameCharacter).FirstOrDefault();
-            //string foundedName = foundedCharacter.Name;
-            return null;
-
+            var collection = database.GetCollection<Character>("Characters");
+            var foundedClient = collection.Find(x => x._name == nameCharacter).FirstOrDefault();
+            return foundedClient;
         }
         public static void RemoveCharacter(string nameToDelete)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
-            var collection = database.GetCollection<Warrior>("Characters");
-            //collection.DeleteOne(x => x.Name == nameToDelete);
+            var collection = database.GetCollection<Character>("Characters");
+            collection.DeleteOne(x => x._name == nameToDelete);
         }
         public static void DeleteAllCharacter()
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
-            var collection = database.GetCollection<Warrior>("Characters");
+            var collection = database.GetCollection<Character>("Characters");
             collection.DeleteMany(x => true);
         }
     }

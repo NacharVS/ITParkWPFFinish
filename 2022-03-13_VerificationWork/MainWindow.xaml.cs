@@ -149,8 +149,8 @@ namespace _2022_03_13_VerificationWork
         private void strRemoveBtn_Click(object sender, RoutedEventArgs e)
         {
             int baseStr = Convert.ToInt32(strAmountLabel.Content);
-            int currentFreePoint= Convert.ToInt32(freePointAmountLabel.Content);
-            int mustFreePoint = Convert.ToInt32(levelAmountLabel.Content)*5-5+10;
+            int currentFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            int mustFreePoint = Convert.ToInt32(levelAmountLabel.Content) * 5 - 5 + 10;
             if (currentFreePoint < mustFreePoint)
             {
                 baseStr--;
@@ -224,7 +224,7 @@ namespace _2022_03_13_VerificationWork
 
         private void nameTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (nameTextBox.Text=="Name") nameTextBox.Clear();
+            if (nameTextBox.Text == "Name") nameTextBox.Clear();
             else return;
         }
 
@@ -257,7 +257,7 @@ namespace _2022_03_13_VerificationWork
         }
         public void WarriorAddStatChange()
         {
-           
+
 
             physicalDamageAmountLabel.Content = Convert.ToString(
                     7 * Convert.ToInt32(strAmountLabel.Content) +
@@ -420,14 +420,14 @@ namespace _2022_03_13_VerificationWork
         }
         private void BtnActivate()
         {
-            strRemoveBtn.IsEnabled =    true;
-            agltRemoveBtn.IsEnabled =   true;
-            intRemoveBtn.IsEnabled =    true;
-            stmnRemoveBtn.IsEnabled =   true;
-            strAddBtn.IsEnabled =       true;
-            agltAddBtn.IsEnabled =      true;
-            intAddBtn.IsEnabled =       true;
-            stmnAddBtn.IsEnabled =      true;
+            strRemoveBtn.IsEnabled = true;
+            agltRemoveBtn.IsEnabled = true;
+            intRemoveBtn.IsEnabled = true;
+            stmnRemoveBtn.IsEnabled = true;
+            strAddBtn.IsEnabled = true;
+            agltAddBtn.IsEnabled = true;
+            intAddBtn.IsEnabled = true;
+            stmnAddBtn.IsEnabled = true;
             _1kExpBtn.IsEnabled = true;
             _3kExpBtn.IsEnabled = true;
             _5kExpBtn.IsEnabled = true;
@@ -457,34 +457,34 @@ namespace _2022_03_13_VerificationWork
             long currentExp = Convert.ToInt64(experienseAmountLabel.Content);
             int currentLvl = Convert.ToInt32(levelAmountLabel.Content);
             int currentFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            
-            
+
+
             if (currentExp >= 1000 & currentExp < 3000)
             {
-                currentLvl=2;
-                currentFreePoint=15;
+                currentLvl = 2;
+                currentFreePoint = 15;
             }
             else if (currentExp >= 3000 & currentExp < 6000)
             {
-                currentLvl=3;
-                currentFreePoint= 20;
+                currentLvl = 3;
+                currentFreePoint = 20;
             }
             else if (currentExp >= 6000 & currentExp < 10000)
             {
-                currentLvl=4;
-                currentFreePoint= 25;
+                currentLvl = 4;
+                currentFreePoint = 25;
             }
             else if (currentExp >= 10000 & currentExp < 15000)
             {
-                currentLvl=5;
+                currentLvl = 5;
                 currentFreePoint = 30;
             }
             else if (currentExp >= 15000)
             {
-                currentLvl=6;
-                currentFreePoint= 35;
+                currentLvl = 6;
+                currentFreePoint = 35;
             }
-            levelAmountLabel.Content=Convert.ToString(currentLvl);
+            levelAmountLabel.Content = Convert.ToString(currentLvl);
             freePointAmountLabel.Content = Convert.ToString(currentFreePoint);
         }
         private void _1kExpBtn_Click(object sender, RoutedEventArgs e)
@@ -492,7 +492,7 @@ namespace _2022_03_13_VerificationWork
             long baseValue = Convert.ToInt64(experienseAmountLabel.Content);
             long changedValue = 0;
             changedValue = 1000 + baseValue;
-            experienseAmountLabel.Content=Convert.ToString(changedValue);
+            experienseAmountLabel.Content = Convert.ToString(changedValue);
             LvlChange();
         }
 
@@ -518,13 +518,12 @@ namespace _2022_03_13_VerificationWork
         {
             if (professionComboBox.SelectedIndex == 0)
             {
-                //MongoDataBase.ReplaceWarrior (characterList.SelectedItem.ToString(), new Warrior(nameTextBox.Text, professionComboBox.SelectionBoxItem.ToString()
-                //    , Convert.ToInt32(strAmountLabel.Content), Convert.ToInt32(agltAmountLabel.Content)
-                //    , Convert.ToInt32(intAmountLabel.Content), Convert.ToInt32(stmnAmountLabel.Content)
-                //    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content)
-                //    , Convert.ToInt32(freePointAmountLabel.Content)));
+                MongoDataBase.ReplaceCharacterToDB (characterList.SelectedItem.ToString(), new Warrior(nameTextBox.Text, Convert.ToInt32(strAmountLabel.Content)
+                      , Convert.ToInt32(agltAmountLabel.Content), Convert.ToInt32(intAmountLabel.Content)
+                      , Convert.ToInt32(stmnAmountLabel.Content), Convert.ToInt32(levelAmountLabel.Content)
+                      , Convert.ToInt64(experienseAmountLabel.Content), Convert.ToInt32(freePointAmountLabel.Content)));
                 MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was updated!");
-                //characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
+                characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
             }
             else if (professionComboBox.SelectedIndex == 1)
             {
@@ -534,7 +533,7 @@ namespace _2022_03_13_VerificationWork
                 //    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content)
                 //    , Convert.ToInt32(freePointAmountLabel.Content)));
                 MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was updated!");
-                //characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
+                characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
             }
             else if (professionComboBox.SelectedIndex == 2)
             {
@@ -544,35 +543,29 @@ namespace _2022_03_13_VerificationWork
                 //    , Convert.ToInt32(levelAmountLabel.Content), Convert.ToInt64(experienseAmountLabel.Content)
                 //    , Convert.ToInt32(freePointAmountLabel.Content)));
                 MessageBox.Show($"Character \"{nameTextBox.Text} ({professionComboBox.SelectionBoxItem})\" was updated!");
-                //characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
+                characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
             }
             else MessageBox.Show("Chose the profession of your character!");
         }
 
         private void characterList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //if (professionComboBox.SelectedIndex == -1)
-            //{
-            //    return;
-            //}
-            //else
-            //{
-            //professionComboBox.IsEnabled = false;
-            //creationButton.IsEnabled = true;
-            //nameTextBox.Text = MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Name;
-            //    if (MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Profession=="Warrior")
-            //        professionComboBox.SelectedIndex=0;
-            //    else if (MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Profession == "Archer")
-            //        professionComboBox.SelectedIndex = 1;
-            //    else if (MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Profession == "Wizard")
-            //        professionComboBox.SelectedIndex = 2;
-            //    strAmountLabel.Content = MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Strenght;
-            //    agltAmountLabel.Content = MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Agility;
-            //    intAmountLabel.Content = MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Intelligence;
-            //    stmnAmountLabel.Content = MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Stamina;
-            //    levelAmountLabel.Content= MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Level;
-            //    experienseAmountLabel.Content= MongoDataBase.ShowWarriorInfo(characterList.SelectedItem.ToString()).Experiense;
-            //}
+            professionComboBox.IsEnabled = false;
+            creationButton.IsEnabled = true;
+            nameTextBox.Text = MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._name;
+            if (MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._profession == "Warrior")
+                professionComboBox.SelectedIndex = 0;
+            else if (MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._profession == "Archer")
+                professionComboBox.SelectedIndex = 1;
+            else if (MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._profession == "Mage")
+                professionComboBox.SelectedIndex = 2;
+            strAmountLabel.Content = MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._strenght;
+            agltAmountLabel.Content = MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._agility;
+            intAmountLabel.Content = MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._intelligence;
+            stmnAmountLabel.Content = MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._stamina;
+            levelAmountLabel.Content = MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._level;
+            experienseAmountLabel.Content = MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._experiense;
+            freePointAmountLabel.Content = MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._freePoint;
         }
 
         private void creationButton_click(object sender, RoutedEventArgs e)
@@ -584,8 +577,8 @@ namespace _2022_03_13_VerificationWork
         private void removeBtn_Click(object sender, RoutedEventArgs e)
         {
             MongoDataBase.RemoveCharacter(characterList.SelectedItem.ToString());
+            characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
             MessageBox.Show($"Character {characterList.SelectedValue} was deleted from DB");
-            //characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
         }
     }
 }
