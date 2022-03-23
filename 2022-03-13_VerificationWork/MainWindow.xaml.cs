@@ -240,6 +240,9 @@ namespace _2022_03_13_VerificationWork
             agltAmountLabel.Content = "15";
             intAmountLabel.Content = "10";
             stmnAmountLabel.Content = "25";
+            freePointAmountLabel.Content = "10";
+            levelAmountLabel.Content = "1";
+            experienseAmountLabel.Content = "0";
         }
         public void ArcherStatChange()
         {
@@ -247,6 +250,9 @@ namespace _2022_03_13_VerificationWork
             agltAmountLabel.Content = "30";
             intAmountLabel.Content = "15";
             stmnAmountLabel.Content = "20";
+            freePointAmountLabel.Content = "10";
+            levelAmountLabel.Content = "1";
+            experienseAmountLabel.Content = "0";
         }
         public void WizardStatChange()
         {
@@ -254,6 +260,9 @@ namespace _2022_03_13_VerificationWork
             agltAmountLabel.Content = "20";
             intAmountLabel.Content = "35";
             stmnAmountLabel.Content = "20";
+            freePointAmountLabel.Content = "10";
+            levelAmountLabel.Content = "1";
+            experienseAmountLabel.Content = "0";
         }
         public void WarriorAddStatChange()
         {
@@ -443,7 +452,7 @@ namespace _2022_03_13_VerificationWork
         private void updateListBtn_Click(object sender, RoutedEventArgs e)
         {
             MongoDataBase.DeleteAllCharacter();
-            //characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
+            characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
         }
 
         private void Window_Initialized(object sender, EventArgs e)
@@ -572,12 +581,15 @@ namespace _2022_03_13_VerificationWork
         {
             professionComboBox.IsEnabled = true;
             creationButton.IsEnabled = false;
+            StatChange();
+            AddStatChange();
+            BtnActivate();
         }
 
         private void removeBtn_Click(object sender, RoutedEventArgs e)
         {
             MongoDataBase.RemoveCharacter(characterList.SelectedItem.ToString());
-            characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
+            //characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
             MessageBox.Show($"Character {characterList.SelectedValue} was deleted from DB");
         }
     }

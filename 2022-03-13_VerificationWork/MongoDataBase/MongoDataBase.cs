@@ -21,26 +21,28 @@ namespace _2022_03_13_VerificationWork.MongoDB
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
-            var collection1 = database.GetCollection<Warrior>("Characters");
-            var collection2 = database.GetCollection<Archer>("Characters");
-            var collection3 = database.GetCollection<Mage>("Characters");
+            var collection1 = database.GetCollection<Character>("Characters");
+            //var collection2 = database.GetCollection<Archer>("Characters");
+            //var collection3 = database.GetCollection<Mage>("Characters");
             var listUsersFromDB1 = collection1.Find(x => true).ToList();
-            var listUsersFromDB2 = collection2.Find(x => true).ToList();
-            var listUsersFromDB3 = collection3.Find(x => true).ToList();
+            //var listUsersFromDB2 = collection2.Find(x => true).ToList();
+            //var listUsersFromDB3 = collection3.Find(x => true).ToList();
             List<string> listToReturn = new List<string>();
             foreach (var item in listUsersFromDB1)
             {
                 listToReturn.Add(item._name);
             }
-            foreach (var item in listUsersFromDB2)
-            {
-                listToReturn.Add(item._name);
-            }
-            foreach (var item in listUsersFromDB3)
-            {
-                listToReturn.Add(item._name);
-            }
             return listToReturn;
+            //foreach (var item in listUsersFromDB2)
+            //{
+            //    listToReturn.Add(item._name);
+            //}
+            //return listToReturn;
+            //foreach (var item in listUsersFromDB3)
+            //{
+            //    listToReturn.Add(item._name);
+            //}
+            //return listToReturn;
         }
         public static void ReplaceCharacterToDB(string nameToReplace, Character update)
         {

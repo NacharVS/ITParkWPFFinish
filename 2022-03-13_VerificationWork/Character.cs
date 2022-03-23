@@ -10,6 +10,9 @@ namespace _2022_03_13_VerificationWork
 {
     class Character
     {
+        [BsonId]
+        public ObjectId _id;
+        
         public string _name;
         public string _profession;
         public int _strenght;

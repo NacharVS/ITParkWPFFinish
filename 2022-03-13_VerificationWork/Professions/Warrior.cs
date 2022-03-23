@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +10,8 @@ namespace _2022_03_13_VerificationWork.Interfaces
 {
     class Warrior : Character
     {
-        [BsonIgnoreIfDefault]
-        public Object _id;
+        //[BsonIgnoreIfDefault]
+        //public Object _id;
         public Warrior(string name, int strenght, int agility, int intelligence, int stamina, int level
             , long experiense, int freePoint) : base ("Warrior")
         {

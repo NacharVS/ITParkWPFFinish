@@ -10,8 +10,8 @@ namespace _2022_03_13_VerificationWork
 {
     class Archer : Character
     {
-        [BsonIgnoreIfDefault]
-        public Object _id;
+        //[BsonIgnoreIfDefault]
+        //public Object _id;
         public Archer(string name, int strenght, int agility, int intelligence, int stamina, int level
             , long experiense, int freePoint) : base("Archer")
         {
