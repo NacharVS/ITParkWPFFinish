@@ -9,43 +9,30 @@ using System.Threading.Tasks;
 
 namespace _2022_03_13_VerificationWork.Interfaces
 {
-    internal class Warrior : Character, ICharacter
+    class Warrior : Character
     {
-
         [BsonIgnoreIfDefault]
-        ObjectId _id;
-        public Warrior(string name, string profession, int strenght, int agility, int intelligence, int stamina
-            , int level, long experiense, int freePoint)
+        public Object _id;
+        public Warrior(string name, int strenght, int agility, int intelligence, int stamina, int level
+            , long experiense, int freePoint) : base ("Warrior")
         {
-            Name = name;
-            Profession = profession;
-            Strenght = strenght;
-            Agility = agility;
-            Intelligence = intelligence;
-            Stamina = stamina;
-            Level = level;
-            Experiense = experiense;
-            FreePoint = freePoint;
+            _name = name;
+            _level = level;
+            _experiense = experiense;
+            _freePoint = freePoint;
+            _strenght = strenght;
+            _agility = agility;
+            _intelligence = intelligence;
+            _stamina = stamina;
         }
-        public string Name { get => _name; set => _name = value; }
-        public string Profession { get => _profession; set => _profession = value; }
-        public int Strenght
-        {
-            get => _strenght;
-            set
-            {
-                if (value > 30 || value < 250) _strenght = value;
-                else if (value < 30) _strenght = 30;
-                else if (value > 250) _strenght = 250;
-                ;
-            }
-        }
-        public int Agility { get => _agility; set => _agility = value; }
-        public int Intelligence { get => _intelligence; set => _intelligence = value; }
-        public int Stamina { get => _stamina; set => _stamina = value; }
-        public int Level { get => _level; set => _level = value; }
-        public long Experiense { get => _experiense; set => _experiense = value; }
-        public int FreePoint { get => _freePoint; set => _freePoint = value; }
-
+        //public string name { get => _name; set => _name = value; }
+        //public string profession { get => _profession; set => _profession = value; }
+        //public int strenght { get => _strenght; set => _strenght = value; }
+        //public int agility { get => _agility; set => _agility = value; }
+        //public int intelligence { get => _intelligence; set => _intelligence = value; }
+        //public int stamina { get => _stamina; set => _stamina = value; }
+        //public int level { get => _level; set => _level = value; }
+        //public long experiense { get => _experiense; set => _experiense = value; }
+        //public int freePoint { get => _freePoint; set => _freePoint = value; }
     }
 }

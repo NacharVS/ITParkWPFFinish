@@ -8,17 +8,20 @@ using System.Threading.Tasks;
 
 namespace _2022_03_13_VerificationWork
 {
-    internal class Character
+    class Character
     {
-       
-        internal string _name;
-        internal string _profession;
-        internal int _strenght;
-        internal int _agility;
-        internal int _intelligence;
-        internal int _stamina;
-        internal int _level;
-        internal long _experiense;
-        internal int _freePoint;
+        public string _name;
+        public string _profession;
+        public int _strenght;
+        public int _agility;
+        public int _intelligence;
+        public int _stamina;
+        public int _level;
+        public long _experiense;
+        public int _freePoint;
+        public Character(string profession)
+        {
+            _profession = profession;
+        }
     }
 }

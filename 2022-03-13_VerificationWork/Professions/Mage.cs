@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace _2022_03_13_VerificationWork
 {
-    class Archer : Character
+    class Mage : Character
     {
         [BsonIgnoreIfDefault]
         public Object _id;
-        public Archer(string name, int strenght, int agility, int intelligence, int stamina, int level
-            , long experiense, int freePoint) : base("Archer")
+        public Mage(string name, int strenght, int agility, int intelligence, int stamina, int level
+            , long experiense, int freePoint) : base("Mage")
         {
             _name = name;
             _level = level;
@@ -24,6 +24,7 @@ namespace _2022_03_13_VerificationWork
             _intelligence = intelligence;
             _stamina = stamina;
         }
+       
         //public string Name { get => _name; set => _name = value; }
         //public string Profession { get => _profession; set => _profession = value; }
         //public int Strenght { get => _strenght; set => _strenght = value; }
