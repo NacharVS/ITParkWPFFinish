@@ -10,7 +10,7 @@ namespace WPF_HOME_WORK
 {
     class Character
     {
-        public Character(string name, int power)
+        public Character(string name, int power, int agility, int intelligence, int endurance)
         {
             Name = name;
             Power = power;
@@ -22,5 +22,11 @@ namespace WPF_HOME_WORK
 
         public string Proffession { get; set; }
         public int Power { get; set; }
+
+        public int Agility { get; set; }
+
+        public int Intelligence { get; set; }
+
+        public int Endurance { get; set; }
     }
 }

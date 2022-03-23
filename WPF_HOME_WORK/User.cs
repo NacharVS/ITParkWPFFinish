@@ -10,23 +10,23 @@ namespace WPF_HOME_WORK
 {
     class User
     {
-        public User(string name,string profession,string character)
+        public User(string name,string profession)
         {
             Name = name;
             Profession = profession;
-            Character = character;
+           
         }
        public ObjectId _id { get; set; }
         public string Name { get; set; }
         public string Profession { get; set; }
-        public string Character { get; set; }
+        
 
-        public static void AddToDB(string name, string profession,string character)
+        public static void AddToDB(string name, string profession)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Home_Work");
             var collection = database.GetCollection<User>("RPG");
-            collection.InsertOne(new User(name, profession,character));
+            collection.InsertOne(new User(name, profession));
             
 
            

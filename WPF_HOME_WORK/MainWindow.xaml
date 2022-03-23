@@ -40,9 +40,6 @@
         <Label x:Name="lbl_intellect" Content="0" HorizontalAlignment="Left" Margin="253,371,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
         <Label x:Name="lbl_endurance" Content="0" HorizontalAlignment="Left" Margin="253,411,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
         <Label x:Name="lbl_extra_points" Content="0" HorizontalAlignment="Left" Margin="253,464,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
-        <ComboBox x:Name="Enter_a_Character" HorizontalAlignment="Left" Margin="558,41,0,0" VerticalAlignment="Top" Width="263" Height="36">
-            <ListBoxItem Content="Power" FontWeight="Bold" FontSize="25"/>
-        </ComboBox>
 
     </Grid>
 </Window>
