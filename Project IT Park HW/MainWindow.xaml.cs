@@ -24,6 +24,16 @@ namespace Project_IT_Park_HW
         {
             InitializeComponent();
         }
+        public void StartStat()
+        {
+            lblStrength.Content = "10";
+            lblAgility.Content = "10";
+            lblIntellect.Content = "10";
+            lblEndurance.Content = "10";
+            lblPoints.Content = "10";
+            lblLevel.Content = "1";
+            lblExperience.Content = "0";
+        }
         public void ArcherStartStat()
         {
             lblStrength.Content = "20";
@@ -64,44 +74,52 @@ namespace Project_IT_Park_HW
         {
             if (cmbClass.SelectedIndex == 0)
             {
-                MongoDataBase.AddArcherToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString(), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content)); ;
-                lbxUnitList.ItemsSource = MongoDataBase.GetArcherList();
-                lbxUnitClass.ItemsSource = MongoDataBase.GetClassArcherList();
-                lbxPhysDamage.ItemsSource = MongoDataBase.GetArcherStatList();
-                //ArcherStartStat();
+                if (txtName.Text == MongoDataBase.FindUser(txtName.Text))
+                {
+                    MessageBox.Show($"A unit named {txtName.Text} exist!");
+                }
+                else
+                {
+                    MongoDataBase.AddUnitToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString(), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content));
+                    lbxUnitList.ItemsSource = MongoDataBase.GetUnitList();
+                    lbxUnitClass.ItemsSource = MongoDataBase.GetClassUnitList();
+                    ArcherStartStat();
+                    txtName.Clear();
+                }
             }
             else
             if (cmbClass.SelectedIndex == 1)
             {
-                MongoDataBase.AddMageToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString(), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content)); ;
-                lbxUnitList.ItemsSource = MongoDataBase.GetMageList();
-                lbxUnitClass.ItemsSource = MongoDataBase.GetClassMageList();
-                MageStartStat();
+                if (txtName.Text == MongoDataBase.FindUser(txtName.Text))
+                {
+                    MessageBox.Show($"A unit named {txtName.Text} exist!");
+                }
+                else
+                {
+                    MongoDataBase.AddUnitToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString(), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content));
+                    lbxUnitList.ItemsSource = MongoDataBase.GetUnitList();
+                    lbxUnitClass.ItemsSource = MongoDataBase.GetClassUnitList();
+                    MageStartStat();
+                    txtName.Clear();
+                }
             }
             else
-            if (cmbClass.SelectedIndex == 2) 
+            if (cmbClass.SelectedIndex == 2)
             {
-                MongoDataBase.AddWarriorToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString(), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content)); ;
-                lbxUnitList.ItemsSource = MongoDataBase.GetWarriorList();
-                lbxUnitClass.ItemsSource = MongoDataBase.GetClassWariiorList();
-                WarriorstartStat();
+                if (txtName.Text == MongoDataBase.FindUser(txtName.Text))
+                {
+                    MessageBox.Show($"A unit named {txtName.Text} exist!");
+                }
+                else
+                {
+                    MongoDataBase.AddUnitToDB(txtName.Text, cmbClass.SelectionBoxItem.ToString(), Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content));
+                    lbxUnitList.ItemsSource = MongoDataBase.GetUnitList();
+                    lbxUnitClass.ItemsSource = MongoDataBase.GetClassUnitList();
+                    WarriorstartStat();
+                }
             }
         }
 
-
-        private void btnMinusStrength_Click(object sender, RoutedEventArgs e)
-        {
-            int strengthPoint = Convert.ToInt32(lblAgility.Content);
-            int point = Convert.ToInt32(lblPoints.Content);
-            if (point != 0)
-            {
-                strengthPoint++;
-                point--;
-                lblStrength.Content = strengthPoint;
-                lblPoints.Content = point;
-                AddStatChange();
-            }
-        }
         int physDamage;
         int physProtection;
         int magDamage;
@@ -125,12 +143,18 @@ namespace Project_IT_Park_HW
         }
         public void AddArcherStat()
         {
-            physDamage = Convert.ToInt32(3 * Convert.ToInt32(lblStrength.Content) +7 * Convert.ToInt32(lblAgility.Content) +0 * Convert.ToInt32(lblIntellect.Content) +0 * Convert.ToInt32(lblEndurance.Content));
+            physDamage = Convert.ToInt32(3 * Convert.ToInt32(lblStrength.Content) + 7 * Convert.ToInt32(lblAgility.Content) + 0 * Convert.ToInt32(lblIntellect.Content) + 0 * Convert.ToInt32(lblEndurance.Content));
             physProtection = 1 * Convert.ToInt32(lblStrength.Content) + 5 * Convert.ToInt32(lblAgility.Content) + 0 * Convert.ToInt32(lblIntellect.Content) + 2 * Convert.ToInt32(lblEndurance.Content);
             magDamage = 0 * Convert.ToInt32(lblStrength.Content) + 0 * Convert.ToInt32(lblAgility.Content) + 3 * Convert.ToInt32(lblIntellect.Content) + 0 * Convert.ToInt32(lblEndurance.Content);
             magProtection = 0 * Convert.ToInt32(lblStrength.Content) + 3 * Convert.ToInt32(lblAgility.Content) + 3 * Convert.ToInt32(lblIntellect.Content) + 1 * Convert.ToInt32(lblEndurance.Content);
             health = 2 * Convert.ToInt32(lblStrength.Content) + 0 * Convert.ToInt32(lblAgility.Content) + 0 * Convert.ToInt32(lblIntellect.Content) + 5 * Convert.ToInt32(lblEndurance.Content);
             mana = 0 * Convert.ToInt32(lblStrength.Content) + 0 * Convert.ToInt32(lblAgility.Content) + 1 * Convert.ToInt32(lblIntellect.Content) + 0 * Convert.ToInt32(lblEndurance.Content);
+            lblPhysDamage.Content = physDamage.ToString();
+            lblPhysProtect.Content = physProtection.ToString();
+            lblMagDamage.Content = magDamage.ToString();
+            lblMagProtect.Content = magProtection.ToString();
+            lblHealth.Content = health.ToString();
+            lblMana.Content = mana.ToString();
         }
         public void AddMageStat()
         {
@@ -140,6 +164,12 @@ namespace Project_IT_Park_HW
             magProtection = 0 * Convert.ToInt32(lblStrength.Content) + 0 * Convert.ToInt32(lblAgility.Content) + 5 * Convert.ToInt32(lblIntellect.Content) + 1 * Convert.ToInt32(lblEndurance.Content);
             health = 1 * Convert.ToInt32(lblStrength.Content) + 0 * Convert.ToInt32(lblAgility.Content) + 0 * Convert.ToInt32(lblIntellect.Content) + 3 * Convert.ToInt32(lblEndurance.Content);
             mana = 0 * Convert.ToInt32(lblStrength.Content) + 0 * Convert.ToInt32(lblAgility.Content) + 2 * Convert.ToInt32(lblIntellect.Content) + 0 * Convert.ToInt32(lblEndurance.Content);
+            lblPhysDamage.Content = physDamage.ToString();
+            lblPhysProtect.Content = physProtection.ToString();
+            lblMagDamage.Content = magDamage.ToString();
+            lblMagProtect.Content = magProtection.ToString();
+            lblHealth.Content = health.ToString();
+            lblMana.Content = mana.ToString();
         }
         public void AddWarriorStat()
         {
@@ -149,9 +179,383 @@ namespace Project_IT_Park_HW
             magProtection = 1 * Convert.ToInt32(lblStrength.Content) + 0 * Convert.ToInt32(lblAgility.Content) + 2 * Convert.ToInt32(lblIntellect.Content) + 1 * Convert.ToInt32(lblEndurance.Content);
             health = 5 * Convert.ToInt32(lblStrength.Content) + 0 * Convert.ToInt32(lblAgility.Content) + 0 * Convert.ToInt32(lblIntellect.Content) + 10 * Convert.ToInt32(lblEndurance.Content);
             mana = 0 * Convert.ToInt32(lblStrength.Content) + 0 * Convert.ToInt32(lblAgility.Content) + 1 * Convert.ToInt32(lblIntellect.Content) + 0 * Convert.ToInt32(lblEndurance.Content);
+            lblPhysDamage.Content = physDamage.ToString();
+            lblPhysProtect.Content = physProtection.ToString();
+            lblMagDamage.Content = magDamage.ToString();
+            lblMagProtect.Content = magProtection.ToString();
+            lblHealth.Content = health.ToString();
+            lblMana.Content = mana.ToString();
+        }
+        private void btnMinusStrength_Click(object sender, RoutedEventArgs e)
+        {
+            int strengthPoint = Convert.ToInt32(lblStrength.Content);
+            int point = Convert.ToInt32(lblPoints.Content);
+            if (point != 0)
+            {
+                lblStrength.Content = strengthPoint - 1;
+                lblPoints.Content = point + 1;
+                AddStatChange();
+            }
+            else
+            {
+                MessageBox.Show("Point is empty!");
+            }
+        }
+        private void btnPlusStrength_Click(object sender, RoutedEventArgs e)
+        {
+            int strengthPoint = Convert.ToInt32(lblStrength.Content);
+            int point = Convert.ToInt32(lblPoints.Content);
+            if (point != 0)
+            {
+                lblStrength.Content = strengthPoint + 1;
+                lblPoints.Content = point - 1;
+                AddStatChange();
+            }
+            else
+            {
+                MessageBox.Show("Point is empty!");
+            }
         }
 
-        
+        private void btnMInusAgility_Click(object sender, RoutedEventArgs e)
+        {
+            int strengthPoint = Convert.ToInt32(lblAgility.Content);
+            int point = Convert.ToInt32(lblPoints.Content);
+            if (point != 0)
+            {
+                lblAgility.Content = strengthPoint - 1;
+                lblPoints.Content = point + 1;
+                AddStatChange();
+            }
+            else
+            {
+                MessageBox.Show("Point is empty!");
+            }
+        }
+
+        private void btnPlusAgility_Click(object sender, RoutedEventArgs e)
+        {
+            int strengthPoint = Convert.ToInt32(lblAgility.Content);
+            int point = Convert.ToInt32(lblPoints.Content);
+            if (point != 0)
+            {
+                lblAgility.Content = strengthPoint + 1;
+                lblPoints.Content = point - 1;
+                AddStatChange();
+            }
+            else
+            {
+                MessageBox.Show("Point is empty!");
+            }
+        }
+
+        private void btnMInusIntellect_Click(object sender, RoutedEventArgs e)
+        {
+            int strengthPoint = Convert.ToInt32(lblIntellect.Content);
+            int point = Convert.ToInt32(lblPoints.Content);
+            if (point != 0)
+            {
+                lblIntellect.Content = strengthPoint - 1;
+                lblPoints.Content = point + 1;
+                AddStatChange();
+            }
+            else
+            {
+                MessageBox.Show("Point is empty!");
+            }
+        }
+
+        private void btnPlusIntellect_Click(object sender, RoutedEventArgs e)
+        {
+            int strengthPoint = Convert.ToInt32(lblIntellect.Content);
+            int point = Convert.ToInt32(lblPoints.Content);
+            if (point != 0)
+            {
+                lblIntellect.Content = strengthPoint + 1;
+                lblPoints.Content = point - 1;
+                AddStatChange();
+            }
+            else
+            {
+                MessageBox.Show("Point is empty!");
+            }
+        }
+
+        private void btnMinusEndurance_Click(object sender, RoutedEventArgs e)
+        {
+            int strengthPoint = Convert.ToInt32(lblEndurance.Content);
+            int point = Convert.ToInt32(lblPoints.Content);
+            if (point != 0)
+            {
+                lblEndurance.Content = strengthPoint - 1;
+                lblPoints.Content = point + 1;
+                AddStatChange();
+            }
+            else
+            {
+                MessageBox.Show("Point is empty!");
+            }
+        }
+
+        private void btnPlusEndurance_Click(object sender, RoutedEventArgs e)
+        {
+            int strengthPoint = Convert.ToInt32(lblEndurance.Content);
+            int point = Convert.ToInt32(lblPoints.Content);
+            if (point != 0)
+            {
+                lblEndurance.Content = strengthPoint + 1;
+                lblPoints.Content = point - 1;
+                AddStatChange();
+            }
+            else
+            {
+                MessageBox.Show("Point is empty!");
+            }
+        }
+
+        private void lbxUnitList_Loaded(object sender, RoutedEventArgs e)
+        {
+            lbxUnitList.ItemsSource = MongoDataBase.GetUnitList();
+            lbxUnitClass.ItemsSource = MongoDataBase.GetClassUnitList();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            MongoDataBase.RemoveUnit(lbxUnitList.SelectedItem.ToString());
+            MongoDataBase.RemoveClass(lbxUnitList.SelectedItem.ToString());
+            lbxUnitList.ItemsSource = MongoDataBase.GetUnitList();
+            lbxUnitClass.ItemsSource = MongoDataBase.GetClassUnitList();
+            MessageBox.Show("Unit deleted!");
+        }
+
+        private void btn1000exp_Click(object sender, RoutedEventArgs e)
+        {
+            int experience = Convert.ToInt32(lblExperience.Content);
+            if (experience >= 55000)
+            {
+                MessageBox.Show("Max level reached!");
+            }
+            else
+            {
+                lblExperience.Content = experience + 1000;
+                LevelUp();
+            }
+        }
+
+        private void btn3000exp_Click(object sender, RoutedEventArgs e)
+        {
+            int experience = Convert.ToInt32(lblExperience.Content);
+            if (experience >= 55000)
+            {
+                MessageBox.Show("Max level reached!");
+            }
+            else
+            {
+                lblExperience.Content = experience + 3000;
+                LevelUp();
+            }
+        }
+
+        private void btn5000exp_Click(object sender, RoutedEventArgs e)
+        {
+            int experience = Convert.ToInt32(lblExperience.Content);
+            if (experience >= 55000)
+            {
+                MessageBox.Show("Max level reached!");
+            }
+            else
+            {
+                lblExperience.Content = experience + 5000;
+                LevelUp();
+            }
+        }
+
+        public void LevelUp()
+        {
+            int experience = Convert.ToInt32(lblExperience.Content);
+            if (experience >= 1000 & experience < 3000)
+            {
+                lblLevel.Content = "2";
+            }
+            else
+            if (experience >= 3000 & experience < 6000)
+            {
+                lblLevel.Content = "3";
+            }
+            else
+            if (experience >= 6000 & experience < 10000)
+            {
+                lblLevel.Content = "4";
+            }
+            else
+            if (experience >= 10000 & experience < 15000)
+            {
+                lblLevel.Content = "5";
+            }
+            else
+            if (experience >= 15000 & experience < 21000)
+            {
+                lblLevel.Content = "6";
+            }
+            else
+            if (experience >= 28000 & experience < 36000)
+            {
+                lblLevel.Content = "7";
+            }
+            else
+            if (experience >= 36000 & experience < 45000)
+            {
+                lblLevel.Content = "8";
+            }
+            else
+            if (experience >= 45000 & experience < 55000)
+            {
+                lblLevel.Content = "9";
+            }
+            else
+            if (experience >= 55000)
+            {
+                lblLevel.Content = "10";
+            }
+        }
+
+        private void txtName_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            StartStat();
+        }
+
+        private void txtName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            cmbClass.IsEnabled = true;
+            txtName.Clear();
+            StartStat();
+        }
+
+        private void btnEditing_Click(object sender, RoutedEventArgs e)
+        {
+            string buffer = Convert.ToString(btnEditing.Content);
+            if (buffer == "Disable unit editing?")
+            {
+                btnMInusStrength.IsEnabled = false;
+                btnPlusStrength.IsEnabled = false;
+                btnMInusAgility.IsEnabled = false;
+                btnPlusAgility.IsEnabled = false;
+                btnMInusIntellect.IsEnabled = false;
+                btnPlusIntellect.IsEnabled = false;
+                btnMinusEndurance.IsEnabled = false;
+                btnPlusEndurance.IsEnabled = false;
+                btn1000exp.IsEnabled = false;
+                btn3000exp.IsEnabled = false;
+                btn5000exp.IsEnabled = false;
+                cmbClass.IsEnabled = false;
+                rbAllowed.IsChecked = false;
+                rbForbidden.IsChecked = true;
+                btnEditing.Content = "Allow unit editing?";
+            }
+            else
+            if (buffer == "Allow unit editing?")
+            {
+                btnMInusStrength.IsEnabled = true;
+                btnPlusStrength.IsEnabled = true;
+                btnMInusAgility.IsEnabled = true;
+                btnPlusAgility.IsEnabled = true;
+                btnMInusIntellect.IsEnabled = true;
+                btnPlusIntellect.IsEnabled = true;
+                btnMinusEndurance.IsEnabled = true;
+                btnPlusEndurance.IsEnabled = true;
+                btn1000exp.IsEnabled = true;
+                btn3000exp.IsEnabled = true;
+                btn5000exp.IsEnabled = true;
+                cmbClass.IsEnabled = true;
+                rbAllowed.IsChecked = true;
+                rbForbidden.IsChecked = false;
+                btnEditing.Content = "Disable unit editing?";
+            }
+        }
+
+        private void lbxUnitList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Character character = MongoDataBase.GetCharacter(lbxUnitList.SelectedItem.ToString());
+            lbxUnitList.ItemsSource = MongoDataBase.GetUnitList();
+
+            if (character.classes == "Archer")
+            {
+                cmbClass.SelectedIndex = 0;
+            }
+            else
+            if (character.classes == "Mage")
+            {
+                cmbClass.SelectedIndex = 1;
+            }
+            else
+            if (character.classes == "Warrior")
+            {
+                cmbClass.SelectedIndex = 2;
+            }
+            cmbClass.IsEnabled = false;
+            txtName.Text = character.name;
+            lblStrength.Content = character.strenght;
+            lblAgility.Content = character.agility;
+            lblIntellect.Content = character.intellect;
+            lblEndurance.Content = character.endurance;
+            lblLevel.Content = character.level;
+            lblExperience.Content = character.experience;
+            lblPoints.Content = character.point;
+            AddStatChange();
+
+        }
+
+        private void btnChange_Click(object sender, RoutedEventArgs e)
+        {
+            Character character = MongoDataBase.GetCharacter(lbxUnitList.SelectedItem.ToString());
+
+            if (character.classes == "Archer")
+            {
+                cmbClass.SelectedIndex = 0;
+                MongoDataBase.ReplaceUnit(new Archer(txtName.Text.ToString(), "Archer", Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content)), txtName.Text.ToString());
+            }
+            else
+            if (character.classes == "Mage")
+            {
+                cmbClass.SelectedIndex = 1;
+                MongoDataBase.ReplaceUnit(new Archer(txtName.Text.ToString(), "Mage", Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content)), txtName.Text.ToString());
+            }
+            else
+            if (character.classes == "Warrior")
+            {
+                cmbClass.SelectedIndex = 2;
+                MongoDataBase.ReplaceUnit(new Archer(txtName.Text.ToString(), "Warrior", Convert.ToInt32(lblStrength.Content), Convert.ToInt32(lblAgility.Content), Convert.ToInt32(lblIntellect.Content), Convert.ToInt32(lblEndurance.Content), Convert.ToInt32(lblLevel.Content), Convert.ToInt32(lblExperience.Content), Convert.ToInt32(lblPoints.Content)), txtName.Text.ToString());
+            }
+            MessageBox.Show("Changes applied!");
+        }
+
+
+
+        //private void rbEditing_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    string buffer = Convert.ToString(rbEditing.Content);
+        //    if (buffer == "Allow unit editing")
+        //    {
+        //        rbEditing.IsChecked = true;
+
+        //        btnMInusStrength.IsEnabled = false;
+        //        btnPlusStrength.IsEnabled = false;
+
+        //        rbEditing.Content = "Disable unit editing";
+        //    }
+        //    else
+        //    if (buffer == "Disable unit editing")
+        //    {
+        //        rbEditing.IsChecked = false;
+
+        //        btnMInusStrength.IsEnabled = true;
+        //        btnPlusStrength.IsEnabled = true;
+
+        //        rbEditing.Content = "Allow unit editing";
+        //    }
+        //}
+
+
     }
 }
 //    Character Editor.
@@ -220,6 +624,11 @@ namespace Project_IT_Park_HW
 //	5 ур - 10000,
 //	6 ур - 15000
 
+//6.Работа с базой данных
+//6.1 Реализовать Список персонажей(выводим только имя персонажа) сохраненных в базу. При выборе из списка, подгружаются данные о характеристиках и, если необходимо, о показателях, в том числе неизрасходованные очки характеристик и текущий показатель опыта.
+//6.2 Реализовать кнопки добавления в базу нового персонажа. 
+//6.3. Реализовать кнопку редактирования данных персонажа, который уже сохранен в базу.
+//6.4. Реализовать кнопку удаления персонажа из базы данных
 
 
 

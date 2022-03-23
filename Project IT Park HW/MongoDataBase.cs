@@ -11,28 +11,14 @@ namespace Project_IT_Park_HW
 {
     class MongoDataBase
     {
-        public static void AddArcherToDB(string name, string profession, int strenght, int agility, int intelligenсe, int stamina, int level, int experiense, int freePoint)
+        public static void AddUnitToDB(string name, string classes, int strenght, int agility, int intellect, int endurance, int level, int experience, int point)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
             var collection = database.GetCollection<Archer>("Units");
-            collection.InsertOne(new Archer(name, profession, strenght, agility, intelligenсe, stamina, level, experiense, freePoint));
+            collection.InsertOne(new Archer(name, classes, strenght, agility, intellect, endurance, level, experience, point));
         }
-        public static void AddMageToDB(string name, string profession, int strenght, int agility, int intelligenсe, int stamina, int level, int experiense, int freePoint)
-        {
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<Mage>("Units");
-            collection.InsertOne(new Mage(name, profession, strenght, agility, intelligenсe, stamina, level, experiense, freePoint));
-        }
-        public static void AddWarriorToDB(string name, string profession, int strenght, int agility, int intelligenсe, int stamina, int level, int experiense, int freePoint)
-        {
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<Warrior>("Units");
-            collection.InsertOne(new Warrior(name, profession, strenght, agility, intelligenсe, stamina, level, experiense, freePoint));
-        }
-        public static List<string> GetArcherList()
+        public static List<string> GetUnitList()
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
@@ -45,33 +31,7 @@ namespace Project_IT_Park_HW
             }
             return listToReturn;
         }
-        public static List<string> GetMageList()
-        {
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<Mage>("Units");
-            var listUnitsFromDB = collection.Find(x => true).ToList();
-            List<string> listToReturn = new List<string>();
-            foreach (var item in listUnitsFromDB)
-            {
-                listToReturn.Add(item.Name);
-            }
-            return listToReturn;
-        }
-        public static List<string> GetWarriorList()
-        {
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<Warrior>("Units");
-            var listUnitsFromDB = collection.Find(x => true).ToList();
-            List<string> listToReturn = new List<string>();
-            foreach (var item in listUnitsFromDB)
-            {
-                listToReturn.Add(item.Name);
-            }
-            return listToReturn;
-        }
-        public static List<string> GetClassArcherList()
+        public static List<string> GetClassUnitList()
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
@@ -84,52 +44,50 @@ namespace Project_IT_Park_HW
             }
             return listToReturn;
         }
-        public static List<string> GetClassMageList()
-        {
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<Mage>("Units");
-            var listUnitsFromDB = collection.Find(x => true).ToList();
-            List<string> listToReturn = new List<string>();
-            foreach (var item in listUnitsFromDB)
-            {
-                listToReturn.Add(item.Classes);
-            }
-            return listToReturn;
-        }
-        public static List<string> GetClassWariiorList()
+        public static void RemoveUnit(string deleteUnit)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
             var collection = database.GetCollection<Warrior>("Units");
-            var listUnitsFromDB = collection.Find(x => true).ToList();
-            List<string> listToReturn = new List<string>();
-            foreach (var item in listUnitsFromDB)
-            {
-                listToReturn.Add(item.Classes);
-            }
-            return listToReturn;
+            collection.DeleteOne(x => x.Name == deleteUnit);
         }
-        public static List<int> GetArcherStatList()
+        public static void RemoveClass(string deleteClass)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<CharacterPoints>("Units");
-            var listUnitsFromDB = collection.Find(x => true).ToList();
-            List<int> listToReturn = new List<int>();
-            foreach (var item in listUnitsFromDB)
-            {
-                listToReturn.Add(item.PhysDamage);
-            }
-            return listToReturn;
+            var collection = database.GetCollection<Warrior>("Units");
+            collection.DeleteOne(x => x.Name == deleteClass);
         }
-        public static CharacterPoints GetPhysDamage(int physDamage)
+        public static string FindUser(string userName)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("RPG");
-            var collection = database.GetCollection<CharacterPoints>("Units");
-            var client1 = collection.Find(x => x.PhysDamage == physDamage).FirstOrDefault();
-            return client1.character;
+            var collection = database.GetCollection<Warrior>("Units");
+            var foundedUser = collection.Find(x => x.Name == userName).FirstOrDefault();
+            if (foundedUser == null)
+            {
+                return null;
+            }
+            else
+            {
+                string foundedName = foundedUser.Name;
+                return foundedName;
+            }
+        }
+        public static Character GetCharacter(string userName)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("RPG");
+            var collection = database.GetCollection<Warrior>("Units");
+            var foundedUser = collection.Find(x => x.Name == userName).FirstOrDefault();
+            return foundedUser;
+        }
+        public static void ReplaceUnit(Archer user, string userName)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("RPG");
+            var collection = database.GetCollection<Archer>("Units");
+            collection.ReplaceOne(x => x.Name == userName, user);
         }
     }
 }

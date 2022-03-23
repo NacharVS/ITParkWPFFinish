@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="530" Width="850">
     <Grid Margin="0,0,0,-6">
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="43,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontWeight="Bold" Height="18"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="43,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontWeight="Bold" Height="18" SelectionChanged="txtName_SelectionChanged" GotFocus="txtName_GotFocus"/>
         <ComboBox x:Name="cmbClass" HorizontalAlignment="Left" Margin="43,86,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" SelectionChanged="cmbClass_SelectionChanged">
             <ListBoxItem Content="Archer" FontWeight="Bold" FontSize="14"/>
             <ListBoxItem Content="Mage" FontWeight="Bold" FontSize="14"/>
@@ -15,50 +15,59 @@
         </ComboBox>
         <Label Content="Unit class selection:" HorizontalAlignment="Left" Margin="43,55,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <Label Content="damage:" HorizontalAlignment="Left" Margin="347,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="protection:" HorizontalAlignment="Left" Margin="420,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Physical" HorizontalAlignment="Left" Margin="349,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Magic" HorizontalAlignment="Left" Margin="514,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-
-        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="43,113,0,0" VerticalAlignment="Top" Width="200" FontSize="16" FontWeight="Bold" Click="btnCreate_Click"/>
-        <ListBox x:Name="lbxUnitList" Margin="43,233,607,10"/>
+        <GroupBox Header="Characteristics:" Margin="339,210,341,10" FontWeight="Bold" FontSize="13" Content=""/>
+        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="43,113,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Click="btnCreate_Click"/>
+        <ListBox x:Name="lbxUnitList" Margin="43,233,607,10" Loaded="lbxUnitList_Loaded" SelectionChanged="lbxUnitList_SelectionChanged"/>
         <Label Content="Unit List:" HorizontalAlignment="Left" Margin="43,206,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
         <Label Content="Unit class:" HorizontalAlignment="Left" Margin="248,206,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="Bold"/>
         <ListBox x:Name="lbxUnitClass" Margin="248,233,516,10"/>
-        <ListBox x:Name="lbxPhysDamage" Margin="339,233,436,10"/>
-        <ListBox Margin="419,233,356,10"/>
-        <ListBox Margin="499,233,276,10"/>
-        <ListBox Margin="657,233,121,10"/>
-        <GroupBox Header="Strength:" Margin="248,2,356,467" FontSize="14" FontWeight="Bold"/>
-        <GroupBox Header="Agility:" Margin="248,43,356,426" FontSize="14" FontWeight="Bold"/>
-        <GroupBox Header="Intellect:" Margin="248,88,356,381" FontSize="14" FontWeight="Bold"/>
-        <GroupBox Header="Endurance:" Margin="248,133,356,336" FontSize="14" FontWeight="Bold"/>
-        <Label Content="damage:" HorizontalAlignment="Left" Margin="507,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="protection:" HorizontalAlignment="Left" Margin="580,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Physical" HorizontalAlignment="Left" Margin="429,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Magic" HorizontalAlignment="Left" Margin="594,194,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ListBox Margin="579,233,198,10"/>
-        <ListBox Margin="734,233,44,10"/>
-        <Label Content="Health:" HorizontalAlignment="Left" Margin="668,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Mana:" HorizontalAlignment="Left" Margin="748,207,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="btnMinusStrength" Content="-" HorizontalAlignment="Left" Margin="357,14,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18" Click="btnMinusStrength_Click"/>
-        <Button x:Name="btnPlusStrength" Content="+" HorizontalAlignment="Left" Margin="445,14,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button x:Name="btnMinusAgility" Content="-" HorizontalAlignment="Left" Margin="357,58,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button x:Name="btnPlusAgility" Content="+" HorizontalAlignment="Left" Margin="445,58,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button x:Name="btnMinusIntellect" Content="-" HorizontalAlignment="Left" Margin="357,102,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button x:Name="btnPlusIntellect" Content="+" HorizontalAlignment="Left" Margin="445,102,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button x:Name="btnMinusEndurance" Content="-" HorizontalAlignment="Left" Margin="357,148,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Button x:Name="btnPlusEndurance" Content="+" HorizontalAlignment="Left" Margin="445,148,0,0" VerticalAlignment="Top" Height="36" Width="36" FontWeight="Bold" FontSize="18"/>
-        <Label x:Name="lblStrength" Content="10" HorizontalAlignment="Left" Margin="406,15,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
-        <Label x:Name="lblAgility" Content="10" HorizontalAlignment="Left" Margin="406,58,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
-        <Label x:Name="lblIntellect" Content="10" HorizontalAlignment="Left" Margin="406,102,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
-        <Label x:Name="lblEndurance" Content="10" HorizontalAlignment="Left" Margin="406,148,0,0" VerticalAlignment="Top" Height="35" Width="34" FontWeight="Bold" FontSize="16"/>
-        <GroupBox Header="Points" Margin="43,133,716,305" FontWeight="Bold" FontSize="14"/>
-        <Label x:Name="lblPoints" Content="10" HorizontalAlignment="Left" Margin="64,153,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="36" Height="53" Width="52"/>
-        <GroupBox Header="Level" Margin="507,0,263,467" FontWeight="Bold" FontSize="16"/>
-        <GroupBox Header="Experience" Margin="594,0,131,467" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lblLevel" Content="0" HorizontalAlignment="Left" Margin="539,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <Label x:Name="lblExperience" Content="0" HorizontalAlignment="Left" Margin="647,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblStrength_Copy" Content="damage:" HorizontalAlignment="Left" Margin="339,349,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblAgility_Copy" Content="protection:" HorizontalAlignment="Left" Margin="339,388,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblEndurance_Copy" Content="Magic" HorizontalAlignment="Left" Margin="339,336,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblAgility_Copy1" Content="Health:" HorizontalAlignment="Left" Margin="339,420,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblAgility_Copy2" Content="Mana:" HorizontalAlignment="Left" Margin="339,459,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btnMInusStrength" Content="-" HorizontalAlignment="Left" Margin="353,14,0,0" VerticalAlignment="Top" Height="24" Width="29" FontWeight="Bold" FontSize="18" Click="btnMinusStrength_Click"/>
+        <Button x:Name="btnPlusStrength" Content="+" HorizontalAlignment="Left" Margin="425,14,0,0" VerticalAlignment="Top" Height="24" Width="29" FontWeight="Bold" FontSize="18" Click="btnPlusStrength_Click"/>
+        <Button x:Name="btnMInusAgility" Content="-" HorizontalAlignment="Left" Margin="353,52,0,0" VerticalAlignment="Top" Height="24" Width="29" FontWeight="Bold" FontSize="18" Click="btnMInusAgility_Click"/>
+        <Button x:Name="btnPlusAgility" Content="+" HorizontalAlignment="Left" Margin="425,52,0,0" VerticalAlignment="Top" Height="24" Width="29" FontWeight="Bold" FontSize="18" Click="btnPlusAgility_Click"/>
+        <Button x:Name="btnMInusIntellect" Content="-" HorizontalAlignment="Left" Margin="353,88,0,0" VerticalAlignment="Top" Height="25" Width="29" FontWeight="Bold" FontSize="18" Click="btnMInusIntellect_Click"/>
+        <Button x:Name="btnPlusIntellect" Content="+" HorizontalAlignment="Left" Margin="425,88,0,0" VerticalAlignment="Top" Height="25" Width="29" FontWeight="Bold" FontSize="18" Click="btnPlusIntellect_Click" />
+        <Button x:Name="btnMinusEndurance" Content="-" HorizontalAlignment="Left" Margin="353,127,0,0" VerticalAlignment="Top" Height="25" Width="29" FontWeight="Bold" FontSize="18" Click="btnMinusEndurance_Click"/>
+        <Button x:Name="btnPlusEndurance" Content="+" HorizontalAlignment="Left" Margin="425,127,0,0" VerticalAlignment="Top" Height="25" Width="29" FontWeight="Bold" FontSize="18" Click="btnPlusEndurance_Click"/>
+        <Label x:Name="lblStrength" Content="10" HorizontalAlignment="Left" Margin="394,10,0,0" VerticalAlignment="Top" Height="29" Width="31" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblAgility" Content="10" HorizontalAlignment="Left" Margin="394,48,0,0" VerticalAlignment="Top" Height="35" Width="31" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblIntellect" Content="10" HorizontalAlignment="Left" Margin="394,84,0,0" VerticalAlignment="Top" Height="33" Width="42" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblEndurance" Content="10" HorizontalAlignment="Left" Margin="394,126,0,0" VerticalAlignment="Top" Height="34" Width="42" FontWeight="Bold" FontSize="16"/>
+        <GroupBox Header="Points:" HorizontalAlignment="Left" Height="76" Margin="464,8,0,0" VerticalAlignment="Top" Width="87" FontWeight="Bold"/>
+        <Label x:Name="lblPoints" Content="10" HorizontalAlignment="Left" Margin="483,26,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <Label Content="Strength:" HorizontalAlignment="Left" Margin="256,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Agility:" HorizontalAlignment="Left" Margin="256,48,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Intellect:" HorizontalAlignment="Left" Margin="256,84,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Endurance:" HorizontalAlignment="Left" Margin="255,121,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Physical" HorizontalAlignment="Left" Margin="339,296,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblAgility_Copy3" Content="protection:" HorizontalAlignment="Left" Margin="338,310,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblEndurance_Copy1" Content="Magic" HorizontalAlignment="Left" Margin="339,375,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblPhysDamage" Content=" " HorizontalAlignment="Left" Margin="446,260,0,0" VerticalAlignment="Top" Height="34" FontWeight="Bold" FontSize="18" Width="53"/>
+        <Label x:Name="lblPhysProtect" Content=" " HorizontalAlignment="Left" Margin="446,298,0,0" VerticalAlignment="Top" Height="34" FontWeight="Bold" FontSize="18" Width="53"/>
+        <Label x:Name="lblMagDamage" Content=" " HorizontalAlignment="Left" Margin="446,338,0,0" VerticalAlignment="Top" Height="34" FontWeight="Bold" FontSize="18" Width="53"/>
+        <Label x:Name="lblMagProtect" Content=" " HorizontalAlignment="Left" Margin="446,377,0,0" VerticalAlignment="Top" Height="34" FontWeight="Bold" FontSize="18" Width="53"/>
+        <Label x:Name="lblHealth" Content=" " HorizontalAlignment="Left" Margin="446,414,0,0" VerticalAlignment="Top" Height="34" FontWeight="Bold" FontSize="18" Width="53"/>
+        <Label x:Name="lblMana" Content=" " HorizontalAlignment="Left" Margin="446,453,0,0" VerticalAlignment="Top" Height="34" FontWeight="Bold" FontSize="18" Width="53"/>
+        <Label x:Name="lblLevel" Content="1" HorizontalAlignment="Left" Margin="574,27,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <Label x:Name="lblExperience" Content="0" HorizontalAlignment="Left" Margin="655,26,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Width="179"/>
+        <GroupBox Header="Level:" HorizontalAlignment="Left" Height="76" Margin="556,8,0,0" VerticalAlignment="Top" Width="87" FontWeight="Bold"/>
+        <GroupBox Header="Experience:" HorizontalAlignment="Left" Height="76" Margin="648,8,0,0" VerticalAlignment="Top" Width="192" FontWeight="Bold"/>
+        <Label x:Name="lblphys" Content="Physical" HorizontalAlignment="Left" Margin="339,257,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblAgility_Copy4" Content="damage:" HorizontalAlignment="Left" Margin="338,271,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="43,138,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Click="btnDelete_Click"/>
+        <Button x:Name="btn1000exp" Content="+1000 experience" HorizontalAlignment="Left" Margin="648,89,0,0" VerticalAlignment="Top" Width="192" FontWeight="Bold" Click="btn1000exp_Click"/>
+        <Button x:Name="btn3000exp" Content="+3000 experience" HorizontalAlignment="Left" Margin="648,114,0,0" VerticalAlignment="Top" Width="192" FontWeight="Bold" Click="btn3000exp_Click"/>
+        <Button x:Name="btn5000exp" Content="+5000 experience" HorizontalAlignment="Left" Margin="648,139,0,0" VerticalAlignment="Top" Width="192" FontWeight="Bold" Click="btn5000exp_Click"/>
+        <Button x:Name="btnEditing" Content="Disable unit editing?" HorizontalAlignment="Left" Margin="43,188,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Click="btnEditing_Click"/>
+        <Button x:Name="btnChange" Content="Change" HorizontalAlignment="Left" Margin="43,163,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Click="btnChange_Click"/>
+        <RadioButton x:Name="rbAllowed" Content="Editing allowed" HorizontalAlignment="Left" Margin="255,173,0,0" VerticalAlignment="Top" FontWeight="Bold" IsChecked="True"/>
+        <RadioButton x:Name="rbForbidden" Content="Editing forbidden" HorizontalAlignment="Left" Margin="255,193,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
 
     </Grid>
 </Window>

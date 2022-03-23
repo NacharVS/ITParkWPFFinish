@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace Project_IT_Park_HW
 {
-    class Character
+    internal class Character
     {
-        internal string _name;
-        internal string _profession;
-        internal int _strenght;
-        internal int _agility;
-        internal int _intelligence;
-        internal int _stamina;
-        internal int _level;
-        internal int _experiense;
-        internal int _freePoint;       
+
+        internal string name;
+        internal string classes;
+        internal int strenght;
+        internal int agility;
+        internal int intellect;
+        internal int endurance;
+        internal int level;
+        internal int experience;
+        internal int point;
     }
 
 }

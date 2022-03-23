@@ -13,42 +13,27 @@ namespace Project_IT_Park_HW
     {
         [BsonIgnoreIfDefault]
         ObjectId _id;
-        public Archer(string name, string classes, int strenght, int agility, int intelligence, int stamina, int level, int experiense, int freePoint)
+        public Archer(string name, string classes, int strenght, int agility, int intellect, int endurance, int level, int experience, int point)
         {
             Name = name;
             Classes = classes;
             Strenght = strenght;
             Agility = agility;
-            Intelligence = intelligence;
-            Stamina = stamina;
+            Intellect = intellect;
+            Endurance = endurance;
             Level = level;
-            Experiense = experiense;
-            FreePoint = freePoint;
+            Experience = experience;
+            Point = point;
         }
-        public string Name { get => _name; set => _name = value; }
-        public string Classes { get => _profession; set => _profession = value; }
-        public int Strenght { get => _strenght; set => _strenght = value; }
-        public int Agility { get => _agility; set => _agility = value; }
-        public int Intelligence { get => _intelligence; set => _intelligence = value; }
-        public int Stamina { get => _stamina; set => _stamina = value; }
-        public int Level { get => _level; set => _level = value; }
-        public int Experiense { get => _experiense; set => _experiense = value; }
-        public int FreePoint { get => _freePoint; set => _freePoint = value; }
-
-        
-        //public static List<string> GetArcherStatList()
-        //{
-        //    var client = new MongoClient("mongodb://localhost");
-        //    var database = client.GetDatabase("RPG");
-        //    var collection = database.GetCollection<Archer>("Units");
-        //    var listUnitsFromDB = collection.Find(x => true).ToList();
-        //    List<string> listToReturn = new List<string>();
-        //    foreach (var item in listUnitsFromDB)
-        //    {
-        //        listToReturn.Add(item.Classes);
-        //    }
-        //    return listToReturn;
-        //}
+        public string Name { get => name; set => name = value; }
+        public string Classes { get => classes; set => classes = value; }
+        public int Strenght { get => strenght; set => strenght = value; }
+        public int Agility { get => agility; set => agility = value; }
+        public int Intellect { get => intellect; set => intellect = value; }
+        public int Endurance { get => endurance; set => endurance = value; }
+        public int Level { get => level; set => level = value; }
+        public int Experience { get => experience; set => experience = value; }
+        public int Point { get => point; set => point = value; }
     }
 }
 
