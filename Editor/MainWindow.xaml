@@ -5,13 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Editor"
         mc:Ignorable="d"
-        Title="Редактор игры" Height="500" Width="1000
-        " Loaded="Window_Loaded" Closing="Window_Closing">
-    <Grid Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}">
+        Title="Редактор персонажа" Height="500" Width="1200" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" RenderTransformOrigin="0.435,0.529">
         <TextBox x:Name="NameInput" HorizontalAlignment="Left" Height="41" TextWrapping="Wrap" Text="Имя " VerticalAlignment="Top" Width="190" Margin="30,71,0,0" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" TextChanged="NameInput_TextChanged" HorizontalContentAlignment="Right" FontSize="24" FontFamily="Sitka Small" BorderThickness="1" SnapsToDevicePixels="True" VerticalContentAlignment="Center" GotFocus="NameInput_GotFocus" IsUndoEnabled="True"/>
         <Label HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Label Content="Редактор персонажа" RenderTransformOrigin="0.652,0.848" Height="40" Width="980" FontSize="20" FontFamily="Segoe UI Black" HorizontalContentAlignment="Center"/>
+            <Label Content="Редактор персонажа" RenderTransformOrigin="0.652,0.848" Height="40" Width="1172" FontSize="20" FontFamily="Segoe UI Black" HorizontalContentAlignment="Center"/>
         </Label>
+        <GroupBox Header="Характеристики" HorizontalAlignment="Left" Height="385" VerticalAlignment="Top" Width="306" Margin="274,71,0,0" FontSize="16" FontFamily="Calibri" FontWeight="Bold">
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="39" FontSize="20" Text="Остаток очков" FontWeight="Bold"/>
+        </GroupBox>
+        <TextBlock HorizontalAlignment="Left" Margin="348,155,0,0" TextWrapping="Wrap" Text="Сила&#x9;" VerticalAlignment="Top" Height="38" Width="115" FontSize="20"/>
+        <Button Name="IncreaseBtn1" Content="+" HorizontalAlignment="Left" Margin="518,155,0,0" VerticalAlignment="Top" Width="51" Height="43" FontSize="24" Click="IncreaseBtn1_Click"/>
+        <TextBlock Name="strengthTextBlock" HorizontalAlignment="Left" Margin="477,155,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="43" Width="36" FontSize="24"/>
+        <Button Name="DecreaseBtn2" Content="-" HorizontalAlignment="Left" Margin="290,203,0,0" VerticalAlignment="Top" Width="48" Height="43" FontSize="24" Click="DecreaseBtn2_Click"/>
+        <Button Name="DecreaseBtn3" Content="-" HorizontalAlignment="Left" Height="43" Margin="290,251,0,0" VerticalAlignment="Top" Width="48" FontSize="24" Click="DecreaseBtn3_Click"/>
+        <Button Name="DecreaseBtn4" Content="-" HorizontalAlignment="Left" Margin="290,299,0,0" VerticalAlignment="Top" Width="48" Height="43" FontSize="24" Click="DecreaseBtn4_Click"/>
+        <Button Name="DecreaseBtn1" Content="-" HorizontalAlignment="Left" Margin="290,155,0,0" VerticalAlignment="Top" Width="48" Height="43" FontSize="24" Click="DecreaseBtn1_Click"/>
+        <Button Name="IncreaseBtn2" Content="+" HorizontalAlignment="Left" Margin="518,203,0,0" VerticalAlignment="Top" Width="51" Height="43" FontSize="24" Click="IncreaseBtn2_Click"/>
+        <Button Name="IncreaseBtn3" Content="+" HorizontalAlignment="Left" Margin="518,251,0,0" VerticalAlignment="Top" Width="51" Height="43" FontSize="24" Click="IncreaseBtn3_Click"/>
+        <Button Name="IncreaseBtn4" Content="+" HorizontalAlignment="Left" Margin="518,299,0,0" VerticalAlignment="Top" Width="51" Height="43" FontSize="24" Click="IncreaseBtn4_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="348,203,0,0" TextWrapping="Wrap" Text="Ловкость" VerticalAlignment="Top" Height="43" Width="115" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="348,251,0,0" TextWrapping="Wrap" Text="Интеллект " VerticalAlignment="Top" Height="43" Width="115" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="348,299,0,0" TextWrapping="Wrap" Text="Выносливать" VerticalAlignment="Top" Height="43" Width="124" FontSize="20"/>
+        <TextBlock Name="agilityTextBlock" HorizontalAlignment="Left" Margin="477,198,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="48" Width="36" FontSize="24"/>
+        <TextBlock Name="intelligenceTextBlock" HorizontalAlignment="Left" Margin="477,246,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="48" Width="36" FontSize="24"/>
+        <TextBlock Name="EndureTextBlock" HorizontalAlignment="Left" Margin="477,299,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="43" Width="36" FontSize="24"/>
+        <GroupBox Header="Характористики" HorizontalAlignment="Left" Height="233" Margin="830,109,0,0" VerticalAlignment="Top" Width="304" FontSize="16" FontFamily="Calibri" FontWeight="Bold"/>
+        <Button x:Name="Save1" Content="Сохранить" HorizontalAlignment="Left" Margin="290,401,0,0" VerticalAlignment="Top" Width="279" Height="39" Click="Save" FontSize="20" FontWeight="Bold"/>
+        <RadioButton x:Name="Radio1" Content="Воин" HorizontalAlignment="Left" Margin="30,143,0,0" VerticalAlignment="Top" Width="190" Height="27" Click="RadioButton_Click_1" FontSize="20" FontWeight="Bold"/>
+        <RadioButton x:Name="Radio2" Content="Лучник" HorizontalAlignment="Left" Margin="30,175,0,0" VerticalAlignment="Top" Height="29" Width="190" FontSize="20" FontWeight="Bold" Click="RadioButton_Click_2"/>
+        <RadioButton x:Name="Radio3" Content="Волшебник" HorizontalAlignment="Left" Margin="30,209,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="190" Height="34" FontSize="20" FontWeight="Bold" Click="RadioButton_Click_3"/>
+        <ListBox Name="personageListBox" HorizontalAlignment="Left" Height="172" Margin="595,84,0,0" VerticalAlignment="Top" Width="217" SelectionChanged="personageListBox_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="859,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="175" FontSize="16" FontWeight="Bold"><Run Text="Ф"/><Run Text="изический урон"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="859,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Height="28" FontSize="16" FontWeight="Bold"><Run Text="Ф"/><Run Text="изическ"/><Run Text="ая защита"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="859,213,0,0" TextWrapping="Wrap" Text="Магический урон" VerticalAlignment="Top" Width="175" Height="29" FontSize="16" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="859,247,0,0" TextWrapping="Wrap" Text="Магическая зхащита" VerticalAlignment="Top" Height="29" Width="175" FontSize="16" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="859,281,0,0" TextWrapping="Wrap" Text="Жизнь" VerticalAlignment="Top" Width="175" FontSize="16" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="859,310,0,0" TextWrapping="Wrap" Text="Магия" VerticalAlignment="Top" Width="175" Height="32" FontSize="16" FontWeight="Bold"/>
+        <TextBlock Name="physicalDamageTxt" HorizontalAlignment="Left" Margin="1053,149,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="27" FontSize="16" FontWeight="Bold" Width="49"/>
+        <TextBlock Name="physicalProtectionTxt" HorizontalAlignment="Left" Margin="1053,181,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="24" FontSize="16" FontWeight="Bold" Width="49"/>
+        <TextBlock Name="magicDamageTxt" HorizontalAlignment="Left" Margin="1053,214,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="24" FontSize="16" FontWeight="Bold" Width="49"/>
+        <TextBlock Name="magicProtectionTxt" HorizontalAlignment="Left" Margin="1053,247,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="49" Height="29" FontSize="16" FontWeight="Bold"/>
+        <TextBlock Name="lifeTxt" HorizontalAlignment="Left" Margin="1053,281,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="28" FontSize="16" FontWeight="Bold" Width="49"/>
+        <TextBlock Name="magicTxt" HorizontalAlignment="Left" Margin="1053,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Height="28" FontSize="16" FontWeight="Bold" Text="0"/>
+        <TextBlock Name="remainderPointsTxt" HorizontalAlignment="Left" Margin="439,101,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="53" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.34,0"/>
+        <Button Content="Oпыт +1000 exp" HorizontalAlignment="Left" Margin="859,346,0,0" VerticalAlignment="Top" Width="217" Height="35" FontSize="16" Click="Button_Click_3"/>
+        <Button Content="Опыт +3000 exp" HorizontalAlignment="Left" Margin="859,381,0,0" VerticalAlignment="Top" Width="217" Height="35" Click="Button_Click_4" FontSize="16"/>
+        <Button Content="Опыт +5000 exp" HorizontalAlignment="Left" Margin="859,416,0,0" VerticalAlignment="Top" Width="217" Height="33" FontSize="16" Click="Button_Click_6"/>
+        <TextBlock HorizontalAlignment="Left" Margin="830,28,0,0" TextWrapping="Wrap" Text="Уровень персонажа" VerticalAlignment="Top" Width="199" Height="35" FontSize="20" RenderTransformOrigin="0.462,0.486" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="830,62,0,0" TextWrapping="Wrap" Text="Опыт персонажа" VerticalAlignment="Top" Width="199" Height="35" FontSize="20" RenderTransformOrigin="0.462,0.486" FontWeight="Bold"/>
+        <TextBlock Name="levelTxt" HorizontalAlignment="Left" Margin="1053,28,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="35" Width="67" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Name="experienceTxt" HorizontalAlignment="Left" Margin="1055,63,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="35" Width="67" FontSize="20" FontWeight="Bold"/>
+        <Button Content="Удалить персонажа" HorizontalAlignment="Left" Margin="595,261,0,0" VerticalAlignment="Top" Width="217" Height="35" FontSize="16" Click="Button_Click_7"/>
+        <Button Content="Редактировать" HorizontalAlignment="Left" Margin="595,309,0,0" VerticalAlignment="Top" Width="217" Height="31" FontSize="16" Click="Button_Click_5"/>
 
     </Grid>
 </Window>
