@@ -190,30 +190,92 @@ namespace Project_IT_Park_HW
         {
             int strengthPoint = Convert.ToInt32(lblStrength.Content);
             int point = Convert.ToInt32(lblPoints.Content);
-            if (point != 0)
+            if (cmbClass.SelectedIndex == 0 & 21 <= strengthPoint)
             {
-                lblStrength.Content = strengthPoint - 1;
-                lblPoints.Content = point + 1;
-                AddStatChange();
+                if (point >= 0)
+                {
+                    lblStrength.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
             else
+            if (cmbClass.SelectedIndex == 1 & 16 <= strengthPoint)
             {
-                MessageBox.Show("Point is empty!");
+                if (point >= 0)
+                {
+                    lblStrength.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
+            }
+            else
+            if (cmbClass.SelectedIndex == 2 & 31 <= strengthPoint)
+            {
+                if (point >= 0)
+                {
+                    lblStrength.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
         }
         private void btnPlusStrength_Click(object sender, RoutedEventArgs e)
         {
             int strengthPoint = Convert.ToInt32(lblStrength.Content);
             int point = Convert.ToInt32(lblPoints.Content);
-            if (point != 0)
+            if (cmbClass.SelectedIndex == 0 & strengthPoint <= 54)
             {
-                lblStrength.Content = strengthPoint + 1;
-                lblPoints.Content = point - 1;
-                AddStatChange();
+                if (point != 0)
+                {
+                    lblStrength.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
             else
+            if (cmbClass.SelectedIndex == 1 & strengthPoint <= 44)
             {
-                MessageBox.Show("Point is empty!");
+                if (point != 0)
+                {
+                    lblStrength.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
+            }
+            else
+            if (cmbClass.SelectedIndex == 2 & strengthPoint <= 249)
+            {
+                if (point != 0)
+                {
+                    lblStrength.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
         }
 
@@ -221,15 +283,46 @@ namespace Project_IT_Park_HW
         {
             int strengthPoint = Convert.ToInt32(lblAgility.Content);
             int point = Convert.ToInt32(lblPoints.Content);
-            if (point != 0)
+            if (cmbClass.SelectedIndex == 0 & 31 <= strengthPoint)
             {
-                lblAgility.Content = strengthPoint - 1;
-                lblPoints.Content = point + 1;
-                AddStatChange();
+                if (point >= 0)
+                {
+                    lblAgility.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
             else
+            if (cmbClass.SelectedIndex == 1 & 21 <= strengthPoint)
             {
-                MessageBox.Show("Point is empty!");
+                if (point >= 0)
+                {
+                    lblAgility.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
+            }
+            else
+            if (cmbClass.SelectedIndex == 2 & 16 <= strengthPoint)
+            {
+                if (point >= 0)
+                {
+                    lblAgility.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
         }
 
@@ -237,15 +330,46 @@ namespace Project_IT_Park_HW
         {
             int strengthPoint = Convert.ToInt32(lblAgility.Content);
             int point = Convert.ToInt32(lblPoints.Content);
-            if (point != 0)
+            if (cmbClass.SelectedIndex == 0 & strengthPoint <= 249)
             {
-                lblAgility.Content = strengthPoint + 1;
-                lblPoints.Content = point - 1;
-                AddStatChange();
+                if (point != 0)
+                {
+                    lblAgility.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
             else
+            if (cmbClass.SelectedIndex == 1 & strengthPoint <= 84)
             {
-                MessageBox.Show("Point is empty!");
+                if (point != 0)
+                {
+                    lblAgility.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
+            }
+            else
+            if (cmbClass.SelectedIndex == 2 & strengthPoint <= 79)
+            {
+                if (point != 0)
+                {
+                    lblAgility.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
         }
 
@@ -253,15 +377,46 @@ namespace Project_IT_Park_HW
         {
             int strengthPoint = Convert.ToInt32(lblIntellect.Content);
             int point = Convert.ToInt32(lblPoints.Content);
-            if (point != 0)
+            if (cmbClass.SelectedIndex == 0 & 16 <= strengthPoint)
             {
-                lblIntellect.Content = strengthPoint - 1;
-                lblPoints.Content = point + 1;
-                AddStatChange();
+                if (point >= 0)
+                {
+                    lblIntellect.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
             else
+            if (cmbClass.SelectedIndex == 1 & 36 <= strengthPoint)
             {
-                MessageBox.Show("Point is empty!");
+                if (point >= 0)
+                {
+                    lblIntellect.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
+            }
+            else
+            if (cmbClass.SelectedIndex == 2 & 11 <= strengthPoint)
+            {
+                if (point >= 0)
+                {
+                    lblIntellect.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
         }
 
@@ -269,15 +424,46 @@ namespace Project_IT_Park_HW
         {
             int strengthPoint = Convert.ToInt32(lblIntellect.Content);
             int point = Convert.ToInt32(lblPoints.Content);
-            if (point != 0)
+            if (cmbClass.SelectedIndex == 0 & strengthPoint <= 69)
             {
-                lblIntellect.Content = strengthPoint + 1;
-                lblPoints.Content = point - 1;
-                AddStatChange();
+                if (point != 0)
+                {
+                    lblIntellect.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
             else
+            if (cmbClass.SelectedIndex == 1 & strengthPoint <= 249)
             {
-                MessageBox.Show("Point is empty!");
+                if (point != 0)
+                {
+                    lblIntellect.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
+            }
+            else
+            if (cmbClass.SelectedIndex == 2 & strengthPoint <= 9)
+            {
+                if (point != 0)
+                {
+                    lblIntellect.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
         }
 
@@ -285,15 +471,46 @@ namespace Project_IT_Park_HW
         {
             int strengthPoint = Convert.ToInt32(lblEndurance.Content);
             int point = Convert.ToInt32(lblPoints.Content);
-            if (point != 0)
+            if (cmbClass.SelectedIndex == 0 & 21 <= strengthPoint)
             {
-                lblEndurance.Content = strengthPoint - 1;
-                lblPoints.Content = point + 1;
-                AddStatChange();
+                if (point >= 0)
+                {
+                    lblEndurance.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
             else
+            if (cmbClass.SelectedIndex == 1 & 21 <= strengthPoint)
             {
-                MessageBox.Show("Point is empty!");
+                if (point >= 0)
+                {
+                    lblEndurance.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
+            }
+            else
+            if (cmbClass.SelectedIndex == 2 & 26 <= strengthPoint)
+            {
+                if (point >= 0)
+                {
+                    lblEndurance.Content = strengthPoint - 1;
+                    lblPoints.Content = point + 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
         }
 
@@ -301,15 +518,46 @@ namespace Project_IT_Park_HW
         {
             int strengthPoint = Convert.ToInt32(lblEndurance.Content);
             int point = Convert.ToInt32(lblPoints.Content);
-            if (point != 0)
+            if (cmbClass.SelectedIndex == 0 & strengthPoint <= 79)
             {
-                lblEndurance.Content = strengthPoint + 1;
-                lblPoints.Content = point - 1;
-                AddStatChange();
+                if (point != 0)
+                {
+                    lblEndurance.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
             else
+            if (cmbClass.SelectedIndex == 1 & strengthPoint <= 79)
             {
-                MessageBox.Show("Point is empty!");
+                if (point != 0)
+                {
+                    lblEndurance.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
+            }
+            else
+            if (cmbClass.SelectedIndex == 2 & strengthPoint <= 99)
+            {
+                if (point != 0)
+                {
+                    lblEndurance.Content = strengthPoint + 1;
+                    lblPoints.Content = point - 1;
+                    AddStatChange();
+                }
+                else
+                {
+                    MessageBox.Show("Point is empty!");
+                }
             }
         }
 
@@ -317,6 +565,8 @@ namespace Project_IT_Park_HW
         {
             lbxUnitList.ItemsSource = MongoDataBase.GetUnitList();
             lbxUnitClass.ItemsSource = MongoDataBase.GetClassUnitList();
+            rbAllowed.IsEnabled = false;
+            rbForbidden.IsEnabled = false;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -331,6 +581,7 @@ namespace Project_IT_Park_HW
         private void btn1000exp_Click(object sender, RoutedEventArgs e)
         {
             int experience = Convert.ToInt32(lblExperience.Content);
+            //int point = Convert.ToInt32(lblPoints.Content);
             if (experience >= 55000)
             {
                 MessageBox.Show("Max level reached!");
@@ -339,6 +590,7 @@ namespace Project_IT_Park_HW
             {
                 lblExperience.Content = experience + 1000;
                 LevelUp();
+                //lblPoints.Content = Convert.ToString(point + 10);
             }
         }
 

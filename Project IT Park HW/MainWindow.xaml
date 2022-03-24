@@ -34,10 +34,10 @@
         <Button x:Name="btnPlusIntellect" Content="+" HorizontalAlignment="Left" Margin="425,88,0,0" VerticalAlignment="Top" Height="25" Width="29" FontWeight="Bold" FontSize="18" Click="btnPlusIntellect_Click" />
         <Button x:Name="btnMinusEndurance" Content="-" HorizontalAlignment="Left" Margin="353,127,0,0" VerticalAlignment="Top" Height="25" Width="29" FontWeight="Bold" FontSize="18" Click="btnMinusEndurance_Click"/>
         <Button x:Name="btnPlusEndurance" Content="+" HorizontalAlignment="Left" Margin="425,127,0,0" VerticalAlignment="Top" Height="25" Width="29" FontWeight="Bold" FontSize="18" Click="btnPlusEndurance_Click"/>
-        <Label x:Name="lblStrength" Content="10" HorizontalAlignment="Left" Margin="394,10,0,0" VerticalAlignment="Top" Height="29" Width="31" FontWeight="Bold" FontSize="16"/>
-        <Label x:Name="lblAgility" Content="10" HorizontalAlignment="Left" Margin="394,48,0,0" VerticalAlignment="Top" Height="35" Width="31" FontWeight="Bold" FontSize="16"/>
-        <Label x:Name="lblIntellect" Content="10" HorizontalAlignment="Left" Margin="394,84,0,0" VerticalAlignment="Top" Height="33" Width="42" FontWeight="Bold" FontSize="16"/>
-        <Label x:Name="lblEndurance" Content="10" HorizontalAlignment="Left" Margin="394,126,0,0" VerticalAlignment="Top" Height="34" Width="42" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblStrength" Content="10" HorizontalAlignment="Left" Margin="387,10,0,0" VerticalAlignment="Top" Height="29" Width="31" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblAgility" Content="10" HorizontalAlignment="Left" Margin="387,48,0,0" VerticalAlignment="Top" Height="35" Width="31" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblIntellect" Content="10" HorizontalAlignment="Left" Margin="387,84,0,0" VerticalAlignment="Top" Height="33" Width="42" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblEndurance" Content="10" HorizontalAlignment="Left" Margin="387,126,0,0" VerticalAlignment="Top" Height="34" Width="42" FontWeight="Bold" FontSize="16"/>
         <GroupBox Header="Points:" HorizontalAlignment="Left" Height="76" Margin="464,8,0,0" VerticalAlignment="Top" Width="87" FontWeight="Bold"/>
         <Label x:Name="lblPoints" Content="10" HorizontalAlignment="Left" Margin="483,26,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
         <Label Content="Strength:" HorizontalAlignment="Left" Margin="256,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
@@ -65,8 +65,8 @@
         <Button x:Name="btn5000exp" Content="+5000 experience" HorizontalAlignment="Left" Margin="648,139,0,0" VerticalAlignment="Top" Width="192" FontWeight="Bold" Click="btn5000exp_Click"/>
         <Button x:Name="btnEditing" Content="Disable unit editing?" HorizontalAlignment="Left" Margin="43,188,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Click="btnEditing_Click"/>
         <Button x:Name="btnChange" Content="Change" HorizontalAlignment="Left" Margin="43,163,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Click="btnChange_Click"/>
-        <RadioButton x:Name="rbAllowed" Content="Editing allowed" HorizontalAlignment="Left" Margin="255,173,0,0" VerticalAlignment="Top" FontWeight="Bold" IsChecked="True"/>
-        <RadioButton x:Name="rbForbidden" Content="Editing forbidden" HorizontalAlignment="Left" Margin="255,193,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <RadioButton x:Name="rbAllowed" Content="Editing allowed!" HorizontalAlignment="Left" Margin="255,173,0,0" VerticalAlignment="Top" FontWeight="Bold" IsChecked="True"/>
+        <RadioButton x:Name="rbForbidden" Content="Editing forbidden!" HorizontalAlignment="Left" Margin="255,193,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
 
     </Grid>
