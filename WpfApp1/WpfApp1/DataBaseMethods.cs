@@ -9,11 +9,11 @@ namespace WpfApp1
 {
     internal class DataBaseMethods
     {
-        public static void AddPersonageToDatabase(Personage personage)
+        public static void AddPersonageToDatabase(BasePersonage personage)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Game");
-            var collection = database.GetCollection<Personage>("Personages");
+            var collection = database.GetCollection<BasePersonage>("Personages");
             collection.InsertOne(personage);
         }
         public static void AddWarriorToDatabase(Warrior personage)
@@ -38,7 +38,7 @@ namespace WpfApp1
             collection.InsertOne(personage);
         }
 
-        
+
         public static List<string> GetListOfBasePersonages()
         {
             var client = new MongoClient("mongodb://localhost");
@@ -59,6 +59,21 @@ namespace WpfApp1
             var collection = database.GetCollection<BasePersonage>("Personages");
             var foundedPersonage = collection.Find(x => x.Name == personageName).FirstOrDefault();
             return foundedPersonage;
+        }
+
+        public static void ReplacePersonageToDB(BasePersonage personage, string personageName)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Game");
+            var collection = database.GetCollection<BasePersonage>("Personages");
+            collection.ReplaceOne(x => x.Name == personageName, personage);
+        }
+        public static void RemovePersonage(string personageName)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Game");
+            var collection = database.GetCollection<BasePersonage>("Personages");
+            collection.DeleteOne(x => x.Name == personageName);
         }
     }
 }

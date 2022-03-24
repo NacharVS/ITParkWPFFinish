@@ -6,12 +6,6 @@ namespace WpfApp1
     public class BasePersonage : Personage, IPersonage
     {
         
-
-        //[BsonId]
-        //[BsonIgnoreIfDefault]
-        //ObjectId _id { get; set; }
-
-        
         public string Profession { get => _profession; set => _profession = value; }
         public double CurrentHelth { get => _currentHealth; set => _currentHealth = value; }
         public string Name { get => name; set => name = value; }
@@ -19,26 +13,26 @@ namespace WpfApp1
         public double SkillCurrent { get => _skill; set => _skill = value; }
         public double IntellectCurrent { get => _intellect; set => _intellect = value; }
         public double StaminaCurrent { get => _stamina; set => _stamina = value; }
-        public double PowerMin  =>  10;
-        public double SkillMin { get => 10; }
-        public double IntellectMin { get => 10; }
-        public double StaminaMin { get => 10; }
-        public double PowerMax { get; }
-        public double SkillMax { get; }
-        public double IntellectMax { get; }
-        public double StaminaMax { get; }
+        public double PowerMin { get ; set; }
+        public double SkillMin { get; set; }
+        public double IntellectMin { get; set; }
+        public double StaminaMin { get; set; }
+        public double PowerMax { get; set; }
+        public double SkillMax { get; set; }
+        public double IntellectMax { get; set; }
+        public double StaminaMax { get; set; }
 
         public BasePersonage(string name)
         {
             Name = name;
             Profession = "profession";
             CurrentHelth = health;
-            PowerCurrent = PowerMin;
-            SkillCurrent = SkillMin;
-            IntellectCurrent = IntellectMin;
-            StaminaCurrent = StaminaMin;
-
+            
         }
 
+        public BasePersonage ConvertToBasePersonage()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

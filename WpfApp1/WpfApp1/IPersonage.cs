@@ -23,11 +23,7 @@ namespace WpfApp1
         public double SkillMax { get; }
         public double IntellectMax { get; }
         public double StaminaMax { get; }
-        public void ChangeCharateristic () { }
-        //public void Show() { }
-        public void Update() { }
-        public void AddToDB() { }
-
-
+        public BasePersonage ConvertToBasePersonage();
+        
     }
 }
