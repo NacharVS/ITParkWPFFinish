@@ -8,20 +8,17 @@ using System.Threading.Tasks;
 
 namespace WpfApp2
 {
-    internal class Mage : ICharacter
+    public class Mage : ICharacter
     {
         private double _minStrength = 15;
         private double _maxStrength = 45;
         private double _currentStrength;
-
         private double _minAgility = 20;
         private double _maxAgility = 45;
         private double _currentAgility;
-
         private double _currentIntelligence;
         private double _minIntelligence = 35;
         private double _maxIntelligence = 250;
-
         private double _currentEndurance;
         private double _minEndurance = 20;
         private double _maxEndurance = 80;
@@ -74,6 +71,7 @@ namespace WpfApp2
         public double MaxAgility { get => _maxAgility; }
 
         public double MinAgility { get => _minAgility; }
+
         [BsonElement("Agility")]
         public double CurrentAgility
         {
@@ -91,13 +89,14 @@ namespace WpfApp2
                 }
                 else
                 {
-                    _currentAgility = value;
+                    _currentAgility =  value;
                 }
 
             }
         }
         public double MaxIntelligence { get => _maxIntelligence; }
         public double MinIntelligence { get => _minIntelligence; }
+
         [BsonElement("Intelligence")]
         public double CurrentIntelligence
         {
@@ -115,13 +114,14 @@ namespace WpfApp2
                 }
                 else
                 {
-                    _currentIntelligence = value;
+                    _currentIntelligence =  value;
                 }
 
             }
         }
         public double MaxEndurance { get => _maxEndurance; }
         public double MinEndurance { get => _minEndurance; }
+
         [BsonElement("Endurance")]
         public double CurrentEndurance
         {
@@ -139,81 +139,30 @@ namespace WpfApp2
                 }
                 else
                 {
-                    _currentEndurance = value;
+                    _currentEndurance =  value;
                 }
 
             }
         }
-        private double _currentPhysicDamage;
+      
         [BsonIgnore]
-        public double PhysicDamage
-        {
-            get => _currentPhysicDamage;
-            set
-            {
-                _currentPhysicDamage = _currentStrength + _currentAgility;
+        public double PhysicDamage {get => _currentStrength + _currentAgility;}
 
-            }
-        }
-
-        private double _currentPhysicDefense;
         [BsonIgnore]
-        public double PhysicDefense
-        {
-            get => _currentPhysicDefense;
-            set
-            {
-                _currentPhysicDefense = _currentStrength + _currentAgility + _currentIntelligence + (_currentEndurance * 2);
-
-            }
-        }
-        private double _currentMagicDefense;
+        public double PhysicDefense { get => _currentStrength + _currentAgility + _currentIntelligence + (_currentEndurance * 2); }
+        
         [BsonIgnore]
-        public double MagicDefense
-        {
-            get => _currentMagicDefense;
-            set
-            {
-                _currentMagicDefense = (_currentIntelligence * 5) + (_currentEndurance * 1);
+        public double MagicDefense { get => (_currentIntelligence * 5) + (_currentEndurance * 1);}
 
-            }
-        }
-
-        private double _currentMagicDamage;
         [BsonIgnore]
-        public double MagicDamage
-        {
-            get => _currentMagicDamage;
-            set
-            {
-                _currentMagicDamage = _currentIntelligence * 7;
+        public double MagicDamage {get => _currentIntelligence * 7;}
 
-            }
-        }
-
-        private double _currentLife;
         [BsonIgnore]
-        public double Life
-        {
-            get => _currentLife;
-            set
-            {
-                _currentLife = _currentStrength + (_currentEndurance * 3); ;
+        public double Life { get => _currentStrength + (_currentEndurance * 3); }
 
-            }
-        }
-
-        private double _currentMana;
         [BsonIgnore]
-        public double Mana
-        {
-            get => _currentMana;
-            set
-            {
-                _currentMana = _currentIntelligence * 2;
+        public double Mana { get =>  _currentIntelligence * 2;}
 
-            }
-        }
         private double _currentLevel;
         [BsonIgnore]
         public double Level
@@ -221,8 +170,7 @@ namespace WpfApp2
             get => _currentLevel;
             set
             {
-                //_currentLevel = ;
-
+                _currentLevel  = value;
             }
         }
     }

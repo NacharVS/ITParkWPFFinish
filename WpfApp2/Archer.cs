@@ -10,19 +10,21 @@ namespace WpfApp2
 {
    public class Archer : ICharacter
     {
+       
         private double _minStrength = 20;
         private double _maxStrength = 55;
-        private double _currentStrength;
-
+        [BsonIgnore]
+        public double _currentStrength;
         private double _minAgility = 30;
         private double _maxAgility = 250;
-        private double _currentAgility;
-
-        private double _currentIntelligence;
+        [BsonIgnore]
+        public double _currentAgility;
+        [BsonIgnore]
+        public double _currentIntelligence;
         private double _minIntelligence = 15;
         private double _maxIntelligence = 70;
-
-        private double _currentEndurance;
+        [BsonIgnore]
+        public double _currentEndurance;
         private double _minEndurance = 20;
         private double _maxEndurance = 80;
 
@@ -38,7 +40,7 @@ namespace WpfApp2
             _name = name;
             _proffesion = proffesion;
         }
-        [BsonId]
+       [BsonId]
         [BsonIgnoreIfDefault]
         public ObjectId ID { get; set; }
         public string Name { get => _name; set => _name = value; }
@@ -63,7 +65,7 @@ namespace WpfApp2
                 }
                 else
                 {
-                    _currentStrength = value;
+                    _currentStrength =  value;
                 }
 
             }
@@ -95,6 +97,7 @@ namespace WpfApp2
         }
         public double MaxIntelligence { get => _maxIntelligence; }
         public double MinIntelligence { get => _minIntelligence; }
+      
         [BsonElement("Intelligence")]
         public double CurrentIntelligence
         {
@@ -112,13 +115,14 @@ namespace WpfApp2
                 }
                 else
                 {
-                    _currentIntelligence = value;
+                    _currentIntelligence =  value;
                 }
 
             }
         }
         public double MaxEndurance { get => _maxEndurance; }
         public double MinEndurance { get => _minEndurance; }
+
         [BsonElement("Endurance")]
         public double CurrentEndurance
         {
@@ -136,81 +140,33 @@ namespace WpfApp2
                 }
                 else
                 {
-                    _currentEndurance = value;
+                    _currentEndurance =  value;
                 }
 
             }
         }
-        private double _currentPhysicDamage;
+
+       
         [BsonIgnore]
-        public double PhysicDamage
-        {
-            get => _currentPhysicDamage;
-            set
-            {
-                _currentPhysicDamage = (_currentStrength * 3) + (_currentAgility * 7);
+        public double PhysicDamage  { get => (_currentStrength * 3) + (_currentAgility * 7); }
+        
+       
 
-            }
-        }
-
-        private double _currentPhysicDefense;
         [BsonIgnore]
-        public double PhysicDefense
-        {
-            get => _currentPhysicDefense;
-            set
-            {
-                _currentPhysicDefense = (_currentStrength * 1) + (_currentAgility * 5) + (_currentEndurance * 2);
-
-            }
-        }
-        private double _currentMagicDefense;
+        public double PhysicDefense   { get => (_currentStrength * 1) + (_currentAgility * 5) + (_currentEndurance * 2); }
+      
         [BsonIgnore]
-        public double MagicDefense
-        {
-            get => _currentMagicDefense;
-            set
-            {
-                _currentMagicDefense = (_currentAgility * 3) + (_currentIntelligence * 3) + (_currentEndurance * 1);
+        public double MagicDefense { get => (_currentAgility * 3) + (_currentIntelligence * 3) + (_currentEndurance * 1); }
 
-            }
-        }
-
-        private double _currentMagicDamage;
         [BsonIgnore]
-        public double MagicDamage
-        {
-            get => _currentMagicDamage;
-            set
-            {
-                _currentMagicDamage = _currentIntelligence * 3;
-
-            }
-        }
-
-        private double _currentLife;
+        public double MagicDamage { get =>  _currentIntelligence * 3; }
+  
         [BsonIgnore]
-        public double Life
-        {
-            get => _currentLife;
-            set
-            {
-                _currentLife = (_currentStrength * 2) + (_currentEndurance * 5); ;
+        public double Life { get => (_currentStrength * 2) + (_currentEndurance * 5); }
 
-            }
-        }
-
-        private double _currentMana;
         [BsonIgnore]
-        public double Mana
-        {
-            get => _currentMana;
-            set
-            {
-                _currentMana = _currentIntelligence;
-
-            }
-        }
+        public  double Mana {  get => _currentIntelligence; }
+        
         private double _currentLevel;
         [BsonIgnore]
         public double Level
@@ -218,10 +174,8 @@ namespace WpfApp2
             get => _currentLevel;
             set
             {
-                //_currentLevel = ;
-
+                _currentLevel = value;
             }
         }
-
     }
 }

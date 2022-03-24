@@ -26,12 +26,12 @@ namespace WpfApp2
         public double MinEndurance { get; }
 
 
-        public double PhysicDamage { get; set; }
-        public double PhysicDefense { get; set; }
-        public double MagicDamage { get; set; }
-        public double MagicDefense { get; set; }
-        public double Life { get; set; }
-        public double Mana { get; set; }
+        public double PhysicDamage { get;  }
+        public double PhysicDefense { get;}
+        public double MagicDamage { get; }
+        public double MagicDefense { get;  }
+        public double Life { get; }
+        public double Mana { get; }
 
 
     }

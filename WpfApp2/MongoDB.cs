@@ -17,15 +17,7 @@ namespace WpfApp2
             var collection = database.GetCollection<ICharacter>("Сharacters");
             collection.InsertOne(character);
         }
-        //public static List<ICharacter> GetFromCollection()
-        //{
-        //    MongoClient client = new MongoClient("mongodb://localhost");
-        //    var database = client.GetDatabase("Сharacters");
-        //    var collection = database.GetCollection<ICharacter>("Сharacters");
-        //    return collection.Find(x => true).ToList();
-        //}
-
-        
+               
         public static void ArcherAddToDB(string name, string proffession, double strength, double agility, double intelligence, double endurance)
         {
             var client = new MongoClient("mongodb://localhost");
@@ -93,8 +85,45 @@ namespace WpfApp2
             var database = client.GetDatabase("Сharacters");
             var collection = database.GetCollection<Archer>("Сharacters");
             var FoundUser = collection.Find(x => x.Name == name).FirstOrDefault();
-
             return FoundUser;
+        }
+        public static Mage GetMage(string name)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Сharacters");
+            var collection = database.GetCollection<Mage>("Сharacters");
+            var FoundUser = collection.Find(x => x.Name == name).FirstOrDefault();
+            return FoundUser;
+        }
+        public static Warrior GetWarrior(string name)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Сharacters");
+            var collection = database.GetCollection<Warrior>("Сharacters");
+            var FoundUser = collection.Find(x => x.Name == name).FirstOrDefault();
+            return FoundUser;
+        }
+        public static void ReplaceWarrior(string name, Warrior newInfo)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Characters");
+            var collection = database.GetCollection<Warrior>("Characters");
+            collection.ReplaceOne(x => x.Name == name, newInfo);
+        }
+        
+        public static void ReplaceArcher(string name, Archer newInfo)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Characters");
+            var collection = database.GetCollection<Archer>("Characters");
+            collection.ReplaceOne(x => x.Name == name, newInfo);
+        }
+        public static void ReplaceMage(string name, Mage newInfo)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Characters");
+            var collection = database.GetCollection<Mage>("Characters");
+            collection.ReplaceOne(x => x.Name == name, newInfo);
         }
 
     }

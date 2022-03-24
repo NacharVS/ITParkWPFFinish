@@ -145,76 +145,25 @@ namespace WpfApp2
 
             }
         }
-        private double _currentPhysicDamage;
+     
         [BsonIgnore]
-        public double PhysicDamage
-        {
-            get => _currentPhysicDamage;
-            set
-            {
-                _currentPhysicDamage = (_currentStrength * 7) + (_currentAgility * 2);
-
-            }
-        }
-
-        private double _currentPhysicDefense;
+        public double PhysicDamage {get => (_currentStrength * 7) + (_currentAgility * 2);}
+        
         [BsonIgnore]
-        public double PhysicDefense
-        {
-            get => _currentPhysicDefense;
-            set
-            {
-                _currentPhysicDefense = (_currentStrength * 2) + (_currentAgility * 3) + (_currentEndurance * 3);
-
-            }
-        }
-        private double _currentMagicDefense;
+        public double PhysicDefense { get =>  (_currentStrength * 2) + (_currentAgility * 3) + (_currentEndurance * 3);}
+       
         [BsonIgnore]
-        public double MagicDefense
-        {
-            get => _currentMagicDefense;
-            set
-            {
-                _currentMagicDefense = _currentStrength + (_currentIntelligence * 2) + _currentEndurance;
+        public double MagicDefense {get => _currentStrength + (_currentIntelligence * 2) + _currentEndurance;}
 
-            }
-        }
-
-        private double _currentMagicDamage;
         [BsonIgnore]
-        public double MagicDamage
-        {
-            get => _currentMagicDamage;
-            set
-            {
-                _currentMagicDamage = _currentIntelligence;
+        public double MagicDamage { get => _currentIntelligence; }
 
-            }
-        }
-
-        private double _currentLife;
         [BsonIgnore]
-        public double Life
-        {
-            get => _currentLife;
-            set
-            {
-                _currentLife = (_currentStrength * 5) + (_currentEndurance * 10); ;
+        public double Life { get => (_currentStrength * 5) + (_currentEndurance * 10); }
 
-            }
-        }
-
-        private double _currentMana;
         [BsonIgnore]
-        public double Mana
-        {
-            get => _currentMana;
-            set
-            {
-                _currentMana = _currentIntelligence;
+        public double Mana { get => _currentIntelligence; }
 
-            }
-        }
         private double _currentLevel;
         [BsonIgnore]
         public double Level
@@ -222,12 +171,10 @@ namespace WpfApp2
             get => _currentLevel;
             set
             {
-                //_currentLevel = ;
+               _currentLevel = value;
 
             }
         }
-
-
 
     }
     
