@@ -9,7 +9,6 @@ namespace WpfApp2
 {
     public class MongoDB
     {
-
         public static void AddToDataBase(ICharacter character)
         {
             MongoClient client = new MongoClient("mongodb://localhost");
@@ -17,7 +16,7 @@ namespace WpfApp2
             var collection = database.GetCollection<ICharacter>("Сharacters");
             collection.InsertOne(character);
         }
-               
+         
         public static void ArcherAddToDB(string name, string proffession, double strength, double agility, double intelligence, double endurance)
         {
             var client = new MongoClient("mongodb://localhost");
@@ -125,6 +124,12 @@ namespace WpfApp2
             var collection = database.GetCollection<Mage>("Characters");
             collection.ReplaceOne(x => x.Name == name, newInfo);
         }
-
+        public static void DeletingWarrior(string deletingCharacter)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Characters");
+            var collection = database.GetCollection<Warrior>("Characters");
+            collection.DeleteOne(x => x.Name == deletingCharacter);
+        }
     }
 }

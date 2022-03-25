@@ -35,8 +35,55 @@ namespace WpfApp2
             Name.Clear();
         }
 
-       
-    private void professions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        double currentStrength;
+        double currentAgility;
+        double currentIntelligence;
+        double currentEndurance;
+
+        private void ArchersIndicators()
+        {
+            currentStrength = Convert.ToDouble(Strength.Content);
+            currentAgility = Convert.ToDouble(Agility.Content);
+            currentIntelligence = Convert.ToDouble(Intelligence.Content);
+            currentEndurance = Convert.ToDouble(Endurance.Content);
+
+            life.Content = currentStrength * 2 + currentEndurance * 5;
+            physicDefense.Content = currentStrength * 1 + currentAgility * 5 + currentEndurance * 2;
+            physicDamage.Content = currentStrength * 3 + currentAgility * 7;
+            magicDefense.Content = currentAgility * 3 + currentIntelligence * 3 + currentEndurance * 1;
+            magicDamage.Content = currentIntelligence * 3;
+            mana.Content = currentIntelligence * 1;
+        }
+        private void MagesIndicators()
+        {
+            currentStrength = Convert.ToDouble(Strength.Content);
+            currentAgility = Convert.ToDouble(Agility.Content);
+            currentIntelligence = Convert.ToDouble(Intelligence.Content);
+            currentEndurance = Convert.ToDouble(Endurance.Content);
+
+            life.Content = currentStrength + currentIntelligence + currentEndurance * 3;
+            physicDefense.Content = currentStrength + currentAgility + currentEndurance * 2;
+            physicDamage.Content = currentStrength + currentAgility;
+            magicDefense.Content = currentIntelligence * 5 + currentEndurance;
+            magicDamage.Content = currentIntelligence * 7;
+            mana.Content = currentIntelligence * 2;
+        }
+        private void WarriorsIndicators()
+        {
+            currentStrength = Convert.ToDouble(Strength.Content);
+            currentAgility = Convert.ToDouble(Agility.Content);
+            currentIntelligence = Convert.ToDouble(Intelligence.Content);
+            currentEndurance = Convert.ToDouble(Endurance.Content);
+
+            life.Content = currentStrength * 5 + currentEndurance * 10;
+            physicDefense.Content = currentStrength * 2 + currentAgility * 3 + currentEndurance * 3;
+            physicDamage.Content = currentStrength * 7 + currentAgility * 2;
+            magicDefense.Content = currentStrength + currentIntelligence * 2 + currentEndurance;
+            magicDamage.Content = currentIntelligence;
+            mana.Content = currentIntelligence;
+        }
+
+       private void professions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (professions.SelectedIndex == 0)
             {
@@ -47,12 +94,7 @@ namespace WpfApp2
                 Agility.Content = archer.CurrentAgility;
                 Intelligence.Content = archer.CurrentIntelligence;
                 Endurance.Content = archer.CurrentEndurance;
-                life.Content = Convert.ToDouble(archer.CurrentStrength.ToString()) * 2 + Convert.ToDouble(archer.CurrentEndurance.ToString()) * 5;
-                physicDefense.Content = Convert.ToDouble(archer.CurrentStrength.ToString()) * 1 + Convert.ToDouble(archer.CurrentAgility.ToString()) * 5 + Convert.ToDouble(archer.CurrentEndurance.ToString()) * 2;
-                physicDamage.Content = Convert.ToDouble(archer.CurrentStrength.ToString()) * 3 + Convert.ToDouble(archer.CurrentAgility.ToString()) * 7;
-                magicDefense.Content = Convert.ToDouble(archer.CurrentAgility.ToString()) * 3 + Convert.ToDouble(archer.CurrentIntelligence.ToString()) * 3 + Convert.ToDouble(archer.CurrentEndurance.ToString()) * 1;
-                magicDamage.Content = Convert.ToDouble(archer.CurrentIntelligence.ToString()) * 3;
-                mana.Content = Convert.ToDouble(archer.CurrentIntelligence.ToString()) * 1;
+                ArchersIndicators();
                 level.Content = "0";
             }
 
@@ -64,12 +106,7 @@ namespace WpfApp2
                 Agility.Content = mage.CurrentAgility;
                 Intelligence.Content = mage.CurrentIntelligence;
                 Endurance.Content = mage.CurrentEndurance;
-                life.Content = Convert.ToDouble(mage.CurrentStrength.ToString())  + Convert.ToDouble(mage.CurrentIntelligence.ToString()) +  Convert.ToDouble(mage.CurrentEndurance.ToString()) * 3;
-                physicDefense.Content = Convert.ToDouble(mage.CurrentStrength.ToString()) + Convert.ToDouble(mage.CurrentAgility.ToString()) + Convert.ToDouble(mage.CurrentEndurance.ToString()) * 2;
-                physicDamage.Content = Convert.ToDouble(mage.CurrentStrength.ToString()) + Convert.ToDouble(mage.CurrentAgility.ToString());
-                magicDefense.Content = Convert.ToDouble(mage.CurrentIntelligence.ToString()) * 5 + Convert.ToDouble(mage.CurrentEndurance.ToString());
-                magicDamage.Content = Convert.ToDouble(mage.CurrentIntelligence.ToString()) * 7;
-                mana.Content =   Convert.ToDouble(mage.CurrentIntelligence.ToString()) * 2 ;
+                MagesIndicators();
             }
             if (professions.SelectedIndex == 2)
             {
@@ -79,17 +116,10 @@ namespace WpfApp2
                 Agility.Content = warrior.CurrentAgility;
                 Intelligence.Content = warrior.CurrentIntelligence; 
                 Endurance.Content = warrior.CurrentEndurance;
-                life.Content = Convert.ToDouble(warrior.CurrentStrength.ToString())*5 +  Convert.ToDouble(warrior.CurrentEndurance.ToString()) * 10;
-                physicDefense.Content = Convert.ToDouble(warrior.CurrentStrength.ToString())*2 + Convert.ToDouble(warrior.CurrentAgility.ToString())*3 + Convert.ToDouble(warrior.CurrentEndurance.ToString()) * 3;
-                physicDamage.Content = Convert.ToDouble(warrior.CurrentStrength.ToString())*7 + Convert.ToDouble(warrior.CurrentAgility.ToString())*2;
-                magicDefense.Content = Convert.ToDouble(warrior.CurrentStrength.ToString())+ Convert.ToDouble(warrior.CurrentIntelligence.ToString()) * 2 + Convert.ToDouble(warrior.CurrentEndurance.ToString());
-                magicDamage.Content = Convert.ToDouble(warrior.CurrentIntelligence.ToString());
-                mana.Content = Convert.ToDouble(warrior.CurrentIntelligence.ToString());
+                WarriorsIndicators();
             }
         }
        
-       
-
         private void saveCharacter_Click(object sender, RoutedEventArgs e)
         {
             if (ChosenProfession.Text == "Archer")
@@ -97,7 +127,6 @@ namespace WpfApp2
                MongoDB.ArcherAddToDB(Name.Text, ChosenProfession.Text, Convert.ToDouble(Strength.Content.ToString()), Convert.ToDouble(Agility.Content.ToString()), Convert.ToDouble(Intelligence.Content.ToString()), Convert.ToDouble(Endurance.Content.ToString()));
                savedСharacters.ItemsSource = MongoDB.ArcherGetList();
                MessageBox.Show($"Archer {Name.Text} was saved");
-
             }
 
             else if(ChosenProfession.Text == "Mage")
@@ -120,15 +149,14 @@ namespace WpfApp2
             {
                 MessageBox.Show($"Saved archers are not listed");
             }
-               else if(MongoDB.MageGetList() == null)
-               {
-                MessageBox.Show($"Saved mage are not listed");
-               }
-               else if (MongoDB.WarriorGetList() == null)
-               {
-                MessageBox.Show($"Saved warrior are not listed");
-               }
-
+            else if(MongoDB.MageGetList() == null)
+            {
+             MessageBox.Show($"Saved mage are not listed");
+            }
+            else if (MongoDB.WarriorGetList() == null)
+            {
+             MessageBox.Show($"Saved warrior are not listed");
+            }
             else
             {
                 savedСharacters.ItemsSource = MongoDB.ArcherGetList();
@@ -145,6 +173,8 @@ namespace WpfApp2
             }
             else 
             {
+                savedСharacters_Loaded(sender, e);
+
                 if (ChosenProfession.Text == "Archer")
                 {
                     Name.Text = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString()).Name;
@@ -153,14 +183,9 @@ namespace WpfApp2
                     Agility.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString()).CurrentAgility;
                     Intelligence.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString()).CurrentIntelligence;
                     Endurance.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString()).CurrentEndurance;
-                    //life.Content = Convert.ToDouble(archer.CurrentStrength.ToString()) * 2 + Convert.ToDouble(archer.CurrentEndurance.ToString()) * 5;
-                    //physicDefense.Content = Convert.ToDouble(archer.CurrentStrength.ToString()) * 1 + Convert.ToDouble(archer.CurrentAgility.ToString()) * 5 + Convert.ToDouble(archer.CurrentEndurance.ToString()) * 2;
-                    //physicDamage.Content = Convert.ToDouble(archer.CurrentStrength.ToString()) * 3 + Convert.ToDouble(archer.CurrentAgility.ToString()) * 7;
-                    //magicDefense.Content = Convert.ToDouble(archer.CurrentAgility.ToString()) * 3 + Convert.ToDouble(archer.CurrentIntelligence.ToString()) * 3 + Convert.ToDouble(archer.CurrentEndurance.ToString()) * 1;
-                    //magicDamage.Content = Convert.ToDouble(archer.CurrentIntelligence.ToString()) * 3;
-                    //mana.Content = Convert.ToDouble(archer.CurrentIntelligence.ToString()) * 1;
-                    level.Content = "0";
+                    ArchersIndicators();
                 }
+
                 else if (ChosenProfession.Text == "Mage")
                 {
 
@@ -170,12 +195,8 @@ namespace WpfApp2
                     Agility.Content = MongoDB.GetMage(savedСharacters.SelectedItem.ToString()).CurrentAgility;
                     Intelligence.Content = MongoDB.GetMage(savedСharacters.SelectedItem.ToString()).CurrentIntelligence;
                     Endurance.Content = MongoDB.GetMage(savedСharacters.SelectedItem.ToString()).CurrentEndurance;
-                    //life.Content = Convert.ToDouble(mage.CurrentStrength.ToString()) + Convert.ToDouble(mage.CurrentIntelligence.ToString()) + Convert.ToDouble(mage.CurrentEndurance.ToString()) * 3;
-                    //physicDefense.Content = Convert.ToDouble(mage.CurrentStrength.ToString()) + Convert.ToDouble(mage.CurrentAgility.ToString()) + Convert.ToDouble(mage.CurrentEndurance.ToString()) * 2;
-                    //physicDamage.Content = Convert.ToDouble(mage.CurrentStrength.ToString()) + Convert.ToDouble(mage.CurrentAgility.ToString());
-                    //magicDefense.Content = Convert.ToDouble(mage.CurrentIntelligence.ToString()) * 5 + Convert.ToDouble(mage.CurrentEndurance.ToString());
-                    //magicDamage.Content = Convert.ToDouble(mage.CurrentIntelligence.ToString()) * 7;
-                    mana.Content = Convert.ToDouble(mage.CurrentIntelligence.ToString()) * 2;
+                    MagesIndicators();
+
                 }
                 else if (ChosenProfession.Text == "Warrior")
                 {
@@ -185,62 +206,53 @@ namespace WpfApp2
                     Agility.Content = MongoDB.GetWarrior(savedСharacters.SelectedItem.ToString()).CurrentAgility;
                     Intelligence.Content = MongoDB.GetWarrior(savedСharacters.SelectedItem.ToString()).CurrentIntelligence;
                     Endurance.Content = MongoDB.GetWarrior(savedСharacters.SelectedItem.ToString()).CurrentEndurance;
-                    //life.Content = Convert.ToDouble(warrior.CurrentStrength.ToString()) * 5 + Convert.ToDouble(warrior.CurrentEndurance.ToString()) * 10;
-                    //physicDefense.Content = Convert.ToDouble(warrior.CurrentStrength.ToString()) * 2 + Convert.ToDouble(warrior.CurrentAgility.ToString()) * 3 + Convert.ToDouble(warrior.CurrentEndurance.ToString()) * 3;
-                    //physicDamage.Content = Convert.ToDouble(warrior.CurrentStrength.ToString()) * 7 + Convert.ToDouble(warrior.CurrentAgility.ToString()) * 2;
-                    //magicDefense.Content = Convert.ToDouble(warrior.CurrentStrength.ToString()) + Convert.ToDouble(warrior.CurrentIntelligence.ToString()) * 2 + Convert.ToDouble(warrior.CurrentEndurance.ToString());
-                    //magicDamage.Content = Convert.ToDouble(warrior.CurrentIntelligence.ToString());
-                    mana.Content = Convert.ToDouble(warrior.CurrentIntelligence.ToString());
-
-                } 
+                    WarriorsIndicators();
+                }
             }
         }
+       
         private void StrengthPointsPlus_Click(object sender, RoutedEventArgs e)
         {
-            double life2 = Convert.ToDouble(life.Content);
-            double currentStrength = Convert.ToDouble(Strength.Content);
             double basePoints = Convert.ToDouble(points.Content);
+            currentStrength++;
+            basePoints--;
+            Strength.Content = currentStrength.ToString();
+            points.Content = basePoints.ToString();
+
             if (basePoints > 0)
             {
-                
                 if (ChosenProfession.Text == "Archer")
                 {
-                    currentStrength++;
-                    basePoints--;
-                    Strength.Content = currentStrength.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentStrength > 55)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Strength.Content = archer.CurrentStrength;
                     }
-                    archer.CurrentStrength = currentStrength;
+                    else
+                    {
+                        archer.CurrentStrength = currentStrength;
+                        ArchersIndicators();
+                    }
                 }
                 else if (ChosenProfession.Text == "Mage")
                 {
-                    currentStrength++;
-                    basePoints--;
-                    Strength.Content = currentStrength.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentStrength > 45)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Strength.Content = mage.CurrentStrength;
                     }
                     mage.CurrentStrength = currentStrength;
+                    MagesIndicators();
                 }
                 else if (ChosenProfession.Text == "Warrior")
                 {
-                    currentStrength++;
-                    basePoints--;
-                    Strength.Content = currentStrength.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentStrength > 50)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Strength.Content = warrior.CurrentStrength;
                     }
                     warrior.CurrentStrength = currentStrength;
+                    WarriorsIndicators();                   
                 }
             }
             else
@@ -251,48 +263,42 @@ namespace WpfApp2
 
         private void AgilityPointsPlus_Click(object sender, RoutedEventArgs e)
         {
-            double currentAgility = Convert.ToDouble(Agility.Content);
-            double basePoints = Convert.ToDouble(points.Content);
+           double basePoints = Convert.ToDouble(points.Content);
+            currentAgility++;
+            basePoints--;
+            Agility.Content = currentAgility.ToString();
+            points.Content = basePoints.ToString();
             if (basePoints > 0)
             {
                 if (ChosenProfession.Text == "Archer")
                 {
-                    currentAgility++;
-                    basePoints--;
-                    Agility.Content = currentAgility.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentAgility > 250)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Agility.Content = archer.CurrentAgility;
                     }
                     archer.CurrentAgility = currentAgility;
+                    ArchersIndicators();
                 }
                 else if (ChosenProfession.Text == "Mage")
                 {
-                    currentAgility++;
-                    basePoints--;
-                    Agility.Content = currentAgility.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentAgility > 45)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Agility.Content = mage.CurrentAgility;
                     }
                     mage.CurrentAgility = currentAgility;
+                    MagesIndicators();
                 }
                 else if (ChosenProfession.Text == "Warrior")
                 {
-                    currentAgility++;
-                    basePoints--;
-                    Agility.Content = currentAgility.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentAgility > 80)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Agility.Content = warrior.CurrentAgility;
                     }
                     warrior.CurrentAgility = currentAgility;
+                    WarriorsIndicators();
                 }
             }
             else
@@ -303,52 +309,43 @@ namespace WpfApp2
 
         private void IntelligencePointsPlus_Click(object sender, RoutedEventArgs e)
         {
-            double currentIntelligence = Convert.ToDouble(Intelligence.Content);
             double basePoints = Convert.ToDouble(points.Content);
+            currentIntelligence++;
+            basePoints--;
+            Intelligence.Content = currentIntelligence.ToString();
+            points.Content = basePoints.ToString();
             if (basePoints > 0)
             {
                 if (ChosenProfession.Text == "Archer")
                 {
-                    currentIntelligence++;
-                    basePoints--;
-                    Intelligence.Content = currentIntelligence.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentIntelligence > 70)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Intelligence.Content = archer.CurrentIntelligence;
                     }
                     archer.CurrentIntelligence = currentIntelligence;
+                    ArchersIndicators();
                 }
                 else if (ChosenProfession.Text == "Mage")
                 {
-                    currentIntelligence++;
-                    basePoints--;
-                    Intelligence.Content = currentIntelligence.ToString();
-                    points.Content = basePoints.ToString();
-                    mage.CurrentIntelligence = currentIntelligence;
                     if (currentIntelligence > 250)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         mage.CurrentIntelligence = mage.CurrentIntelligence;
                     }
                     mage.CurrentIntelligence = currentIntelligence;
+                    MagesIndicators();
                 }
                 else if (ChosenProfession.Text == "Warrior")
                 {
-                    currentIntelligence++;
-                    basePoints--;
-                    Intelligence.Content = currentIntelligence.ToString();
-                    points.Content = basePoints.ToString();
-                    
                     if ( currentIntelligence > 50)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Intelligence.Content = warrior.CurrentIntelligence;
                     }
                     warrior.CurrentIntelligence = currentIntelligence;
+                    WarriorsIndicators();
                 }
-               
             }
             else
             {
@@ -358,52 +355,43 @@ namespace WpfApp2
 
         private void EndurancePointsPlus_Click(object sender, RoutedEventArgs e)
         {
-            double currentEndurance = Convert.ToDouble(Endurance.Content);
             double basePoints = Convert.ToDouble(points.Content);
+            currentEndurance++;
+            basePoints--;
+            Endurance.Content = currentEndurance.ToString();
+            points.Content = basePoints.ToString();
             if (basePoints > 0)
             {
-               
                 if (ChosenProfession.Text == "Archer")
                 {
-                    currentEndurance++;
-                    basePoints--;
-                    Endurance.Content = currentEndurance.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentEndurance > 80)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Endurance.Content = archer.CurrentEndurance;
                     }
                     archer.CurrentEndurance = currentEndurance;
+                    ArchersIndicators();
                 }
                 else if (ChosenProfession.Text == "Mage")
                 {
-                    currentEndurance++;
-                    basePoints--;
-                    Endurance.Content = currentEndurance.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentEndurance > 80)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Endurance.Content = mage.CurrentEndurance;
                     }
                     mage.CurrentEndurance = currentEndurance;
+                    MagesIndicators();
                 }
                 else if (ChosenProfession.Text == "Warrior")
                 {
-                    currentEndurance++;
-                    basePoints--;
-                    Endurance.Content = currentEndurance.ToString();
-                    points.Content = basePoints.ToString();
-                    
                     if (currentEndurance > 100)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Endurance.Content = warrior.CurrentEndurance;
                     }
                     warrior.CurrentEndurance = currentEndurance;
+                    WarriorsIndicators();
                 }
-               
             }
             else
             {
@@ -413,90 +401,71 @@ namespace WpfApp2
 
         private void StrengthPointsMinus_Click(object sender, RoutedEventArgs e)
         {
-            double currentStrength = Convert.ToDouble(Strength.Content);
             double basePoints = Convert.ToDouble(points.Content);
+            currentStrength--;
+            basePoints++;
+            Strength.Content = currentStrength.ToString();
+            points.Content = basePoints.ToString();
             if (basePoints < 10)
             {
-               
                 if (ChosenProfession.Text == "Archer")
                 {
-                    currentStrength--;
-                    basePoints++;
-                    Strength.Content = currentStrength.ToString();
-                    points.Content = basePoints.ToString();
-                    
                     if (currentStrength < 20 )
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Strength.Content = archer.CurrentStrength;
                     }
                     archer.CurrentStrength = currentStrength;
+                    ArchersIndicators();
                 }
                 else if (ChosenProfession.Text == "Mage")
                 {
-                    currentStrength--;
-                    basePoints++;
-                    Strength.Content = currentStrength.ToString();
-                    points.Content = basePoints.ToString();
-                    
                     if (currentStrength < 15)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Strength.Content = mage.CurrentStrength;
                     }
                     mage.CurrentStrength = currentStrength;
+                    MagesIndicators();
                 }
                 else if (ChosenProfession.Text == "Warrior")
                 {
-                    currentStrength--;
-                    basePoints++;
-                    Strength.Content = currentStrength.ToString();
-                    points.Content = basePoints.ToString();
-                    
                     if (currentStrength < 30)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Strength.Content = warrior.CurrentStrength;
                     }
                     warrior.CurrentStrength = currentStrength;
+                    WarriorsIndicators();
                 }
-                
             }
             else
             {
                 MessageBox.Show("Can't be taken away at the minimum value!");
             }
-           
         }
 
         private void AgilityPointsMinus_Click(object sender, RoutedEventArgs e)
         {
-            double currentAgility = Convert.ToDouble(Agility.Content);
             double basePoints = Convert.ToDouble(points.Content);
+            currentAgility--;
+            basePoints++;
+            Agility.Content = currentAgility.ToString();
+            points.Content = basePoints.ToString();
             if (basePoints < 10)
             {
-                
                 if (ChosenProfession.Text == "Archer")
                 {
-                    currentAgility--;
-                    basePoints++;
-                    Agility.Content = currentAgility.ToString();
-                    points.Content = basePoints.ToString();
-                    
                     if (currentAgility < 30 )
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Agility.Content = archer.CurrentAgility;
                     }
                     archer.CurrentAgility = currentAgility;
+                    ArchersIndicators();
                 }
                 else if (ChosenProfession.Text == "Mage")
                 {
-                    currentAgility--;
-                    basePoints++;
-                    Agility.Content = currentAgility.ToString();
-                    points.Content = basePoints.ToString();
-                    
                     if (currentAgility < 20 )
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
@@ -504,20 +473,17 @@ namespace WpfApp2
 
                     }
                     mage.CurrentAgility = currentAgility;
+                    MagesIndicators();
                 }
                 else if (ChosenProfession.Text == "Warrior")
                 {
-                    currentAgility--;
-                    basePoints++;
-                    Agility.Content = currentAgility.ToString();
-                    points.Content = basePoints.ToString();
-                    
                     if (currentAgility < 15)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Agility.Content = warrior.CurrentAgility;
                     }
                     warrior.CurrentAgility = currentAgility;
+                    WarriorsIndicators();
                 }
             }
             else
@@ -528,55 +494,43 @@ namespace WpfApp2
 
         private void IntelligencePointsMinus_Click(object sender, RoutedEventArgs e)
         {
-            double currentIntelligence = Convert.ToDouble(Intelligence.Content);
             double basePoints = Convert.ToDouble(points.Content);
+            currentIntelligence--;
+            basePoints++;
+            Intelligence.Content = currentIntelligence.ToString();
+            points.Content = basePoints.ToString();
             if (basePoints < 10)
             {
-               
                 if (ChosenProfession.Text == "Archer")
                 {
-                    currentIntelligence--;
-                    basePoints++;
-                    Intelligence.Content = currentIntelligence.ToString();
-                    points.Content = basePoints.ToString();
-                    
                     if (currentIntelligence < 15 )
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Intelligence.Content = archer.CurrentIntelligence;
                     }
                     archer.CurrentIntelligence = currentIntelligence;
+                    ArchersIndicators();
                 }
                 else if (ChosenProfession.Text == "Mage")
                 {
-                    currentIntelligence--;
-                    basePoints++;
-                    Intelligence.Content = currentIntelligence.ToString();
-                    points.Content = basePoints.ToString();
-                   
                     if (currentIntelligence < 35 )
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Intelligence.Content = mage.CurrentIntelligence;
                     }
                     mage.CurrentIntelligence = currentIntelligence;
+                    MagesIndicators();
                 }
                 else if (ChosenProfession.Text == "Warrior")
                 {
-                    currentIntelligence--;
-                    basePoints++;
-                    Intelligence.Content = currentIntelligence.ToString();
-                    points.Content = basePoints.ToString();
-                   
                     if (currentIntelligence < 10 )
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Intelligence.Content = warrior.CurrentIntelligence;
-
                     }
                     warrior.CurrentIntelligence = currentIntelligence;
+                    WarriorsIndicators();
                 }
-               
             }
             else
             {
@@ -585,51 +539,43 @@ namespace WpfApp2
         }
 
         private void EndurancePointsMinus_Click(object sender, RoutedEventArgs e)
-        {
-            double currentEndurance = Convert.ToDouble(Endurance.Content);
+        { 
             double basePoints = Convert.ToDouble(points.Content);
+            currentEndurance--;
+            basePoints++;
+            Endurance.Content = currentEndurance.ToString();
+            points.Content = basePoints.ToString();
             if (basePoints < 10)
             {
-                
                 if (ChosenProfession.Text == "Archer")
                 {
-                    currentEndurance--;
-                    basePoints++;
-                    Endurance.Content = currentEndurance.ToString();
-                    points.Content = basePoints.ToString();
-                   
                     if (currentEndurance < 20)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Endurance.Content = archer.CurrentEndurance;
                     }
                     archer.CurrentEndurance = currentEndurance;
+                    ArchersIndicators();
                 }
                else if (ChosenProfession.Text == "Mage")
                 {
-                    currentEndurance--;
-                    basePoints++;
-                    Endurance.Content = currentEndurance.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentEndurance < 20)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Endurance.Content = mage.CurrentEndurance;
                     }
                     mage.CurrentEndurance = currentEndurance;
+                    MagesIndicators();
                 }
                 else if (ChosenProfession.Text == "Warrior")
                 {
-                    currentEndurance--;
-                    basePoints++;
-                    Endurance.Content = currentEndurance.ToString();
-                    points.Content = basePoints.ToString();
                     if (currentEndurance < 25)
                     {
                         MessageBox.Show(" It is impossible to make less than the minimum and maximum values!");
                         Endurance.Content = warrior.CurrentEndurance;
                     }
                     warrior.CurrentEndurance = currentEndurance;
+                    WarriorsIndicators();
                 }
             }
             else
@@ -648,6 +594,7 @@ namespace WpfApp2
                 {
                     archer.Level = Convert.ToDouble(level.Content);
                     MessageBox.Show($"Your character level - {archer.Level}.\n You are awarded 5 bonus points");
+                    
                 }
                else if (ChosenProfession.Text == "Mage")
                 {
@@ -702,7 +649,6 @@ namespace WpfApp2
                     warrior.Level = Convert.ToDouble(level.Content);
                     MessageBox.Show($"Your character level - {warrior.Level}.\n You are awarded 5 bonus points");
                 }
-
                 points.Content = Convert.ToDouble(points.Content.ToString()) + 5;
             }
             else if (experience.Content.ToString() == "+6000 exp")
@@ -755,23 +701,25 @@ namespace WpfApp2
             if (ChosenProfession.Text == "Archer")
             {
                 MongoDB.ReplaceArcher(savedСharacters.SelectedItem.ToString(), new Archer(Name.Text, ChosenProfession.Text, Convert.ToDouble(Strength.Content), Convert.ToDouble(Agility.Content.ToString()), Convert.ToDouble(Intelligence.Content.ToString()), Convert.ToDouble(Endurance.Content.ToString())));
-
             }
-           else if (ChosenProfession.Text == "Mage")
+
+            else if (ChosenProfession.Text == "Mage")
             {
                 MongoDB.ReplaceMage(savedСharacters.SelectedItem.ToString(), new Mage(Name.Text, ChosenProfession.Text, Convert.ToDouble(Strength.Content.ToString()), Convert.ToDouble(Agility.Content.ToString()), Convert.ToDouble(Intelligence.Content.ToString()), Convert.ToDouble(Endurance.Content.ToString())));
-
             }
+
             else if (ChosenProfession.Text == "Warrior")
             {
                 MongoDB.ReplaceWarrior(savedСharacters.SelectedItem.ToString(), new Warrior(Name.Text, ChosenProfession.Text, Convert.ToDouble(Strength.Content.ToString()), Convert.ToDouble(Agility.Content.ToString()), Convert.ToDouble(Intelligence.Content.ToString()), Convert.ToDouble(Endurance.Content.ToString())));
-
             }
+            
         }
 
         private void deleting_Click(object sender, RoutedEventArgs e)
         {
-
+            MongoDB.DeletingWarrior(savedСharacters.SelectedItem.ToString());
+            MessageBox.Show($"{savedСharacters.SelectedItem} Deleted!");
+            savedСharacters.ItemsSource = MongoDB.WarriorGetList();
         }
     }
 }

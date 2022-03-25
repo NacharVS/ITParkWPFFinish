@@ -57,6 +57,7 @@
         <Button x:Name="editing" Content="Editing Character Data" HorizontalAlignment="Left" Margin="400,391,0,0" VerticalAlignment="Top" Width="167" Height="26" Click="editing_Click"/>
         <Button x:Name="deleting" Content="Deleting a character" HorizontalAlignment="Left" Margin="400,436,0,0" VerticalAlignment="Top" Width="167" Height="28" Click="deleting_Click"/>
         <ListBox x:Name="savedСharacters" Margin="400,60,233,128" Loaded="savedСharacters_Loaded" SelectionChanged="savedСharacters_SelectionChanged"/>
+        <TextBox x:Name="Exp" HorizontalAlignment="Left" Margin="312,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" Height="26"/>
     </Grid>
 
 </Window>
