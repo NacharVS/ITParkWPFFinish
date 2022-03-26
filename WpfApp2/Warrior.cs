@@ -44,10 +44,8 @@ namespace WpfApp2
         public ObjectId ID { get; set; }
         public string Name { get => _name; set => _name = value; }
         public string Proffesion { get => _proffesion; set => _proffesion = value; }
-
         public double MaxStrength { get => _maxStrength; }
         public double MinStrength { get => _minStrength; }
-
 
         [BsonElement("Strength")]
         public double CurrentStrength
@@ -72,7 +70,6 @@ namespace WpfApp2
             }
         }
         public double MaxAgility { get => _maxAgility; }
-
         public double MinAgility { get => _minAgility; }
 
         [BsonElement("Agility")]
@@ -94,7 +91,6 @@ namespace WpfApp2
                 {
                     _currentAgility = value;
                 }
-
             }
         }
         public double MaxIntelligence { get => _maxIntelligence; }

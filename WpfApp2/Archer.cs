@@ -145,13 +145,10 @@ namespace WpfApp2
 
             }
         }
-
-       
+               
         [BsonIgnore]
         public double PhysicDamage  { get => (_currentStrength * 3) + (_currentAgility * 7); }
         
-       
-
         [BsonIgnore]
         public double PhysicDefense   { get => (_currentStrength * 1) + (_currentAgility * 5) + (_currentEndurance * 2); }
       

@@ -32,7 +32,7 @@ namespace WpfApp2
         public double MagicDefense { get;  }
         public double Life { get; }
         public double Mana { get; }
-
+        public double Level { get; set; }
 
     }
 }

@@ -171,44 +171,36 @@ namespace WpfApp2
             {
                 return;
             }
-            else 
+            else
             {
-                savedСharacters_Loaded(sender, e);
-
-                if (ChosenProfession.Text == "Archer")
-                {
                     Name.Text = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString()).Name;
                     ChosenProfession.Text = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString()).Proffesion;
-                    Strength.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString()).CurrentStrength;
-                    Agility.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString()).CurrentAgility;
-                    Intelligence.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString()).CurrentIntelligence;
-                    Endurance.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString()).CurrentEndurance;
-                    ArchersIndicators();
-                }
 
-                else if (ChosenProfession.Text == "Mage")
-                {
+                    Strength.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString())._currentStrength;
+                    Agility.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString())._currentAgility;
+                    Intelligence.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString())._currentIntelligence;
+                    Endurance.Content = MongoDB.GetArcher(savedСharacters.SelectedItem.ToString())._currentEndurance;
+                    ArchersIndicators();
+             
 
                     Name.Text = MongoDB.GetMage(savedСharacters.SelectedItem.ToString()).Name;
                     ChosenProfession.Text = MongoDB.GetMage(savedСharacters.SelectedItem.ToString()).Proffesion;
+
                     Strength.Content = MongoDB.GetMage(savedСharacters.SelectedItem.ToString()).CurrentStrength;
                     Agility.Content = MongoDB.GetMage(savedСharacters.SelectedItem.ToString()).CurrentAgility;
                     Intelligence.Content = MongoDB.GetMage(savedСharacters.SelectedItem.ToString()).CurrentIntelligence;
                     Endurance.Content = MongoDB.GetMage(savedСharacters.SelectedItem.ToString()).CurrentEndurance;
                     MagesIndicators();
 
-                }
-                else if (ChosenProfession.Text == "Warrior")
-                {
                     Name.Text = MongoDB.GetWarrior(savedСharacters.SelectedItem.ToString()).Name;
                     ChosenProfession.Text = MongoDB.GetWarrior(savedСharacters.SelectedItem.ToString()).Proffesion;
+
                     Strength.Content = MongoDB.GetWarrior(savedСharacters.SelectedItem.ToString()).CurrentStrength;
                     Agility.Content = MongoDB.GetWarrior(savedСharacters.SelectedItem.ToString()).CurrentAgility;
                     Intelligence.Content = MongoDB.GetWarrior(savedСharacters.SelectedItem.ToString()).CurrentIntelligence;
                     Endurance.Content = MongoDB.GetWarrior(savedСharacters.SelectedItem.ToString()).CurrentEndurance;
                     WarriorsIndicators();
-                }
-            }
+             }
         }
        
         private void StrengthPointsPlus_Click(object sender, RoutedEventArgs e)
@@ -710,15 +702,30 @@ namespace WpfApp2
 
             else if (ChosenProfession.Text == "Warrior")
             {
-                MongoDB.ReplaceWarrior(savedСharacters.SelectedItem.ToString(), new Warrior(Name.Text, ChosenProfession.Text, Convert.ToDouble(Strength.Content.ToString()), Convert.ToDouble(Agility.Content.ToString()), Convert.ToDouble(Intelligence.Content.ToString()), Convert.ToDouble(Endurance.Content.ToString())));
+                //MongoDB.ReplaceWarrior(savedСharacters.SelectedItem.ToString(), new Warrior(Name.Text, ChosenProfession.Text, Convert.ToDouble(Strength.Content.ToString()), Convert.ToDouble(Agility.Content.ToString()), Convert.ToDouble(Intelligence.Content.ToString()), Convert.ToDouble(Endurance.Content.ToString())));
+                MongoDB.ReplaceWarrior(new Warrior(Name.Text, ChosenProfession.Text, Convert.ToDouble(Strength.Content.ToString()), Convert.ToDouble(Agility.Content.ToString()), Convert.ToDouble(Intelligence.Content.ToString()), Convert.ToDouble(Endurance.Content.ToString())));
             }
             
         }
 
         private void deleting_Click(object sender, RoutedEventArgs e)
         {
-            MongoDB.DeletingWarrior(savedСharacters.SelectedItem.ToString());
+            if (ChosenProfession.Text == "Archer")
+            {
+                MongoDB.DeletingArcher(savedСharacters.SelectedItem.ToString());
+            }
+            else if (ChosenProfession.Text == "Mage")
+            {
+                MongoDB.DeletingMage(savedСharacters.SelectedItem.ToString());
+            }
+            else if (ChosenProfession.Text == "Warrior")
+            {
+                MongoDB.DeletingWarrior(savedСharacters.SelectedItem.ToString());
+            }    
             MessageBox.Show($"{savedСharacters.SelectedItem} Deleted!");
+
+            savedСharacters.ItemsSource = MongoDB.ArcherGetList();
+            savedСharacters.ItemsSource = MongoDB.MageGetList();
             savedСharacters.ItemsSource = MongoDB.WarriorGetList();
         }
     }

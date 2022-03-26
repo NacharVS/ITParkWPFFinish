@@ -102,14 +102,20 @@ namespace WpfApp2
             var FoundUser = collection.Find(x => x.Name == name).FirstOrDefault();
             return FoundUser;
         }
-        public static void ReplaceWarrior(string name, Warrior newInfo)
+        //public static void ReplaceWarrior(string name, Warrior newInfo)
+        //{
+        //    var client = new MongoClient("mongodb://localhost");
+        //    var database = client.GetDatabase("Characters");
+        //    var collection = database.GetCollection<Warrior>("Characters");
+        //    collection.ReplaceOne(x => x.Name == name, newInfo);
+        //}
+        public static void ReplaceWarrior(Warrior newInfo)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Characters");
             var collection = database.GetCollection<Warrior>("Characters");
-            collection.ReplaceOne(x => x.Name == name, newInfo);
+            collection.ReplaceOne(x => x.Name == newInfo.Name, newInfo);
         }
-        
         public static void ReplaceArcher(string name, Archer newInfo)
         {
             var client = new MongoClient("mongodb://localhost");
@@ -123,13 +129,29 @@ namespace WpfApp2
             var database = client.GetDatabase("Characters");
             var collection = database.GetCollection<Mage>("Characters");
             collection.ReplaceOne(x => x.Name == name, newInfo);
+            //collection.FindOneAndReplace(x => x.Name == name, newInfo);
         }
-        public static void DeletingWarrior(string deletingCharacter)
+        public static void DeletingWarrior(string deletingWarrior)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Characters");
             var collection = database.GetCollection<Warrior>("Characters");
-            collection.DeleteOne(x => x.Name == deletingCharacter);
+            collection.DeleteOne(x => x.Name == deletingWarrior);
+            //collection.FindOneAndDelete(x => x.Name == deletingWarrior);
+        }
+        public static void DeletingArcher(string deletingArcher)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Characters");
+            var collection = database.GetCollection<Archer>("Characters");
+            collection.DeleteOne(x => x.Name == deletingArcher);
+        }
+        public static void DeletingMage(string deletingMage)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Characters");
+            var collection = database.GetCollection<Mage>("Characters");
+            collection.DeleteOne(x => x.Name == deletingMage);
         }
     }
 }
