@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_HOME_WORK"
         mc:Ignorable="d"
-        Title="MainWindow" Height="667" Width="921" Loaded="Window_Loaded">
+        Title="MainWindow" Height="667" Width="921">
     <Grid HorizontalAlignment="Left" Width="851">
         <TextBlock HorizontalAlignment="Left" Margin="59,53,0,0" Text="Введите имя" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <TextBox x:Name="Enter_a_name" HorizontalAlignment="Left" Margin="59,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" Height="31" GotFocus="Enter_a_name_GotFocus"/>
+        <TextBox x:Name="Enter_a_name" HorizontalAlignment="Left" Margin="59,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" Height="31"/>
         <TextBlock HorizontalAlignment="Left" Margin="59,130,0,0" Text="Выбор профессии" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="59,248,0,0" Text="Показатели" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="82,287,0,0" Text="Сила" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Button x:Name="btn_add" Content="Add" HorizontalAlignment="Left" Margin="59,535,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Click="btn_add_Click"/>
-        <Button x:Name="btn_delete" Content="Delete" HorizontalAlignment="Left" Margin="119,535,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Click="btn_delete_Click"/>
-        <ListBox x:Name="ListName" Margin="323,41,323,41" Loaded="ListName_Loaded_1" SelectionChanged="ListName_SelectionChanged"/>
+        <Button x:Name="btn_delete" Content="Delete" HorizontalAlignment="Left" Margin="119,535,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <ListBox x:Name="ListName" Margin="323,41,323,41"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="31,283,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
         <Button x:Name="btn_plus_power" Content="+" HorizontalAlignment="Left" Margin="284,283,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
         <Button Content="UpdateUser" HorizontalAlignment="Left" Margin="59,579,0,0" VerticalAlignment="Top" Width="125" Height="31" FontSize="20" FontWeight="Bold"/>

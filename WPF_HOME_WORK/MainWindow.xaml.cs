@@ -23,61 +23,63 @@ namespace WPF_HOME_WORK
             
         }
 
-        User user = new User("Name", "Profession");
-
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
 
-            User.AddToDB(Enter_a_name.Text,Enter_a_profession.Text);
-
-            ListName.ItemsSource = User.GetNameList();
-           
-
-        }
-
-        private void ListName_Loaded_1(object sender, RoutedEventArgs e)
-        {
-            ListName.ItemsSource = User.GetNameList();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            Enter_a_name.Text = user.Name;
-            Enter_a_profession.Text = user.Profession;
-        }
-
-        private void ListName_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ListName.SelectedIndex == -1)
+            if (ListName.SelectedIndex == 0)
             {
-                return;
+                if (Enter_a_profession.Items.Contains(Enter_a_name.Text))
+                {
+                    MessageBox.Show($"Character {Enter_a_name.Text} already exist!");
+                }
+                else
+                {
+                    User.AddToDB(new Warrior(Enter_a_name.Text, Convert.ToInt32(lbl_power.Content)
+                      , Convert.ToInt32(lbl_power.Content), Convert.ToInt32(lbl_power.Content)
+                      , Convert.ToInt32(lbl_agility.Content), Convert.ToInt32(lbl_agility.Content)
+                      , Convert.ToInt64(lbl_intellect.Content), Convert.ToInt32(lbl_intellect.Content)));
+                    MessageBox.Show($"Character \"{Enter_a_name.Text} ({Enter_a_profession.SelectionBoxItem})\" was created!");
+                    ListName.ItemsSource = User.ListName();
+                }
             }
-            else
+            else if (Enter_a_profession.SelectedIndex == 1)
             {
-                Enter_a_name.Text = User.GetUser(ListName.SelectedItem.ToString()).Name;
-                Enter_a_profession.Text = User.GetUser(ListName.SelectedItem.ToString()).Profession;
+                if (ListName.Items.Contains(Enter_a_name.Text))
+                {
+                    MessageBox.Show($"Character {Enter_a_name.Text} already exist!");
+                }
+                else
+                {
+                    User.AddToDB(new Archer(Enter_a_name.Text, Convert.ToInt32(lbl_power.Content)
+                       , Convert.ToInt32(lbl_power.Content), Convert.ToInt32(lbl_power.Content)
+                       , Convert.ToInt32(lbl_agility.Content), Convert.ToInt32(lbl_agility.Content)
+                       , Convert.ToInt64(lbl_intellect.Content), Convert.ToInt32(lbl_intellect.Content)));
+                    MessageBox.Show($"Character \"{Enter_a_name.Text} ({Enter_a_profession.SelectionBoxItem})\" was created!");
+                    ListName.ItemsSource = User.ListName();
+                }
             }
-        }
+            else if (Enter_a_profession.SelectedIndex == 2)
+            {
+                if (ListName.Items.Contains(Enter_a_name.Text))
+                {
+                    MessageBox.Show($"Character {Enter_a_name.Text} already exist!");
+                }
+                else
+                {
+                    User.AddToDB(new Mage(Enter_a_name.Text, Convert.ToInt32(lbl_power.Content)
+                       , Convert.ToInt32(lbl_power.Content), Convert.ToInt32(lbl_power.Content)
+                      , Convert.ToInt32(lbl_agility.Content), Convert.ToInt32(lbl_agility.Content)
+                      , Convert.ToInt64(lbl_intellect.Content), Convert.ToInt32(lbl_intellect.Content)));
+                    MessageBox.Show($"Character \"{Enter_a_name.Text} ({Enter_a_profession.SelectionBoxItem})\" was created!");
+                    ListName.ItemsSource = User.ListName();
+                }
 
-        private void btn_delete_Click(object sender, RoutedEventArgs e)
-        {
-          if(ListName.SelectedIndex == -1)
-          {
-                MessageBox.Show("Сделайте свой выбор!!");
-          }
-          else
-          {
-                User.DeleteToDB(Enter_a_name.Text, Enter_a_profession.Text);
 
-                ListName.ItemsSource = User.GetNameList();
-          }
-        }
-
-        private void Enter_a_name_GotFocus(object sender, RoutedEventArgs e)
-        {
-            Enter_a_name.Clear();
+            }
+            else MessageBox.Show("Chose the profession of your character!");
         }
 
         
     }
+
 }

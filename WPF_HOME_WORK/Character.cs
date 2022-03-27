@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WPF_HOME_WORK
 {
-    class Character
+    public class Character
     {
 
         [BsonId]
