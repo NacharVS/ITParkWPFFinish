@@ -8,10 +8,19 @@ using System.Threading.Tasks;
 
 namespace _2022_03_13_VerificationWork.Interfaces
 {
+    [BsonDiscriminator("Warrior")]
     class Warrior : Character
     {
         //[BsonIgnoreIfDefault]
         //public Object _id;
+        public static int minStr = 30;
+        public static int maxStr = 250;
+        public static int minAglt = 15;
+        public static int maxAglt = 80;
+        public static int minInt = 10;
+        public static int maxInt = 50;
+        public static int minStmn = 25;
+        public static int maxStmn = 100;
         public Warrior(string name, int strenght, int agility, int intelligence, int stamina, int level
             , long experiense, int freePoint) : base ("Warrior")
         {

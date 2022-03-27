@@ -8,10 +8,20 @@ using System.Threading.Tasks;
 
 namespace _2022_03_13_VerificationWork
 {
+    [BsonDiscriminator("Archer")]
     class Archer : Character
     {
         //[BsonIgnoreIfDefault]
         //public Object _id;
+        //_t="Archer";
+        public static int minStr = 20;
+        public static int maxStr = 55;
+        public static int minAglt = 30;
+        public static int maxAglt = 250;
+        public static int minInt = 15;
+        public static int maxInt = 70;
+        public static int minStmn = 20;
+        public static int maxStmn = 80;
         public Archer(string name, int strenght, int agility, int intelligence, int stamina, int level
             , long experiense, int freePoint) : base("Archer")
         {

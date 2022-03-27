@@ -1,5 +1,6 @@
 ﻿using _2022_03_13_VerificationWork.Interfaces;
 using _2022_03_13_VerificationWork.MongoDB;
+using MongoDB.Bson.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,15 @@ namespace _2022_03_13_VerificationWork
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
         private void createButton_Click(object sender, RoutedEventArgs e)
         {
             if (professionComboBox.SelectedIndex == 0)
@@ -80,145 +84,380 @@ namespace _2022_03_13_VerificationWork
         }
         private void strAddBtn_Click(object sender, RoutedEventArgs e)
         {
-            int baseStr = Convert.ToInt32(strAmountLabel.Content);
+            int currentStr = Convert.ToInt32(strAmountLabel.Content);
             int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
             if (baseFreePoint != 0)
             {
-                baseStr++;
-                baseFreePoint--;
-                strAmountLabel.Content = baseStr.ToString();
-                freePointAmountLabel.Content = baseFreePoint.ToString();
-                AddStatChange();
+                if (professionComboBox.SelectedIndex == 0)
+                {
+                    if (currentStr < Warrior.maxStr)
+                    {
+                        currentStr++;
+                        baseFreePoint--;
+                        strAmountLabel.Content = currentStr.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s strength must not be more than {Warrior.maxStr}" +
+                        $" points!");
+                }
+                if (professionComboBox.SelectedIndex == 1)
+                {
+                    if (currentStr < Archer.maxStr)
+                    {
+                        currentStr++;
+                        baseFreePoint--;
+                        strAmountLabel.Content = currentStr.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s strength must not be more than {Archer.maxStr}" +
+                        $" points!");
+                }
+                if (professionComboBox.SelectedIndex == 2)
+                {
+                    if (currentStr < Mage.maxStr)
+                    {
+                        currentStr++;
+                        baseFreePoint--;
+                        strAmountLabel.Content = currentStr.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s strength must not be more than {Mage.maxStr}" +
+                        $" points!");
+                }
             }
-            else
-            {
-                MessageBox.Show("Free point is empty!");
-            }
-        }
-        private void intAddBtn_Click(object sender, RoutedEventArgs e)
-        {
-            int baseInt = Convert.ToInt32(intAmountLabel.Content);
-            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            if (baseFreePoint != 0)
-            {
-                baseInt++;
-                baseFreePoint--;
-                intAmountLabel.Content = baseInt.ToString();
-                freePointAmountLabel.Content = baseFreePoint.ToString();
-                AddStatChange();
-            }
-            else
-            {
-                MessageBox.Show("Free point is empty!");
-            }
-        }
-        private void stmnAddBtn_Click(object sender, RoutedEventArgs e)
-        {
-            int baseStmn = Convert.ToInt32(stmnAmountLabel.Content);
-            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            if (baseFreePoint != 0)
-            {
-                baseStmn++;
-                baseFreePoint--;
-                stmnAmountLabel.Content = baseStmn.ToString();
-                freePointAmountLabel.Content = baseFreePoint.ToString();
-                AddStatChange();
-            }
-            else
-            {
-                MessageBox.Show("Free point is empty!");
-            }
+            else MessageBox.Show("Free point is empty!");
         }
         private void agltAddBtn_Click(object sender, RoutedEventArgs e)
         {
-            int baseAglt = Convert.ToInt32(agltAmountLabel.Content);
+            int currentAglt = Convert.ToInt32(agltAmountLabel.Content);
             int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
             if (baseFreePoint != 0)
             {
-                baseAglt++;
-                baseFreePoint--;
-                agltAmountLabel.Content = baseAglt.ToString();
-                freePointAmountLabel.Content = baseFreePoint.ToString();
-                AddStatChange();
+                if (professionComboBox.SelectedIndex == 0)
+                {
+                    if (currentAglt < Warrior.maxAglt)
+                    {
+                        currentAglt++;
+                        baseFreePoint--;
+                        agltAmountLabel.Content = currentAglt.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s agility must not be more than {Warrior.maxAglt}" +
+                        $" points!");
+                }
+                if (professionComboBox.SelectedIndex == 1)
+                {
+                    if (currentAglt < Archer.maxAglt)
+                    {
+                        currentAglt++;
+                        baseFreePoint--;
+                        agltAmountLabel.Content = currentAglt.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s agility must not be more than {Archer.maxAglt}" +
+                        $" points!");
+                }
+                if (professionComboBox.SelectedIndex == 2)
+                {
+                    if (currentAglt < Mage.maxAglt)
+                    {
+                        currentAglt++;
+                        baseFreePoint--;
+                        agltAmountLabel.Content = currentAglt.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s agility must not be more than {Mage.maxAglt}" +
+                        $" points!");
+                }
+            }
+            else MessageBox.Show("Free point is empty!");
+        }
+        private void intAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int currentInt = Convert.ToInt32(intAmountLabel.Content);
+            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            if (baseFreePoint != 0)
+            {
+                if (professionComboBox.SelectedIndex == 0)
+                {
+                    if (currentInt < Warrior.maxInt)
+                    {
+                        currentInt++;
+                        baseFreePoint--;
+                        intAmountLabel.Content = currentInt.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s intelligence must not be more than {Warrior.maxInt}" +
+                        $" points!");
+                }
+                if (professionComboBox.SelectedIndex == 1)
+                {
+                    if (currentInt < Archer.maxInt)
+                    {
+                        currentInt++;
+                        baseFreePoint--;
+                        intAmountLabel.Content = currentInt.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s intelligence must not be more than {Archer.maxInt}" +
+                        $" points!");
+                }
+                if (professionComboBox.SelectedIndex == 2)
+                {
+                    if (currentInt < Mage.maxInt)
+                    {
+                        currentInt++;
+                        baseFreePoint--;
+                        intAmountLabel.Content = currentInt.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s intelligence must not be more than {Mage.maxInt}" +
+                        $" points!");
+                }
+            }
+            else MessageBox.Show("Free point is empty!");
+        }
+        private void stmnAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int currentStmn = Convert.ToInt32(stmnAmountLabel.Content);
+            int baseFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
+            if (baseFreePoint != 0)
+            {
+                if (professionComboBox.SelectedIndex == 0)
+                {
+                    if (currentStmn < Warrior.maxStmn)
+                    {
+                        currentStmn++;
+                        baseFreePoint--;
+                        stmnAmountLabel.Content = currentStmn.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s stamina must not be more than {Warrior.maxStmn}" +
+                        $" points!");
+                }
+                if (professionComboBox.SelectedIndex == 1)
+                {
+                    if (currentStmn < Archer.maxStmn)
+                    {
+                        currentStmn++;
+                        baseFreePoint--;
+                        stmnAmountLabel.Content = currentStmn.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s stamina must not be more than {Archer.maxStmn}" +
+                        $" points!");
+                }
+                if (professionComboBox.SelectedIndex == 2)
+                {
+                    if (currentStmn < Mage.maxStr)
+                    {
+                        currentStmn++;
+                        baseFreePoint--;
+                        stmnAmountLabel.Content = currentStmn.ToString();
+                        freePointAmountLabel.Content = baseFreePoint.ToString();
+                        AddStatChange();
+                    }
+                    else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s stamina must not be more than {Mage.maxStmn}" +
+                        $" points!");
+                }
             }
             else
             {
                 MessageBox.Show("Free point is empty!");
             }
         }
+
         private void strRemoveBtn_Click(object sender, RoutedEventArgs e)
         {
-            int baseStr = Convert.ToInt32(strAmountLabel.Content);
+            int currentStr = Convert.ToInt32(strAmountLabel.Content);
             int currentFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            int mustFreePoint = Convert.ToInt32(levelAmountLabel.Content) * 5 - 5 + 10;
-            if (currentFreePoint < mustFreePoint)
+            //int mustFreePoint = Convert.ToInt32(levelAmountLabel.Content) * 5 - 5 + 10;
+            if (professionComboBox.SelectedIndex == 0)
             {
-                baseStr--;
-                currentFreePoint++;
-                strAmountLabel.Content = baseStr.ToString();
-                freePointAmountLabel.Content = currentFreePoint.ToString();
-                AddStatChange();
+                if (currentStr > Warrior.minStr)
+                {
+                    currentStr--;
+                    currentFreePoint++;
+                    strAmountLabel.Content = currentStr.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s strength must not be less than {Warrior.minStr}" +
+                    $" points!");
             }
-            else
+            if (professionComboBox.SelectedIndex == 1)
             {
-                MessageBox.Show("Max free point!");
+                if (currentStr > Archer.minStr)
+                {
+                    currentStr--;
+                    currentFreePoint++;
+                    strAmountLabel.Content = currentStr.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s strength must not be less than {Archer.minStr}" +
+                    $" points!");
+            }
+            if (professionComboBox.SelectedIndex == 2)
+            {
+                if (currentStr > Mage.minStr)
+                {
+                    currentStr--;
+                    currentFreePoint++;
+                    strAmountLabel.Content = currentStr.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s strength must not be less than {Mage.minStr}" +
+                    $" points!");
             }
         }
 
         private void agltRemoveBtn_Click(object sender, RoutedEventArgs e)
         {
-            int baseAglt = Convert.ToInt32(agltAmountLabel.Content);
+            int currentAglt = Convert.ToInt32(agltAmountLabel.Content);
             int currentFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            int mustFreePoint = Convert.ToInt32(levelAmountLabel.Content) * 5 - 5 + 10;
-            if (currentFreePoint < mustFreePoint)
+            //int mustFreePoint = Convert.ToInt32(levelAmountLabel.Content) * 5 - 5 + 10;
+            if (professionComboBox.SelectedIndex == 0)
             {
-                baseAglt--;
-                currentFreePoint++;
-                agltAmountLabel.Content = baseAglt.ToString();
-                freePointAmountLabel.Content = currentFreePoint.ToString();
-                AddStatChange();
+                if (currentAglt > Warrior.minAglt)
+                {
+                    currentAglt--;
+                    currentFreePoint++;
+                    agltAmountLabel.Content = currentAglt.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s agility must not be less than {Warrior.minAglt}" +
+                    $" points!");
             }
-            else
+            if (professionComboBox.SelectedIndex == 1)
             {
-                MessageBox.Show("Max free point!");
+                if (currentAglt > Archer.minAglt)
+                {
+                    currentAglt--;
+                    currentFreePoint++;
+                    agltAmountLabel.Content = currentAglt.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s agility must not be less than {Archer.minAglt}" +
+                    $" points!");
+            }
+            if (professionComboBox.SelectedIndex == 2)
+            {
+                if (currentAglt > Mage.minAglt)
+                {
+                    currentAglt--;
+                    currentFreePoint++;
+                    agltAmountLabel.Content = currentAglt.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s agility must not be less than {Mage.minAglt}" +
+                    $" points!");
             }
         }
 
         private void intRemoveBtn_Click(object sender, RoutedEventArgs e)
         {
-            int baseInt = Convert.ToInt32(intAmountLabel.Content);
+            int currentInt = Convert.ToInt32(intAmountLabel.Content);
             int currentFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            int mustFreePoint = Convert.ToInt32(levelAmountLabel.Content) * 5 - 5 + 10;
-            if (currentFreePoint < mustFreePoint)
+            //int mustFreePoint = Convert.ToInt32(levelAmountLabel.Content) * 5 - 5 + 10;
+            if (professionComboBox.SelectedIndex == 0)
             {
-                baseInt--;
-                currentFreePoint++;
-                intAmountLabel.Content = baseInt.ToString();
-                freePointAmountLabel.Content = currentFreePoint.ToString();
-                AddStatChange();
+                if (currentInt > Warrior.minInt)
+                {
+                    currentInt--;
+                    currentFreePoint++;
+                    intAmountLabel.Content = currentInt.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s intelligence must not be less than {Warrior.minInt}" +
+                    $" points!");
             }
-            else
+            if (professionComboBox.SelectedIndex == 1)
             {
-                MessageBox.Show("Max free point!");
+                if (currentInt > Archer.minInt)
+                {
+                    currentInt--;
+                    currentFreePoint++;
+                    intAmountLabel.Content = currentInt.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s intelligence must not be less than {Archer.minInt}" +
+                    $" points!");
+            }
+            if (professionComboBox.SelectedIndex == 2)
+            {
+                if (currentInt > Mage.minInt)
+                {
+                    currentInt--;
+                    currentFreePoint++;
+                    intAmountLabel.Content = currentInt.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s intelligence must not be less than {Mage.minInt}" +
+                    $" points!");
             }
         }
-
-        private void stmnRemoveBtn_Click(object sender, RoutedEventArgs e)
+        public void stmnRemoveBtn_Click(object sender, RoutedEventArgs e)
         {
-            int baseStmn = Convert.ToInt32(stmnAmountLabel.Content);
+            int currentStmn = Convert.ToInt32(stmnAmountLabel.Content);
             int currentFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-            int mustFreePoint = Convert.ToInt32(levelAmountLabel.Content) * 5 - 5 + 10;
-            if (currentFreePoint < mustFreePoint)
+            //int mustFreePoint = Convert.ToInt32(levelAmountLabel.Content) * 5 - 5 + 10;
+            if (professionComboBox.SelectedIndex == 0)
             {
-                baseStmn--;
-                currentFreePoint++;
-                stmnAmountLabel.Content = baseStmn.ToString();
-                freePointAmountLabel.Content = currentFreePoint.ToString();
-                AddStatChange();
+                if (currentStmn > Warrior.minStmn)
+                {
+                    currentStmn--;
+                    currentFreePoint++;
+                    stmnAmountLabel.Content = currentStmn.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s stamina must not be less than {Warrior.minStmn}" +
+                    $" points!");
             }
-            else
+            if (professionComboBox.SelectedIndex == 1)
             {
-                MessageBox.Show("Max free point!");
+                if (currentStmn > Archer.minStmn)
+                {
+                    currentStmn--;
+                    currentFreePoint++;
+                    stmnAmountLabel.Content = currentStmn.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s stamina must not be less than {Archer.minStmn}" +
+                    $" points!");
+            }
+            if (professionComboBox.SelectedIndex == 2)
+            {
+                if (currentStmn > Mage.minStmn)
+                {
+                    currentStmn--;
+                    currentFreePoint++;
+                    stmnAmountLabel.Content = currentStmn.ToString();
+                    freePointAmountLabel.Content = currentFreePoint.ToString();
+                    AddStatChange();
+                }
+                else MessageBox.Show($"{professionComboBox.SelectionBoxItem}'s stamina must not be less than {Mage.minStmn}" +
+                    $" points!");
             }
         }
 
@@ -236,10 +475,10 @@ namespace _2022_03_13_VerificationWork
 
         public void WarriorStatChange()
         {
-            strAmountLabel.Content = "30";
-            agltAmountLabel.Content = "15";
-            intAmountLabel.Content = "10";
-            stmnAmountLabel.Content = "25";
+            strAmountLabel.Content = Warrior.minStr.ToString();
+            agltAmountLabel.Content = Warrior.minAglt.ToString();
+            intAmountLabel.Content = Warrior.minInt.ToString();
+            stmnAmountLabel.Content = Warrior.minStmn.ToString();
             freePointAmountLabel.Content = "10";
             levelAmountLabel.Content = "1";
             experienseAmountLabel.Content = "0";
@@ -460,38 +699,78 @@ namespace _2022_03_13_VerificationWork
             AddStatChange();
             characterList.ItemsSource = MongoDataBase.GetCharacterNameList();
             BtnInActivate();
+            BsonClassMap.RegisterClassMap<Warrior>();
+            BsonClassMap.RegisterClassMap<Archer>();
+            BsonClassMap.RegisterClassMap<Mage>();
         }
         public void LvlChange()
         {
             long currentExp = Convert.ToInt64(experienseAmountLabel.Content);
             int currentLvl = Convert.ToInt32(levelAmountLabel.Content);
             int currentFreePoint = Convert.ToInt32(freePointAmountLabel.Content);
-
-
             if (currentExp >= 1000 & currentExp < 3000)
             {
-                currentLvl = 2;
-                currentFreePoint = 15;
+                if (currentLvl != 2)
+                {
+                    currentLvl=2;
+                    currentFreePoint += 5;
+                }
             }
             else if (currentExp >= 3000 & currentExp < 6000)
             {
-                currentLvl = 3;
-                currentFreePoint = 20;
+                if (currentLvl != 3)
+                {
+                    currentLvl=3;
+                    currentFreePoint += 5;
+                }
             }
             else if (currentExp >= 6000 & currentExp < 10000)
             {
-                currentLvl = 4;
-                currentFreePoint = 25;
+                if (currentLvl != 4)
+                {
+                    currentLvl=4;
+                    currentFreePoint += 5;
+                }
             }
             else if (currentExp >= 10000 & currentExp < 15000)
             {
-                currentLvl = 5;
-                currentFreePoint = 30;
+                if (currentLvl != 5)
+                {
+                    currentLvl=5;
+                    currentFreePoint += 5;
+                }
             }
-            else if (currentExp >= 15000)
+            else if (currentExp >= 15000 & currentExp < 21000)
             {
-                currentLvl = 6;
-                currentFreePoint = 35;
+                if (currentLvl != 6)
+                {
+                    currentLvl=6;
+                    currentFreePoint += 5;
+                }
+            }
+            else if (currentExp >= 21000 & currentExp < 28000)
+            {
+                if (currentLvl != 7)
+                {
+                    currentLvl=7;
+                    currentFreePoint += 5;
+                }
+            }
+            else if (currentExp >= 28000 & currentExp < 36000)
+            {
+                if (currentLvl != 8)
+                {
+                    currentLvl=8;
+                    currentFreePoint += 5;
+                }
+            }
+            else if (currentExp == 36000)
+            {
+                if (currentLvl != 9)
+                {
+                    currentLvl=9;
+                    currentFreePoint += 5;
+                }
             }
             levelAmountLabel.Content = Convert.ToString(currentLvl);
             freePointAmountLabel.Content = Convert.ToString(currentFreePoint);
@@ -499,35 +778,56 @@ namespace _2022_03_13_VerificationWork
         private void _1kExpBtn_Click(object sender, RoutedEventArgs e)
         {
             long baseValue = Convert.ToInt64(experienseAmountLabel.Content);
-            long changedValue = 0;
-            changedValue = 1000 + baseValue;
-            experienseAmountLabel.Content = Convert.ToString(changedValue);
-            LvlChange();
+            long changedValue = 1000 + baseValue;
+            if (changedValue > 36000)
+            {
+                experienseAmountLabel.Content = "36000";
+                MessageBox.Show("Max level!");
+            }
+            else
+            {
+                experienseAmountLabel.Content = Convert.ToString(changedValue);
+                LvlChange();
+            }
         }
 
         private void _3kExpBtn_Click(object sender, RoutedEventArgs e)
         {
             long baseValue = Convert.ToInt64(experienseAmountLabel.Content);
-            long changedValue = 0;
-            changedValue = 3000 + baseValue;
-            experienseAmountLabel.Content = Convert.ToString(changedValue);
-            LvlChange();
+            long changedValue = 3000 + baseValue;
+            if (changedValue > 36000)
+            {
+                experienseAmountLabel.Content = "36000";
+                MessageBox.Show("Max level!");
+            }
+            else
+            {
+                experienseAmountLabel.Content = Convert.ToString(changedValue);
+                LvlChange();
+            }
         }
 
         private void _5kExpBtn_Click(object sender, RoutedEventArgs e)
         {
             long baseValue = Convert.ToInt64(experienseAmountLabel.Content);
-            long changedValue = 0;
-            changedValue = 5000 + baseValue;
-            experienseAmountLabel.Content = Convert.ToString(changedValue);
-            LvlChange();
+            long changedValue = 5000 + baseValue;
+            if (changedValue > 36000)
+            {
+                experienseAmountLabel.Content = "36000";
+                MessageBox.Show("Max level!");
+            }
+            else
+            {
+                experienseAmountLabel.Content = Convert.ToString(changedValue);
+                LvlChange();
+            }
         }
 
         private void updateBtn_Click(object sender, RoutedEventArgs e)
         {
             if (professionComboBox.SelectedIndex == 0)
             {
-                MongoDataBase.ReplaceCharacterToDB (characterList.SelectedItem.ToString(), new Warrior(nameTextBox.Text, Convert.ToInt32(strAmountLabel.Content)
+                MongoDataBase.ReplaceCharacterToDB(characterList.SelectedItem.ToString(), new Warrior(nameTextBox.Text, Convert.ToInt32(strAmountLabel.Content)
                       , Convert.ToInt32(agltAmountLabel.Content), Convert.ToInt32(intAmountLabel.Content)
                       , Convert.ToInt32(stmnAmountLabel.Content), Convert.ToInt32(levelAmountLabel.Content)
                       , Convert.ToInt64(experienseAmountLabel.Content), Convert.ToInt32(freePointAmountLabel.Content)));
@@ -556,7 +856,6 @@ namespace _2022_03_13_VerificationWork
             }
             else MessageBox.Show("Chose the profession of your character!");
         }
-
         private void characterList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             professionComboBox.IsEnabled = false;
@@ -576,7 +875,6 @@ namespace _2022_03_13_VerificationWork
             experienseAmountLabel.Content = MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._experiense;
             freePointAmountLabel.Content = MongoDataBase.ShowCharacterInfo(characterList.SelectedItem.ToString())._freePoint;
         }
-
         private void creationButton_click(object sender, RoutedEventArgs e)
         {
             professionComboBox.IsEnabled = true;
@@ -585,7 +883,6 @@ namespace _2022_03_13_VerificationWork
             AddStatChange();
             BtnActivate();
         }
-
         private void removeBtn_Click(object sender, RoutedEventArgs e)
         {
             MongoDataBase.RemoveCharacter(characterList.SelectedItem.ToString());

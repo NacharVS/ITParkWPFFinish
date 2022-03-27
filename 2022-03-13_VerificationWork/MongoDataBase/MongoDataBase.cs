@@ -1,4 +1,5 @@
 ﻿using _2022_03_13_VerificationWork.Interfaces;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace _2022_03_13_VerificationWork.MongoDB
         }
         public static List<string> GetCharacterNameList()
         {
+            
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Character_Editor");
             var collection1 = database.GetCollection<Character>("Characters");

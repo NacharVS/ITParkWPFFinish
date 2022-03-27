@@ -11,7 +11,7 @@
         <ComboBox x:Name="professionComboBox" HorizontalAlignment="Left" Margin="26,184,0,0" VerticalAlignment="Top" Width="216" FontSize="24" SelectionChanged="professionComboBox_SelectionChanged">
             <ListBoxItem Content="Warrior"/>
             <ListBoxItem Content="Archer"/>
-            <ListBoxItem Content="Wizard"/>
+            <ListBoxItem Content="Mage"/>
         </ComboBox>
         <Label x:Name="professionLabel" Content="Profession:" HorizontalAlignment="Left" Margin="23,138,0,0" VerticalAlignment="Top" FontSize="24"/>
         <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Margin="23,98,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="216" FontSize="24" GotFocus="nameTextBox_GotFocus" LostFocus="nameTextBox_LostFocus" HorizontalContentAlignment="Right"/>
