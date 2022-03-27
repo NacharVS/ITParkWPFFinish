@@ -26,7 +26,7 @@ namespace WPF_HOME_WORK
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
 
-            if (ListName.SelectedIndex == 0)
+            if (ListName.SelectedIndex == -1)
             {
                 if (Enter_a_profession.Items.Contains(Enter_a_name.Text))
                 {
