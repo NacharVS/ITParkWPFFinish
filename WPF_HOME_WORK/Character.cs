@@ -10,23 +10,22 @@ namespace WPF_HOME_WORK
 {
     class Character
     {
-        public Character(string name, int power, int agility, int intelligence, int endurance)
+
+        [BsonId]
+        public ObjectId _id;
+
+        public string _name;
+        public string _profession;
+        public int _strenght;
+        public int _agility;
+        public int _intelligence;
+        public int _stamina;
+        public int _level;
+        public long _experiense;
+        public int _freePoint;
+        public Character(string profession)
         {
-            Name = name;
-            Power = power;
-            
+            _profession = profession;
         }
-        [BsonIgnoreIfDefault]
-        public ObjectId _id { get; set; }
-        public string Name { get; set; }
-
-        public string Proffession { get; set; }
-        public int Power { get; set; }
-
-        public int Agility { get; set; }
-
-        public int Intelligence { get; set; }
-
-        public int Endurance { get; set; }
     }
 }
