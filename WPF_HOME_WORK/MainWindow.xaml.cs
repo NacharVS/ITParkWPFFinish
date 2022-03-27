@@ -42,7 +42,7 @@ namespace WPF_HOME_WORK
                     ListName.ItemsSource = User.ListName();
                 }
             }
-            else if (Enter_a_profession.SelectedIndex == 1)
+            else if (Enter_a_profession.SelectedIndex == 2)
             {
                 if (ListName.Items.Contains(Enter_a_name.Text))
                 {
@@ -58,7 +58,7 @@ namespace WPF_HOME_WORK
                     ListName.ItemsSource = User.ListName();
                 }
             }
-            else if (Enter_a_profession.SelectedIndex == 2)
+            else if (Enter_a_profession.SelectedIndex == 1)
             {
                 if (ListName.Items.Contains(Enter_a_name.Text))
                 {
@@ -74,10 +74,12 @@ namespace WPF_HOME_WORK
                     ListName.ItemsSource = User.ListName();
                 }
 
-
+                
             }
             else MessageBox.Show("Chose the profession of your character!");
         }
+
+       
 
         
     }
