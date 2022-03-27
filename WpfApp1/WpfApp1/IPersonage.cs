@@ -23,7 +23,7 @@ namespace WpfApp1
         public double SkillMax { get; }
         public double IntellectMax { get; }
         public double StaminaMax { get; }
-        public BasePersonage ConvertToBasePersonage();
+        
         
     }
 }

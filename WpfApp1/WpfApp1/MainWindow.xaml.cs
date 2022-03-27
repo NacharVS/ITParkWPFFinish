@@ -44,7 +44,6 @@ namespace WpfApp1
             {
                 return;
             }
-
             else txtName.Clear();
         }
 
@@ -58,16 +57,11 @@ namespace WpfApp1
 
             txtHealth.Text = personage.CurrentHelth.ToString();
             
-            txtPower.Text = "10";
-            txtSkill.Text = "10";
-            txtIntellect.Text = "10";
-            txtStamina.Text = "10";
+            txtPower.Text = personage.PowerCurrent.ToString();
+            txtSkill.Text = personage.SkillCurrent.ToString();
+            txtIntellect.Text = personage.IntellectCurrent.ToString();
+            txtStamina.Text = personage.StaminaCurrent.ToString();
             
-            personage.PowerCurrent = Convert.ToDouble(txtPower.Text);
-            personage.SkillCurrent = Convert.ToDouble(txtSkill.Text);
-            personage.IntellectCurrent = Convert.ToDouble(txtIntellect.Text);
-            personage.StaminaCurrent = Convert.ToDouble(txtStamina.Text);
-
             warriorRB.IsChecked = false;
             archerRB.IsChecked = false;
             shamanRB.IsChecked = false;
@@ -77,6 +71,7 @@ namespace WpfApp1
 
             bufferBasePersonages = DataBaseMethods.GetListOfBasePersonages();
             listOfPersonages.ItemsSource = DataBaseMethods.GetListOfBasePersonages();
+            listOfPersonages.SelectedIndex = -1;
 
         }
 
@@ -102,8 +97,8 @@ namespace WpfApp1
                 txtIntellect.Text = warrior_1.IntellectCurrent.ToString();
                 txtStamina.Text = warrior_1.SkillCurrent.ToString();
 
-                BasePersonage basePersonage = warrior_1.ConvertToBasePersonage();
-                DataBaseMethods.AddPersonageToDatabase(basePersonage);
+                //personage = warrior_1;
+                DataBaseMethods.AddPersonageToDatabase(warrior_1);
 
                 bufferBasePersonages = DataBaseMethods.GetListOfBasePersonages();
                 listOfPersonages.ItemsSource = DataBaseMethods.GetListOfBasePersonages();
@@ -119,9 +114,9 @@ namespace WpfApp1
                 txtSkill.Text = archer_1.SkillCurrent.ToString();
                 txtIntellect.Text = archer_1.IntellectCurrent.ToString();
                 txtStamina.Text = archer_1.SkillCurrent.ToString();
-
-                BasePersonage basePersonage = archer_1.ConvertToBasePersonage();
-                DataBaseMethods.AddPersonageToDatabase(basePersonage);
+                
+                //personage = archer_1;
+                DataBaseMethods.AddPersonageToDatabase(archer_1);
 
                 bufferBasePersonages = DataBaseMethods.GetListOfBasePersonages();
                 listOfPersonages.ItemsSource = DataBaseMethods.GetListOfBasePersonages();
@@ -137,8 +132,8 @@ namespace WpfApp1
                 txtIntellect.Text = shaman_1.IntellectCurrent.ToString();
                 txtStamina.Text = shaman_1.SkillCurrent.ToString();
 
-                BasePersonage basePersonage = shaman_1.ConvertToBasePersonage();
-                DataBaseMethods.AddPersonageToDatabase(basePersonage);
+                //personage = shaman_1;
+                DataBaseMethods.AddPersonageToDatabase(shaman_1);
 
                 bufferBasePersonages = DataBaseMethods.GetListOfBasePersonages();
                 listOfPersonages.ItemsSource = DataBaseMethods.GetListOfBasePersonages();
@@ -224,7 +219,7 @@ namespace WpfApp1
                     archerRB.IsEnabled = false;
                     warriorRB.IsEnabled = false;
                 }
-                else MessageBox.Show(personage.Profession.ToString() + "ERROR!!!");
+                else MessageBox.Show(personage.Profession.ToString() + " ERROR!!!");
             }
         }
 
@@ -235,46 +230,28 @@ namespace WpfApp1
 
             else
             {
-                BasePersonage personage1 = new BasePersonage(txtName.Text.ToString());
+                BasePersonage personage1; // = new BasePersonage(txtName.Text.ToString());
 
                 if (warriorRB.IsChecked == true)
                 {
-                    Warrior warrior1 = new Warrior(txtName.Text.ToString());
-
-                    warrior1.CurrentHelth = Convert.ToDouble(txtHealth.Text);
-                    warrior1.PowerCurrent = Convert.ToDouble(txtPower.Text);
-                    warrior1.SkillCurrent = Convert.ToDouble(txtSkill.Text);
-                    warrior1.IntellectCurrent = Convert.ToDouble(txtIntellect.Text);
-                    warrior1.StaminaCurrent = Convert.ToDouble(txtStamina.Text);
-
-                    personage1 = warrior1.ConvertToBasePersonage();
-
+                    personage1 = new Warrior(txtName.Text.ToString());
                 }
+                                    
                 else if (archerRB.IsChecked == true)
                 {
-                    Archer archer1 = new Archer(txtName.Text.ToString());
+                    personage1 = new Archer(txtName.Text.ToString());
 
-                    archer1.CurrentHelth = Convert.ToDouble(txtHealth.Text);
-                    archer1.PowerCurrent = Convert.ToDouble(txtPower.Text);
-                    archer1.SkillCurrent = Convert.ToDouble(txtSkill.Text);
-                    archer1.IntellectCurrent = Convert.ToDouble(txtIntellect.Text);
-                    archer1.StaminaCurrent = Convert.ToDouble(txtStamina.Text);
-
-                    personage1 = archer1.ConvertToBasePersonage();
                 }
 
                 else
                 {
-                    Shaman shaman1 = new Shaman(txtName.Text.ToString());
-
-                    shaman1.CurrentHelth = Convert.ToDouble(txtHealth.Text);
-                    shaman1.PowerCurrent = Convert.ToDouble(txtPower.Text);
-                    shaman1.SkillCurrent = Convert.ToDouble(txtSkill.Text);
-                    shaman1.IntellectCurrent = Convert.ToDouble(txtIntellect.Text);
-                    shaman1.StaminaCurrent = Convert.ToDouble(txtStamina.Text);
-
-                    personage1 = shaman1.ConvertToBasePersonage();
+                    personage1 = new Shaman(txtName.Text.ToString());
                 }
+                personage1.CurrentHelth = Convert.ToDouble(txtHealth.Text);
+                personage1.PowerCurrent = Convert.ToDouble(txtPower.Text);
+                personage1.SkillCurrent = Convert.ToDouble(txtSkill.Text);
+                personage1.IntellectCurrent = Convert.ToDouble(txtIntellect.Text);
+                personage1.StaminaCurrent = Convert.ToDouble(txtStamina.Text);
 
                 DataBaseMethods.ReplacePersonageToDB(personage1, listOfPersonages.SelectedItem.ToString());
 
@@ -393,7 +370,7 @@ namespace WpfApp1
             {
                 string nameToDelete = listOfPersonages.SelectedItem.ToString();
                 
-                personage = new BasePersonage("Name");
+                personage = new Archer("Name");
                 listOfPersonages.SelectedIndex = -1;
 
                 DataBaseMethods.RemovePersonage(nameToDelete);

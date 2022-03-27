@@ -16,39 +16,18 @@ namespace WpfApp1
             var collection = database.GetCollection<BasePersonage>("Personages");
             collection.InsertOne(personage);
         }
-        public static void AddWarriorToDatabase(Warrior personage)
-        {
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("Game");
-            var collection = database.GetCollection<Warrior>("Personages");
-            collection.InsertOne(personage);
-        }
-        public static void AddArcherToDatabase(Archer personage)
-        {
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("Game");
-            var collection = database.GetCollection<Archer>("Personages");
-            collection.InsertOne(personage);
-        }
-        public static void AddShamanToDatabase(Shaman personage)
-        {
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("Game");
-            var collection = database.GetCollection<Shaman>("Personages");
-            collection.InsertOne(personage);
-        }
-
+        
 
         public static List<string> GetListOfBasePersonages()
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Game");
-            var collection = database.GetCollection<BasePersonage>("Personages");
+            var collection = database.GetCollection<IPersonage>("Personages");
             var listPersonagesFromDB = collection.Find(x => true).ToList();
             List<string> listToReturn = new List<string>();
             foreach (var item in listPersonagesFromDB)
             {
-                listToReturn.Add(item.name.ToString());
+                listToReturn.Add(item.Name.ToString());
             }
             return listToReturn;
         }
