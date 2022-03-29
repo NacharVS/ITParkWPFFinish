@@ -40,7 +40,18 @@ namespace WPF_HOME_WORK
                       , Convert.ToInt64(lbl_intellect.Content), Convert.ToInt32(lbl_intellect.Content)));
                     MessageBox.Show($"Character \"{Enter_a_name.Text} ({Enter_a_profession.SelectionBoxItem})\" was created!");
                     ListName.ItemsSource = User.ListName();
+                   
+                    lbl_power.Content = 30;
+                    lbl_agility.Content = 15;
+                    lbl_intellect.Content = 10;
+                    lbl_endurance.Content = 25;
                 }
+              
+                
+                   
+                    
+
+                
             }
             else if (Enter_a_profession.SelectedIndex == 2)
             {
@@ -56,7 +67,17 @@ namespace WPF_HOME_WORK
                        , Convert.ToInt64(lbl_intellect.Content), Convert.ToInt32(lbl_intellect.Content)));
                     MessageBox.Show($"Character \"{Enter_a_name.Text} ({Enter_a_profession.SelectionBoxItem})\" was created!");
                     ListName.ItemsSource = User.ListName();
+
+                      lbl_power.Content = 20;
+                    lbl_agility.Content = 30;
+                    lbl_intellect.Content = 15;
+                    lbl_endurance.Content = 20;
                 }
+
+              
+                
+                  
+                
             }
             else if (Enter_a_profession.SelectedIndex == 1)
             {
@@ -72,11 +93,24 @@ namespace WPF_HOME_WORK
                       , Convert.ToInt64(lbl_intellect.Content), Convert.ToInt32(lbl_intellect.Content)));
                     MessageBox.Show($"Character \"{Enter_a_name.Text} ({Enter_a_profession.SelectionBoxItem})\" was created!");
                     ListName.ItemsSource = User.ListName();
+
+                    lbl_power.Content = 15;
+                    lbl_agility.Content = 20;
+                    lbl_intellect.Content = 35;
+                    lbl_endurance.Content = 20;
                 }
 
                 
+                    
+                
             }
             else MessageBox.Show("Chose the profession of your character!");
+
+
+
+
+
+
         }
 
        

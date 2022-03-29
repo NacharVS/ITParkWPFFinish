@@ -64,5 +64,8 @@ namespace WPF_HOME_WORK
             var collection = database.GetCollection<Character>("User");
             collection.DeleteMany(x => true);
         }
+
+
+
     }
 }
