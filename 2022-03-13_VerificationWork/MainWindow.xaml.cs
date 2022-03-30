@@ -779,6 +779,8 @@ namespace _2022_03_13_VerificationWork
         {
             long baseValue = Convert.ToInt64(experienseAmountLabel.Content);
             long changedValue = 1000 + baseValue;
+            int currentLvl = Convert.ToInt32(levelAmountLabel.Content);
+            int lvlMust=1;
             if (changedValue > 36000)
             {
                 experienseAmountLabel.Content = "36000";
@@ -786,8 +788,52 @@ namespace _2022_03_13_VerificationWork
             }
             else
             {
+                for (int i = 0; i < baseValue; i++)
+                {
+                    if (i == 1000 & currentLvl != 2)
+                    {
+                        lvlMust = 2;
+                        levelAmountLabel.Content = lvlMust.ToString();
+                    }
+                    else if (i == 3000 & currentLvl != 3)
+                    {
+                        lvlMust = 3;
+                        levelAmountLabel.Content = lvlMust.ToString();
+                    }
+                    else if (i == 6000 & currentLvl != 4)
+                    {
+                        lvlMust = 4;
+                        levelAmountLabel.Content = lvlMust.ToString();
+                    }
+                    else if (i == 10000 & currentLvl != 5)
+                    {
+                        lvlMust = 5;
+                        levelAmountLabel.Content = lvlMust.ToString();
+                    }
+                    else if (i == 15000 & currentLvl != 6)
+                    {
+                        lvlMust = 6;
+                        levelAmountLabel.Content = lvlMust.ToString();
+                    }
+                    else if (i == 21000 & currentLvl != 7)
+                    {
+                        lvlMust = 7;
+                        levelAmountLabel.Content = lvlMust.ToString();
+                    }
+                    else if (i == 28000 & currentLvl != 8)
+                    {
+                        lvlMust = 8;
+                        levelAmountLabel.Content = lvlMust.ToString();
+                    }
+                    else if (i == 36000 & currentLvl != 9)
+                    {
+                        lvlMust = 9;
+                        levelAmountLabel.Content = lvlMust.ToString();
+                    }
+                }
+                
                 experienseAmountLabel.Content = Convert.ToString(changedValue);
-                LvlChange();
+                //LvlChange();
             }
         }
 
