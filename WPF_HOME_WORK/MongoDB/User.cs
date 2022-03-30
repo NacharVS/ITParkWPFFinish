@@ -30,7 +30,7 @@ namespace WPF_HOME_WORK
             List<string> listToReturn = new List<string>();
             foreach (var item in listUsersFromDB1)
             {
-                listToReturn.Add(item._name);
+                listToReturn.Add(item.Name);
             }
             return listToReturn;
         }
@@ -39,14 +39,14 @@ namespace WPF_HOME_WORK
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Home_Work");
             var collection = database.GetCollection<Character>("User");
-            collection.ReplaceOne(x => x._name == nameToReplace, update);
+            collection.ReplaceOne(x => x.Name == nameToReplace, update);
         }
         public static Character ShowCharacterInfo(string nameCharacter)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Home_Work");
             var collection = database.GetCollection<Character>("User");
-            var foundedClient = collection.Find(x => x._name == nameCharacter).FirstOrDefault();
+            var foundedClient = collection.Find(x => x.Name == nameCharacter).FirstOrDefault();
             return foundedClient;
         }
 
@@ -55,7 +55,7 @@ namespace WPF_HOME_WORK
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("Home_Work");
             var collection = database.GetCollection<Character>("User");
-            collection.DeleteOne(x => x._name == nameToDelete);
+            collection.DeleteOne(x => x.Name == nameToDelete);
         }
         public static void DeleteAllCharacter()
         {
