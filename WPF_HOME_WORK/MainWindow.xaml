@@ -6,43 +6,5 @@
         xmlns:local="clr-namespace:WPF_HOME_WORK"
         mc:Ignorable="d"
         Title="MainWindow" Height="667" Width="921">
-    <Grid HorizontalAlignment="Left" Width="851">
-        <TextBlock HorizontalAlignment="Left" Margin="59,53,0,0" Text="Введите имя" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <TextBox x:Name="Enter_a_name" HorizontalAlignment="Left" Margin="59,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" Height="31"/>
-        <TextBlock HorizontalAlignment="Left" Margin="59,130,0,0" Text="Выбор профессии" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="20" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="59,248,0,0" Text="Показатели" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="82,287,0,0" Text="Сила" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Button x:Name="btn_add" Content="Add" HorizontalAlignment="Left" Margin="59,535,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Click="btn_add_Click"/>
-        <Button x:Name="btn_delete" Content="Delete" HorizontalAlignment="Left" Margin="119,535,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <ListBox x:Name="ListName" Margin="323,41,323,41"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="31,283,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button x:Name="btn_plus_power" Content="+" HorizontalAlignment="Left" Margin="284,283,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button Content="UpdateUser" HorizontalAlignment="Left" Margin="59,579,0,0" VerticalAlignment="Top" Width="125" Height="31" FontSize="20" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="82,330,0,0" Text="Ловкость" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="82,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Text="Интелект" FontWeight="Bold" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="82,415,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="153" Text="Выносливость"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="31,326,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="31,367,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="31,418,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button x:Name="btn_plus_agility" Content="+" HorizontalAlignment="Left" Margin="284,328,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button x:Name="btn_plus_intellect" Content="+" HorizontalAlignment="Left" Margin="284,371,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button x:Name="btn_plus_endurance" Content="+" HorizontalAlignment="Left" Margin="284,411,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <TextBlock HorizontalAlignment="Left" Margin="82,467,0,0" Text="Доп.очки" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="31,467,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <Button x:Name="btn_plus_extra_points" Content="+" HorizontalAlignment="Left" Margin="284,467,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="21"/>
-        <ComboBox x:Name="Enter_a_profession" HorizontalAlignment="Left" Margin="31,207,0,0" VerticalAlignment="Top" Width="211" Height="36" Cursor="" FontSize="20">
-            <ListBoxItem Content="Воин" FontWeight="Bold" FontSize="20"/>
-            <ListBoxItem Content="Волшебник" FontWeight="Bold" FontSize="20"/>
-            <ListBoxItem Content="Лучник" FontWeight="Bold" FontSize="20"/>
-        </ComboBox>
-        <Label x:Name="lbl_power" Content="0" HorizontalAlignment="Left" Margin="253,283,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
-        <Label x:Name="lbl_agility" Content="0" HorizontalAlignment="Left" Margin="253,328,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
-        <Label x:Name="lbl_intellect" Content="0" HorizontalAlignment="Left" Margin="253,371,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
-        <Label x:Name="lbl_endurance" Content="0" HorizontalAlignment="Left" Margin="253,411,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
-        <Label x:Name="lbl_extra_points" Content="0" HorizontalAlignment="Left" Margin="253,464,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
-        <ListBox Margin="557,41,0,41" HorizontalAlignment="Left" Width="294"/>
-        <TextBlock HorizontalAlignment="Left" Margin="600,10,0,0" Text="Cтатистика добавления" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="Список имён" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-
-    </Grid>
+    <Grid HorizontalAlignment="Left" Width="851"/>
 </Window>
